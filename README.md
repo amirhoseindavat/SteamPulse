@@ -195,4 +195,4 @@ Project Link: [https://github.com/amirhoseindavat/SteamPulse](https://github.com
 [license-url]: https://github.com/amirhoseindavat/SteamPulse/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/Amirhoseindavat
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/SreenShot-1.jpg
