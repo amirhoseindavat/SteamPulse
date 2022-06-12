@@ -1,21 +1,9 @@
-<div id="top"></div>
-
-<!-- PROJECT SHIELDS -->
-
-
-<!-- PROJECT LOGO 
-<br />
-<div align="center">
-  <a href="https://github.com/amirhoseindavat/SteamPulse">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>-->
-
 <h3 align="center">SteamPulse</h3>
 
   <p align="center">
     <a href="https://github.com/amirhoseindavat/SteamPulse#readme"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/amirhoseindavat/SteamPulse">View Demo</a>
+    <a href="https://github.com/amirhoseindavat/SteamPulse/edit/main/README.md#installation">Download</a>
     ·
     <a href="https://github.com/amirhoseindavat/SteamPulse/issues">Report Bug</a>
     ·
@@ -23,17 +11,13 @@
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
 ## About The Project
-
 
 [![Product Name Screen Shot][product-screenshot]](https://CodeMage.ir)
 
 SteamPulse is a `Free` and `Open-Source` software that help gamers steam products like Games, DLC, Softwar` and etc.
 
 <!--<p align="right">(<a href="#top">back to top</a>)</p>-->
-
-
 
 ### Built With
 
@@ -42,33 +26,24 @@ SteamPulse is a `Free` and `Open-Source` software that help gamers steam product
 * [NewtonSoft.Json](https://www.newtonsoft.com/json)
 * [Steam Web API](https://partner.steamgames.com/doc/webapi_overview)
 
+<!--### Prerequisites-->
+## Installation
 
-<!-- GETTING STARTED -->
-## Getting Started
-### Prerequisites
+* Download latest version from [here](https://cdn.codemage.ir/Projects/SteamPulse/Download/Latest). 
+* Older version can found [Here](https://cdn.codemage.ir/Projects/SteamPulse/Download/OldVersions/).
 
-
-
-### Installation
-1. Download latest version from [here](https://cdn.codemage.ir/Projects/SteamPulse/Download/Latest).
-<!-- USAGE EXAMPLES -->
-## Usage
-
-
-<!-- ROADMAP -->
+<!-- ROADMAP 
 ## Roadmap
 
-<!--- [ ] Feature 1-->
+[ ] Feature 1
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/amirhoseindavat/SteamPulse/issues) for a full list of proposed features (and known issues).-->
 
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make SteamPulse better, please fork the repo and create a pull request. You can also simply open an issue with the tag `Enhancement`.
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -77,33 +52,9 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
 ## License
 
-Distributed under the GNU License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/Amirhoseindavat) - email@email_client.com
-
-Project Link: [https://github.com/amirhoseindavat/SteamPulse](https://github.com/amirhoseindavat/SteamPulse)
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Distributed under the GNU General Public License v3.0. See `LICENSE.md` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
