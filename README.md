@@ -188,9 +188,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@twitter_handle](https://twitter.com/Amirhoseindavat) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/amirhoseindavat/SteamPulse](https://github.com/github_username/repo_name)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -213,12 +213,12 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [contributors-url]: https://github.com/amirhoseindavat/SteamPulse/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
 [forks-url]: https://github.com/amirhoseindavat/SteamPulse/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/SteamPulse/repo_name.svg?style=for-the-badge
 [stars-url]: https://github.com/amirhoseindavat/SteamPulse/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SteamPulse/repo_name.svg?style=for-the-badge
 [issues-url]: hhttps://github.com/amirhoseindavat/SteamPulse/issues
 [license-shield]: https://img.shields.io/github/license/SteamPulse/repo_name.svg?style=for-the-badge
-[license-url]: [https://github.com/github_username/repo_name/blob](https://github.com/amirhoseindavat/SteamPulse)/master/LICENSE.txt
+[license-url]: https://github.com/amirhoseindavat/SteamPulse/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/Amirhoseindavat
 [product-screenshot]: images/screenshot.png
