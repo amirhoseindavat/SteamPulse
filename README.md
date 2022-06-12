@@ -1,5 +1,5 @@
 <h3 align="center">SteamPulse</h3>
-
+ 
   <p align="center">
     <a href="https://github.com/amirhoseindavat/SteamPulse#readme"><strong>Explore the docs »</strong></a>
     <br />
