@@ -29,7 +29,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://CodeMage.ir)
 
-SteamPulse is a software that help gamers steam products like `Games`, `DLC`, `Software` and `ETC`.
+SteamPulse is a `Free` and `Open-Source` software that help gamers steam products like Games, DLC, Softwar` and etc.
 
 <!--<p align="right">(<a href="#top">back to top</a>)</p>-->
 
@@ -45,15 +45,12 @@ SteamPulse is a software that help gamers steam products like `Games`, `DLC`, `S
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-
-
 ### Prerequisites
 
 
+
 ### Installation
-
-
+1. Download latest version from [here](https://cdn.codemage.ir/Projects/SteamPulse/Download/Latest).
 <!-- USAGE EXAMPLES -->
 ## Usage
 
