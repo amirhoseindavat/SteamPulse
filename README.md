@@ -29,7 +29,7 @@ SteamPulse is a `Free` and `Open-Source` software that help gamers steam product
 <!--### Prerequisites-->
 ## Installation
 
-* Download latest version from [here](https://cdn.codemage.ir/Projects/SteamPulse/Download/Latest). 
+* Download latest version from [Here](https://cdn.codemage.ir/Projects/SteamPulse/Download/Latest). 
 * Older version can found [Here](https://cdn.codemage.ir/Projects/SteamPulse/Download/OldVersions/).
 
 <!-- ROADMAP 
