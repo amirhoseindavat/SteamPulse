@@ -11,7 +11,7 @@
   </p>
 </div>
 
-## About The Project
+## About The SteamPulse
 
 [![Product Name Screen Shot][product-screenshot]](https://CodeMage.ir)
 
