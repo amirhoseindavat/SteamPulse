@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fa00b4ef-2691-41af-a408-3a8151ad6cf1": {
+      "ProjectGuid": "fa00b4ef-2691-41af-a408-3a8151ad6cf1",
+      "DisplayName": "SteamPulse",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "8c7ff16c-31d0-4632-8454-42b26ff8a210": {
+      "ProjectGuid": "8c7ff16c-31d0-4632-8454-42b26ff8a210",
+      "DisplayName": "SteamAPI",
+      "ColorIndex": 1
+    },
+    "25b78121-e099-4469-a3b1-32ba3539def8": {
+      "ProjectGuid": "25b78121-e099-4469-a3b1-32ba3539def8",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 2
+    },
+    "b242bfb2-56d6-4966-804e-914fb7e49d00": {
+      "ProjectGuid": "b242bfb2-56d6-4966-804e-914fb7e49d00",
+      "DisplayName": "SteamAPI",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
