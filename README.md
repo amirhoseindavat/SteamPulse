@@ -3,31 +3,17 @@
 <!-- PROJECT SHIELDS -->
 
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="20" role="img" aria-label="Version: 1.7.1"><title>Version: 1.7.1</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="90" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="51" height="20" fill="#555"/><rect x="51" width="39" height="20" fill="#4c1"/><rect width="90" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="265" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="410">Version</text><text x="265" y="140" transform="scale(.1)" fill="#fff" textLength="410">Version</text><text aria-hidden="true" x="695" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="290">1.7.1</text><text x="695" y="140" transform="scale(.1)" fill="#fff" textLength="290">1.7.1</text></g></svg>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
+<!-- PROJECT LOGO 
 <br />
 <div align="center">
   <a href="https://github.com/amirhoseindavat/SteamPulse">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a>-->
 
-<h3 align="center">project_title</h3>
+<h3 align="center">SteamPulse</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/amirhoseindavat/SteamPulse"><strong>Explore the docs »</strong></a>
-    <br />
+    <a href="https://github.com/amirhoseindavat/SteamPulse#readme"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/amirhoseindavat/SteamPulse">View Demo</a>
     ·
@@ -39,7 +25,7 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
+<!-- TABLE OF CONTENTS 
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -63,7 +49,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+</details>-->
 
 
 
@@ -80,14 +66,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
