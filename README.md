@@ -40,6 +40,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 * [C#](https://docs.microsoft.com/en-us/dotnet/csharp)
 * [Bunifu UI FrameWork](https://bunifuframework.com/)
 * [NewtonSoft.Json](https://www.newtonsoft.com/json)
+* [Steam Web API](https://partner.steamgames.com/doc/webapi_overview)
 
 
 <!-- GETTING STARTED -->
