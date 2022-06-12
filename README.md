@@ -29,7 +29,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://CodeMage.ir)
 
-SteamPulse is a software that help gamers steam products like 'Games', 'DLC', 'Software' and 'ETC'.
+SteamPulse is a software that help gamers steam products like `Games`, `DLC`, `Software` and `ETC`.
 
 <!--<p align="right">(<a href="#top">back to top</a>)</p>-->
 
