@@ -56,6 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<div align="center">
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
@@ -195,4 +196,4 @@ Project Link: [https://github.com/amirhoseindavat/SteamPulse](https://github.com
 [license-url]: https://github.com/amirhoseindavat/SteamPulse/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/Amirhoseindavat
-[product-screenshot]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/SreenShot-1.jpg
+[product-screenshot]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/1.png
