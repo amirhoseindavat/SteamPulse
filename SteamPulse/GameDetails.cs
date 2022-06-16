@@ -25,6 +25,7 @@ namespace SteamPulse
         public const int HT_CAPTION = 0x2;
         public static string GameImageURL = "";
         public static Boolean DarkMode;
+        private Boolean isowned = false;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -49,7 +50,7 @@ namespace SteamPulse
         {
 
 
-            DarkMode = Convert.ToBoolean(Properties.Settings.Default["DarkMode"]);
+            DarkMode = Settings.DarkMode;
             if (DarkMode == true)
             {
                 ChangeTheme(true);
@@ -175,11 +176,12 @@ namespace SteamPulse
             LabelDev.Text = String.Format("Developers: {0}", LoadData.Store.Developers);
             LabelPublisher.Text = String.Format("Publisher: {0}", LoadData.Store.Publishers);
             GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
-            if (Convert.ToBoolean(Properties.Settings.Default["CheckOwned"]) == true)
+            if (Settings.CheckOwned == true)
             {
                 if (LoadData.Community.Isowned(GetData.Appid) == true)
                 {
                     LabelOwned.Text = "Owned";
+                    isowned = true;
                     if (LoadData.Community.Playtime(GetData.Appid) == 0)
                     {
                         if (LoadData.Store.IsComingSoon == true)
@@ -231,7 +233,10 @@ namespace SteamPulse
         }
         private void OpenSteam_Click(object sender, EventArgs e)
         {
-            Process.Start("steam://openurl/https://store.steampowered.com/app/" + GetData.Appid);
+            if (isowned == true)
+                Process.Start("steam://nav/games/details/" + GetData.Appid);
+            else
+                Process.Start("steam://openurl/https://store.steampowered.com/app/" + GetData.Appid);
         }
         private void OpenSteamDB_Click(object sender, EventArgs e)
         {

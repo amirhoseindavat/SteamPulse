@@ -795,7 +795,7 @@
             this.PanelStatus.Location = new System.Drawing.Point(0, 0);
             this.PanelStatus.Name = "PanelStatus";
             this.PanelStatus.ShowBorders = true;
-            this.PanelStatus.Size = new System.Drawing.Size(568, 468);
+            this.PanelStatus.Size = new System.Drawing.Size(1, 1);
             this.PanelStatus.TabIndex = 37;
             // 
             // LabelStatus
@@ -806,7 +806,7 @@
             this.LabelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.LabelStatus.Location = new System.Drawing.Point(0, 0);
             this.LabelStatus.Name = "LabelStatus";
-            this.LabelStatus.Size = new System.Drawing.Size(568, 468);
+            this.LabelStatus.Size = new System.Drawing.Size(1, 1);
             this.LabelStatus.TabIndex = 0;
             this.LabelStatus.Text = "Waiting...";
             this.LabelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -81,3 +81,4 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.pdb
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache

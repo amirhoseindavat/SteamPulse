@@ -34,6 +34,7 @@ namespace SteamPulse
     {
         //string FormulaCaption = "";
         private readonly string AppHash = Hasher("SteamPulse");
+        private Boolean isowned = false;
         string EditionName;
         public static double EditionPrice;
         double price;
@@ -212,14 +213,14 @@ namespace SteamPulse
                     if (LoadData.Store.IsFree == true)
                     {
                         Label_Price.Text = "Price: Free";
-                        Label_KeyCount.Text = "Item Count: 0 (Free)";
+                        Label_KeyCount.Text = "Item Count: 0";
                     }
                     else
                     {
                         if (LoadData.Store.Price.AvailabletoPurchase != true)
                         {
                             Label_Price.Text = "Price: Not Available to Purchase";
-                            Label_KeyCount.Text = "Item Count: 0 (Free)";
+                            Label_KeyCount.Text = "Item Count: 0";
                         }
                         else { }
                     }
@@ -400,14 +401,14 @@ namespace SteamPulse
                 if (LoadData.Store.IsFree == true)
                 {
                     Label_Price.Text = "Price: Free";
-                    Label_KeyCount.Text = "Item Count: 0 (Free)";
+                    Label_KeyCount.Text = "Item Count: 0";
                 }
                 else
                 {
                     if (LoadData.Store.Price.AvailabletoPurchase != true)
                     {
                         Label_Price.Text = "Price: Not Available to Purchase";
-                        Label_KeyCount.Text = "Item Count: 0 (Free)";
+                        Label_KeyCount.Text = "Item Count: 0";
                     }
                     else { }
                 }
@@ -584,7 +585,7 @@ namespace SteamPulse
                             }
                             else
                             {
-                                if (LoadData.Store.IsComingSoon == true)
+                                if (LoadData.Store.IsComingSoon == true && LoadData.Store.Price.AvailabletoPurchase == true)
                                 {
                                     Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = String.Format("Name: {0} (Pre-Order)", LoadData.Store.Name)));
                                 }
@@ -600,7 +601,7 @@ namespace SteamPulse
                         if (LoadData.Store.IsFree == true)
                         {
                             Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: Free"));
-                            Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0 (Free)"));
+                            Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0"));
 
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading DLC..."));
                             Thread.Sleep(500);
@@ -642,7 +643,7 @@ namespace SteamPulse
                                     if (LoadData.Store.IsFree == true)
                                     {
                                         Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: Free"));
-                                        Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0 (Free)"));
+                                        Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0"));
                                         ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard - Free")));
                                     }
                                     else
@@ -757,7 +758,11 @@ namespace SteamPulse
                                 }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
-                            Thread.Sleep(500);
+                            if(Settings.CheckOwned == true)
+                            {
+                                GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
+                                isowned = LoadData.Community.Isowned(GetData.Appid);
+                            }
                         }
                         else
                         {
@@ -884,7 +889,11 @@ namespace SteamPulse
                                 }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
-                            Thread.Sleep(500);
+                            if (Settings.CheckOwned == true)
+                            {
+                                GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
+                                isowned = LoadData.Community.Isowned(GetData.Appid);
+                            }
                         }
                         ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.SelectedIndex = 0));
                         //false
@@ -1085,7 +1094,10 @@ namespace SteamPulse
         }
         private void PictureBox_Image_Click(object sender, EventArgs e)
         {
-            Process.Start("steam://openurl/https://store.steampowered.com/app/" + GetData.Appid);
+            if(isowned == true)
+                Process.Start("steam://nav/games/details/"+GetData.Appid);
+            else
+                Process.Start("steam://openurl/https://store.steampowered.com/app/" + GetData.Appid);
         }
         private void DropDownRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1229,7 +1241,7 @@ namespace SteamPulse
             }
             else
             {
-                MessageBox.Show("This feature isn't usable on free products.", "Discount Calculator", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("This feature isn't usable on this product.", "Discount Calculator", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void Label_AppName_MouseEnter(object sender, EventArgs e)

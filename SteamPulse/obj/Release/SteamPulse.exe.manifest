@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SteamPulse" version="1.7.1.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SteamPulse" version="1.7.2.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SteamPulse.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -487,26 +487,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="2699776">
-      <assemblyIdentity name="SteamPulse" version="1.7.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="2700288">
+      <assemblyIdentity name="SteamPulse" version="1.7.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BA7XeUdE94Xwg8cMJsnrt6wK0HwtckuqfrFropc7FOM=</dsig:DigestValue>
+        <dsig:DigestValue>cWKuxSwOrczzjbbVe0ZGnj45BtiUcLYku9bkx2atfHo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fa\SteamPulse.resources.dll" size="269824">
-      <assemblyIdentity name="SteamPulse.resources" version="1.7.1.0" language="fa" processorArchitecture="msil" />
+      <assemblyIdentity name="SteamPulse.resources" version="1.7.2.0" language="fa" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QjTwOVpFF/RFEApugMlqGCEhdfHU3TRUY5ln0dEuLVI=</dsig:DigestValue>
+        <dsig:DigestValue>Iz3xFpAseRVHRLRvdU8RUhymq7LEDXDDxvvX1sDKqTI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

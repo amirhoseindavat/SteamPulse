@@ -526,9 +526,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_09D2128915FE4F07AF58EDD2EF5D312F"
+                    {
+                    "Name" = "8:SteamPulse.exe"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:..\\SteamPulse\\bin\\Release\\SteamPulse.exe"
             "TargetName" = "8:"
@@ -575,6 +580,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuGradientPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_0FFAFDCA8669A80F6676ABA06841094E"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuGradientPanel.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuGradientPanel.dll"
             "TargetName" = "8:"
@@ -641,6 +651,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuSeparator, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_1C20B7388996ED42DC63D3CCD18E216C"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuSeparator.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuSeparator.dll"
             "TargetName" = "8:"
@@ -687,6 +702,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuPictureBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_1F89A871D95BD600237F1ED2AFE5F63D"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuPictureBox.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuPictureBox.dll"
             "TargetName" = "8:"
@@ -773,6 +793,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_4633D4C841AB1536B9C6FC3F46768521"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuButton.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuButton.dll"
             "TargetName" = "8:"
@@ -799,6 +824,11 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_48800F978B0CFA13CD2FDFB708870569"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -825,6 +855,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuDropdown, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_49DCA1B6B58C9ACE2229978AEFC36EF9"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuDropdown.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuDropdown.dll"
             "TargetName" = "8:"
@@ -871,6 +906,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuSlider, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_5939343665BF2C78C273C318614321CA"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuSlider.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuSlider.dll"
             "TargetName" = "8:"
@@ -917,6 +957,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuToggleSwitch, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_5FB833987398446BD36F453AFC95EF8C"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuToggleSwitch.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuToggleSwitch.dll"
             "TargetName" = "8:"
@@ -963,6 +1008,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuToolTip, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_6A6075C0F3F9D60C125A69B9BE87D3CC"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuToolTip.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuToolTip.dll"
             "TargetName" = "8:"
@@ -989,6 +1039,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_74A4A07FB6232BD945C09452A6929819"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuLabel.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuLabel.dll"
             "TargetName" = "8:"
@@ -1035,6 +1090,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_87B3879D795E82209DE86331D8324BB4"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuPanel.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuPanel.dll"
             "TargetName" = "8:"
@@ -1061,6 +1121,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuImageButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_8B9BAA5B83E98FA62E41E5755692C6DC"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuImageButton.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuImageButton.dll"
             "TargetName" = "8:"
@@ -1087,6 +1152,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuDataGridView, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_8F5DE3FF195B7E13A50DA9B38A658B8D"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuDataGridView.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuDataGridView.dll"
             "TargetName" = "8:"
@@ -1133,6 +1203,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_9A7D8BD271DE62D4E34CF408DCB8BE52"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.1.5.3.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.1.5.3.dll"
             "TargetName" = "8:"
@@ -1339,6 +1414,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E56B789AD2F5085B2286197B7ADCC04B"
+                    {
+                    "Name" = "8:Bunifu.Licensing.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.Licensing.dll"
             "TargetName" = "8:"
@@ -1365,6 +1445,11 @@
             "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuTextBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_ECD5876808983EE4F5DF9400FBAB5EBD"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuTextbox.dll"
+                    "Attributes" = "3:514"
+                    }
                 }
             "SourcePath" = "8:Bunifu.UI.WinForms.BunifuTextbox.dll"
             "TargetName" = "8:"
@@ -1471,15 +1556,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamPulse"
-        "ProductCode" = "8:{F83060C4-58CD-4178-BBF3-A30B1EA46DBF}"
-        "PackageCode" = "8:{7CC4E5BB-BBA8-4EE9-A5A6-DC0732A098C7}"
+        "ProductCode" = "8:{CC77AACF-F19C-4D98-8621-7C205044D452}"
+        "PackageCode" = "8:{8CC0F6F2-6A89-4A8B-AC1D-C2AD26C6B2CB}"
         "UpgradeCode" = "8:{837FEA30-4712-4AEA-AF73-53E2BFBEBEDC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.7.1"
+        "ProductVersion" = "8:1.7.2"
         "Manufacturer" = "8:CodeMage"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://CodeMage.ir"
