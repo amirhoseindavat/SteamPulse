@@ -56,9 +56,12 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Numerics.Vectors.xml
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.SuggestedBindingRedirects.cache
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.config
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.About.resources
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.AppidSearch.resources
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.BugReports.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Calculator.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DLCBrowser.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.GameDetails.resources
@@ -81,4 +84,3 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.pdb
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache

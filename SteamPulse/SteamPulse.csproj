@@ -265,6 +265,18 @@
     <Compile Include="About.designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppidSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppidSearch.Designer.cs">
+      <DependentUpon>AppidSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BugReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BugReports.Designer.cs">
+      <DependentUpon>BugReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +346,12 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppidSearch.resx">
+      <DependentUpon>AppidSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BugReports.resx">
+      <DependentUpon>BugReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +394,9 @@
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -408,6 +429,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SearchWhite.png" />
+    <None Include="Resources\SearchBlack.png" />
     <None Include="Resources\Settings.png" />
     <None Include="Resources\SettingsBlack.png" />
     <None Include="Resources\DefaultAvatar.jpg" />

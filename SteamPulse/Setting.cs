@@ -11,6 +11,7 @@
 #endregion
 
 using Newtonsoft.Json.Linq;
+using SteamAPI;
 using System;
 using System.Drawing;
 using System.Net;
@@ -23,7 +24,6 @@ namespace SteamPulse
 {
     public partial class Setting : Form
     {
-        private readonly string APIKEY = "C0C2746E5859F6EAD7B27E79C6D9BC76";
         public static Boolean DarkMode;
         public static string FormParent;
         protected Boolean SettingChanged = false;
@@ -58,7 +58,7 @@ namespace SteamPulse
                 PanelLogin.Visible = false;
                 PanelStatus.Visible = true;
                 LabelStatus.Text = "Loading Data...";
-                LoginSteam();
+                BackgroundWorker.RunWorkerAsync();
             }
             else { }
             if (Settings.Currency.Name == "Real")
@@ -219,7 +219,7 @@ namespace SteamPulse
                         LabelStatus.Text = "Logging in...";
                         Properties.Settings.Default.UserSteamID = SettingsProfileID;
                         Properties.Settings.Default.Save();
-                        LoginSteam();
+                        BackgroundWorker.RunWorkerAsync();
                     }
                     else
                     {
@@ -239,88 +239,10 @@ namespace SteamPulse
                 TextBoxLogin.BorderColorIdle = Color.Red;
             }
         }
-        private void LoginSteam()
+        /*private void LoginSteam()
         {
-            string SteamID = Properties.Settings.Default.UserSteamID.ToString();
-            try
-            {
-
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                XmlDocument Data = new XmlDocument();
-                Data.Load("https://steamcommunity.com/profiles/" + SteamID + "/?xml=1");
-                XmlElement Root = Data.DocumentElement;
-                XmlNodeList Nodes = Root.SelectNodes("/profile");
-                string ProfileName = "";
-                string ProfileAddress = "";
-
-                foreach (XmlNode Node in Nodes)
-                {
-                    ProfileName = Node["steamID"].InnerText;
-                    ProfileAddress = Node["avatarFull"].InnerText;
-                }
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                WebClient client = new WebClient();
-
-                JObject JsonObjectLevel = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + APIKEY + "&steamid=" + SteamID));
-                JToken Level = JsonObjectLevel.SelectToken(".response.player_level");
-
-                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + APIKEY + "&steamid=" + SteamID));
-                JToken Gamecount = JsonObjectGameCount.SelectToken(".response.game_count");
-                string gamecountjson = JsonObjectGameCount.ToString();
-
-                UserInfoName.Text = ProfileName;
-
-                UserInfoLevel.Text = string.Format("Level : {0}", Level);
-                if (Gamecount != null)
-                {
-                    UserInfoGames.Text = string.Format("Games Owned : {0}", Gamecount);
-                }
-                else
-                {
-                    UserInfoGames.Text = "Games Owned : Private";
-                }
-
-                try
-                {
-                    UserInfoProfile.Load(ProfileAddress);
-                }
-                catch
-                {
-                    UserInfoProfile.Image = Properties.Resources.DefaultAvatar;
-                }
-
-
-                PanelStatus.Visible = false;
-                if (ISLoading == true)
-                {
-                }
-                else
-                {
-                    Properties.Settings.Default.UserSteamID = SteamID;
-                    /*Properties.Settings.Default.UserLevel = Level.ToString();
-                    Properties.Settings.Default.UserGames = Gamecount.ToString();
-                    Properties.Settings.Default.UserAvatar = ProfileAddress;
-                    Properties.Settings.Default.UserName = ProfileName;*/
-
-                    Properties.Settings.Default.Save();
-                    Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
-
-                }
-                //true
-                ToggleOwned.Enabled = true;
-                ToggleOwned.ToggleStateOff.BackColor = Color.FromArgb(191, 191, 191);
-                ToggleOwned.ToggleStateOff.BorderColor = Color.FromArgb(191, 191, 191);
-            }
-            catch (Exception ex)
-            {
-                LabelStatus.Text = String.Format("{0}, CLick To Retry.", ex.Message);
-                ToggleOwned.Enabled = false;
-                ToggleOwned.Checked = false;
-                Settings.CheckOwned = ToggleOwned.Checked;
-                ToggleOwned.ToggleStateOff.BackColor = Color.Gray;
-                ToggleOwned.ToggleStateOff.BorderColor = Color.Gray;
-            }
-        }
+            
+        }*/
         private string SteamIDFinder(string value)
         {
             try
@@ -609,15 +531,15 @@ namespace SteamPulse
             Color ForeGround;
             if (Darkmode == true)
             {
-                BackGround = Color.FromArgb(24, 49, 83);
-                ForeGround = Color.FromArgb(255, 255, 255);
-                this.BackColor = Color.FromArgb(33, 63, 105);
+                BackGround = GlobalVariables.Colors.Dark.NileBlue;
+                ForeGround = GlobalVariables.Colors.Dark.White;
+                this.BackColor = GlobalVariables.Colors.Dark.Cello;
             }
             else
             {
-                BackGround = Color.FromArgb(255, 255, 255);
-                ForeGround = Color.FromArgb(24, 49, 83);
-                this.BackColor = Color.FromArgb(241, 240, 245);
+                BackGround = GlobalVariables.Colors.Light.White;
+                ForeGround = GlobalVariables.Colors.Light.NileBlue;
+                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             LabelHeader.ForeColor = ForeGround;
@@ -687,6 +609,89 @@ namespace SteamPulse
             Properties.Settings.Default.UserSteamID = "0";
             Properties.Settings.Default.Save();
 
+        }
+
+        private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            string SteamID = Properties.Settings.Default.UserSteamID.ToString();
+            try
+            {
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                XmlDocument Data = new XmlDocument();
+                Data.Load("https://steamcommunity.com/profiles/" + SteamID + "/?xml=1");
+                XmlElement Root = Data.DocumentElement;
+                XmlNodeList Nodes = Root.SelectNodes("/profile");
+                string ProfileName = "";
+                string ProfileAddress = "";
+
+                foreach (XmlNode Node in Nodes)
+                {
+                    ProfileName = Node["steamID"].InnerText;
+                    ProfileAddress = Node["avatarFull"].InnerText;
+                }
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                WebClient client = new WebClient();
+
+                JObject JsonObjectLevel = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
+                JToken Level = JsonObjectLevel.SelectToken(".response.player_level");
+
+                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
+                JToken Gamecount = JsonObjectGameCount.SelectToken(".response.game_count");
+                string gamecountjson = JsonObjectGameCount.ToString();
+
+                UserInfoName.Invoke((MethodInvoker)(() => UserInfoName.Text = ProfileName));
+
+                UserInfoLevel.Invoke((MethodInvoker)(() => UserInfoLevel.Text = string.Format("Level : {0}", Level)));
+                if (Gamecount != null)
+                {
+                    UserInfoGames.Invoke((MethodInvoker)(() => UserInfoGames.Text = string.Format("Games Owned : {0}", Gamecount)));
+                }
+                else
+                {
+                    UserInfoGames.Invoke((MethodInvoker)(() => UserInfoGames.Text = "Games Owned : Private"));
+                }
+
+                try
+                {
+                    UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Load(ProfileAddress)));
+                }
+                catch
+                {
+                    UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Image = Properties.Resources.DefaultAvatar));
+                }
+
+
+                PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
+                if (ISLoading == true)
+                {
+                }
+                else
+                {
+                    Properties.Settings.Default.UserSteamID = SteamID;
+                    /*Properties.Settings.Default.UserLevel = Level.ToString();
+                    Properties.Settings.Default.UserGames = Gamecount.ToString();
+                    Properties.Settings.Default.UserAvatar = ProfileAddress;
+                    Properties.Settings.Default.UserName = ProfileName;*/
+
+                    Properties.Settings.Default.Save();
+                    Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
+
+                }
+                //true
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.Enabled = true));
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BackColor = Color.FromArgb(191, 191, 191)));
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BorderColor = Color.FromArgb(191, 191, 191)));
+            }
+            catch (Exception ex)
+            {
+                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = String.Format("{0}, CLick To Retry.", ex.Message)));
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.Enabled = false));
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.Checked = false));
+                Settings.CheckOwned = ToggleOwned.Checked;
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BackColor = Color.Gray));
+                ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BorderColor = Color.Gray));
+            }
         }
     }
     public class Settings

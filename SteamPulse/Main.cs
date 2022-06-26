@@ -32,8 +32,10 @@ namespace SteamPulse
 {
     public partial class Main : Form
     {
+        Boolean DataLoaded = false;
         //string FormulaCaption = "";
         private readonly string AppHash = Hasher("SteamPulse");
+        public static string SearchID;
         private Boolean isowned = false;
         string EditionName;
         public static double EditionPrice;
@@ -265,7 +267,7 @@ namespace SteamPulse
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1} IRT - {2} {3} Remains", Ticket_rounded.ToString(), String.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.Shop.Ticket), (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), String.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.Shop.Ticket), (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
@@ -276,7 +278,7 @@ namespace SteamPulse
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1}{2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
@@ -288,7 +290,7 @@ namespace SteamPulse
                         {
                             if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                             {
-                                Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1}{2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
+                                Label_KeyCount.Text = String.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
                             }
                             else
                             {
@@ -331,14 +333,14 @@ namespace SteamPulse
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT - {2} {3} Remains", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.Shop.Key), (int)Remaining, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.Shop.Key), (int)Remaining, Settings.Currency.Unit);
                                             //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.Shop.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.Shop.Key)), (int)Remaining, Settings.Currency.Unit);
                                         }
 
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT - {2} {3} Remains", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.Shop.Key), (int)Remaining, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.Shop.Key), (int)Remaining, Settings.Currency.Unit);
                                         //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.Shop.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.Shop.Key)), (int)Remaining, Settings.Currency.Unit);
                                     }
                                 }
@@ -580,8 +582,8 @@ namespace SteamPulse
                         {
                             if (GetData.Appid == 1250410)
                             {
-                                Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = "Name: " + "Microsoft Loading Simulator"));
-                                PictureBox_Image.Invoke((MethodInvoker)(() => PictureBox_Image.Load("https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/header.jpg")));
+                                Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = "Name: " + GlobalVariables.Names.MSFS));
+                                PictureBox_Image.Invoke((MethodInvoker)(() => PictureBox_Image.Load(GlobalVariables.Images.Header.MSFS)));
                             }
                             else
                             {
@@ -758,7 +760,7 @@ namespace SteamPulse
                                 }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
-                            if(Settings.CheckOwned == true)
+                            if (Settings.CheckOwned == true)
                             {
                                 GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
                                 isowned = LoadData.Community.Isowned(GetData.Appid);
@@ -875,7 +877,7 @@ namespace SteamPulse
                                         }
                                         else { }
 
-                                        if(EditionName == "" || EditionName == " ")
+                                        if (EditionName == "" || EditionName == " ")
                                         {
                                             EditionName = "Standard";
                                         }
@@ -898,6 +900,7 @@ namespace SteamPulse
                         ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.SelectedIndex = 0));
                         //false
                         PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
+                        DataLoaded = true;
                         LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Data Loaded Successfully"));
                     }
                     else
@@ -1030,6 +1033,13 @@ namespace SteamPulse
                 this.ContextMenuStrip = MenuMain;
                 NotifyIcon.ContextMenuStrip = this.ContextMenuStrip;
             }
+
+            if (SearchID != null)
+            {
+                TextBox_URL.Text = SearchID;
+                SearchID = null;
+                ButtonLoad.PerformClick();
+            }
         }
         private void ChangeTheme(Boolean Darkmode)
         {
@@ -1037,9 +1047,9 @@ namespace SteamPulse
             Color ForeGround;
             if (Darkmode == true)
             {
-                BackGround = Color.FromArgb(24, 49, 83);
-                ForeGround = Color.FromArgb(255, 255, 255);
-                this.BackColor = Color.FromArgb(33, 63, 105);
+                BackGround = GlobalVariables.Colors.Dark.NileBlue;
+                ForeGround = GlobalVariables.Colors.Dark.White;
+                this.BackColor = GlobalVariables.Colors.Dark.Cello;
                 ButtonLoad.Image = Properties.Resources.BTNLoadLight;
                 OpenDetailsIcon.Image = Properties.Resources.OpenExternal;
                 OpenDiscountCalculatorIcon.Image = Properties.Resources.OpenExternal;
@@ -1048,9 +1058,9 @@ namespace SteamPulse
             }
             else
             {
-                BackGround = Color.FromArgb(255, 255, 255);
-                ForeGround = Color.FromArgb(24, 49, 83);
-                this.BackColor = Color.FromArgb(241, 240, 245);
+                BackGround = GlobalVariables.Colors.Light.White;
+                ForeGround = GlobalVariables.Colors.Light.NileBlue;
+                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
                 ButtonLoad.Image = Properties.Resources.BTNLoadDark;
                 OpenDetailsIcon.Image = Properties.Resources.OpenExternalBlack;
                 OpenDiscountCalculatorIcon.Image = Properties.Resources.OpenExternalBlack;
@@ -1083,6 +1093,7 @@ namespace SteamPulse
             Label_Name.BackColor = BackGround;
             Label_Price.BackColor = BackGround;
             Label_Update.ForeColor = ForeGround;
+            LabelSearch.ForeColor = ForeGround;
 
             PanelDLC.BackgroundColor = BackGround;
             PanelDLC.ForeColor = ForeGround;
@@ -1094,10 +1105,14 @@ namespace SteamPulse
         }
         private void PictureBox_Image_Click(object sender, EventArgs e)
         {
-            if(isowned == true)
-                Process.Start("steam://nav/games/details/"+GetData.Appid);
+            if (isowned == true)
+            {
+                Process.Start("steam://nav/games/details/" + GetData.Appid);
+            }
             else
+            {
                 Process.Start("steam://openurl/https://store.steampowered.com/app/" + GetData.Appid);
+            }
         }
         private void DropDownRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1182,12 +1197,14 @@ namespace SteamPulse
         }
         private void LabelDLCCount_Click(object sender, EventArgs e)
         {
-            if (LoadData.Store.DLC.Count != 0)
+            if (DataLoaded == true)
             {
-                Form DLC = new DLCBrowser();
-                DLC.ShowDialog(this);
+                if (LoadData.Store.DLC.Count != 0)
+                {
+                    Form DLC = new DLCBrowser();
+                    DLC.ShowDialog(this);
+                }
             }
-            else { }
         }
         private void CleanResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1247,6 +1264,18 @@ namespace SteamPulse
         private void Label_AppName_MouseEnter(object sender, EventArgs e)
         {
 
+        }
+
+        private void LabelSearch_Click(object sender, EventArgs e)
+        {
+            AppidSearch appidSearch = new AppidSearch();
+            appidSearch.ShowDialog(this);
+        }
+
+        private void bugReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BugReports BugReports = new BugReports();
+            BugReports.ShowDialog(this);
         }
     }
     public class Logger
@@ -1448,6 +1477,57 @@ namespace SteamPulse
             else
             {
                 Create();
+            }
+        }
+    }
+    public class GlobalVariables
+    {
+        public struct Names
+        {
+            public static string MSFS { get { return "Microsoft Loading Simulator"; } }
+        }
+        public struct Images
+        {
+            public struct Header
+            {
+                public static string MSFS { get { return "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/header.jpg"; } }
+            }
+            public struct Hero
+            {
+                public static string MSFS { get { return "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/library.jpg"; } }
+            }
+        }
+        public struct Colors
+        {
+            public struct Light
+            {
+                public static Color NileBlue
+                {
+                    get { return Color.FromArgb(24, 49, 83); }
+                }
+                public static Color White
+                {
+                    get { return Color.FromArgb(255, 255, 255); }
+                }
+                public static Color AthenGray
+                {
+                    get { return Color.FromArgb(241, 240, 245); }
+                }
+            }
+            public struct Dark
+            {
+                public static Color White
+                {
+                    get { return Color.FromArgb(255, 255, 255); }
+                }
+                public static Color NileBlue
+                {
+                    get { return Color.FromArgb(24, 49, 83); }
+                }
+                public static Color Cello
+                {
+                    get { return Color.FromArgb(33, 63, 105); }
+                }
             }
         }
     }

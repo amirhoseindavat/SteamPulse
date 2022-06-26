@@ -26,13 +26,13 @@ namespace SteamAPI
     {
         public static int Appid { get; set; }
         public static int DLCID { get; set; }
-        internal static string Data { get; set; }
-        internal static string MarketDataKey { get; set; }
-        internal static string MarketDataTicket { get; set; }
-        internal static string CommunityData { get; set; }
-        internal static string WishlistData { get; set; }
-        internal static string ShopData { get; set; }
-        private static string APIKEY { get { return "C0C2746E5859F6EAD7B27E79C6D9BC76"; } }
+        protected internal static string Data { get; set; }
+        protected internal static string MarketDataKey { get; set; }
+        protected internal static string MarketDataTicket { get; set; }
+        protected internal static string CommunityData { get; set; }
+        protected internal static string WishlistData { get; set; }
+        protected internal static string ShopData { get; set; }
+        internal static string APIKEY { get { return "C0C2746E5859F6EAD7B27E79C6D9BC76"; } }
         public static int ErrorCode { get; set; }
         /// <summary>
         /// Connect to Steam and GetData.
@@ -731,6 +731,10 @@ namespace SteamAPI
                         {
                             return false;
                         }
+                        catch
+                        {
+                            return false;
+                        }
                     }
                 }
                 /// <summary>
@@ -955,16 +959,28 @@ namespace SteamAPI
                 {
                     get
                     {
-                        if (GetData.MarketDataKey != "")
+                        try
                         {
-                            dynamic data_object = JsonConvert.DeserializeObject<dynamic>(GetData.MarketDataKey);
-                            string price = data_object["lowest_price"].ToString();
-                            double price_full;
-                            price_full = Convert.ToDouble(Regex.Replace(price, "[^0-9]", ""));
-                            price_full /= 100;
-                            return price_full;
+                            if (GetData.MarketDataKey != "")
+                            {
+                                dynamic data_object = JsonConvert.DeserializeObject<dynamic>(GetData.MarketDataKey);
+                                if (data_object != null)
+                                {
+                                    string price = data_object["lowest_price"].ToString();
+                                    double price_full;
+                                    price_full = Convert.ToDouble(Regex.Replace(price, "[^0-9]", ""));
+                                    price_full /= 100;
+                                    return price_full;
+                                }
+                                else
+                                    return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
                         }
-                        else
+                        catch
                         {
                             return 0;
                         }
@@ -1007,16 +1023,24 @@ namespace SteamAPI
                 {
                     get
                     {
-                        if (GetData.MarketDataTicket != "")
+                        try
                         {
-                            dynamic data_object = JsonConvert.DeserializeObject<dynamic>(GetData.MarketDataTicket);
-                            string price = data_object["lowest_price"].ToString();
-                            double price_full;
-                            price_full = Convert.ToDouble(Regex.Replace(price, "[^0-9]", ""));
-                            price_full /= 100;
-                            return price_full;
+                            if (GetData.MarketDataTicket != "")
+                            {
+                                dynamic data_object = JsonConvert.DeserializeObject<dynamic>(GetData.MarketDataTicket);
+                                string price = data_object["lowest_price"].ToString();
+                                double price_full;
+                                price_full = Convert.ToDouble(Regex.Replace(price, "[^0-9]", ""));
+                                price_full /= 100;
+                                return price_full;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+
                         }
-                        else
+                        catch
                         {
                             return 0;
                         }

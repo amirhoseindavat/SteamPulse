@@ -94,9 +94,9 @@
             this.UserInfoLogout = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoLevel = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoGames = new Bunifu.UI.WinForms.BunifuLabel();
-            this.UserInfoName = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.OnlineStatus = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.UserInfoName = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.ButtonExit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LabelHeader = new Bunifu.UI.WinForms.BunifuLabel();
@@ -1040,9 +1040,9 @@
             this.PanelUserINfo.Controls.Add(this.UserInfoLogout);
             this.PanelUserINfo.Controls.Add(this.UserInfoLevel);
             this.PanelUserINfo.Controls.Add(this.UserInfoGames);
-            this.PanelUserINfo.Controls.Add(this.UserInfoName);
             this.PanelUserINfo.Controls.Add(this.UserInfoProfile);
             this.PanelUserINfo.Controls.Add(this.OnlineStatus);
+            this.PanelUserINfo.Controls.Add(this.UserInfoName);
             this.PanelUserINfo.Location = new System.Drawing.Point(12, 52);
             this.PanelUserINfo.Name = "PanelUserINfo";
             this.PanelUserINfo.ShowBorders = true;
@@ -1211,6 +1211,7 @@
             this.UserInfoLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserInfoLogout.CursorType = System.Windows.Forms.Cursors.Hand;
             this.UserInfoLogout.Font = new System.Drawing.Font("Poppins Light", 10F);
+            this.UserInfoLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.UserInfoLogout.Location = new System.Drawing.Point(318, 68);
             this.UserInfoLogout.Name = "UserInfoLogout";
             this.UserInfoLogout.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1230,6 +1231,7 @@
             this.UserInfoLevel.AutoEllipsis = false;
             this.UserInfoLevel.CursorType = null;
             this.UserInfoLevel.Font = new System.Drawing.Font("Poppins Light", 12.75F);
+            this.UserInfoLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.UserInfoLevel.Location = new System.Drawing.Point(107, 68);
             this.UserInfoLevel.Name = "UserInfoLevel";
             this.UserInfoLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1248,6 +1250,7 @@
             this.UserInfoGames.AutoEllipsis = false;
             this.UserInfoGames.CursorType = null;
             this.UserInfoGames.Font = new System.Drawing.Font("Poppins Light", 12.75F);
+            this.UserInfoGames.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.UserInfoGames.Location = new System.Drawing.Point(107, 41);
             this.UserInfoGames.Name = "UserInfoGames";
             this.UserInfoGames.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1259,24 +1262,6 @@
             this.ToolTip.SetToolTip(this.UserInfoGames, "");
             this.ToolTip.SetToolTipIcon(this.UserInfoGames, null);
             this.ToolTip.SetToolTipTitle(this.UserInfoGames, "");
-            // 
-            // UserInfoName
-            // 
-            this.UserInfoName.AllowParentOverrides = false;
-            this.UserInfoName.AutoEllipsis = false;
-            this.UserInfoName.CursorType = null;
-            this.UserInfoName.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.UserInfoName.Location = new System.Drawing.Point(107, 12);
-            this.UserInfoName.Name = "UserInfoName";
-            this.UserInfoName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UserInfoName.Size = new System.Drawing.Size(89, 30);
-            this.UserInfoName.TabIndex = 2;
-            this.UserInfoName.Text = "{UI.NAME}";
-            this.UserInfoName.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.UserInfoName.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.UserInfoName, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoName, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoName, "");
             // 
             // UserInfoProfile
             // 
@@ -1392,6 +1377,20 @@
             this.OnlineStatus.MouseEnter += new System.EventHandler(this.OnlineStatus_MouseEnter);
             this.OnlineStatus.MouseLeave += new System.EventHandler(this.OnlineStatus_MouseLeave);
             this.OnlineStatus.MouseHover += new System.EventHandler(this.OnlineStatus_MouseHover);
+            // 
+            // UserInfoName
+            // 
+            this.UserInfoName.AutoSize = true;
+            this.UserInfoName.BackColor = System.Drawing.Color.Transparent;
+            this.UserInfoName.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserInfoName.Location = new System.Drawing.Point(102, 12);
+            this.UserInfoName.Name = "UserInfoName";
+            this.UserInfoName.Size = new System.Drawing.Size(97, 28);
+            this.UserInfoName.TabIndex = 7;
+            this.UserInfoName.Text = "{UI.Name}";
+            this.ToolTip.SetToolTip(this.UserInfoName, "");
+            this.ToolTip.SetToolTipIcon(this.UserInfoName, null);
+            this.ToolTip.SetToolTipTitle(this.UserInfoName, "");
             // 
             // PanelHeader
             // 
@@ -1530,6 +1529,7 @@
             // BackgroundWorker
             // 
             this.BackgroundWorker.WorkerSupportsCancellation = true;
+            this.BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             // 
             // Setting
             // 
@@ -1590,7 +1590,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse;
         private Bunifu.UI.WinForms.BunifuLabel LabelHeader;
         private Bunifu.UI.WinForms.BunifuPanel PanelUserINfo;
-        private Bunifu.UI.WinForms.BunifuLabel UserInfoName;
         private Bunifu.UI.WinForms.BunifuPictureBox UserInfoProfile;
         private Bunifu.UI.WinForms.BunifuLabel UserInfoLevel;
         private Bunifu.UI.WinForms.BunifuLabel UserInfoGames;
@@ -1633,5 +1632,6 @@
         private Bunifu.UI.WinForms.BunifuPanel PanelDeveloper;
         private Bunifu.UI.WinForms.BunifuLabel LabelDeveloper;
         private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleDeveloper;
+        private System.Windows.Forms.Label UserInfoName;
     }
 }

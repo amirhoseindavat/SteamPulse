@@ -153,7 +153,7 @@
             this.ButtonLoad.AllowToggling = false;
             this.ButtonLoad.AllowZooming = true;
             this.ButtonLoad.AllowZoomingOnFocus = false;
-            this.ButtonLoad.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonLoad.BackColor = System.Drawing.Color.White;
             this.ButtonLoad.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ButtonLoad.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ButtonLoad.ErrorImage")));
             this.ButtonLoad.FadeWhenInactive = false;
@@ -507,6 +507,7 @@
             this.Textbox.UseSystemPasswordChar = false;
             this.Textbox.WordWrap = true;
             this.Textbox.TextChanged += new System.EventHandler(this.Textbox_TextChanged);
+            this.Textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_KeyPress);
             this.Textbox.Click += new System.EventHandler(this.Textbox_Click);
             this.Textbox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Textbox_MouseDown);
             // 

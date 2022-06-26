@@ -34,17 +34,6 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-        private const int CS_DropShadow = 0x00020000;
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DropShadow;
-                return cp;
-            }
-        }
         private void Textbox_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Textbox.Text))
@@ -149,7 +138,7 @@ namespace SteamPulse
             }
             else if (Settings.CalculatorMode == "Key => Wallet")
             {
-                double wallet2 = LoadData.Market.Key.User_Price * Convert.ToInt32(Textbox.Text);
+                double wallet2 = LoadData.Market.Key.User_Price * Convert.ToInt32(Number);
                 LabelResult.Text = string.Format("Result: {0} {1}", wallet2.ToString("N"), Settings.Currency.Unit);
             }
             else if (Settings.CalculatorMode == "Selling Fee")
@@ -196,7 +185,7 @@ namespace SteamPulse
                 DropDownCalculation.SelectedIndex = 3;
             }
 
-            DarkMode = Setting.DarkMode;
+            DarkMode = Settings.DarkMode;
             if (DarkMode == true)
             {
                 ChangeTheme(true);
@@ -253,16 +242,16 @@ namespace SteamPulse
             Color ForeGround;
             if (Darkmode == true)
             {
-                BackGround = Color.FromArgb(24, 49, 83);
-                ForeGround = Color.FromArgb(255, 255, 255);
-                this.BackColor = Color.FromArgb(33, 63, 105);
+                BackGround = GlobalVariables.Colors.Dark.NileBlue;
+                ForeGround = GlobalVariables.Colors.Dark.White;
+                this.BackColor = GlobalVariables.Colors.Dark.Cello;
                 ButtonLoad.Image = Properties.Resources.BTNLoadLight;
             }
             else
             {
-                BackGround = Color.FromArgb(255, 255, 255);
-                ForeGround = Color.FromArgb(24, 49, 83);
-                this.BackColor = Color.FromArgb(241, 240, 245);
+                BackGround = GlobalVariables.Colors.Light.White;
+                ForeGround = GlobalVariables.Colors.Light.NileBlue;
+                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
                 ButtonLoad.Image = Properties.Resources.BTNLoadDark;
             }
             ButtonLoad.BackColor = BackGround;
@@ -284,6 +273,14 @@ namespace SteamPulse
             else
             {
                 ChangeTheme(default);
+            }
+        }
+
+        private void Textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

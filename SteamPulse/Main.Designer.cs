@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.MenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Label_Update = new System.Windows.Forms.Label();
             this.Elipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -47,6 +48,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bugReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.developerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cleanResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +67,7 @@
             this.DropDownRegion = new Bunifu.UI.WinForms.BunifuDropdown();
             this.Label_Regions = new System.Windows.Forms.Label();
             this.PanelURL = new Bunifu.UI.WinForms.BunifuPanel();
+            this.LabelSearch = new System.Windows.Forms.Label();
             this.TextBox_URL = new Bunifu.UI.WinForms.BunifuTextBox();
             this.Label_URL = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
@@ -109,38 +112,46 @@
             this.calculatorToolStripMenuItem,
             this.liveMarketToolStripMenuItem,
             this.settingsToolStripMenuItem,
+            this.bugReportToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.MenuMain.Name = "TrayMenu";
             this.MenuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MenuMain.ShowImageMargin = false;
-            this.MenuMain.Size = new System.Drawing.Size(127, 116);
+            this.MenuMain.Size = new System.Drawing.Size(128, 144);
             // 
             // calculatorToolStripMenuItem
             // 
             this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
             this.calculatorToolStripMenuItem.ShowShortcutKeys = false;
-            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.calculatorToolStripMenuItem.Text = "Calculator";
             this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.CalculatorToolStripMenuItem_Click);
             // 
             // liveMarketToolStripMenuItem
             // 
             this.liveMarketToolStripMenuItem.Name = "liveMarketToolStripMenuItem";
-            this.liveMarketToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.liveMarketToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.liveMarketToolStripMenuItem.Text = "Live Market";
             this.liveMarketToolStripMenuItem.Click += new System.EventHandler(this.LiveMarketToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // bugReportToolStripMenuItem
+            // 
+            this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
+            this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
+            this.bugReportToolStripMenuItem.Text = "Bug Report";
+            this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -179,13 +190,14 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
+            this.bugReportToolStripMenuItem1,
             this.developerSettingsToolStripMenuItem,
             this.cleanResetToolStripMenuItem,
             this.toolStripMenuItem4});
             this.MenuDev.Name = "TrayMenu";
             this.MenuDev.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.MenuDev.ShowImageMargin = false;
-            this.MenuDev.Size = new System.Drawing.Size(177, 172);
+            this.MenuDev.Size = new System.Drawing.Size(177, 200);
             // 
             // toolStripMenuItem1
             // 
@@ -208,6 +220,13 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(176, 28);
             this.toolStripMenuItem3.Text = "Settings";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // bugReportToolStripMenuItem1
+            // 
+            this.bugReportToolStripMenuItem1.Name = "bugReportToolStripMenuItem1";
+            this.bugReportToolStripMenuItem1.Size = new System.Drawing.Size(176, 28);
+            this.bugReportToolStripMenuItem1.Text = "Bug Report";
+            this.bugReportToolStripMenuItem1.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
             // 
             // developerSettingsToolStripMenuItem
             // 
@@ -281,7 +300,7 @@
             this.PanelDLC.BorderThickness = 1;
             this.PanelDLC.Controls.Add(this.LabelDLCCount);
             this.PanelDLC.Controls.Add(this.LabelDLC);
-            this.PanelDLC.Location = new System.Drawing.Point(622, 396);
+            this.PanelDLC.Location = new System.Drawing.Point(622, 405);
             this.PanelDLC.Name = "PanelDLC";
             this.PanelDLC.ShowBorders = true;
             this.PanelDLC.Size = new System.Drawing.Size(241, 55);
@@ -290,7 +309,7 @@
             // LabelDLCCount
             // 
             this.LabelDLCCount.BackColor = System.Drawing.Color.Transparent;
-            this.LabelDLCCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelDLCCount.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabelDLCCount.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LabelDLCCount.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold);
             this.LabelDLCCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
@@ -358,7 +377,7 @@
             this.PanelEdition.BorderThickness = 1;
             this.PanelEdition.Controls.Add(this.ComboBox_Editions);
             this.PanelEdition.Controls.Add(this.Label_Edition);
-            this.PanelEdition.Location = new System.Drawing.Point(622, 280);
+            this.PanelEdition.Location = new System.Drawing.Point(622, 295);
             this.PanelEdition.Name = "PanelEdition";
             this.PanelEdition.ShowBorders = true;
             this.PanelEdition.Size = new System.Drawing.Size(241, 93);
@@ -516,14 +535,33 @@
             this.PanelURL.BorderColor = System.Drawing.Color.Transparent;
             this.PanelURL.BorderRadius = 20;
             this.PanelURL.BorderThickness = 1;
+            this.PanelURL.Controls.Add(this.LabelSearch);
             this.PanelURL.Controls.Add(this.ButtonLoad);
             this.PanelURL.Controls.Add(this.TextBox_URL);
             this.PanelURL.Controls.Add(this.Label_URL);
-            this.PanelURL.Location = new System.Drawing.Point(622, 168);
+            this.PanelURL.Location = new System.Drawing.Point(622, 162);
             this.PanelURL.Name = "PanelURL";
             this.PanelURL.ShowBorders = true;
-            this.PanelURL.Size = new System.Drawing.Size(241, 93);
+            this.PanelURL.Size = new System.Drawing.Size(241, 120);
             this.PanelURL.TabIndex = 21;
+            // 
+            // LabelSearch
+            // 
+            this.LabelSearch.BackColor = System.Drawing.Color.Transparent;
+            this.LabelSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LabelSearch.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.LabelSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelSearch.Image = global::SteamPulse.Properties.Resources.SearchBlack;
+            this.LabelSearch.Location = new System.Drawing.Point(0, 89);
+            this.LabelSearch.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.LabelSearch.Name = "LabelSearch";
+            this.LabelSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.LabelSearch.Size = new System.Drawing.Size(241, 31);
+            this.LabelSearch.TabIndex = 39;
+            this.LabelSearch.Text = "🔍 Search ";
+            this.LabelSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LabelSearch.Click += new System.EventHandler(this.LabelSearch_Click);
             // 
             // TextBox_URL
             // 
@@ -559,26 +597,26 @@
             this.TextBox_URL.Modified = false;
             this.TextBox_URL.Multiline = false;
             this.TextBox_URL.Name = "TextBox_URL";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextBox_URL.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnIdleState = stateProperties4;
+            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.TextBox_URL.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnIdleState = stateProperties12;
             this.TextBox_URL.Padding = new System.Windows.Forms.Padding(3);
             this.TextBox_URL.PasswordChar = '\0';
             this.TextBox_URL.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
@@ -643,9 +681,9 @@
             this.ButtonSetting.BackColor = System.Drawing.Color.Transparent;
             this.ButtonSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSetting.Image = global::SteamPulse.Properties.Resources.SettingsBlack;
-            this.ButtonSetting.Location = new System.Drawing.Point(825, 9);
+            this.ButtonSetting.Location = new System.Drawing.Point(828, 9);
             this.ButtonSetting.Name = "ButtonSetting";
-            this.ButtonSetting.Size = new System.Drawing.Size(18, 18);
+            this.ButtonSetting.Size = new System.Drawing.Size(15, 15);
             this.ButtonSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ButtonSetting.TabIndex = 60;
             this.ButtonSetting.TabStop = false;
@@ -686,11 +724,11 @@
             this.Label_Exit.ColorContrastOnClick = 45;
             this.Label_Exit.ColorContrastOnHover = 45;
             this.Label_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.Label_Exit.CustomizableEdges = borderEdges1;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.Label_Exit.CustomizableEdges = borderEdges3;
             this.Label_Exit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Label_Exit.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.Label_Exit.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1058,5 +1096,8 @@
         private System.Windows.Forms.PictureBox OpenDetailsIcon;
         private System.Windows.Forms.Label OpenDetails;
         private System.Windows.Forms.PictureBox ButtonSetting;
+        private System.Windows.Forms.Label LabelSearch;
+        private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem1;
     }
 }

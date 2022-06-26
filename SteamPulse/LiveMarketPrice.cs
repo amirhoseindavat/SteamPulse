@@ -73,8 +73,8 @@ namespace SteamPulse
                     TicketStatus();
                     if (LoadData.Market.Key.LowestPrice == 0 && LoadData.Market.Ticket.LowestPrice == 0)
                     {
-                        updater_label.Text = "Status : Steam Uncreachable!";
-                        Logger.LogMarket("Steam Uncreachable!");
+                        updater_label.Text = "Status : Steam is Uncreachable!";
+                        Logger.LogMarket("Steam is Uncreachable!");
                     }
                     else
                     {
@@ -89,7 +89,7 @@ namespace SteamPulse
             Price_updater();
             if (LoadData.Market.Key.LowestPrice == 0 && LoadData.Market.Ticket.LowestPrice == 0)
             {
-                updater_label.Text = "Status : Steam Uncreachable!";
+                updater_label.Text = "Status : Steam isUncreachable!";
             }
             else
             {
@@ -257,18 +257,18 @@ namespace SteamPulse
             Color ForeGround;
             if (Darkmode == true)
             {
-                BackGround = Color.FromArgb(24, 49, 83);
-                ForeGround = Color.FromArgb(255, 255, 255);
-                this.BackColor = Color.FromArgb(33, 63, 105);
+                BackGround = GlobalVariables.Colors.Dark.NileBlue;
+                ForeGround = GlobalVariables.Colors.Dark.White;
+                this.BackColor = GlobalVariables.Colors.Dark.Cello;
                 Ticket_indicator.Image = Properties.Resources.NoChangeDark;
                 Key_indicator.Image = Properties.Resources.NoChangeDark;
 
             }
             else
             {
-                BackGround = Color.FromArgb(255, 255, 255);
-                ForeGround = Color.FromArgb(24, 49, 83);
-                this.BackColor = Color.FromArgb(241, 240, 245);
+                BackGround = GlobalVariables.Colors.Light.White;
+                ForeGround = GlobalVariables.Colors.Light.NileBlue;
+                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
                 Ticket_indicator.Image = Properties.Resources.NoChangeLight;
                 Key_indicator.Image = Properties.Resources.NoChangeLight;
             }

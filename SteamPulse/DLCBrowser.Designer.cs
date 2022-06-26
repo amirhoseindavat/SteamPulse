@@ -167,7 +167,6 @@
             this.DataTable.EnableHeadersVisualStyles = false;
             this.DataTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.DataTable.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(88)))), ((int)(((byte)(157)))));
-            this.DataTable.HeaderBgColor = System.Drawing.Color.Empty;
             this.DataTable.HeaderForeColor = System.Drawing.Color.White;
             this.DataTable.Location = new System.Drawing.Point(18, 45);
             this.DataTable.Name = "DataTable";

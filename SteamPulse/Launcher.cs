@@ -29,6 +29,12 @@ namespace SteamPulse
 
         private void Launcher_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.UpgradeRequired == true)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.UpgradeRequired = false;
+                Properties.Settings.Default.Save(); 
+            }
             Logger.CheckExist();
             try
             {

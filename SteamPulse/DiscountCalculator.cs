@@ -46,7 +46,7 @@ namespace SteamPulse
 
             if (GetData.Appid == 1250410)
             {
-                LabelName.Text = String.Format("Name: {0}", "Microsft Loading Simulator");
+                LabelName.Text = String.Format("Name: {0}", GlobalVariables.Names.MSFS);
             }
             else
             {
@@ -139,16 +139,16 @@ namespace SteamPulse
             Color ForeGround;
             if (Darkmode == true)
             {
-                BackGround = Color.FromArgb(24, 49, 83);
-                ForeGround = Color.FromArgb(255, 255, 255);
-                this.BackColor = Color.FromArgb(33, 63, 105);
+                BackGround = GlobalVariables.Colors.Dark.NileBlue;
+                ForeGround = GlobalVariables.Colors.Dark.White;
+                this.BackColor = GlobalVariables.Colors.Dark.Cello;
 
             }
             else
             {
-                BackGround = Color.FromArgb(255, 255, 255);
-                ForeGround = Color.FromArgb(24, 49, 83);
-                this.BackColor = Color.FromArgb(241, 240, 245);
+                BackGround = GlobalVariables.Colors.Light.White;
+                ForeGround = GlobalVariables.Colors.Light.NileBlue;
+                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             Label_AppName.BackColor = BackGround;

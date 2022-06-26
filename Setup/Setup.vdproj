@@ -292,6 +292,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
+        "OwnerKey" = "8:_E5964893587D923218E6156DB419302C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
         "OwnerKey" = "8:_0FFAFDCA8669A80F6676ABA06841094E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -311,6 +317,12 @@
         {
         "MsmKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
         "OwnerKey" = "8:_4633D4C841AB1536B9C6FC3F46768521"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E5964893587D923218E6156DB419302C"
+        "OwnerKey" = "8:_09D2128915FE4F07AF58EDD2EF5D312F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -389,6 +401,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8B9BAA5B83E98FA62E41E5755692C6DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E5964893587D923218E6156DB419302C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -526,7 +544,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_09D2128915FE4F07AF58EDD2EF5D312F"
@@ -1438,6 +1456,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E5964893587D923218E6156DB419302C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuGroupBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E5964893587D923218E6156DB419302C"
+                    {
+                    "Name" = "8:Bunifu.UI.WinForms.BunifuGroupBox.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Bunifu.UI.WinForms.BunifuGroupBox.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_65EE19A6E16B487FA1C9F5A731601EEE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ECD5876808983EE4F5DF9400FBAB5EBD"
             {
             "AssemblyRegister" = "3:1"
@@ -1556,15 +1605,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamPulse"
-        "ProductCode" = "8:{CC77AACF-F19C-4D98-8621-7C205044D452}"
-        "PackageCode" = "8:{8CC0F6F2-6A89-4A8B-AC1D-C2AD26C6B2CB}"
+        "ProductCode" = "8:{B07EF7DA-A1B0-4BA9-BB62-21EAAEF6D7A3}"
+        "PackageCode" = "8:{42DFBBBF-9393-4C3A-AAED-F0AD55FD1336}"
         "UpgradeCode" = "8:{837FEA30-4712-4AEA-AF73-53E2BFBEBEDC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.7.2"
+        "ProductVersion" = "8:1.8.1"
         "Manufacturer" = "8:CodeMage"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://CodeMage.ir"
