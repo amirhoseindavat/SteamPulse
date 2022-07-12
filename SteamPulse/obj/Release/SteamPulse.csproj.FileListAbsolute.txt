@@ -3,7 +3,6 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\SteamPulse.application
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\SteamPulse.exe
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\SteamPulse.pdb
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\fa\SteamPulse.resources.dll
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\Bunifu.Licensing.dll
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\Bunifu.UI.WinForms.1.5.3.dll
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\Bunifu.UI.WinForms.BunifuButton.dll
@@ -56,7 +55,6 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Numerics.Vectors.xml
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\bin\Release\System.Threading.Tasks.Extensions.xml
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.SuggestedBindingRedirects.cache
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.config
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.About.resources
@@ -73,14 +71,13 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Properties.Resources.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DevSetting.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Setting.resources
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DevSetting.fa.resources
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Setting.fa.resources
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Status.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.GenerateResource.cache
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.licenses
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CoreCompileInputs.cache
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\fa\SteamPulse.resources.dll
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.manifest
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.application
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.pdb
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache

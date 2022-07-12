@@ -61,10 +61,10 @@ namespace SteamPulse
                     int Ticket_count_rounded = (int)Math.Ceiling(count3);
                     if (Settings.CheckIRT == true)
                     {
-                        GetData.ConnecttoShop.Ticket();
-                        if (LoadData.Shop.Ticket != 0)
+                        GetData.GamingClub.Ticket();
+                        if (LoadData.GamingClub.Ticket != 0)
                         {
-                            LabelResult.Text = String.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), String.Format("{0:n0} ", Ticket_count_rounded * LoadData.Shop.Ticket));
+                            LabelResult.Text = String.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), String.Format("{0:n0} ", Ticket_count_rounded * LoadData.GamingClub.Ticket));
                         }
                         else
                         {
@@ -87,23 +87,23 @@ namespace SteamPulse
                     //double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.User_Price) + LoadData.Market.Ticket.User_Price) - DownRemaining;
                     if (Settings.CheckIRT == true)
                     {
-                        GetData.ConnecttoShop.Key();
-                        if (LoadData.Shop.Key != 0)
+                        GetData.GamingClub.Key();
+                        if (LoadData.GamingClub.Key != 0)
                         {
                             if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                             {
                                 if (DownRemaining < LoadData.Market.Ticket.User_Price)
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), String.Format("{0:n0} ", (KeyRoundedDown * LoadData.Shop.Key) + LoadData.Shop.Ticket));
+                                    LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), String.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket));
                                 }
                                 else
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.Shop.Key));
+                                    LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key));
                                 }
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.Shop.Key));
+                                LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key));
                             }
                         }
                         else

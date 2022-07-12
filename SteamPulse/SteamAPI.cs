@@ -30,8 +30,9 @@ namespace SteamAPI
         protected internal static string MarketDataKey { get; set; }
         protected internal static string MarketDataTicket { get; set; }
         protected internal static string CommunityData { get; set; }
+        protected internal static string ProfileData { get; set; }
         protected internal static string WishlistData { get; set; }
-        protected internal static string ShopData { get; set; }
+        protected internal static string GamingClubData { get; set; }
         internal static string APIKEY { get { return "C0C2746E5859F6EAD7B27E79C6D9BC76"; } }
         public static int ErrorCode { get; set; }
         /// <summary>
@@ -137,6 +138,21 @@ namespace SteamAPI
                         return false;
                     }
                 }
+                public static Boolean GetAvatarFrame(string SteamID)
+                {
+                    try
+                    {
+                        WebClient client = new WebClient();
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                        ProfileData = client.DownloadString("https://api.steampowered.com/IPlayerService/GetAvatarFrame/v1/?key=" + APIKEY + "&steamid=" + SteamID);
+                        return true;
+
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
             }
             /// <summary>
             /// Connect to Steam Market.
@@ -157,6 +173,7 @@ namespace SteamAPI
                     }
                     catch
                     {
+                        MarketDataTicket = "";
                         return false;
                     }
                 }
@@ -174,6 +191,7 @@ namespace SteamAPI
                     }
                     catch
                     {
+                        MarketDataTicket = "";
                         return false;
                     }
                 }
@@ -182,7 +200,7 @@ namespace SteamAPI
         /// <summary>
         /// Connect to Gaming-Club.ir.
         /// </summary>
-        public struct ConnecttoShop
+        public struct GamingClub
         {
             /// <summary>
             /// Load Key IRT Price.
@@ -193,11 +211,12 @@ namespace SteamAPI
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
-                    ShopData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
+                    GamingClubData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
                     return true;
                 }
                 catch
                 {
+                    GamingClubData = "";
                     return false;
                 }
             }
@@ -210,11 +229,12 @@ namespace SteamAPI
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
-                    ShopData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
+                    GamingClubData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
                     return true;
                 }
                 catch
                 {
+                    GamingClubData = "";
                     return false;
                 }
             }
@@ -230,17 +250,26 @@ namespace SteamAPI
         /// </summary>
         public struct Store
         {
+            /// <summary>
+            /// Remove Anything but Alphabet or numeric (internal use)
+            /// </summary>
             private static string OnlyAlphaNumeric(String Data)
             {
                 Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                 return rgx.Replace(Data.ToString(), "");
             }
+            /// <summary>
+            /// Remove Extra Space from string (internal use)
+            /// </summary>
             private static string RemoveExtraSpace(String Data)
             {
                 RegexOptions options = RegexOptions.None;
                 Regex regex = new Regex("[ ]{2,}", options);
                 return regex.Replace(Data, "");
             }
+            /// <summary>
+            /// Merge two or more Developer or Publisher to one string (internal use)
+            /// </summary>
             private static string ArraytoString(string Data, string Data2 = "", int count = 0)
             {
                 if (count == 2)
@@ -252,6 +281,9 @@ namespace SteamAPI
                     return Data;
                 }
             }
+            /// <summary>
+            /// RawData for JToken
+            /// </summary>
             internal static JObject RawData
             {
                 get
@@ -473,6 +505,9 @@ namespace SteamAPI
                     return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.release_date.coming_soon"));
                 }
             }
+            /// <summary>
+            /// Is Release Date Valid ? (internal use)
+            /// </summary>
             public static Boolean IsValidDate
             {
                 get
@@ -519,6 +554,9 @@ namespace SteamAPI
                     }
                 }
             }
+            /// <summary>
+            /// Package Group, (internal use)
+            /// </summary>
             public static string PackageGroups
             {
                 get
@@ -941,6 +979,19 @@ namespace SteamAPI
                     return 0;
                 }
             }
+            public static string AvatarFrame(string steamid)
+            {
+                if (GetData.ConnectToSteam.Community.GetAvatarFrame(steamid) == true)
+                {
+                    JObject JsonObject = JObject.Parse(GetData.ProfileData);
+                    JToken AvatarFrame = JsonObject.SelectToken(".response.avatar_frame.image_small");
+                    return "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/" + AvatarFrame.ToString();
+                }
+                else
+                {
+                    return "";
+                }
+            }
         }
         /// <summary>
         /// Get Data of Steam Market
@@ -973,7 +1024,9 @@ namespace SteamAPI
                                     return price_full;
                                 }
                                 else
+                                {
                                     return 0;
+                                }
                             }
                             else
                             {
@@ -1075,7 +1128,7 @@ namespace SteamAPI
         /// <summary>
         /// Connect To Gaming-Club.ir.
         /// </summary>
-        public struct Shop
+        public struct GamingClub
         {
             /// <summary>
             /// Key IRT Price.
@@ -1084,9 +1137,10 @@ namespace SteamAPI
             {
                 get
                 {
-                    if (GetData.ShopData != "")
+                    //if (GetData.GamingClub.Key() == true)
+                    if (GetData.GamingClubData != "")
                     {
-                        JObject JsonObject = JObject.Parse(GetData.ShopData);
+                        JObject JsonObject = JObject.Parse(GetData.GamingClubData);
                         return Convert.ToInt32(JsonObject.SelectToken("$.Key"));
                     }
                     else
@@ -1102,9 +1156,10 @@ namespace SteamAPI
             {
                 get
                 {
-                    if (GetData.ShopData != "")
+                    //if (GetData.GamingClub.Ticket() == true)
+                    if(GetData.GamingClubData != "")
                     {
-                        JObject JsonObject = JObject.Parse(GetData.ShopData);
+                        JObject JsonObject = JObject.Parse(GetData.GamingClubData);
                         return Convert.ToInt32(JsonObject.SelectToken("$.Ticket"));
                     }
                     else

@@ -99,6 +99,7 @@ namespace SteamPulse
                                     {
 
                                         LabelUpdateStatus.Text = string.Format("Update {1} Beta Available.", UpdateType, BetaVersion);
+                                        Logger.LogUpdate("Update", BetaVersion, "Beta");
                                         LabelDownload.Visible = true;
                                         URL = "https://" + BetaURL_XML;
                                     }
@@ -116,6 +117,7 @@ namespace SteamPulse
                                     if (result < 0)
                                     {
                                         LabelUpdateStatus.Text = string.Format("{0} {1} Available.", UpdateType, ServerVersion);
+                                        Logger.LogUpdate(UpdateType, ServerVersion);
                                         LabelDownload.Visible = true;
                                         URL = "https://" + UpdateURL_XML;
                                     }
@@ -134,6 +136,7 @@ namespace SteamPulse
                                 if (result < 0)
                                 {
                                     LabelUpdateStatus.Text = string.Format("{0} {1} Available.", UpdateType, ServerVersion);
+                                    Logger.LogUpdate(UpdateType, ServerVersion);
                                     LabelDownload.Visible = true;
                                     URL = "https://" + UpdateURL_XML;
                                 }

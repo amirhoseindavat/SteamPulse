@@ -1,8 +1,0 @@
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\SteamPulse.csproj.SuggestedBindingRedirects.cache
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\market_helper.Main.resources
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\market_helper.Properties.Resources.resources
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\market_helper.Settings.resources
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\SteamPulse.csproj.GenerateResource.cache
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\SteamPulse.csproj.CoreCompileInputs.cache
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\Steam Market Helper.exe
-C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\market_helper\market_helper\obj\Debug\Steam Market Helper.pdb

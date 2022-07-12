@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.MenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +71,7 @@
             this.TextBox_URL = new Bunifu.UI.WinForms.BunifuTextBox();
             this.Label_URL = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
+            this.ButtonStatus = new System.Windows.Forms.PictureBox();
             this.ButtonSetting = new System.Windows.Forms.PictureBox();
             this.Label_AppName = new System.Windows.Forms.Label();
             this.Label_Exit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -96,6 +97,7 @@
             this.PanelRegion.SuspendLayout();
             this.PanelURL.SuspendLayout();
             this.PanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).BeginInit();
             this.PanelData.SuspendLayout();
             this.PanelStatus.SuspendLayout();
@@ -146,7 +148,7 @@
             this.bugReportToolStripMenuItem.Name = "bugReportToolStripMenuItem";
             this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(127, 28);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
-            this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
+            this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.BugReportToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -226,7 +228,7 @@
             this.bugReportToolStripMenuItem1.Name = "bugReportToolStripMenuItem1";
             this.bugReportToolStripMenuItem1.Size = new System.Drawing.Size(176, 28);
             this.bugReportToolStripMenuItem1.Text = "Bug Report";
-            this.bugReportToolStripMenuItem1.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
+            this.bugReportToolStripMenuItem1.Click += new System.EventHandler(this.BugReportToolStripMenuItem_Click);
             // 
             // developerSettingsToolStripMenuItem
             // 
@@ -597,26 +599,26 @@
             this.TextBox_URL.Modified = false;
             this.TextBox_URL.Multiline = false;
             this.TextBox_URL.Name = "TextBox_URL";
-            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextBox_URL.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBox_URL.OnIdleState = stateProperties12;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.TextBox_URL.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBox_URL.OnIdleState = stateProperties4;
             this.TextBox_URL.Padding = new System.Windows.Forms.Padding(3);
             this.TextBox_URL.PasswordChar = '\0';
             this.TextBox_URL.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
@@ -664,6 +666,7 @@
             this.PanelHeader.BorderColor = System.Drawing.Color.Transparent;
             this.PanelHeader.BorderRadius = 3;
             this.PanelHeader.BorderThickness = 1;
+            this.PanelHeader.Controls.Add(this.ButtonStatus);
             this.PanelHeader.Controls.Add(this.ButtonSetting);
             this.PanelHeader.Controls.Add(this.Label_AppName);
             this.PanelHeader.Controls.Add(this.Label_Exit);
@@ -675,13 +678,27 @@
             this.PanelHeader.TabIndex = 35;
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
+            // ButtonStatus
+            // 
+            this.ButtonStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ButtonStatus.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonStatus.Image = global::SteamPulse.Properties.Resources.StatusBlack;
+            this.ButtonStatus.Location = new System.Drawing.Point(797, 9);
+            this.ButtonStatus.Name = "ButtonStatus";
+            this.ButtonStatus.Size = new System.Drawing.Size(15, 15);
+            this.ButtonStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ButtonStatus.TabIndex = 61;
+            this.ButtonStatus.TabStop = false;
+            this.ButtonStatus.Click += new System.EventHandler(this.ButtonStatus_Click);
+            // 
             // ButtonSetting
             // 
-            this.ButtonSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSetting.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ButtonSetting.BackColor = System.Drawing.Color.Transparent;
             this.ButtonSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSetting.Image = global::SteamPulse.Properties.Resources.SettingsBlack;
-            this.ButtonSetting.Location = new System.Drawing.Point(828, 9);
+            this.ButtonSetting.Location = new System.Drawing.Point(826, 9);
             this.ButtonSetting.Name = "ButtonSetting";
             this.ButtonSetting.Size = new System.Drawing.Size(15, 15);
             this.ButtonSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -724,11 +741,11 @@
             this.Label_Exit.ColorContrastOnClick = 45;
             this.Label_Exit.ColorContrastOnHover = 45;
             this.Label_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.Label_Exit.CustomizableEdges = borderEdges3;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.Label_Exit.CustomizableEdges = borderEdges1;
             this.Label_Exit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Label_Exit.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.Label_Exit.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1031,6 +1048,7 @@
             this.PanelURL.ResumeLayout(false);
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).EndInit();
             this.PanelData.ResumeLayout(false);
             this.PanelData.PerformLayout();
@@ -1099,5 +1117,6 @@
         private System.Windows.Forms.Label LabelSearch;
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox ButtonStatus;
     }
 }

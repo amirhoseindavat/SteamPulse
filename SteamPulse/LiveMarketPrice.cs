@@ -171,11 +171,11 @@ namespace SteamPulse
                 this.Size = new Size(456, 423);
                 PanelKeyIRT.Visible = true;
                 PanelTicketIRT.Visible = true;
-                if (GetData.ConnecttoShop.Key() == true)
+                if (GetData.GamingClub.Key() == true)
                 {
-                    if (LoadData.Shop.Key != 0)
+                    if (LoadData.GamingClub.Key != 0)
                     {
-                        KeyIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.Shop.Key));
+                        KeyIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.GamingClub.Key));
                     }
                 }
                 else
@@ -183,11 +183,11 @@ namespace SteamPulse
                     KeyIRT.Text = String.Format("Price : {0} IRT", 0);
                 }
 
-                if (GetData.ConnecttoShop.Ticket() == true)
+                if (GetData.GamingClub.Ticket() == true)
                 {
-                    if (LoadData.Shop.Ticket != 0)
+                    if (LoadData.GamingClub.Ticket != 0)
                     {
-                        TicketIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.Shop.Ticket));
+                        TicketIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.GamingClub.Ticket));
                     }
                 }
                 else

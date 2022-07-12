@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SteamPulse" version="1.8.1.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SteamPulse" version="1.8.2.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SteamPulse.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -487,26 +487,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3163648">
-      <assemblyIdentity name="SteamPulse" version="1.8.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3517952">
+      <assemblyIdentity name="SteamPulse" version="1.8.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h1sUT1xcREng490HP9rztS7xZXIvo+Nbp5XaxY++3CQ=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fa\SteamPulse.resources.dll" size="270336">
-      <assemblyIdentity name="SteamPulse.resources" version="1.8.1.0" language="fa" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>izjfHyUCAzpjwCCvDZSGdPEQDy05d0XQJqfGtGdrxcw=</dsig:DigestValue>
+        <dsig:DigestValue>W7OZyUNbdUs1aErcV+REVJVdqymr+hQUSqpMQUThalk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

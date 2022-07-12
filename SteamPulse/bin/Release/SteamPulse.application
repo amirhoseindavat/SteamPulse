@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SteamPulse.exe.manifest" size="35176">
+    <dependentAssembly dependencyType="install" codebase="SteamPulse.exe.manifest" size="34519">
       <assemblyIdentity name="SteamPulse.exe" version="0.1.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LYCcf90D3Pd+J+dxz1PjHAh+IAMicDVBbua5iT0kArw=</dsig:DigestValue>
+        <dsig:DigestValue>77RaLrCxYE949UjfFs02z8P8BegIxcWoQWoP21+3e8g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

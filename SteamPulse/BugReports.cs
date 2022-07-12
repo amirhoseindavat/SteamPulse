@@ -6,7 +6,7 @@
 //
 // Release Build
 //
-// Version 1.8.0 Revision 3
+// Version 1.8.0 Revision 4
 
 #endregion
 
@@ -84,7 +84,7 @@ namespace SteamPulse
             {
                 if (TextBoxBugDesc.Text.Length <= 400)
                 {
-                    if (DropDownSocialType.Text == "Email" && IsValidEmail(TextBoxSocial.Text) == true)
+                    if(DropDownSocialType.Text !="Email")
                     {
                         if (LabelSend.Text != "Sended Successfuly")
                             BackgroundWorker.RunWorkerAsync();
@@ -92,7 +92,16 @@ namespace SteamPulse
                     }
                     else
                     {
-                        MessageBox.Show("Please Enter a valid Email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (IsValidEmail(TextBoxSocial.Text) == true)
+                        {
+                            if (LabelSend.Text != "Sended Successfuly")
+                                BackgroundWorker.RunWorkerAsync();
+                            else { }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please Enter a valid Email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
                 else
@@ -123,6 +132,7 @@ namespace SteamPulse
                 {
                     client.UploadValues(urlAddress, postData);
                     LabelSend.Invoke((MethodInvoker)(() => LabelSend.Text = "Sended Successfuly"));
+                    Logger.LogBugReport();
                     LabelSend.Invoke((MethodInvoker)(() => LabelSend.ForeColor = Color.Green));
                 }
                 catch (Exception ex)

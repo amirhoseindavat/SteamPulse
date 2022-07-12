@@ -54,7 +54,6 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.ToolTip = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
             this.ButtonLogin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -94,9 +93,8 @@
             this.UserInfoLogout = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoLevel = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoGames = new Bunifu.UI.WinForms.BunifuLabel();
-            this.UserInfoProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.OnlineStatus = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.UserInfoName = new System.Windows.Forms.Label();
+            this.UserInfoProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.ButtonExit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LabelHeader = new Bunifu.UI.WinForms.BunifuLabel();
@@ -1040,9 +1038,8 @@
             this.PanelUserINfo.Controls.Add(this.UserInfoLogout);
             this.PanelUserINfo.Controls.Add(this.UserInfoLevel);
             this.PanelUserINfo.Controls.Add(this.UserInfoGames);
-            this.PanelUserINfo.Controls.Add(this.UserInfoProfile);
-            this.PanelUserINfo.Controls.Add(this.OnlineStatus);
             this.PanelUserINfo.Controls.Add(this.UserInfoName);
+            this.PanelUserINfo.Controls.Add(this.UserInfoProfile);
             this.PanelUserINfo.Location = new System.Drawing.Point(12, 52);
             this.PanelUserINfo.Name = "PanelUserINfo";
             this.PanelUserINfo.ShowBorders = true;
@@ -1065,7 +1062,7 @@
             this.PanelStatus.Location = new System.Drawing.Point(0, 0);
             this.PanelStatus.Name = "PanelStatus";
             this.PanelStatus.ShowBorders = true;
-            this.PanelStatus.Size = new System.Drawing.Size(378, 100);
+            this.PanelStatus.Size = new System.Drawing.Size(1, 1);
             this.PanelStatus.TabIndex = 6;
             this.ToolTip.SetToolTip(this.PanelStatus, "");
             this.ToolTip.SetToolTipIcon(this.PanelStatus, null);
@@ -1195,7 +1192,7 @@
             this.LabelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.LabelStatus.Location = new System.Drawing.Point(0, 0);
             this.LabelStatus.Name = "LabelStatus";
-            this.LabelStatus.Size = new System.Drawing.Size(378, 100);
+            this.LabelStatus.Size = new System.Drawing.Size(1, 1);
             this.LabelStatus.TabIndex = 0;
             this.LabelStatus.Text = "Logging in...";
             this.LabelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1263,121 +1260,6 @@
             this.ToolTip.SetToolTipIcon(this.UserInfoGames, null);
             this.ToolTip.SetToolTipTitle(this.UserInfoGames, "");
             // 
-            // UserInfoProfile
-            // 
-            this.UserInfoProfile.AllowFocused = false;
-            this.UserInfoProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UserInfoProfile.AutoSizeHeight = true;
-            this.UserInfoProfile.BorderRadius = 40;
-            this.UserInfoProfile.Image = ((System.Drawing.Image)(resources.GetObject("UserInfoProfile.Image")));
-            this.UserInfoProfile.IsCircle = true;
-            this.UserInfoProfile.Location = new System.Drawing.Point(14, 12);
-            this.UserInfoProfile.Name = "UserInfoProfile";
-            this.UserInfoProfile.Size = new System.Drawing.Size(80, 80);
-            this.UserInfoProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.UserInfoProfile.TabIndex = 0;
-            this.UserInfoProfile.TabStop = false;
-            this.ToolTip.SetToolTip(this.UserInfoProfile, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoProfile, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoProfile, "");
-            this.UserInfoProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
-            // 
-            // OnlineStatus
-            // 
-            this.OnlineStatus.AllowAnimations = true;
-            this.OnlineStatus.AllowMouseEffects = true;
-            this.OnlineStatus.AllowToggling = false;
-            this.OnlineStatus.AnimationSpeed = 200;
-            this.OnlineStatus.AutoGenerateColors = false;
-            this.OnlineStatus.AutoRoundBorders = false;
-            this.OnlineStatus.AutoSizeLeftIcon = true;
-            this.OnlineStatus.AutoSizeRightIcon = true;
-            this.OnlineStatus.BackColor = System.Drawing.Color.Transparent;
-            this.OnlineStatus.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OnlineStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OnlineStatus.BackgroundImage")));
-            this.OnlineStatus.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.OnlineStatus.ButtonText = "";
-            this.OnlineStatus.ButtonTextMarginLeft = 0;
-            this.OnlineStatus.ColorContrastOnClick = 45;
-            this.OnlineStatus.ColorContrastOnHover = 45;
-            this.OnlineStatus.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.OnlineStatus.CustomizableEdges = borderEdges2;
-            this.OnlineStatus.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.OnlineStatus.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.OnlineStatus.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.OnlineStatus.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.OnlineStatus.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.OnlineStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.OnlineStatus.ForeColor = System.Drawing.Color.White;
-            this.OnlineStatus.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OnlineStatus.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.OnlineStatus.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.OnlineStatus.IconMarginLeft = 11;
-            this.OnlineStatus.IconPadding = 10;
-            this.OnlineStatus.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.OnlineStatus.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.OnlineStatus.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.OnlineStatus.IconSize = 25;
-            this.OnlineStatus.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OnlineStatus.IdleBorderRadius = 10;
-            this.OnlineStatus.IdleBorderThickness = 1;
-            this.OnlineStatus.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OnlineStatus.IdleIconLeftImage = null;
-            this.OnlineStatus.IdleIconRightImage = null;
-            this.OnlineStatus.IndicateFocus = false;
-            this.OnlineStatus.Location = new System.Drawing.Point(84, 81);
-            this.OnlineStatus.Name = "OnlineStatus";
-            this.OnlineStatus.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.OnlineStatus.OnDisabledState.BorderRadius = 10;
-            this.OnlineStatus.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.OnlineStatus.OnDisabledState.BorderThickness = 1;
-            this.OnlineStatus.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.OnlineStatus.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.OnlineStatus.OnDisabledState.IconLeftImage = null;
-            this.OnlineStatus.OnDisabledState.IconRightImage = null;
-            this.OnlineStatus.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.OnlineStatus.onHoverState.BorderRadius = 10;
-            this.OnlineStatus.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.OnlineStatus.onHoverState.BorderThickness = 1;
-            this.OnlineStatus.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.OnlineStatus.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.OnlineStatus.onHoverState.IconLeftImage = null;
-            this.OnlineStatus.onHoverState.IconRightImage = null;
-            this.OnlineStatus.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OnlineStatus.OnIdleState.BorderRadius = 10;
-            this.OnlineStatus.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.OnlineStatus.OnIdleState.BorderThickness = 1;
-            this.OnlineStatus.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OnlineStatus.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.OnlineStatus.OnIdleState.IconLeftImage = null;
-            this.OnlineStatus.OnIdleState.IconRightImage = null;
-            this.OnlineStatus.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.OnlineStatus.OnPressedState.BorderRadius = 10;
-            this.OnlineStatus.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.OnlineStatus.OnPressedState.BorderThickness = 1;
-            this.OnlineStatus.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.OnlineStatus.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.OnlineStatus.OnPressedState.IconLeftImage = null;
-            this.OnlineStatus.OnPressedState.IconRightImage = null;
-            this.OnlineStatus.Size = new System.Drawing.Size(10, 10);
-            this.OnlineStatus.TabIndex = 6;
-            this.OnlineStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.OnlineStatus.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.OnlineStatus.TextMarginLeft = 0;
-            this.OnlineStatus.TextPadding = new System.Windows.Forms.Padding(0);
-            this.ToolTip.SetToolTip(this.OnlineStatus, "");
-            this.ToolTip.SetToolTipIcon(this.OnlineStatus, null);
-            this.ToolTip.SetToolTipTitle(this.OnlineStatus, "");
-            this.OnlineStatus.UseDefaultRadiusAndThickness = true;
-            this.OnlineStatus.Visible = false;
-            this.OnlineStatus.MouseEnter += new System.EventHandler(this.OnlineStatus_MouseEnter);
-            this.OnlineStatus.MouseLeave += new System.EventHandler(this.OnlineStatus_MouseLeave);
-            this.OnlineStatus.MouseHover += new System.EventHandler(this.OnlineStatus_MouseHover);
-            // 
             // UserInfoName
             // 
             this.UserInfoName.AutoSize = true;
@@ -1391,6 +1273,25 @@
             this.ToolTip.SetToolTip(this.UserInfoName, "");
             this.ToolTip.SetToolTipIcon(this.UserInfoName, null);
             this.ToolTip.SetToolTipTitle(this.UserInfoName, "");
+            // 
+            // UserInfoProfile
+            // 
+            this.UserInfoProfile.AllowFocused = false;
+            this.UserInfoProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UserInfoProfile.AutoSizeHeight = true;
+            this.UserInfoProfile.BorderRadius = 40;
+            this.UserInfoProfile.Image = global::SteamPulse.Properties.Resources.DefaultAvatar;
+            this.UserInfoProfile.IsCircle = true;
+            this.UserInfoProfile.Location = new System.Drawing.Point(16, 12);
+            this.UserInfoProfile.Name = "UserInfoProfile";
+            this.UserInfoProfile.Size = new System.Drawing.Size(80, 80);
+            this.UserInfoProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserInfoProfile.TabIndex = 6;
+            this.UserInfoProfile.TabStop = false;
+            this.ToolTip.SetToolTip(this.UserInfoProfile, "");
+            this.ToolTip.SetToolTipIcon(this.UserInfoProfile, null);
+            this.ToolTip.SetToolTipTitle(this.UserInfoProfile, "");
+            this.UserInfoProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // PanelHeader
             // 
@@ -1431,11 +1332,11 @@
             this.ButtonExit.ColorContrastOnClick = 45;
             this.ButtonExit.ColorContrastOnHover = 45;
             this.ButtonExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.ButtonExit.CustomizableEdges = borderEdges3;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.ButtonExit.CustomizableEdges = borderEdges2;
             this.ButtonExit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ButtonExit.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ButtonExit.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1590,7 +1491,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse;
         private Bunifu.UI.WinForms.BunifuLabel LabelHeader;
         private Bunifu.UI.WinForms.BunifuPanel PanelUserINfo;
-        private Bunifu.UI.WinForms.BunifuPictureBox UserInfoProfile;
         private Bunifu.UI.WinForms.BunifuLabel UserInfoLevel;
         private Bunifu.UI.WinForms.BunifuLabel UserInfoGames;
         private Bunifu.UI.WinForms.BunifuPanel PanelIRT;
@@ -1621,7 +1521,6 @@
         private Bunifu.UI.WinForms.BunifuLabel LabelLogin;
         private Bunifu.UI.WinForms.BunifuTextBox TextBoxLogin;
         private Bunifu.UI.WinForms.BunifuLabel UserInfoLogout;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton OnlineStatus;
         private Bunifu.UI.WinForms.BunifuPanel PanelDarkMode;
         private Bunifu.UI.WinForms.BunifuLabel LabelDarkMode;
         private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleDarkMode;
@@ -1633,5 +1532,6 @@
         private Bunifu.UI.WinForms.BunifuLabel LabelDeveloper;
         private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleDeveloper;
         private System.Windows.Forms.Label UserInfoName;
+        private Bunifu.UI.WinForms.BunifuPictureBox UserInfoProfile;
     }
 }

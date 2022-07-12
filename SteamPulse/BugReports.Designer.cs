@@ -355,7 +355,7 @@
             this.TextBoxSocial.SelectionLength = 0;
             this.TextBoxSocial.SelectionStart = 0;
             this.TextBoxSocial.ShortcutsEnabled = true;
-            this.TextBoxSocial.Size = new System.Drawing.Size(252, 32);
+            this.TextBoxSocial.Size = new System.Drawing.Size(252, 37);
             this.TextBoxSocial.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.TextBoxSocial.TabIndex = 3;
             this.TextBoxSocial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

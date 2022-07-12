@@ -127,6 +127,9 @@
   <data name="NoChangeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoChangeLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SearchWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SearchWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DefaultAvatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DefaultAvatar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,7 +178,10 @@
   <data name="NoChangeDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoChangeDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SearchWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SearchWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="StatusWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

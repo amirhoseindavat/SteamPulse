@@ -28,6 +28,7 @@ namespace SteamPulse
         public static string FormParent;
         protected Boolean SettingChanged = false;
         protected Boolean ISLoading = true;
+        protected Boolean ThreadISLoading = true;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -38,6 +39,9 @@ namespace SteamPulse
         public Setting()
         {
             InitializeComponent();
+            /*UserInfoProfile.Controls.Add(PictureBoxFrame);
+            PictureBoxFrame.Location = new Point(-7, -7);
+            PictureBoxFrame.BackColor = Color.Transparent;*/
         }
         private const int CS_DropShadow = 0x00020000;
 
@@ -52,6 +56,7 @@ namespace SteamPulse
         }
         private void Setting_Load(object sender, EventArgs e)
         {
+            PanelStatus.Size = new Size(378, 100);
             string SettingsProfileID = Properties.Settings.Default.UserSteamID.ToString();
             if (SettingsProfileID != "0")
             {
@@ -219,6 +224,7 @@ namespace SteamPulse
                         LabelStatus.Text = "Logging in...";
                         Properties.Settings.Default.UserSteamID = SettingsProfileID;
                         Properties.Settings.Default.Save();
+                        ThreadISLoading = false;
                         BackgroundWorker.RunWorkerAsync();
                     }
                     else
@@ -590,14 +596,7 @@ namespace SteamPulse
             }
             else
             {
-                if (ToggleDeveloper.Checked == true)
-                {
-                    Logger.LogDeveloper(true);
-                }
-                else
-                {
-                    Logger.LogDeveloper(false);
-                }
+                    Logger.LogDeveloper(ToggleDeveloper.Checked);
             }
             Main.SettingisUpdated = true;
         }
@@ -624,6 +623,7 @@ namespace SteamPulse
                 XmlNodeList Nodes = Root.SelectNodes("/profile");
                 string ProfileName = "";
                 string ProfileAddress = "";
+                //string avatarframe = "";
 
                 foreach (XmlNode Node in Nodes)
                 {
@@ -636,13 +636,15 @@ namespace SteamPulse
                 JObject JsonObjectLevel = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
                 JToken Level = JsonObjectLevel.SelectToken(".response.player_level");
 
-                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
+                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID+ "&include_played_free_games=true&include_free_sub=true&skip_unvetted_apps=true"));
                 JToken Gamecount = JsonObjectGameCount.SelectToken(".response.game_count");
                 string gamecountjson = JsonObjectGameCount.ToString();
 
                 UserInfoName.Invoke((MethodInvoker)(() => UserInfoName.Text = ProfileName));
 
                 UserInfoLevel.Invoke((MethodInvoker)(() => UserInfoLevel.Text = string.Format("Level : {0}", Level)));
+
+                //avatarframe = LoadData.Community.AvatarFrame(SteamID);
                 if (Gamecount != null)
                 {
                     UserInfoGames.Invoke((MethodInvoker)(() => UserInfoGames.Text = string.Format("Games Owned : {0}", Gamecount)));
@@ -655,6 +657,7 @@ namespace SteamPulse
                 try
                 {
                     UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Load(ProfileAddress)));
+                    //PictureBoxFrame.Invoke((MethodInvoker)(() => PictureBoxFrame.Load(avatarframe)));
                 }
                 catch
                 {
@@ -663,7 +666,7 @@ namespace SteamPulse
 
 
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
-                if (ISLoading == true)
+                if (ThreadISLoading == true)
                 {
                 }
                 else
@@ -675,7 +678,10 @@ namespace SteamPulse
                     Properties.Settings.Default.UserName = ProfileName;*/
 
                     Properties.Settings.Default.Save();
-                    Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
+                    if(ISLoading != true)
+                    {
+                        Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
+                    }
 
                 }
                 //true
@@ -692,6 +698,7 @@ namespace SteamPulse
                 ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BackColor = Color.Gray));
                 ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.ToggleStateOff.BorderColor = Color.Gray));
             }
+            ThreadISLoading = false;
         }
     }
     public class Settings
