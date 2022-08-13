@@ -6,7 +6,7 @@
 //
 // Release Build
 //
-// Version 1.7.0 Revision 0
+// Version 1.7.0 Revision 1
 
 #endregion
 
@@ -45,19 +45,19 @@ namespace SteamPulse
 
             if (GetData.Appid == 1250410)
             {
-                LabelName.Text = String.Format("Name: {0}", GlobalVariables.Names.MSFS);
+                LabelName.Text = string.Format("Name: {0}", GlobalVariables.Names.MSFS);
             }
             else
             {
-                LabelName.Text = String.Format("Name: {0}", LoadData.Store.Name);
+                LabelName.Text = string.Format("Name: {0}", LoadData.Store.Name);
             }
 
-            LabelPrice.Text = String.Format("Original Price : {0} {1}", Convert.ToDouble(InitialPrice).ToString("N"), Settings.Currency.Unit);
+            LabelPrice.Text = string.Format("Original Price : {0} {1}", Convert.ToDouble(InitialPrice).ToString("N"), Settings.Currency.Unit);
             GetData.ConnectToSteam.Market.TF2Key();
             GetData.ConnectToSteam.Market.TF2Ticket();
             GetData.GamingClub.Key();
             GetData.GamingClub.Ticket();
-            LabelDiscountValue.Text = String.Format("{0}%", LoadData.Store.Price.Discount_Percent);
+            LabelDiscountValue.Text = string.Format("{0}%", LoadData.Store.Price.Discount_Percent);
             PercentSlider.Value = Main.EditionDiscount;
         }
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -70,12 +70,12 @@ namespace SteamPulse
             int keyCount = (int)Math.Ceiling(final / LoadData.Market.Key.User_Price);
 
             double DownRemaining = final - ((keyCount - 1) * LoadData.Market.Key.User_Price);
-            LabelDiscountValue.Text = String.Format("{0}%", PercentSlider.Value);
+            LabelDiscountValue.Text = string.Format("{0}%", PercentSlider.Value);
             if (PercentSlider.Value != 0)
             {
                 if (PercentSlider.Value == 100)
                 {
-                    LabelResult.Text = String.Format("Result: {0}", "Free");
+                    LabelResult.Text = string.Format("Result: {0}", "Free");
                 }
                 else
                 {
@@ -87,26 +87,26 @@ namespace SteamPulse
                             {
                                 if (final < LoadData.Market.Ticket.User_Price)
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} {1} - 1 Ticket - {2} IRT", final.ToString("N"), Settings.Currency.Unit, String.Format("{0:n0} ", LoadData.GamingClub.Ticket));
+                                    LabelResult.Text = string.Format("Result: {0} {1} - 1 Ticket - {2} IRT", final.ToString("N"), Settings.Currency.Unit, string.Format("{0:n0} ", LoadData.GamingClub.Ticket));
                                 }
                                 else
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} {1} - {2} Key + 1 Ticket - {3} IRT", final.ToString("N"), Settings.Currency.Unit, (keyCount - 1), String.Format("{0:n0} ", (((keyCount - 1) * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)));
+                                    LabelResult.Text = string.Format("Result: {0} {1} - {2} Key + 1 Ticket - {3} IRT", final.ToString("N"), Settings.Currency.Unit, (keyCount - 1), string.Format("{0:n0} ", (((keyCount - 1) * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)));
                                 }
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, String.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
+                                LabelResult.Text = string.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, string.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
                             }
                         }
                         else
                         {
-                            LabelResult.Text = String.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, String.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
+                            LabelResult.Text = string.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, string.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
                         }
                     }
                     else
                     {
-                        LabelResult.Text = String.Format("Result: {0} {1} - {2} Key", final.ToString("N"), Settings.Currency.Unit, keyCount);
+                        LabelResult.Text = string.Format("Result: {0} {1} - {2} Key", final.ToString("N"), Settings.Currency.Unit, keyCount);
                     }
                 }
 
@@ -121,26 +121,26 @@ namespace SteamPulse
                         {
                             if (final < LoadData.Market.Ticket.User_Price)
                             {
-                                LabelResult.Text = String.Format("Result: {0} {1} - 1 Ticket - {2} IRT", final.ToString("N"), Settings.Currency.Unit, String.Format("{0:n0} ", LoadData.GamingClub.Ticket));
+                                LabelResult.Text = string.Format("Result: {0} {1} - 1 Ticket - {2} IRT", final.ToString("N"), Settings.Currency.Unit, string.Format("{0:n0} ", LoadData.GamingClub.Ticket));
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} {1} - {2} Key + 1 Ticket - {3} IRT", final.ToString("N"), Settings.Currency.Unit, (keyCount - 1), String.Format("{0:n0} ", (((keyCount - 1) * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)));
+                                LabelResult.Text = string.Format("Result: {0} {1} - {2} Key + 1 Ticket - {3} IRT", final.ToString("N"), Settings.Currency.Unit, (keyCount - 1), string.Format("{0:n0} ", (((keyCount - 1) * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)));
                             }
                         }
                         else
                         {
-                            LabelResult.Text = String.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, String.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
+                            LabelResult.Text = string.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, string.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
                         }
                     }
                     else
                     {
-                        LabelResult.Text = String.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, String.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
+                        LabelResult.Text = string.Format("Result: {0} {1} - {2} Key - {3} IRT", final.ToString("N"), Settings.Currency.Unit, keyCount, string.Format("{0:n0} ", (keyCount * LoadData.GamingClub.Key)));
                     }
                 }
                 else
                 {
-                    LabelResult.Text = String.Format("Result: {0} {1} - {2} Key", InitialPrice.ToString("N"), Settings.Currency.Unit, keyCount);
+                    LabelResult.Text = string.Format("Result: {0} {1} - {2} Key", InitialPrice.ToString("N"), Settings.Currency.Unit, keyCount);
                 }
             }
         }
@@ -154,7 +154,7 @@ namespace SteamPulse
             }
         }
 
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;

@@ -6,7 +6,7 @@
 //
 // Release Build
 //
-// Version 1.8.0 Revision 1
+// Version 1.8.0 Revision 3
 
 #endregion
 
@@ -35,7 +35,6 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-
         private void ButtonLoad_Click(object sender, EventArgs e)
         {
             if (ComboBoxResult.Text.Contains("-"))
@@ -45,7 +44,6 @@ namespace SteamPulse
                 this.Close();
             }
         }
-
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             try
@@ -87,12 +85,10 @@ namespace SteamPulse
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void Label_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -105,11 +101,10 @@ namespace SteamPulse
         {
             SearchText = TextBoxSearch.Text;
             SearchText = SearchText.Replace(" ", "%20");
-            SearchText = "%" + SearchText + "%";
+            SearchText = "%25" + SearchText + "%25";
             ComboBoxResult.Items.Clear();
             BackgroundWorker.RunWorkerAsync();
         }
-
         private void AppidSearch_Load(object sender, EventArgs e)
         {
             TextBoxSearch.SelectAll();
@@ -122,7 +117,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -149,7 +144,11 @@ namespace SteamPulse
             Label_AppName.BackColor = BackGround;
             Label_AppName.ForeColor = ForeGround;
             PanelMain.BackgroundColor = BackGround;
+        }
 
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = ButtonSearch;
         }
     }
 }

@@ -6,7 +6,7 @@
 //
 // Release Build
 //
-// Version 1.7.1 Revision 3
+// Version 1.7.1 Revision 4
 
 #endregion
 
@@ -32,18 +32,21 @@ namespace SteamPulse
 {
     public partial class Main : Form
     {
-        Boolean DataLoaded = false;
+        //----------------------Variables----------------------//
+        bool DataLoaded = false;
         //string FormulaCaption = "";
         private readonly string AppHash = Hasher("SteamPulse");
         public static string SearchID;
-        private Boolean isowned = false;
+        private bool isowned = false;
         string EditionName;
         public static double EditionPrice;
         double price;
         public static int EditionDiscount;
-        public static Boolean SettingisUpdated = false;
-        public static Boolean DarkMode;
+        public static bool SettingisUpdated = false;
+        public static bool DarkMode;
         bool IsLoading = true;
+
+        //----------------------Moving Form----------------------//
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -56,7 +59,6 @@ namespace SteamPulse
             InitializeComponent();
         }
         private const int CS_DropShadow = 0x00020000;
-
         protected override CreateParams CreateParams
         {
             get
@@ -66,6 +68,7 @@ namespace SteamPulse
                 return cp;
             }
         }
+        //----------------------Loading Region From Settings----------------------//
         public void LoadRegion()
         {
             if (Settings.Currency.Name == "Real")
@@ -103,9 +106,11 @@ namespace SteamPulse
             else { }
 
         }
+
+        //----------------------Run on Form Load----------------------//
         private void Main_Load(object sender, EventArgs e)
         {
-            Boolean MaintenanceMode = Maintenance.MaintenanceMode;
+            bool MaintenanceMode = Maintenance.MaintenanceMode;
             if (MaintenanceMode == true)
             {
                 Label_AppName.Text = "SteamPulse - Maintenance Mode";
@@ -140,6 +145,7 @@ namespace SteamPulse
             IsLoading = false;
 
         }
+        //----------------------Moving Form----------------------//
         private void Main_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -148,6 +154,7 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+        //----------------------Exit Button----------------------//
         private void Button_Exit_Click(object sender, EventArgs e)
         {
             if (BackgroundWorker.IsBusy)
@@ -157,11 +164,13 @@ namespace SteamPulse
 
             this.Close();
         }
+        //----------------------Send Text to Method----------------------//
         private void TextBox_URL_TextChanged(object sender, EventArgs e)
         {
-            TextBox_URL.Text = UrlFixer(TextBox_URL.Text);
+            TextBox_URL.Text = URLtoAppID(TextBox_URL.Text);
             TextBox_URL.ForeColor = Color.Black;
         }
+        //----------------------Editions of Product----------------------//
         private void ComboBox_Editions_SelectedIndexChanged(object sender, EventArgs e)
         {
             PanelStatus.Visible = true;
@@ -267,18 +276,18 @@ namespace SteamPulse
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), String.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.GamingClub.Ticket), (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.GamingClub.Ticket), (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
-                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.GamingClub.Ticket));
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.GamingClub.Ticket));
                                 }
                             }
                             else
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = String.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
@@ -290,7 +299,7 @@ namespace SteamPulse
                         {
                             if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                             {
-                                Label_KeyCount.Text = String.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
+                                Label_KeyCount.Text = string.Format("Ticket Count: {0} ~ {1} {2}", Ticket_rounded, (int)Remaining, Settings.Currency.Unit);
                             }
                             else
                             {
@@ -322,25 +331,25 @@ namespace SteamPulse
                             GetData.GamingClub.Key();
                             if (LoadData.GamingClub.Key != 0)
                             {
-                                if (Settings.DeveloperMode == true &&  Settings.CalculateRemaining == true)
+                                if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                                 {
                                     if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                                     {
                                         if (DownRemaining < LoadData.Market.Ticket.User_Price)
                                         {
-                                            Label_KeyCount.Text = String.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, String.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket), (int)Remaining2, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket), (int)Remaining2, Settings.Currency.Unit);
                                             //FormulaCaption = string.Format("Key = {0} - {1}IRT | Ticket = {2} - {3}IRT => {4} Key({5}) + 1 Ticket({6}) = {7} {10} - {8} IRT ~ Remains {9} {10}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), LoadData.Market.Ticket.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Ticket), KeyRoundedDown, (KeyRoundedDown * LoadData.Market.Key.User_Price), LoadData.Market.Ticket.User_Price, ((KeyRoundedDown * LoadData.Market.Key.User_Price) + LoadData.Market.Ticket.User_Price), String.Format("{0:n0}", ((KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)), (int)Remaining2, Settings.Currency.Unit);
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
                                             //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key)), (int)Remaining, Settings.Currency.Unit);
                                         }
 
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
                                         //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key)), (int)Remaining, Settings.Currency.Unit);
                                     }
                                 }
@@ -350,16 +359,16 @@ namespace SteamPulse
                                     {
                                         if (DownRemaining < LoadData.Market.Ticket.User_Price)
                                         {
-                                            Label_KeyCount.Text = String.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, String.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket));
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket));
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
                                         }
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = String.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
                                     }
                                     //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, KeyRoundedUp * LoadData.Market.Key.User_Price, KeyRoundedUp * LoadData.GamingClub.Key);
                                 }
@@ -371,11 +380,11 @@ namespace SteamPulse
                                 {
                                     if (DownRemaining < LoadData.Market.Ticket.User_Price)
                                     {
-                                        Label_KeyCount.Text = String.Format("Item Count: {0} Key + 1 Ticket ~ {1} {2} ", KeyRoundedDown, (int)Remaining2, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket ~ {1} {2} ", KeyRoundedDown, (int)Remaining2, Settings.Currency.Unit);
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = String.Format("Key Count: {0} - {1} {2}", KeyRoundedUp, (int)Remaining, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} {2}", KeyRoundedUp, (int)Remaining, Settings.Currency.Unit);
                                     }
                                 }
                                 else
@@ -388,7 +397,7 @@ namespace SteamPulse
                         {
                             if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                             {
-                                Label_KeyCount.Text = String.Format("Key Count: {0} - {1} {2}", KeyRoundedUp, (int)Remaining, Settings.Currency.Unit);
+                                Label_KeyCount.Text = string.Format("Key Count: {0} - {1} {2}", KeyRoundedUp, (int)Remaining, Settings.Currency.Unit);
                             }
                             else
                             {
@@ -417,6 +426,7 @@ namespace SteamPulse
             }
             PanelStatus.Visible = false;
         }
+        //----------------------Check for Update----------------------//
         private void MainUpdateChecker()
         {
             try
@@ -442,7 +452,7 @@ namespace SteamPulse
                                 var BetaVersion = new Version(node["BetaVersion"].InnerText);
                                 string BetaDate_XML = node["BetaDate"].InnerText;
                                 string BetaURL_XML = node["BetaURL"].InnerText;
-                                Boolean Beta = Convert.ToBoolean(node["Beta"].InnerText);
+                                bool Beta = Convert.ToBoolean(node["Beta"].InnerText);
                                 var BetaResult = AppVersion.CompareTo(BetaVersion);
                                 if (Beta == true)
                                 {
@@ -454,7 +464,7 @@ namespace SteamPulse
                                     }
                                     else if (BetaResult > 0)
                                     {
-                                        Boolean MaintenanceMode = Maintenance.MaintenanceMode;
+                                        bool MaintenanceMode = Maintenance.MaintenanceMode;
                                         if (MaintenanceMode == true)
                                         {
                                             Label_AppName.Text = "SteamPulse Beta - Maintenance Mode";
@@ -475,7 +485,7 @@ namespace SteamPulse
                                     }
                                     else if (result > 0)
                                     {
-                                        Boolean MaintenanceMode = Maintenance.MaintenanceMode;
+                                        bool MaintenanceMode = Maintenance.MaintenanceMode;
                                         if (MaintenanceMode == true)
                                         {
                                             Label_AppName.Text = "SteamPulse Beta - Maintenance Mode";
@@ -497,7 +507,7 @@ namespace SteamPulse
                                 }
                                 else if (result > 0)
                                 {
-                                    Boolean MaintenanceMode = Maintenance.MaintenanceMode;
+                                    bool MaintenanceMode = Maintenance.MaintenanceMode;
                                     if (MaintenanceMode == true)
                                     {
                                         Label_AppName.Text = "SteamPulse Beta - Maintenance Mode";
@@ -516,7 +526,7 @@ namespace SteamPulse
             }
             catch { }
         }
-        private string UrlFixer(string value)
+        private string URLtoAppID(string value)
         {
             if (TextBox_URL.Text.Length > 8)
             {
@@ -592,7 +602,7 @@ namespace SteamPulse
                             {
                                 if (LoadData.Store.IsComingSoon == true && LoadData.Store.Price.AvailabletoPurchase == true)
                                 {
-                                    Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = String.Format("Name: {0} (Pre-Order)", LoadData.Store.Name)));
+                                    Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = string.Format("Name: {0} (Pre-Order)", LoadData.Store.Name)));
                                 }
                                 else
                                 {
@@ -614,7 +624,7 @@ namespace SteamPulse
                             if (LoadData.Store.DLC.Count != 0)
                             {
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Hand));
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = String.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
+                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = string.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
                             }
                             else
                             {
@@ -678,7 +688,7 @@ namespace SteamPulse
 
                                         output = output.Replace(LoadData.Store.Name, "");
                                         output = output.Replace(":", "");
-                                        String EditionName = Regex.Replace(output, @"[\d]", string.Empty);
+                                        string EditionName = Regex.Replace(output, @"[\d]", string.Empty);
                                         EditionName = EditionName.Replace(".,", "");
                                         EditionName = EditionName.Replace("ARS$", "");
                                         EditionName = EditionName.Replace(".", "");
@@ -716,7 +726,7 @@ namespace SteamPulse
                                         EditionPrice /= 100;
                                         output = output.Replace(LoadData.Store.Name, "");
                                         output = output.Replace(":", "");
-                                        String EditionName = Regex.Replace(output, @"[\d]", string.Empty);
+                                        string EditionName = Regex.Replace(output, @"[\d]", string.Empty);
                                         EditionName = EditionName.Replace(".,", "");
                                         EditionName = EditionName.Replace("ARS$", "");
                                         EditionName = EditionName.Replace(".", "");
@@ -787,7 +797,7 @@ namespace SteamPulse
                             if (LoadData.Store.DLC.Count != 0)
                             {
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Hand));
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = String.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
+                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = string.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
                             }
                             else
                             {
@@ -834,12 +844,12 @@ namespace SteamPulse
                                         string dataRemover = JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].option_text").ToString();
                                         string Temp = dataRemover.Replace("<span class=\"discount_original_price\">", "");
                                         string output = Temp.Replace("</span>", "");
-                                        Double EditionPrice = Convert.ToDouble(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
+                                        double EditionPrice = Convert.ToDouble(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
                                         EditionPrice /= 100;
                                         output = output.Replace(LoadData.Store.Name.ToString(), "");
                                         output = output.Replace(":", "");
 
-                                        String EditionName = Regex.Replace(output, @"[\d]", string.Empty);
+                                        string EditionName = Regex.Replace(output, @"[\d]", string.Empty);
                                         EditionName = EditionName.Replace(".,", "");
                                         EditionName = EditionName.Replace(",.", "");
                                         EditionName = EditionName.Replace("ARS$", "");
@@ -954,8 +964,16 @@ namespace SteamPulse
         }
         private void OpenDetails_Click(object sender, EventArgs e)
         {
-            Form GameDetails = new GameDetails();
-            GameDetails.ShowDialog();
+            if (LoadData.Store.Type == "game")
+            {
+                Form GameDetails = new GameDetails();
+                GameDetails.ShowDialog();
+            }
+            else
+            {
+                Form DlcDetails = new DlcDetails();
+                DlcDetails.ShowDialog();
+            }
         }
         private void TextBox_URL_Click(object sender, EventArgs e)
         {
@@ -1045,7 +1063,7 @@ namespace SteamPulse
                 ButtonLoad.PerformClick();
             }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -1234,7 +1252,7 @@ namespace SteamPulse
             }
             else
             {
-                DialogResult result = MessageBox.Show("SteamPulse is Loading Another Proccess.\nCancel previuos Request?", "SteamPulse Is Busy", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                DialogResult result = MessageBox.Show("SteamPulse is Loading Another Proccess.\nCancel Request?", "SteamPulse Is Busy", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (result == DialogResult.Yes)
                 {
                     BackgroundWorker.CancelAsync();
@@ -1295,7 +1313,7 @@ namespace SteamPulse
     public class Logger
     {
         private static readonly string LogPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\CodeMage\SteamPulse.Log";
-        internal static Boolean CheckExist()
+        internal static bool CheckExist()
         {
             if (File.Exists(LogPath))
             {
@@ -1331,10 +1349,10 @@ namespace SteamPulse
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
                     Logger.Write(Environment.NewLine + "*********************** - System Hardware Information - ***********************" + Environment.NewLine);
-                    Logger.Write(String.Format("*********************** - CPU: {0}", GetHardwareInformation.CPU.Model()) + Environment.NewLine);
-                    Logger.Write(String.Format("*********************** - GPU: {0}", GetHardwareInformation.GPU.Model()) + Environment.NewLine);
-                    Logger.Write(String.Format("*********************** - Ram: {0}GB", GetHardwareInformation.Ram.Size()) + Environment.NewLine);
-                    Logger.Write(String.Format("*********************** - OS:  {0}", GetHardwareInformation.OS.Name()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - CPU: {0}", GetHardwareInformation.CPU.Model()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - GPU: {0}", GetHardwareInformation.GPU.Model()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - Ram: {0}GB", GetHardwareInformation.Ram.Size()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - OS:  {0}", GetHardwareInformation.OS.Name()) + Environment.NewLine);
                     Logger.Write("*********************** - System Hardware Information - ***********************" + Environment.NewLine);
                     Logger.Write("" + Environment.NewLine);
                 }
@@ -1415,14 +1433,14 @@ namespace SteamPulse
                 {
                     using (StreamWriter Logger = File.AppendText(LogPath))
                     {
-                        Logger.Write(String.Format("{0} - [Setting] Logined to Steam(ID: {1})", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), ID) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - [Setting] Logined to Steam(ID: {1})", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), ID) + Environment.NewLine);
                     }
                 }
                 else
                 {
                     using (StreamWriter Logger = File.AppendText(LogPath))
                     {
-                        Logger.Write(String.Format("{0} - [Setting] Logouted from Steam", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - [Setting] Logouted from Steam", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
                     }
                 }
             }
@@ -1437,7 +1455,7 @@ namespace SteamPulse
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(String.Format("{0} - [System] SteamPulse Upgraded to Version: {1}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Application.ProductVersion) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [System] SteamPulse Upgraded to Version: {1}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Application.ProductVersion) + Environment.NewLine);
                 }
             }
         }
@@ -1447,12 +1465,12 @@ namespace SteamPulse
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(String.Format("{0} - [System] SteamPulse Opened in Maintenance Mode", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [System] SteamPulse Opened in Maintenance Mode", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
                 }
             }
         }
 
-        public static void LogDeveloper(Boolean status)
+        public static void LogDeveloper(bool status)
         {
             if (CheckExist() == true)
             {
@@ -1460,14 +1478,14 @@ namespace SteamPulse
                 {
                     using (StreamWriter Logger = File.AppendText(LogPath))
                     {
-                        Logger.Write(String.Format("{0} - Developer Mode Enabled.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - Developer Mode Enabled.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
                     }
                 }
                 else
                 {
                     using (StreamWriter Logger = File.AppendText(LogPath))
                     {
-                        Logger.Write(String.Format("{0} - Developer Mode Disabled.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - Developer Mode Disabled.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
                     }
                 }
             }
@@ -1478,7 +1496,7 @@ namespace SteamPulse
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(String.Format("{0} - [Setting] Settings Updated('{1}' Changed to '{2}')", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), SettingName, status) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [Setting] Settings Updated('{1}' Changed to '{2}')", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), SettingName, status) + Environment.NewLine);
                 }
             }
             else
@@ -1492,7 +1510,7 @@ namespace SteamPulse
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(String.Format("{0} - [Developer Settings] Settings Updated('{1}' Changed to '{2}')", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), SettingName, status) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [Developer Settings] Settings Updated('{1}' Changed to '{2}')", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), SettingName, status) + Environment.NewLine);
                 }
             }
             else
@@ -1506,7 +1524,7 @@ namespace SteamPulse
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(String.Format("{0} - [Setting] Settings Reseted.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [Setting] Settings Reseted.", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss")) + Environment.NewLine);
                 }
             }
             else
@@ -1519,50 +1537,32 @@ namespace SteamPulse
     {
         public struct Names
         {
-            public static string MSFS { get { return "Microsoft Loading Simulator"; } }
+            public static string MSFS => "Microsoft Loading Simulator";
         }
         public struct Images
         {
             public struct Header
             {
-                public static string MSFS { get { return "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/header.jpg"; } }
+                public static string MSFS => "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/header.jpg";
             }
             public struct Hero
             {
-                public static string MSFS { get { return "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/library.jpg"; } }
+                public static string MSFS => "https://cdn.codemage.ir/Projects/SteamPulse/Resource/MSFS/library.jpg";
             }
         }
         public struct Colors
         {
             public struct Light
             {
-                public static Color NileBlue
-                {
-                    get { return Color.FromArgb(24, 49, 83); }
-                }
-                public static Color White
-                {
-                    get { return Color.FromArgb(255, 255, 255); }
-                }
-                public static Color AthenGray
-                {
-                    get { return Color.FromArgb(241, 240, 245); }
-                }
+                public static Color NileBlue => Color.FromArgb(24, 49, 83);
+                public static Color White => Color.FromArgb(255, 255, 255);
+                public static Color AthenGray => Color.FromArgb(241, 240, 245);
             }
             public struct Dark
             {
-                public static Color White
-                {
-                    get { return Color.FromArgb(255, 255, 255); }
-                }
-                public static Color NileBlue
-                {
-                    get { return Color.FromArgb(24, 49, 83); }
-                }
-                public static Color Cello
-                {
-                    get { return Color.FromArgb(33, 63, 105); }
-                }
+                public static Color White => Color.FromArgb(255, 255, 255);
+                public static Color NileBlue => Color.FromArgb(24, 49, 83);
+                public static Color Cello => Color.FromArgb(33, 63, 105);
             }
         }
     }

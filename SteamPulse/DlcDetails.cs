@@ -1,13 +1,12 @@
 ﻿#region Copyright (c) Amirhosein Davatgari. All rights reserved.
 //
-// Project SteamPulse
+// C# Steam API
 //
 // https://Amirhoseindavat.ir
 //
-// Release Build
+// Beta Build
 //
-// Version 1.5.0 Revision 6
-
+// Version 1.9
 #endregion
 
 using SteamAPI;
@@ -19,7 +18,7 @@ using System.Windows.Forms;
 
 namespace SteamPulse
 {
-    public partial class GameDetails : Form
+    public partial class DlcDetails : Form
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -30,7 +29,7 @@ namespace SteamPulse
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-        public GameDetails()
+        public DlcDetails()
         {
             InitializeComponent();
         }
@@ -48,8 +47,6 @@ namespace SteamPulse
         }
         private void In_Game_Load(object sender, EventArgs e)
         {
-
-
             DarkMode = Settings.DarkMode;
             if (DarkMode == true)
             {
@@ -62,38 +59,21 @@ namespace SteamPulse
 
             GetData.ConnectToSteam.Store();
 
-
-            //label.Text = string.Format("{0} -{1}%", LoadData.Store.Name(), LoadData.Store.Price.Discount_Percent());
             try
             {
-                if (GetData.Appid == 1250410)
-                {
-                    PictureBox.Load(GlobalVariables.Images.Hero.MSFS);
-                }
-                else
-                {
-                    PictureBox.Load(LoadData.Store.LibraryImage);
-                }
+                PictureBox.Load(LoadData.Store.LibraryImage);
             }
             catch
             {
-                if (GetData.Appid == 1250410)
-                {
-                    PictureBox.Load(LoadData.Store.LibraryImage);
-                }
-                else
-                {
-                    PictureBox.Load(LoadData.Store.HeaderImage);
-                }
+                PictureBox.Load(LoadData.Store.HeaderImage);
             }
-            if (GetData.Appid == 1250410)
-            {
-                LabelName.Text = GlobalVariables.Names.MSFS;
-            }
-            else
-            {
-                LabelName.Text = LoadData.Store.Name;
-            }
+            GetData.DLCID = GetData.Appid;
+
+            LabelName.Text = String.Format("Name: {0}", LoadData.Store.DLC.Data.Name);
+
+            LabelGameName.Text = String.Format("Game: {0}", LoadData.Store.DLC.Data.OrigialGamename);          
+
+            isowned = LoadData.Community.Isowned(LoadData.Store.DLC.Data.OrigialGameID);
 
             if (LoadData.Store.IsComingSoon == true)
             {
@@ -153,67 +133,10 @@ namespace SteamPulse
                 }
 
             }
-            if (LoadData.Store.IsComingSoon == true)
-            {
-                LabelCount.Text = "Player Count: Not Released";
-            }
-            else
-            {
-                LabelCount.Text = String.Format("Player Count: {0}", String.Format("{0:n0} ", LoadData.Store.PlayerCount));
-            }
 
             LabelDev.Text = String.Format("Developers: {0}", LoadData.Store.Developers);
             LabelPublisher.Text = String.Format("Publisher: {0}", LoadData.Store.Publishers);
             GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
-            if (Settings.CheckOwned == true)
-            {
-                if (LoadData.Community.Isowned(GetData.Appid) == true)
-                {
-                    LabelOwned.Text = "Owned";
-                    isowned = true;
-                    if (LoadData.Community.Playtime(GetData.Appid) == 0)
-                    {
-                        if (LoadData.Store.IsComingSoon == true)
-                        {
-                            //LabelPlayTime.Text = "Playtime: Not Released";
-                            LabelPlayTime.Visible = false;
-                            LabelName.Location = new Point(237, 69);
-                        }
-                        else
-                        {
-                            LabelPlayTime.Text = "Playtime: Not Played";
-                        }
-                    }
-                    else
-                    {
-                        if (LoadData.Community.Playtime(GetData.Appid) < 120)
-                        {
-                            LabelPlayTime.Text = String.Format("Playtime: {0} Minutes", LoadData.Community.Playtime(GetData.Appid));
-                        }
-                        else
-                        {
-                            LabelPlayTime.Text = String.Format("Playtime: {0} Hours", String.Format("{0:n0}", LoadData.Community.Playtime(GetData.Appid) / 60));
-                        }
-                    }
-                }
-                else
-                {
-                    LabelOwned.Text = "Not Owned";
-                    PictureBoxOwned.Image = Properties.Resources.xmark_solid;
-                    LabelPlayTime.Visible = false;
-                    LabelName.Location = new Point(237, 69);
-                }
-
-            }
-            else
-            {
-                LabelOwned.Visible = false;
-                LabelPlayTime.Visible = false;
-                LabelName.Location = new Point(237, 69);
-                Panel.Size = new Size(746, 344);
-                this.Size = new Size(776, 407);
-                PictureBoxOwned.Visible = false;
-            }
 
         }
         private void Label_Exit_Click(object sender, EventArgs e)
@@ -224,7 +147,7 @@ namespace SteamPulse
         {
             if (isowned == true)
             {
-                Process.Start("steam://nav/games/details/" + GetData.Appid);
+                Process.Start("steam://nav/games/details/" + LoadData.Store.DLC.Data.OrigialGameID);
             }
             else
             {
@@ -251,7 +174,6 @@ namespace SteamPulse
                 OpenPCGWIcon.Image = Properties.Resources.OpenExternal;
                 OpenSteamDBIcon.Image = Properties.Resources.OpenExternal;
                 OpenSteamIcon.Image = Properties.Resources.OpenExternal;
-
             }
             else
             {
@@ -266,18 +188,15 @@ namespace SteamPulse
             Label_AppName.BackColor = BackGround;
             Label_AppName.ForeColor = ForeGround;
             Panel.BackgroundColor = BackGround;
-            LabelCount.ForeColor = ForeGround;
             LabelDev.ForeColor = ForeGround;
             LabelName.ForeColor = ForeGround;
-            LabelOwned.ForeColor = ForeGround;
-            LabelPlayTime.ForeColor = ForeGround;
+            LabelGameName.ForeColor = ForeGround;
             LabelPublisher.ForeColor = ForeGround;
             LabelRelease.ForeColor = ForeGround;
             bunifuSeparator1.LineColor = ForeGround;
             OpenSteam.ForeColor = ForeGround;
             OpenSteamDB.ForeColor = ForeGround;
             OpenPCGW.ForeColor = ForeGround;
-
 
         }
 

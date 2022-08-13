@@ -290,6 +290,12 @@
     <Compile Include="DLCBrowser.Designer.cs">
       <DependentUpon>DLCBrowser.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlcDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlcDetails.Designer.cs">
+      <DependentUpon>DlcDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DLCBrowser.resx">
       <DependentUpon>DLCBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlcDetails.resx">
+      <DependentUpon>DlcDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameDetails.resx">
       <DependentUpon>GameDetails.cs</DependentUpon>

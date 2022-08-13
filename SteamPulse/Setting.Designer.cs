@@ -30,32 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState7 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState8 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState9 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState10 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState11 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState12 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState13 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState14 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState15 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState16 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState17 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState18 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState37 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState38 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState39 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState40 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState41 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState42 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState43 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState44 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState45 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState46 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState47 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState48 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState49 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState50 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState51 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState52 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState53 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState54 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ToolTip = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
             this.ButtonLogin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.PanelDeveloper = new Bunifu.UI.WinForms.BunifuPanel();
             this.LabelDeveloper = new Bunifu.UI.WinForms.BunifuLabel();
@@ -95,10 +94,12 @@
             this.UserInfoGames = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoName = new System.Windows.Forms.Label();
             this.UserInfoProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.onlineStatus = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.ButtonExit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LabelHeader = new Bunifu.UI.WinForms.BunifuLabel();
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.PanelDeveloper.SuspendLayout();
             this.PanelDarkMode.SuspendLayout();
             this.PanelStarting.SuspendLayout();
@@ -120,41 +121,6 @@
             this.bunifuElipse.ElipseRadius = 20;
             this.bunifuElipse.TargetControl = this;
             // 
-            // ToolTip
-            // 
-            this.ToolTip.Active = true;
-            this.ToolTip.AlignTextWithTitle = false;
-            this.ToolTip.AllowAutoClose = false;
-            this.ToolTip.AllowFading = true;
-            this.ToolTip.AutoCloseDuration = 5000;
-            this.ToolTip.BackColor = System.Drawing.SystemColors.Control;
-            this.ToolTip.BorderColor = System.Drawing.Color.Gainsboro;
-            this.ToolTip.ClickToShowDisplayControl = false;
-            this.ToolTip.ConvertNewlinesToBreakTags = true;
-            this.ToolTip.DisplayControl = null;
-            this.ToolTip.EntryAnimationSpeed = 350;
-            this.ToolTip.ExitAnimationSpeed = 200;
-            this.ToolTip.GenerateAutoCloseDuration = false;
-            this.ToolTip.IconMargin = 6;
-            this.ToolTip.InitialDelay = 0;
-            this.ToolTip.Name = "ToolTip";
-            this.ToolTip.Opacity = 1D;
-            this.ToolTip.OverrideToolTipTitles = false;
-            this.ToolTip.Padding = new System.Windows.Forms.Padding(10);
-            this.ToolTip.ReshowDelay = 100;
-            this.ToolTip.ShowAlways = true;
-            this.ToolTip.ShowBorders = false;
-            this.ToolTip.ShowIcons = true;
-            this.ToolTip.ShowShadows = true;
-            this.ToolTip.Tag = null;
-            this.ToolTip.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            this.ToolTip.TextForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ToolTip.TextMargin = 2;
-            this.ToolTip.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.ToolTip.TitleForeColor = System.Drawing.Color.Black;
-            this.ToolTip.ToolTipPosition = new System.Drawing.Point(0, 0);
-            this.ToolTip.ToolTipTitle = null;
-            // 
             // ButtonLogin
             // 
             this.ButtonLogin.AllowAnimations = true;
@@ -174,11 +140,11 @@
             this.ButtonLogin.ColorContrastOnClick = 45;
             this.ButtonLogin.ColorContrastOnHover = 45;
             this.ButtonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.ButtonLogin.CustomizableEdges = borderEdges1;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.ButtonLogin.CustomizableEdges = borderEdges5;
             this.ButtonLogin.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ButtonLogin.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ButtonLogin.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -242,14 +208,13 @@
             this.ButtonLogin.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.ButtonLogin.TextMarginLeft = 0;
             this.ButtonLogin.TextPadding = new System.Windows.Forms.Padding(0);
-            this.ToolTip.SetToolTip(this.ButtonLogin, "");
-            this.ToolTip.SetToolTipIcon(this.ButtonLogin, null);
-            this.ToolTip.SetToolTipTitle(this.ButtonLogin, "");
             this.ButtonLogin.UseDefaultRadiusAndThickness = true;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // PanelDeveloper
             // 
+            this.PanelDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelDeveloper.BackgroundColor = System.Drawing.Color.White;
             this.PanelDeveloper.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelDeveloper.BackgroundImage")));
             this.PanelDeveloper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -258,14 +223,11 @@
             this.PanelDeveloper.BorderThickness = 1;
             this.PanelDeveloper.Controls.Add(this.LabelDeveloper);
             this.PanelDeveloper.Controls.Add(this.ToggleDeveloper);
-            this.PanelDeveloper.Location = new System.Drawing.Point(12, 530);
+            this.PanelDeveloper.Location = new System.Drawing.Point(12, 529);
             this.PanelDeveloper.Name = "PanelDeveloper";
             this.PanelDeveloper.ShowBorders = true;
             this.PanelDeveloper.Size = new System.Drawing.Size(378, 50);
             this.PanelDeveloper.TabIndex = 9;
-            this.ToolTip.SetToolTip(this.PanelDeveloper, "");
-            this.ToolTip.SetToolTipIcon(this.PanelDeveloper, null);
-            this.ToolTip.SetToolTipTitle(this.PanelDeveloper, "");
             // 
             // LabelDeveloper
             // 
@@ -282,9 +244,6 @@
             this.LabelDeveloper.Text = "Developer Mode";
             this.LabelDeveloper.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelDeveloper.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelDeveloper, "");
-            this.ToolTip.SetToolTipIcon(this.LabelDeveloper, null);
-            this.ToolTip.SetToolTipTitle(this.LabelDeveloper, "");
             // 
             // ToggleDeveloper
             // 
@@ -299,41 +258,40 @@
             this.ToggleDeveloper.Size = new System.Drawing.Size(32, 18);
             this.ToggleDeveloper.TabIndex = 4;
             this.ToggleDeveloper.ThumbMargin = 3;
-            toggleState1.BackColor = System.Drawing.Color.DarkGray;
-            toggleState1.BackColorInner = System.Drawing.Color.White;
-            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState1.BorderColorInner = System.Drawing.Color.White;
-            toggleState1.BorderRadius = 17;
-            toggleState1.BorderRadiusInner = 11;
-            toggleState1.BorderThickness = 1;
-            toggleState1.BorderThicknessInner = 1;
-            this.ToggleDeveloper.ToggleStateDisabled = toggleState1;
-            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BackColorInner = System.Drawing.Color.White;
-            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BorderColorInner = System.Drawing.Color.White;
-            toggleState2.BorderRadius = 17;
-            toggleState2.BorderRadiusInner = 11;
-            toggleState2.BorderThickness = 1;
-            toggleState2.BorderThicknessInner = 1;
-            this.ToggleDeveloper.ToggleStateOff = toggleState2;
-            toggleState3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState3.BackColorInner = System.Drawing.Color.White;
-            toggleState3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState3.BorderColorInner = System.Drawing.Color.White;
-            toggleState3.BorderRadius = 17;
-            toggleState3.BorderRadiusInner = 11;
-            toggleState3.BorderThickness = 1;
-            toggleState3.BorderThicknessInner = 1;
-            this.ToggleDeveloper.ToggleStateOn = toggleState3;
-            this.ToolTip.SetToolTip(this.ToggleDeveloper, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleDeveloper, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleDeveloper, "");
+            toggleState37.BackColor = System.Drawing.Color.DarkGray;
+            toggleState37.BackColorInner = System.Drawing.Color.White;
+            toggleState37.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState37.BorderColorInner = System.Drawing.Color.White;
+            toggleState37.BorderRadius = 17;
+            toggleState37.BorderRadiusInner = 11;
+            toggleState37.BorderThickness = 1;
+            toggleState37.BorderThicknessInner = 1;
+            this.ToggleDeveloper.ToggleStateDisabled = toggleState37;
+            toggleState38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState38.BackColorInner = System.Drawing.Color.White;
+            toggleState38.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState38.BorderColorInner = System.Drawing.Color.White;
+            toggleState38.BorderRadius = 17;
+            toggleState38.BorderRadiusInner = 11;
+            toggleState38.BorderThickness = 1;
+            toggleState38.BorderThicknessInner = 1;
+            this.ToggleDeveloper.ToggleStateOff = toggleState38;
+            toggleState39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState39.BackColorInner = System.Drawing.Color.White;
+            toggleState39.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState39.BorderColorInner = System.Drawing.Color.White;
+            toggleState39.BorderRadius = 17;
+            toggleState39.BorderRadiusInner = 11;
+            toggleState39.BorderThickness = 1;
+            toggleState39.BorderThicknessInner = 1;
+            this.ToggleDeveloper.ToggleStateOn = toggleState39;
             this.ToggleDeveloper.Value = false;
             this.ToggleDeveloper.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleDeveloper_CheckedChanged);
             // 
             // PanelDarkMode
             // 
+            this.PanelDarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelDarkMode.BackgroundColor = System.Drawing.Color.White;
             this.PanelDarkMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelDarkMode.BackgroundImage")));
             this.PanelDarkMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -342,14 +300,11 @@
             this.PanelDarkMode.BorderThickness = 1;
             this.PanelDarkMode.Controls.Add(this.LabelDarkMode);
             this.PanelDarkMode.Controls.Add(this.ToggleDarkMode);
-            this.PanelDarkMode.Location = new System.Drawing.Point(12, 470);
+            this.PanelDarkMode.Location = new System.Drawing.Point(12, 469);
             this.PanelDarkMode.Name = "PanelDarkMode";
             this.PanelDarkMode.ShowBorders = true;
             this.PanelDarkMode.Size = new System.Drawing.Size(378, 50);
             this.PanelDarkMode.TabIndex = 9;
-            this.ToolTip.SetToolTip(this.PanelDarkMode, "");
-            this.ToolTip.SetToolTipIcon(this.PanelDarkMode, null);
-            this.ToolTip.SetToolTipTitle(this.PanelDarkMode, "");
             // 
             // LabelDarkMode
             // 
@@ -366,9 +321,6 @@
             this.LabelDarkMode.Text = "Dark Mode";
             this.LabelDarkMode.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelDarkMode.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelDarkMode, "");
-            this.ToolTip.SetToolTipIcon(this.LabelDarkMode, null);
-            this.ToolTip.SetToolTipTitle(this.LabelDarkMode, "");
             // 
             // ToggleDarkMode
             // 
@@ -383,41 +335,40 @@
             this.ToggleDarkMode.Size = new System.Drawing.Size(32, 18);
             this.ToggleDarkMode.TabIndex = 4;
             this.ToggleDarkMode.ThumbMargin = 3;
-            toggleState4.BackColor = System.Drawing.Color.DarkGray;
-            toggleState4.BackColorInner = System.Drawing.Color.White;
-            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState4.BorderColorInner = System.Drawing.Color.White;
-            toggleState4.BorderRadius = 17;
-            toggleState4.BorderRadiusInner = 11;
-            toggleState4.BorderThickness = 1;
-            toggleState4.BorderThicknessInner = 1;
-            this.ToggleDarkMode.ToggleStateDisabled = toggleState4;
-            toggleState5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BackColorInner = System.Drawing.Color.White;
-            toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BorderColorInner = System.Drawing.Color.White;
-            toggleState5.BorderRadius = 17;
-            toggleState5.BorderRadiusInner = 11;
-            toggleState5.BorderThickness = 1;
-            toggleState5.BorderThicknessInner = 1;
-            this.ToggleDarkMode.ToggleStateOff = toggleState5;
-            toggleState6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState6.BackColorInner = System.Drawing.Color.White;
-            toggleState6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState6.BorderColorInner = System.Drawing.Color.White;
-            toggleState6.BorderRadius = 17;
-            toggleState6.BorderRadiusInner = 11;
-            toggleState6.BorderThickness = 1;
-            toggleState6.BorderThicknessInner = 1;
-            this.ToggleDarkMode.ToggleStateOn = toggleState6;
-            this.ToolTip.SetToolTip(this.ToggleDarkMode, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleDarkMode, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleDarkMode, "");
+            toggleState40.BackColor = System.Drawing.Color.DarkGray;
+            toggleState40.BackColorInner = System.Drawing.Color.White;
+            toggleState40.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState40.BorderColorInner = System.Drawing.Color.White;
+            toggleState40.BorderRadius = 17;
+            toggleState40.BorderRadiusInner = 11;
+            toggleState40.BorderThickness = 1;
+            toggleState40.BorderThicknessInner = 1;
+            this.ToggleDarkMode.ToggleStateDisabled = toggleState40;
+            toggleState41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState41.BackColorInner = System.Drawing.Color.White;
+            toggleState41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState41.BorderColorInner = System.Drawing.Color.White;
+            toggleState41.BorderRadius = 17;
+            toggleState41.BorderRadiusInner = 11;
+            toggleState41.BorderThickness = 1;
+            toggleState41.BorderThicknessInner = 1;
+            this.ToggleDarkMode.ToggleStateOff = toggleState41;
+            toggleState42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState42.BackColorInner = System.Drawing.Color.White;
+            toggleState42.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState42.BorderColorInner = System.Drawing.Color.White;
+            toggleState42.BorderRadius = 17;
+            toggleState42.BorderRadiusInner = 11;
+            toggleState42.BorderThickness = 1;
+            toggleState42.BorderThicknessInner = 1;
+            this.ToggleDarkMode.ToggleStateOn = toggleState42;
             this.ToggleDarkMode.Value = false;
             this.ToggleDarkMode.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleDarkMode_CheckedChanged);
             // 
             // PanelStarting
             // 
+            this.PanelStarting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelStarting.BackgroundColor = System.Drawing.Color.White;
             this.PanelStarting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelStarting.BackgroundImage")));
             this.PanelStarting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -426,14 +377,11 @@
             this.PanelStarting.BorderThickness = 1;
             this.PanelStarting.Controls.Add(this.DropDownStarting);
             this.PanelStarting.Controls.Add(this.LabelStarting);
-            this.PanelStarting.Location = new System.Drawing.Point(12, 290);
+            this.PanelStarting.Location = new System.Drawing.Point(12, 289);
             this.PanelStarting.Name = "PanelStarting";
             this.PanelStarting.ShowBorders = true;
             this.PanelStarting.Size = new System.Drawing.Size(378, 50);
             this.PanelStarting.TabIndex = 8;
-            this.ToolTip.SetToolTip(this.PanelStarting, "");
-            this.ToolTip.SetToolTipIcon(this.PanelStarting, null);
-            this.ToolTip.SetToolTipTitle(this.PanelStarting, "");
             // 
             // DropDownStarting
             // 
@@ -481,9 +429,6 @@
             this.DropDownStarting.Text = null;
             this.DropDownStarting.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.DropDownStarting.TextLeftMargin = 5;
-            this.ToolTip.SetToolTip(this.DropDownStarting, "");
-            this.ToolTip.SetToolTipIcon(this.DropDownStarting, null);
-            this.ToolTip.SetToolTipTitle(this.DropDownStarting, "");
             this.DropDownStarting.SelectedIndexChanged += new System.EventHandler(this.DropDownStarting_SelectedIndexChanged);
             // 
             // LabelStarting
@@ -496,17 +441,16 @@
             this.LabelStarting.Location = new System.Drawing.Point(15, 11);
             this.LabelStarting.Name = "LabelStarting";
             this.LabelStarting.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LabelStarting.Size = new System.Drawing.Size(176, 30);
+            this.LabelStarting.Size = new System.Drawing.Size(120, 30);
             this.LabelStarting.TabIndex = 5;
-            this.LabelStarting.Text = "Set as Starting Page";
+            this.LabelStarting.Text = "Starting Page";
             this.LabelStarting.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelStarting.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelStarting, "");
-            this.ToolTip.SetToolTipIcon(this.LabelStarting, null);
-            this.ToolTip.SetToolTipTitle(this.LabelStarting, "");
             // 
             // PanelBeta
             // 
+            this.PanelBeta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelBeta.BackgroundColor = System.Drawing.Color.White;
             this.PanelBeta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelBeta.BackgroundImage")));
             this.PanelBeta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -515,14 +459,11 @@
             this.PanelBeta.BorderThickness = 1;
             this.PanelBeta.Controls.Add(this.LabelBeta);
             this.PanelBeta.Controls.Add(this.ToggleBeta);
-            this.PanelBeta.Location = new System.Drawing.Point(12, 650);
+            this.PanelBeta.Location = new System.Drawing.Point(12, 649);
             this.PanelBeta.Name = "PanelBeta";
             this.PanelBeta.ShowBorders = true;
             this.PanelBeta.Size = new System.Drawing.Size(378, 50);
             this.PanelBeta.TabIndex = 9;
-            this.ToolTip.SetToolTip(this.PanelBeta, "");
-            this.ToolTip.SetToolTipIcon(this.PanelBeta, null);
-            this.ToolTip.SetToolTipTitle(this.PanelBeta, "");
             // 
             // LabelBeta
             // 
@@ -539,9 +480,6 @@
             this.LabelBeta.Text = "Install Beta Version";
             this.LabelBeta.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelBeta.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelBeta, "");
-            this.ToolTip.SetToolTipIcon(this.LabelBeta, null);
-            this.ToolTip.SetToolTipTitle(this.LabelBeta, "");
             // 
             // ToggleBeta
             // 
@@ -556,41 +494,40 @@
             this.ToggleBeta.Size = new System.Drawing.Size(32, 18);
             this.ToggleBeta.TabIndex = 4;
             this.ToggleBeta.ThumbMargin = 3;
-            toggleState7.BackColor = System.Drawing.Color.Gray;
-            toggleState7.BackColorInner = System.Drawing.Color.White;
-            toggleState7.BorderColor = System.Drawing.Color.Gray;
-            toggleState7.BorderColorInner = System.Drawing.Color.White;
-            toggleState7.BorderRadius = 17;
-            toggleState7.BorderRadiusInner = 11;
-            toggleState7.BorderThickness = 1;
-            toggleState7.BorderThicknessInner = 1;
-            this.ToggleBeta.ToggleStateDisabled = toggleState7;
-            toggleState8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState8.BackColorInner = System.Drawing.Color.White;
-            toggleState8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState8.BorderColorInner = System.Drawing.Color.White;
-            toggleState8.BorderRadius = 17;
-            toggleState8.BorderRadiusInner = 11;
-            toggleState8.BorderThickness = 1;
-            toggleState8.BorderThicknessInner = 1;
-            this.ToggleBeta.ToggleStateOff = toggleState8;
-            toggleState9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState9.BackColorInner = System.Drawing.Color.White;
-            toggleState9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState9.BorderColorInner = System.Drawing.Color.White;
-            toggleState9.BorderRadius = 17;
-            toggleState9.BorderRadiusInner = 11;
-            toggleState9.BorderThickness = 1;
-            toggleState9.BorderThicknessInner = 1;
-            this.ToggleBeta.ToggleStateOn = toggleState9;
-            this.ToolTip.SetToolTip(this.ToggleBeta, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleBeta, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleBeta, "");
+            toggleState43.BackColor = System.Drawing.Color.Gray;
+            toggleState43.BackColorInner = System.Drawing.Color.White;
+            toggleState43.BorderColor = System.Drawing.Color.Gray;
+            toggleState43.BorderColorInner = System.Drawing.Color.White;
+            toggleState43.BorderRadius = 17;
+            toggleState43.BorderRadiusInner = 11;
+            toggleState43.BorderThickness = 1;
+            toggleState43.BorderThicknessInner = 1;
+            this.ToggleBeta.ToggleStateDisabled = toggleState43;
+            toggleState44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState44.BackColorInner = System.Drawing.Color.White;
+            toggleState44.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState44.BorderColorInner = System.Drawing.Color.White;
+            toggleState44.BorderRadius = 17;
+            toggleState44.BorderRadiusInner = 11;
+            toggleState44.BorderThickness = 1;
+            toggleState44.BorderThicknessInner = 1;
+            this.ToggleBeta.ToggleStateOff = toggleState44;
+            toggleState45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState45.BackColorInner = System.Drawing.Color.White;
+            toggleState45.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState45.BorderColorInner = System.Drawing.Color.White;
+            toggleState45.BorderRadius = 17;
+            toggleState45.BorderRadiusInner = 11;
+            toggleState45.BorderThickness = 1;
+            toggleState45.BorderThicknessInner = 1;
+            this.ToggleBeta.ToggleStateOn = toggleState45;
             this.ToggleBeta.Value = false;
             this.ToggleBeta.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleBeta_CheckedChanged);
             // 
             // PanelUpdate
             // 
+            this.PanelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelUpdate.BackgroundColor = System.Drawing.Color.White;
             this.PanelUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelUpdate.BackgroundImage")));
             this.PanelUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -599,14 +536,11 @@
             this.PanelUpdate.BorderThickness = 1;
             this.PanelUpdate.Controls.Add(this.LabelUpdate);
             this.PanelUpdate.Controls.Add(this.ToggleUpdate);
-            this.PanelUpdate.Location = new System.Drawing.Point(12, 590);
+            this.PanelUpdate.Location = new System.Drawing.Point(12, 589);
             this.PanelUpdate.Name = "PanelUpdate";
             this.PanelUpdate.ShowBorders = true;
             this.PanelUpdate.Size = new System.Drawing.Size(378, 50);
             this.PanelUpdate.TabIndex = 8;
-            this.ToolTip.SetToolTip(this.PanelUpdate, "");
-            this.ToolTip.SetToolTipIcon(this.PanelUpdate, null);
-            this.ToolTip.SetToolTipTitle(this.PanelUpdate, "");
             // 
             // LabelUpdate
             // 
@@ -623,9 +557,6 @@
             this.LabelUpdate.Text = "Check for Updates";
             this.LabelUpdate.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelUpdate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelUpdate, "");
-            this.ToolTip.SetToolTipIcon(this.LabelUpdate, null);
-            this.ToolTip.SetToolTipTitle(this.LabelUpdate, "");
             // 
             // ToggleUpdate
             // 
@@ -640,41 +571,40 @@
             this.ToggleUpdate.Size = new System.Drawing.Size(32, 18);
             this.ToggleUpdate.TabIndex = 4;
             this.ToggleUpdate.ThumbMargin = 3;
-            toggleState10.BackColor = System.Drawing.Color.DarkGray;
-            toggleState10.BackColorInner = System.Drawing.Color.White;
-            toggleState10.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState10.BorderColorInner = System.Drawing.Color.White;
-            toggleState10.BorderRadius = 17;
-            toggleState10.BorderRadiusInner = 11;
-            toggleState10.BorderThickness = 1;
-            toggleState10.BorderThicknessInner = 1;
-            this.ToggleUpdate.ToggleStateDisabled = toggleState10;
-            toggleState11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState11.BackColorInner = System.Drawing.Color.White;
-            toggleState11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState11.BorderColorInner = System.Drawing.Color.White;
-            toggleState11.BorderRadius = 17;
-            toggleState11.BorderRadiusInner = 11;
-            toggleState11.BorderThickness = 1;
-            toggleState11.BorderThicknessInner = 1;
-            this.ToggleUpdate.ToggleStateOff = toggleState11;
-            toggleState12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState12.BackColorInner = System.Drawing.Color.White;
-            toggleState12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState12.BorderColorInner = System.Drawing.Color.White;
-            toggleState12.BorderRadius = 17;
-            toggleState12.BorderRadiusInner = 11;
-            toggleState12.BorderThickness = 1;
-            toggleState12.BorderThicknessInner = 1;
-            this.ToggleUpdate.ToggleStateOn = toggleState12;
-            this.ToolTip.SetToolTip(this.ToggleUpdate, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleUpdate, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleUpdate, "");
+            toggleState46.BackColor = System.Drawing.Color.DarkGray;
+            toggleState46.BackColorInner = System.Drawing.Color.White;
+            toggleState46.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState46.BorderColorInner = System.Drawing.Color.White;
+            toggleState46.BorderRadius = 17;
+            toggleState46.BorderRadiusInner = 11;
+            toggleState46.BorderThickness = 1;
+            toggleState46.BorderThicknessInner = 1;
+            this.ToggleUpdate.ToggleStateDisabled = toggleState46;
+            toggleState47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState47.BackColorInner = System.Drawing.Color.White;
+            toggleState47.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState47.BorderColorInner = System.Drawing.Color.White;
+            toggleState47.BorderRadius = 17;
+            toggleState47.BorderRadiusInner = 11;
+            toggleState47.BorderThickness = 1;
+            toggleState47.BorderThicknessInner = 1;
+            this.ToggleUpdate.ToggleStateOff = toggleState47;
+            toggleState48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState48.BackColorInner = System.Drawing.Color.White;
+            toggleState48.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState48.BorderColorInner = System.Drawing.Color.White;
+            toggleState48.BorderRadius = 17;
+            toggleState48.BorderRadiusInner = 11;
+            toggleState48.BorderThickness = 1;
+            toggleState48.BorderThicknessInner = 1;
+            this.ToggleUpdate.ToggleStateOn = toggleState48;
             this.ToggleUpdate.Value = false;
             this.ToggleUpdate.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleUpdate_CheckedChanged);
             // 
             // PanelIRT
             // 
+            this.PanelIRT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelIRT.BackgroundColor = System.Drawing.Color.White;
             this.PanelIRT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelIRT.BackgroundImage")));
             this.PanelIRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -683,14 +613,11 @@
             this.PanelIRT.BorderThickness = 1;
             this.PanelIRT.Controls.Add(this.LabelIRT);
             this.PanelIRT.Controls.Add(this.ToggleIRT);
-            this.PanelIRT.Location = new System.Drawing.Point(12, 350);
+            this.PanelIRT.Location = new System.Drawing.Point(12, 349);
             this.PanelIRT.Name = "PanelIRT";
             this.PanelIRT.ShowBorders = true;
             this.PanelIRT.Size = new System.Drawing.Size(378, 50);
             this.PanelIRT.TabIndex = 6;
-            this.ToolTip.SetToolTip(this.PanelIRT, "");
-            this.ToolTip.SetToolTipIcon(this.PanelIRT, null);
-            this.ToolTip.SetToolTipTitle(this.PanelIRT, "");
             // 
             // LabelIRT
             // 
@@ -707,9 +634,6 @@
             this.LabelIRT.Text = "Calculate IRT Price";
             this.LabelIRT.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelIRT.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelIRT, "");
-            this.ToolTip.SetToolTipIcon(this.LabelIRT, null);
-            this.ToolTip.SetToolTipTitle(this.LabelIRT, "");
             // 
             // ToggleIRT
             // 
@@ -724,41 +648,40 @@
             this.ToggleIRT.Size = new System.Drawing.Size(32, 18);
             this.ToggleIRT.TabIndex = 4;
             this.ToggleIRT.ThumbMargin = 3;
-            toggleState13.BackColor = System.Drawing.Color.DarkGray;
-            toggleState13.BackColorInner = System.Drawing.Color.White;
-            toggleState13.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState13.BorderColorInner = System.Drawing.Color.White;
-            toggleState13.BorderRadius = 17;
-            toggleState13.BorderRadiusInner = 11;
-            toggleState13.BorderThickness = 1;
-            toggleState13.BorderThicknessInner = 1;
-            this.ToggleIRT.ToggleStateDisabled = toggleState13;
-            toggleState14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState14.BackColorInner = System.Drawing.Color.White;
-            toggleState14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState14.BorderColorInner = System.Drawing.Color.White;
-            toggleState14.BorderRadius = 17;
-            toggleState14.BorderRadiusInner = 11;
-            toggleState14.BorderThickness = 1;
-            toggleState14.BorderThicknessInner = 1;
-            this.ToggleIRT.ToggleStateOff = toggleState14;
-            toggleState15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState15.BackColorInner = System.Drawing.Color.White;
-            toggleState15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState15.BorderColorInner = System.Drawing.Color.White;
-            toggleState15.BorderRadius = 17;
-            toggleState15.BorderRadiusInner = 11;
-            toggleState15.BorderThickness = 1;
-            toggleState15.BorderThicknessInner = 1;
-            this.ToggleIRT.ToggleStateOn = toggleState15;
-            this.ToolTip.SetToolTip(this.ToggleIRT, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleIRT, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleIRT, "");
+            toggleState49.BackColor = System.Drawing.Color.DarkGray;
+            toggleState49.BackColorInner = System.Drawing.Color.White;
+            toggleState49.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState49.BorderColorInner = System.Drawing.Color.White;
+            toggleState49.BorderRadius = 17;
+            toggleState49.BorderRadiusInner = 11;
+            toggleState49.BorderThickness = 1;
+            toggleState49.BorderThicknessInner = 1;
+            this.ToggleIRT.ToggleStateDisabled = toggleState49;
+            toggleState50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState50.BackColorInner = System.Drawing.Color.White;
+            toggleState50.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState50.BorderColorInner = System.Drawing.Color.White;
+            toggleState50.BorderRadius = 17;
+            toggleState50.BorderRadiusInner = 11;
+            toggleState50.BorderThickness = 1;
+            toggleState50.BorderThicknessInner = 1;
+            this.ToggleIRT.ToggleStateOff = toggleState50;
+            toggleState51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState51.BackColorInner = System.Drawing.Color.White;
+            toggleState51.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState51.BorderColorInner = System.Drawing.Color.White;
+            toggleState51.BorderRadius = 17;
+            toggleState51.BorderRadiusInner = 11;
+            toggleState51.BorderThickness = 1;
+            toggleState51.BorderThicknessInner = 1;
+            this.ToggleIRT.ToggleStateOn = toggleState51;
             this.ToggleIRT.Value = false;
             this.ToggleIRT.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleIRT_CheckedChanged);
             // 
             // PanelOwned
             // 
+            this.PanelOwned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelOwned.BackgroundColor = System.Drawing.Color.White;
             this.PanelOwned.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelOwned.BackgroundImage")));
             this.PanelOwned.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -767,14 +690,11 @@
             this.PanelOwned.BorderThickness = 1;
             this.PanelOwned.Controls.Add(this.LabelOwned);
             this.PanelOwned.Controls.Add(this.ToggleOwned);
-            this.PanelOwned.Location = new System.Drawing.Point(12, 410);
+            this.PanelOwned.Location = new System.Drawing.Point(12, 409);
             this.PanelOwned.Name = "PanelOwned";
             this.PanelOwned.ShowBorders = true;
             this.PanelOwned.Size = new System.Drawing.Size(378, 50);
             this.PanelOwned.TabIndex = 7;
-            this.ToolTip.SetToolTip(this.PanelOwned, "");
-            this.ToolTip.SetToolTipIcon(this.PanelOwned, null);
-            this.ToolTip.SetToolTipTitle(this.PanelOwned, "");
             // 
             // LabelOwned
             // 
@@ -791,9 +711,6 @@
             this.LabelOwned.Text = "Check for Owned Games";
             this.LabelOwned.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelOwned.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelOwned, "");
-            this.ToolTip.SetToolTipIcon(this.LabelOwned, null);
-            this.ToolTip.SetToolTipTitle(this.LabelOwned, "");
             // 
             // ToggleOwned
             // 
@@ -809,41 +726,40 @@
             this.ToggleOwned.Size = new System.Drawing.Size(32, 18);
             this.ToggleOwned.TabIndex = 4;
             this.ToggleOwned.ThumbMargin = 3;
-            toggleState16.BackColor = System.Drawing.Color.Gray;
-            toggleState16.BackColorInner = System.Drawing.Color.White;
-            toggleState16.BorderColor = System.Drawing.Color.Gray;
-            toggleState16.BorderColorInner = System.Drawing.Color.White;
-            toggleState16.BorderRadius = 17;
-            toggleState16.BorderRadiusInner = 11;
-            toggleState16.BorderThickness = 1;
-            toggleState16.BorderThicknessInner = 1;
-            this.ToggleOwned.ToggleStateDisabled = toggleState16;
-            toggleState17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState17.BackColorInner = System.Drawing.Color.White;
-            toggleState17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState17.BorderColorInner = System.Drawing.Color.White;
-            toggleState17.BorderRadius = 17;
-            toggleState17.BorderRadiusInner = 11;
-            toggleState17.BorderThickness = 1;
-            toggleState17.BorderThicknessInner = 1;
-            this.ToggleOwned.ToggleStateOff = toggleState17;
-            toggleState18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState18.BackColorInner = System.Drawing.Color.White;
-            toggleState18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState18.BorderColorInner = System.Drawing.Color.White;
-            toggleState18.BorderRadius = 17;
-            toggleState18.BorderRadiusInner = 11;
-            toggleState18.BorderThickness = 1;
-            toggleState18.BorderThicknessInner = 1;
-            this.ToggleOwned.ToggleStateOn = toggleState18;
-            this.ToolTip.SetToolTip(this.ToggleOwned, "");
-            this.ToolTip.SetToolTipIcon(this.ToggleOwned, null);
-            this.ToolTip.SetToolTipTitle(this.ToggleOwned, "");
+            toggleState52.BackColor = System.Drawing.Color.Gray;
+            toggleState52.BackColorInner = System.Drawing.Color.White;
+            toggleState52.BorderColor = System.Drawing.Color.Gray;
+            toggleState52.BorderColorInner = System.Drawing.Color.White;
+            toggleState52.BorderRadius = 17;
+            toggleState52.BorderRadiusInner = 11;
+            toggleState52.BorderThickness = 1;
+            toggleState52.BorderThicknessInner = 1;
+            this.ToggleOwned.ToggleStateDisabled = toggleState52;
+            toggleState53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState53.BackColorInner = System.Drawing.Color.White;
+            toggleState53.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState53.BorderColorInner = System.Drawing.Color.White;
+            toggleState53.BorderRadius = 17;
+            toggleState53.BorderRadiusInner = 11;
+            toggleState53.BorderThickness = 1;
+            toggleState53.BorderThicknessInner = 1;
+            this.ToggleOwned.ToggleStateOff = toggleState53;
+            toggleState54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState54.BackColorInner = System.Drawing.Color.White;
+            toggleState54.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState54.BorderColorInner = System.Drawing.Color.White;
+            toggleState54.BorderRadius = 17;
+            toggleState54.BorderRadiusInner = 11;
+            toggleState54.BorderThickness = 1;
+            toggleState54.BorderThicknessInner = 1;
+            this.ToggleOwned.ToggleStateOn = toggleState54;
             this.ToggleOwned.Value = false;
             this.ToggleOwned.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleOwned_CheckedChanged);
             // 
             // PanelUpdateInterval
             // 
+            this.PanelUpdateInterval.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelUpdateInterval.BackgroundColor = System.Drawing.Color.White;
             this.PanelUpdateInterval.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelUpdateInterval.BackgroundImage")));
             this.PanelUpdateInterval.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -852,14 +768,11 @@
             this.PanelUpdateInterval.BorderThickness = 1;
             this.PanelUpdateInterval.Controls.Add(this.DropDownMarketInterval);
             this.PanelUpdateInterval.Controls.Add(this.LabelMarketInterval);
-            this.PanelUpdateInterval.Location = new System.Drawing.Point(12, 230);
+            this.PanelUpdateInterval.Location = new System.Drawing.Point(12, 229);
             this.PanelUpdateInterval.Name = "PanelUpdateInterval";
             this.PanelUpdateInterval.ShowBorders = true;
             this.PanelUpdateInterval.Size = new System.Drawing.Size(378, 50);
             this.PanelUpdateInterval.TabIndex = 7;
-            this.ToolTip.SetToolTip(this.PanelUpdateInterval, "");
-            this.ToolTip.SetToolTipIcon(this.PanelUpdateInterval, null);
-            this.ToolTip.SetToolTipTitle(this.PanelUpdateInterval, "");
             // 
             // DropDownMarketInterval
             // 
@@ -908,9 +821,6 @@
             this.DropDownMarketInterval.Text = null;
             this.DropDownMarketInterval.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.DropDownMarketInterval.TextLeftMargin = 5;
-            this.ToolTip.SetToolTip(this.DropDownMarketInterval, "");
-            this.ToolTip.SetToolTipIcon(this.DropDownMarketInterval, null);
-            this.ToolTip.SetToolTipTitle(this.DropDownMarketInterval, "");
             this.DropDownMarketInterval.SelectedIndexChanged += new System.EventHandler(this.DropDownMarketInterval_SelectedIndexChanged);
             // 
             // LabelMarketInterval
@@ -928,12 +838,11 @@
             this.LabelMarketInterval.Text = "Market Update Interval ";
             this.LabelMarketInterval.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelMarketInterval.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelMarketInterval, "");
-            this.ToolTip.SetToolTipIcon(this.LabelMarketInterval, null);
-            this.ToolTip.SetToolTipTitle(this.LabelMarketInterval, "");
             // 
             // PanelRegion
             // 
+            this.PanelRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelRegion.BackgroundColor = System.Drawing.Color.White;
             this.PanelRegion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelRegion.BackgroundImage")));
             this.PanelRegion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -942,14 +851,11 @@
             this.PanelRegion.BorderThickness = 1;
             this.PanelRegion.Controls.Add(this.LabelRegion);
             this.PanelRegion.Controls.Add(this.DropDownRegion);
-            this.PanelRegion.Location = new System.Drawing.Point(12, 162);
+            this.PanelRegion.Location = new System.Drawing.Point(12, 161);
             this.PanelRegion.Name = "PanelRegion";
             this.PanelRegion.ShowBorders = true;
             this.PanelRegion.Size = new System.Drawing.Size(378, 60);
             this.PanelRegion.TabIndex = 5;
-            this.ToolTip.SetToolTip(this.PanelRegion, "");
-            this.ToolTip.SetToolTipIcon(this.PanelRegion, null);
-            this.ToolTip.SetToolTipTitle(this.PanelRegion, "");
             // 
             // LabelRegion
             // 
@@ -966,9 +872,6 @@
             this.LabelRegion.Text = "Region";
             this.LabelRegion.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelRegion.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelRegion, "");
-            this.ToolTip.SetToolTipIcon(this.LabelRegion, null);
-            this.ToolTip.SetToolTipTitle(this.LabelRegion, "");
             // 
             // DropDownRegion
             // 
@@ -1021,9 +924,6 @@
             this.DropDownRegion.Text = null;
             this.DropDownRegion.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.DropDownRegion.TextLeftMargin = 5;
-            this.ToolTip.SetToolTip(this.DropDownRegion, "");
-            this.ToolTip.SetToolTipIcon(this.DropDownRegion, null);
-            this.ToolTip.SetToolTipTitle(this.DropDownRegion, "");
             this.DropDownRegion.SelectedIndexChanged += new System.EventHandler(this.DropDownRegion_SelectedIndexChanged);
             // 
             // PanelUserINfo
@@ -1040,14 +940,12 @@
             this.PanelUserINfo.Controls.Add(this.UserInfoGames);
             this.PanelUserINfo.Controls.Add(this.UserInfoName);
             this.PanelUserINfo.Controls.Add(this.UserInfoProfile);
+            this.PanelUserINfo.Controls.Add(this.onlineStatus);
             this.PanelUserINfo.Location = new System.Drawing.Point(12, 52);
             this.PanelUserINfo.Name = "PanelUserINfo";
             this.PanelUserINfo.ShowBorders = true;
             this.PanelUserINfo.Size = new System.Drawing.Size(378, 100);
             this.PanelUserINfo.TabIndex = 1;
-            this.ToolTip.SetToolTip(this.PanelUserINfo, "");
-            this.ToolTip.SetToolTipIcon(this.PanelUserINfo, null);
-            this.ToolTip.SetToolTipTitle(this.PanelUserINfo, "");
             // 
             // PanelStatus
             // 
@@ -1064,9 +962,6 @@
             this.PanelStatus.ShowBorders = true;
             this.PanelStatus.Size = new System.Drawing.Size(1, 1);
             this.PanelStatus.TabIndex = 6;
-            this.ToolTip.SetToolTip(this.PanelStatus, "");
-            this.ToolTip.SetToolTipIcon(this.PanelStatus, null);
-            this.ToolTip.SetToolTipTitle(this.PanelStatus, "");
             // 
             // PanelLogin
             // 
@@ -1084,9 +979,6 @@
             this.PanelLogin.ShowBorders = true;
             this.PanelLogin.Size = new System.Drawing.Size(378, 100);
             this.PanelLogin.TabIndex = 5;
-            this.ToolTip.SetToolTip(this.PanelLogin, "");
-            this.ToolTip.SetToolTipIcon(this.PanelLogin, null);
-            this.ToolTip.SetToolTipTitle(this.PanelLogin, "");
             // 
             // LabelLogin
             // 
@@ -1102,9 +994,6 @@
             this.LabelLogin.Text = "Steam Profile Address";
             this.LabelLogin.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelLogin.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelLogin, "");
-            this.ToolTip.SetToolTipIcon(this.LabelLogin, null);
-            this.ToolTip.SetToolTipTitle(this.LabelLogin, "");
             // 
             // TextBoxLogin
             // 
@@ -1139,26 +1028,26 @@
             this.TextBoxLogin.Modified = false;
             this.TextBoxLogin.Multiline = false;
             this.TextBoxLogin.Name = "TextBoxLogin";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxLogin.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextBoxLogin.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxLogin.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxLogin.OnIdleState = stateProperties4;
+            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxLogin.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.TextBoxLogin.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxLogin.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.Silver;
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxLogin.OnIdleState = stateProperties12;
             this.TextBoxLogin.Padding = new System.Windows.Forms.Padding(3);
             this.TextBoxLogin.PasswordChar = '\0';
             this.TextBoxLogin.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -1177,9 +1066,6 @@
             this.TextBoxLogin.TextMarginLeft = 3;
             this.TextBoxLogin.TextMarginTop = 0;
             this.TextBoxLogin.TextPlaceholder = "Enter Steam Profile Address ";
-            this.ToolTip.SetToolTip(this.TextBoxLogin, "");
-            this.ToolTip.SetToolTipIcon(this.TextBoxLogin, null);
-            this.ToolTip.SetToolTipTitle(this.TextBoxLogin, "");
             this.TextBoxLogin.UseSystemPasswordChar = false;
             this.TextBoxLogin.WordWrap = true;
             // 
@@ -1196,14 +1082,12 @@
             this.LabelStatus.TabIndex = 0;
             this.LabelStatus.Text = "Logging in...";
             this.LabelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ToolTip.SetToolTip(this.LabelStatus, "");
-            this.ToolTip.SetToolTipIcon(this.LabelStatus, null);
-            this.ToolTip.SetToolTipTitle(this.LabelStatus, "");
             this.LabelStatus.Click += new System.EventHandler(this.LabelStatus_Click);
             // 
             // UserInfoLogout
             // 
             this.UserInfoLogout.AllowParentOverrides = false;
+            this.UserInfoLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UserInfoLogout.AutoEllipsis = false;
             this.UserInfoLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserInfoLogout.CursorType = System.Windows.Forms.Cursors.Hand;
@@ -1217,9 +1101,6 @@
             this.UserInfoLogout.Text = "Logout";
             this.UserInfoLogout.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.UserInfoLogout.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.UserInfoLogout, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoLogout, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoLogout, "");
             this.UserInfoLogout.Click += new System.EventHandler(this.UserInfoLogout_Click);
             // 
             // UserInfoLevel
@@ -1229,7 +1110,7 @@
             this.UserInfoLevel.CursorType = null;
             this.UserInfoLevel.Font = new System.Drawing.Font("Poppins Light", 12.75F);
             this.UserInfoLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.UserInfoLevel.Location = new System.Drawing.Point(107, 68);
+            this.UserInfoLevel.Location = new System.Drawing.Point(101, 68);
             this.UserInfoLevel.Name = "UserInfoLevel";
             this.UserInfoLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.UserInfoLevel.Size = new System.Drawing.Size(74, 30);
@@ -1237,9 +1118,6 @@
             this.UserInfoLevel.Text = "{UI.Level}";
             this.UserInfoLevel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.UserInfoLevel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.UserInfoLevel, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoLevel, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoLevel, "");
             // 
             // UserInfoGames
             // 
@@ -1248,7 +1126,7 @@
             this.UserInfoGames.CursorType = null;
             this.UserInfoGames.Font = new System.Drawing.Font("Poppins Light", 12.75F);
             this.UserInfoGames.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.UserInfoGames.Location = new System.Drawing.Point(107, 41);
+            this.UserInfoGames.Location = new System.Drawing.Point(101, 41);
             this.UserInfoGames.Name = "UserInfoGames";
             this.UserInfoGames.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.UserInfoGames.Size = new System.Drawing.Size(93, 30);
@@ -1256,23 +1134,17 @@
             this.UserInfoGames.Text = "{UI.Games}";
             this.UserInfoGames.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.UserInfoGames.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.UserInfoGames, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoGames, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoGames, "");
             // 
             // UserInfoName
             // 
             this.UserInfoName.AutoSize = true;
             this.UserInfoName.BackColor = System.Drawing.Color.Transparent;
             this.UserInfoName.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserInfoName.Location = new System.Drawing.Point(102, 12);
+            this.UserInfoName.Location = new System.Drawing.Point(96, 12);
             this.UserInfoName.Name = "UserInfoName";
             this.UserInfoName.Size = new System.Drawing.Size(97, 28);
             this.UserInfoName.TabIndex = 7;
             this.UserInfoName.Text = "{UI.Name}";
-            this.ToolTip.SetToolTip(this.UserInfoName, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoName, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoName, "");
             // 
             // UserInfoProfile
             // 
@@ -1282,16 +1154,26 @@
             this.UserInfoProfile.BorderRadius = 40;
             this.UserInfoProfile.Image = global::SteamPulse.Properties.Resources.DefaultAvatar;
             this.UserInfoProfile.IsCircle = true;
-            this.UserInfoProfile.Location = new System.Drawing.Point(16, 12);
+            this.UserInfoProfile.Location = new System.Drawing.Point(9, 8);
             this.UserInfoProfile.Name = "UserInfoProfile";
             this.UserInfoProfile.Size = new System.Drawing.Size(80, 80);
             this.UserInfoProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UserInfoProfile.TabIndex = 6;
             this.UserInfoProfile.TabStop = false;
-            this.ToolTip.SetToolTip(this.UserInfoProfile, "");
-            this.ToolTip.SetToolTipIcon(this.UserInfoProfile, null);
-            this.ToolTip.SetToolTipTitle(this.UserInfoProfile, "");
             this.UserInfoProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onlineStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.onlineStatus.Location = new System.Drawing.Point(62, 33);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Size = new System.Drawing.Size(49, 84);
+            this.onlineStatus.TabIndex = 37;
+            this.onlineStatus.Text = ".";
+            this.onlineStatus.MouseHover += new System.EventHandler(this.OnlineStatus_MouseHover);
             // 
             // PanelHeader
             // 
@@ -1308,9 +1190,6 @@
             this.PanelHeader.ShowBorders = true;
             this.PanelHeader.Size = new System.Drawing.Size(449, 50);
             this.PanelHeader.TabIndex = 10;
-            this.ToolTip.SetToolTip(this.PanelHeader, "");
-            this.ToolTip.SetToolTipIcon(this.PanelHeader, null);
-            this.ToolTip.SetToolTipTitle(this.PanelHeader, "");
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
             // ButtonExit
@@ -1332,11 +1211,11 @@
             this.ButtonExit.ColorContrastOnClick = 45;
             this.ButtonExit.ColorContrastOnHover = 45;
             this.ButtonExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.ButtonExit.CustomizableEdges = borderEdges2;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.ButtonExit.CustomizableEdges = borderEdges6;
             this.ButtonExit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ButtonExit.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ButtonExit.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1400,9 +1279,6 @@
             this.ButtonExit.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.ButtonExit.TextMarginLeft = 0;
             this.ButtonExit.TextPadding = new System.Windows.Forms.Padding(0);
-            this.ToolTip.SetToolTip(this.ButtonExit, "");
-            this.ToolTip.SetToolTipIcon(this.ButtonExit, null);
-            this.ToolTip.SetToolTipTitle(this.ButtonExit, "");
             this.ButtonExit.UseDefaultRadiusAndThickness = true;
             this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
@@ -1422,9 +1298,6 @@
             this.LabelHeader.Text = "Settings";
             this.LabelHeader.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelHeader.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.ToolTip.SetToolTip(this.LabelHeader, "");
-            this.ToolTip.SetToolTipIcon(this.LabelHeader, null);
-            this.ToolTip.SetToolTipTitle(this.LabelHeader, "");
             this.LabelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
             // BackgroundWorker
@@ -1432,13 +1305,18 @@
             this.BackgroundWorker.WorkerSupportsCancellation = true;
             this.BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             // 
+            // ToolTip
+            // 
+            this.ToolTip.AutomaticDelay = 100;
+            this.ToolTip.BackColor = System.Drawing.Color.White;
+            // 
             // Setting
             // 
             this.AcceptButton = this.ButtonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(409, 715);
+            this.ClientSize = new System.Drawing.Size(409, 714);
             this.Controls.Add(this.PanelDeveloper);
             this.Controls.Add(this.PanelDarkMode);
             this.Controls.Add(this.PanelStarting);
@@ -1524,7 +1402,6 @@
         private Bunifu.UI.WinForms.BunifuPanel PanelDarkMode;
         private Bunifu.UI.WinForms.BunifuLabel LabelDarkMode;
         private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleDarkMode;
-        private Bunifu.UI.WinForms.BunifuToolTip ToolTip;
         private Bunifu.UI.WinForms.BunifuPanel PanelStatus;
         private System.Windows.Forms.Label LabelStatus;
         private System.ComponentModel.BackgroundWorker BackgroundWorker;
@@ -1533,5 +1410,7 @@
         private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleDeveloper;
         private System.Windows.Forms.Label UserInfoName;
         private Bunifu.UI.WinForms.BunifuPictureBox UserInfoProfile;
+        private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.Label onlineStatus;
     }
 }

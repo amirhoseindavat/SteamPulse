@@ -6,7 +6,7 @@
 //
 // Release Build
 //
-// Version 1.6.4 Revision 13
+// Version 1.6.4 Revision 14
 
 #endregion
 
@@ -24,14 +24,16 @@ namespace SteamPulse
 {
     public partial class Setting : Form
     {
-        public static Boolean DarkMode;
-        public static string FormParent;
-        protected Boolean SettingChanged = false;
-        protected Boolean ISLoading = true;
-        protected Boolean ThreadISLoading = true;
 
+        public static bool DarkMode;
+        public static string FormParent;
+        protected bool SettingChanged = false;
+        protected bool ISLoading = true;
+        protected bool ThreadISLoading = true;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+        string OnlineStatusSteam = "";
+        //private string SteamID;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -63,6 +65,7 @@ namespace SteamPulse
                 PanelLogin.Visible = false;
                 PanelStatus.Visible = true;
                 LabelStatus.Text = "Loading Data...";
+                //SteamID = Properties.Settings.Default.UserSteamID;
                 BackgroundWorker.RunWorkerAsync();
             }
             else { }
@@ -204,6 +207,7 @@ namespace SteamPulse
             {
                 PanelLogin.Visible = false;
                 PanelStatus.Visible = true;
+                LabelStatus.Font = new Font(LabelStatus.Font.FontFamily, 13.0F, LabelStatus.Font.Style);
                 LabelStatus.Text = "Logging in...";
                 if (SteamIDFinder(TextBoxLogin.Text) == "Can't Connect")
                 {
@@ -225,6 +229,7 @@ namespace SteamPulse
                         Properties.Settings.Default.UserSteamID = SettingsProfileID;
                         Properties.Settings.Default.Save();
                         ThreadISLoading = false;
+                        //SteamID = Properties.Settings.Default.UserSteamID;
                         BackgroundWorker.RunWorkerAsync();
                     }
                     else
@@ -276,6 +281,8 @@ namespace SteamPulse
                         Uri address = new Uri(value);
                         UserID = address.Segments[2].Replace("/", "");
                     }
+                    Properties.Settings.Default.UserSteamID = UserID;
+                    Properties.Settings.Default.Save();
                     return UserID;
                 }
                 else if (Regex.IsMatch(value, @"^\d"))
@@ -304,7 +311,12 @@ namespace SteamPulse
                     {
                         UserID = Node["steamID64"].InnerText;
                     }
+                    Properties.Settings.Default.UserSteamID = UserID;
+                    Properties.Settings.Default.Save();
+
                     return UserID;
+
+
                 }
             }
             catch
@@ -531,7 +543,7 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -577,16 +589,6 @@ namespace SteamPulse
             PanelDeveloper.BackgroundColor = BackGround;
             LabelDeveloper.ForeColor = ForeGround;
         }
-        private void OnlineStatus_MouseEnter(object sender, EventArgs e)
-        {
-        }
-        private void OnlineStatus_MouseLeave(object sender, EventArgs e)
-        {
-        }
-        private void OnlineStatus_MouseHover(object sender, EventArgs e)
-        {
-        }
-
         private void ToggleDeveloper_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
             Settings.DeveloperMode = ToggleDeveloper.Checked;
@@ -596,7 +598,7 @@ namespace SteamPulse
             }
             else
             {
-                    Logger.LogDeveloper(ToggleDeveloper.Checked);
+                Logger.LogDeveloper(ToggleDeveloper.Checked);
             }
             Main.SettingisUpdated = true;
         }
@@ -612,9 +614,9 @@ namespace SteamPulse
 
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            string SteamID = Properties.Settings.Default.UserSteamID.ToString();
             try
             {
+                string SteamID = Properties.Settings.Default.UserSteamID;
 
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 XmlDocument Data = new XmlDocument();
@@ -623,6 +625,9 @@ namespace SteamPulse
                 XmlNodeList Nodes = Root.SelectNodes("/profile");
                 string ProfileName = "";
                 string ProfileAddress = "";
+
+
+
                 //string avatarframe = "";
 
                 foreach (XmlNode Node in Nodes)
@@ -630,13 +635,19 @@ namespace SteamPulse
                     ProfileName = Node["steamID"].InnerText;
                     ProfileAddress = Node["avatarFull"].InnerText;
                 }
+
+                Color OnlineColor = Color.FromArgb(3, 169, 244);
+                Color AwayColor = Color.FromArgb(129, 212, 250);
+                Color IngameColor = Color.FromArgb(76, 175, 80);
+                Color OfflineColor = Color.FromArgb(191, 191, 191);
+
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 WebClient client = new WebClient();
 
                 JObject JsonObjectLevel = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
                 JToken Level = JsonObjectLevel.SelectToken(".response.player_level");
 
-                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID+ "&include_played_free_games=true&include_free_sub=true&skip_unvetted_apps=true"));
+                JObject JsonObjectGameCount = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID + "&include_played_free_games=true&include_free_sub=true&skip_unvetted_apps=false"));
                 JToken Gamecount = JsonObjectGameCount.SelectToken(".response.game_count");
                 string gamecountjson = JsonObjectGameCount.ToString();
 
@@ -664,6 +675,36 @@ namespace SteamPulse
                     UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Image = Properties.Resources.DefaultAvatar));
                 }
 
+                GetData.ConnectToSteam.Community.GetPlayerSummaries(SteamID);
+
+                if (LoadData.Community.UserStatus.OnlineStatus != -1)
+                {
+                    if (LoadData.Community.UserStatus.OnlineStatus == 1)
+                    {
+                        onlineStatus.Invoke((MethodInvoker)(() => onlineStatus.ForeColor = OnlineColor));
+                        OnlineStatusSteam = "Online";
+                    }
+                    else if (LoadData.Community.UserStatus.OnlineStatus == 85)
+                    {
+                        onlineStatus.Invoke((MethodInvoker)(() => onlineStatus.ForeColor = IngameColor));
+                        OnlineStatusSteam = string.Format("In-Game: {0}", LoadData.Community.UserStatus.CurrentPlayingGame);
+                    }
+                    else if (LoadData.Community.UserStatus.OnlineStatus == 3)
+                    {
+                        onlineStatus.Invoke((MethodInvoker)(() => onlineStatus.ForeColor = AwayColor));
+                        OnlineStatusSteam = "Away";
+                    }
+                    else
+                    {
+                        onlineStatus.Invoke((MethodInvoker)(() => onlineStatus.ForeColor = OfflineColor));
+                        OnlineStatusSteam = "Offline";
+                    }
+                }
+                else
+                {
+                    onlineStatus.Invoke((MethodInvoker)(() => onlineStatus.ForeColor = OfflineColor));
+                    OnlineStatusSteam = "Offline";
+                }
 
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
                 if (ThreadISLoading == true)
@@ -678,7 +719,7 @@ namespace SteamPulse
                     Properties.Settings.Default.UserName = ProfileName;*/
 
                     Properties.Settings.Default.Save();
-                    if(ISLoading != true)
+                    if (ISLoading != true)
                     {
                         Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
                     }
@@ -691,7 +732,8 @@ namespace SteamPulse
             }
             catch (Exception ex)
             {
-                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = String.Format("{0}, CLick To Retry.", ex.Message)));
+                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font(LabelStatus.Font.FontFamily, 10.0F, LabelStatus.Font.Style)));
+                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = string.Format("{0} \n Click To Retry.", ex.Message)));
                 ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.Enabled = false));
                 ToggleOwned.Invoke((MethodInvoker)(() => ToggleOwned.Checked = false));
                 Settings.CheckOwned = ToggleOwned.Checked;
@@ -700,6 +742,15 @@ namespace SteamPulse
             }
             ThreadISLoading = false;
         }
+
+        private void OnlineStatus_MouseHover(object sender, EventArgs e)
+        {
+            if (OnlineStatusSteam != "")
+            {
+                ToolTip.SetToolTip(onlineStatus, OnlineStatusSteam);
+            }
+            else { }
+        }
     }
     public class Settings
     {
@@ -707,10 +758,7 @@ namespace SteamPulse
         {
             public static string Name
             {
-                get
-                {
-                    return Properties.Settings.Default.CurrencyName;
-                }
+                get => Properties.Settings.Default.CurrencyName;
                 set
                 {
                     Properties.Settings.Default.CurrencyName = value;
@@ -719,10 +767,7 @@ namespace SteamPulse
             }
             public static int Number
             {
-                get
-                {
-                    return Convert.ToInt32(Properties.Settings.Default.CurrencyNumber);
-                }
+                get => Convert.ToInt32(Properties.Settings.Default.CurrencyNumber);
                 set
                 {
                     Properties.Settings.Default.CurrencyNumber = value;
@@ -731,10 +776,7 @@ namespace SteamPulse
             }
             public static string ISO
             {
-                get
-                {
-                    return Properties.Settings.Default.CurrencyISO;
-                }
+                get => Properties.Settings.Default.CurrencyISO;
                 set
                 {
                     Properties.Settings.Default.CurrencyISO = value;
@@ -743,10 +785,7 @@ namespace SteamPulse
             }
             public static string Unit
             {
-                get
-                {
-                    return Properties.Settings.Default.CurrencyUnit;
-                }
+                get => Properties.Settings.Default.CurrencyUnit;
                 set
                 {
                     Properties.Settings.Default.CurrencyUnit = value;
@@ -756,10 +795,7 @@ namespace SteamPulse
         }
         public static string CalculatorMode
         {
-            get
-            {
-                return Properties.Settings.Default.CalculatorMode;
-            }
+            get => Properties.Settings.Default.CalculatorMode;
             set
             {
                 Properties.Settings.Default.CalculatorMode = value;
@@ -768,58 +804,43 @@ namespace SteamPulse
         }
         public static int MarketUpdateTime
         {
-            get
-            {
-                return Convert.ToInt32(Properties.Settings.Default.MarketUpdateTime);
-            }
+            get => Convert.ToInt32(Properties.Settings.Default.MarketUpdateTime);
             set
             {
                 Properties.Settings.Default.MarketUpdateTime = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean CheckIRT
+        public static bool CheckIRT
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.CalculateIRT);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.CalculateIRT);
             set
             {
                 Properties.Settings.Default.CalculateIRT = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean CheckOwned
+        public static bool CheckOwned
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.CheckOwned);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.CheckOwned);
             set
             {
                 Properties.Settings.Default.CheckOwned = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean DarkMode
+        public static bool DarkMode
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.DarkMode);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.DarkMode);
             set
             {
                 Properties.Settings.Default.DarkMode = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean CheckUpdate
+        public static bool CheckUpdate
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.CheckUpdate);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.CheckUpdate);
             set
             {
                 Properties.Settings.Default.CheckUpdate = value;
@@ -828,10 +849,7 @@ namespace SteamPulse
         }
         public static string ItemCalculationMode
         {
-            get
-            {
-                return Properties.Settings.Default.ItemCalculationMode;
-            }
+            get => Properties.Settings.Default.ItemCalculationMode;
             set
             {
                 Properties.Settings.Default.ItemCalculationMode = value;
@@ -840,22 +858,16 @@ namespace SteamPulse
         }
         public static int DefualtDlcCount
         {
-            get
-            {
-                return Properties.Settings.Default.DefaultDLCCount;
-            }
+            get => Properties.Settings.Default.DefaultDLCCount;
             set
             {
                 Properties.Settings.Default.DefaultDLCCount = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean InstallBeta
+        public static bool InstallBeta
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.InstallBeta);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.InstallBeta);
             set
             {
                 Properties.Settings.Default.InstallBeta = value;
@@ -865,10 +877,7 @@ namespace SteamPulse
         }
         public static string StartingPage
         {
-            get
-            {
-                return Properties.Settings.Default.StartingPage;
-            }
+            get => Properties.Settings.Default.StartingPage;
             set
             {
                 Properties.Settings.Default.StartingPage = value;
@@ -877,46 +886,34 @@ namespace SteamPulse
         }
         public static string KeyCalcMode
         {
-            get
-            {
-                return Properties.Settings.Default.KeyCalcMode;
-            }
+            get => Properties.Settings.Default.KeyCalcMode;
             set
             {
                 Properties.Settings.Default.KeyCalcMode = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean LoadDLCImage
+        public static bool LoadDLCImage
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.LoadDLCImage);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.LoadDLCImage);
             set
             {
                 Properties.Settings.Default.LoadDLCImage = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean CalculateRemaining
+        public static bool CalculateRemaining
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.CalculateRemaining);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.CalculateRemaining);
             set
             {
                 Properties.Settings.Default.CalculateRemaining = value;
                 Properties.Settings.Default.Save();
             }
         }
-        public static Boolean DeveloperMode
+        public static bool DeveloperMode
         {
-            get
-            {
-                return Convert.ToBoolean(Properties.Settings.Default.DeveloperMode);
-            }
+            get => Convert.ToBoolean(Properties.Settings.Default.DeveloperMode);
             set
             {
                 Properties.Settings.Default.DeveloperMode = value;

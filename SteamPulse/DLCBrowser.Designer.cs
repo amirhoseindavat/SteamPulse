@@ -41,15 +41,15 @@
             this.LabelLowded = new System.Windows.Forms.Label();
             this.LabelSum = new System.Windows.Forms.Label();
             this.DataTable = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.irtprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelName = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.Label_AppName = new System.Windows.Forms.Label();
             this.Exit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.irtprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.PanelHeader.SuspendLayout();
@@ -167,6 +167,7 @@
             this.DataTable.EnableHeadersVisualStyles = false;
             this.DataTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.DataTable.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(88)))), ((int)(((byte)(157)))));
+            this.DataTable.HeaderBgColor = System.Drawing.Color.Empty;
             this.DataTable.HeaderForeColor = System.Drawing.Color.White;
             this.DataTable.Location = new System.Drawing.Point(18, 45);
             this.DataTable.Name = "DataTable";
@@ -192,37 +193,8 @@
             this.DataTable.Size = new System.Drawing.Size(818, 302);
             this.DataTable.TabIndex = 0;
             this.DataTable.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            // 
-            // image
-            // 
-            this.image.HeaderText = "Image";
-            this.image.Image = global::SteamPulse.Properties.Resources.header2;
-            this.image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.image.Name = "image";
-            this.image.ReadOnly = true;
-            this.image.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // irtprice
-            // 
-            this.irtprice.HeaderText = "Price IRT";
-            this.irtprice.Name = "irtprice";
-            this.irtprice.ReadOnly = true;
-            this.irtprice.Visible = false;
+            this.DataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataTable_CellContentClick);
+            this.DataTable.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataTable_CellMouseMove);
             // 
             // LabelName
             // 
@@ -253,7 +225,6 @@
             this.PanelHeader.ShowBorders = true;
             this.PanelHeader.Size = new System.Drawing.Size(898, 35);
             this.PanelHeader.TabIndex = 37;
-            this.PanelHeader.Click += new System.EventHandler(this.PanelHeader_Click);
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
             // Label_AppName
@@ -364,6 +335,41 @@
             this.BackgroundWorker.WorkerSupportsCancellation = true;
             this.BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             // 
+            // image
+            // 
+            this.image.FillWeight = 99.49239F;
+            this.image.HeaderText = "Image";
+            this.image.Image = global::SteamPulse.Properties.Resources.header2;
+            this.image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.image.Name = "image";
+            this.image.ReadOnly = true;
+            this.image.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.image.ToolTipText = "Click on Thumbnail to view information of each DLC";
+            // 
+            // name
+            // 
+            this.name.FillWeight = 99.49239F;
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // price
+            // 
+            this.price.FillWeight = 99.49239F;
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // irtprice
+            // 
+            this.irtprice.HeaderText = "Price IRT";
+            this.irtprice.Name = "irtprice";
+            this.irtprice.ReadOnly = true;
+            this.irtprice.Visible = false;
+            // 
             // DLCBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,10 +405,10 @@
         private Bunifu.UI.WinForms.BunifuPanel PanelMain;
         private System.Windows.Forms.Label LabelSum;
         private System.Windows.Forms.Label LabelLowded;
+        private System.ComponentModel.BackgroundWorker BackgroundWorker;
         private System.Windows.Forms.DataGridViewImageColumn image;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn irtprice;
-        private System.ComponentModel.BackgroundWorker BackgroundWorker;
     }
 }

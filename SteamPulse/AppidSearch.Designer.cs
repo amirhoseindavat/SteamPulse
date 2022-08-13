@@ -289,6 +289,7 @@
             this.TextBoxSearch.TextPlaceholder = "Please Enter 3 or more characters to search";
             this.TextBoxSearch.UseSystemPasswordChar = false;
             this.TextBoxSearch.WordWrap = true;
+            this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             // 
             // PanelHeader
             // 

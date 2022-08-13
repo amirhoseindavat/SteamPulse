@@ -14,6 +14,7 @@ using Bunifu.UI.WinForms;
 using SteamAPI;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,9 +27,10 @@ namespace SteamPulse
 {
     public partial class DLCBrowser : Form
     {
-        public static Boolean DarkMode, IRTCheck, LoadImage, abort = false;
+        public static bool DarkMode, IRTCheck, LoadImage, abort = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+        private string[] ID;
 
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -82,6 +84,8 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
+            this.CenterToParent();
+
             BackgroundWorker.RunWorkerAsync();
 
         }
@@ -94,7 +98,7 @@ namespace SteamPulse
             }
             try
             {
-                string[] ID = LoadData.Store.DLC.GetAllDLC.Cast<Match>()
+                ID = LoadData.Store.DLC.GetAllDLC.Cast<Match>()
                                      .Take(limit)
                                      .Select(match2 => match2.Value)
                                      .ToArray();
@@ -117,12 +121,10 @@ namespace SteamPulse
                 GetData.ConnectToSteam.Market.TF2Ticket();
                 GetData.ConnectToSteam.Market.TF2Key();
                 double KeyIRT = LoadData.GamingClub.Key;
-                Double TicketIRT = LoadData.GamingClub.Ticket;
+                double TicketIRT = LoadData.GamingClub.Ticket;
                 foreach (string appid in ID)
                 {
                     GetData.DLCID = Convert.ToInt32(appid);
-
-
 
                     DataGridViewRow row = DataTable.Rows[rowId];
 
@@ -171,6 +173,8 @@ namespace SteamPulse
                     }
                     //row.Cells["image"].Value = bitmap;
                     string dlc_price = "Coming Soon";
+                    //DataTable.Invoke((MethodInvoker)(() => row.Cells["View"].Value = "View DLC"));
+
                     DataTable.Invoke((MethodInvoker)(() => row.Cells["name"].Value = dlc_name));
                     if (LoadData.Store.DLC.Data.Isfree == true)
                     {
@@ -196,22 +200,22 @@ namespace SteamPulse
                         {
                             if (LoadData.Store.DLC.Data.Discount > 0)
                             {
-                                DataTable.Invoke((MethodInvoker)(() => row.Cells["price"].Value = string.Format("{0} {1} - {2}%", LoadData.Store.DLC.Data.Price, Settings.Currency.Unit, LoadData.Store.DLC.Data.Discount)));
+                                DataTable.Invoke((MethodInvoker)(() => row.Cells["price"].Value = string.Format("{0} {1} - {2}%", string.Format("{0:n0}", LoadData.Store.DLC.Data.Price), Settings.Currency.Unit, LoadData.Store.DLC.Data.Discount)));
                             }
                             else
                             {
-                                DataTable.Invoke((MethodInvoker)(() => row.Cells["price"].Value = string.Format("{0} {1}", LoadData.Store.DLC.Data.Price, Settings.Currency.Unit)));
+                                DataTable.Invoke((MethodInvoker)(() => row.Cells["price"].Value = string.Format("{0} {1}", string.Format("{0:n0}", LoadData.Store.DLC.Data.Price), Settings.Currency.Unit)));
                             }
 
                             if (IRTCheck == true)
                             {
                                 if (LoadData.Store.DLC.Data.Price < LoadData.Market.Ticket.User_Price)
                                 {
-                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Ticket - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)), String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
+                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Ticket - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
                                 }
                                 else
                                 {
-                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Key - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)), String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
+                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Key - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
                                 }
                             }
                             else { }
@@ -243,7 +247,7 @@ namespace SteamPulse
 
                         if (TicketIRT != 0)
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)), String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
                         }
                         else
                         {
@@ -261,7 +265,7 @@ namespace SteamPulse
                     {
                         if (KeyIRT != 0)
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)), String.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
                         }
                         else
                         {
@@ -299,11 +303,26 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        private void PanelHeader_Click(object sender, EventArgs e)
-        {
 
+        private void DataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                Process.Start("steampulse://open/" + ID[e.RowIndex]);
+            }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void DataTable_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                this.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                this.Cursor = DefaultCursor;
+            }
+        }
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;

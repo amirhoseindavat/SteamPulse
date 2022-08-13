@@ -6,7 +6,7 @@
 //
 // Beta Build
 //
-// Version 0.6 Revision 14
+// Version 0.6.1 Revision 16
 #endregion
 
 using Newtonsoft.Json;
@@ -31,9 +31,10 @@ namespace SteamAPI
         protected internal static string MarketDataTicket { get; set; }
         protected internal static string CommunityData { get; set; }
         protected internal static string ProfileData { get; set; }
+        protected internal static string PlayerData { get; set; }
         protected internal static string WishlistData { get; set; }
         protected internal static string GamingClubData { get; set; }
-        internal static string APIKEY { get { return "C0C2746E5859F6EAD7B27E79C6D9BC76"; } }
+        internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
         public static int ErrorCode { get; set; }
         /// <summary>
         /// Connect to Steam and GetData.
@@ -75,7 +76,7 @@ namespace SteamAPI
             /// <remarks>
             /// Returns:if success: true, if fail: false.
             /// </remarks>
-            public static Boolean Store()
+            public static bool Store()
             {
                 try
                 {
@@ -98,7 +99,7 @@ namespace SteamAPI
                     else
                     {
                         JObject JsonObject = JObject.Parse(Data);
-                        Boolean Status = Convert.ToBoolean(JsonObject.SelectToken("$." + Appid + ".success"));
+                        bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + Appid + ".success"));
                         if (Status == true)
                         {
                             return true;
@@ -124,13 +125,13 @@ namespace SteamAPI
                 /// <summary>
                 /// Get Owned Games, Parametr: User's SteamID64
                 /// </summary>
-                public static Boolean GetOwnedGames(String SteamID)
+                public static bool GetOwnedGames(string SteamID)
                 {
                     try
                     {
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                        CommunityData = client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + APIKEY + "&steamid=" + SteamID);
+                        CommunityData = client.DownloadString("https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=" + APIKEY + "&steamid=" + SteamID + "&include_played_free_games=true&include_free_sub=true&skip_unvetted_apps=false");
                         return true;
                     }
                     catch
@@ -138,13 +139,29 @@ namespace SteamAPI
                         return false;
                     }
                 }
-                public static Boolean GetAvatarFrame(string SteamID)
+                public static bool GetAvatarFrame(string SteamID)
                 {
                     try
                     {
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                         ProfileData = client.DownloadString("https://api.steampowered.com/IPlayerService/GetAvatarFrame/v1/?key=" + APIKEY + "&steamid=" + SteamID);
+                        return true;
+
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+
+                public static bool GetPlayerSummaries(string SteamID)
+                {
+                    try
+                    {
+                        WebClient client = new WebClient();
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                        PlayerData = client.DownloadString("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=" + APIKEY + "&steamids=" + SteamID);
                         return true;
 
                     }
@@ -162,7 +179,7 @@ namespace SteamAPI
                 /// <summary>
                 /// Load Team Fortress 2 Keys Data.
                 /// </summary>
-                public static Boolean TF2Key()
+                public static bool TF2Key()
                 {
                     try
                     {
@@ -180,7 +197,7 @@ namespace SteamAPI
                 /// <summary>
                 /// Load Team Fortress 2 Ticket Data.
                 /// </summary>
-                public static Boolean TF2Ticket()
+                public static bool TF2Ticket()
                 {
                     try
                     {
@@ -205,7 +222,7 @@ namespace SteamAPI
             /// <summary>
             /// Load Key IRT Price.
             /// </summary>
-            public static Boolean Key()
+            public static bool Key()
             {
                 try
                 {
@@ -223,7 +240,7 @@ namespace SteamAPI
             /// <summary>
             /// Load Ticket IRT Price.
             /// </summary>
-            public static Boolean Ticket()
+            public static bool Ticket()
             {
                 try
                 {
@@ -253,7 +270,7 @@ namespace SteamAPI
             /// <summary>
             /// Remove Anything but Alphabet or numeric (internal use)
             /// </summary>
-            private static string OnlyAlphaNumeric(String Data)
+            private static string OnlyAlphaNumeric(string Data)
             {
                 Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                 return rgx.Replace(Data.ToString(), "");
@@ -261,7 +278,7 @@ namespace SteamAPI
             /// <summary>
             /// Remove Extra Space from string (internal use)
             /// </summary>
-            private static string RemoveExtraSpace(String Data)
+            private static string RemoveExtraSpace(string Data)
             {
                 RegexOptions options = RegexOptions.None;
                 Regex regex = new Regex("[ ]{2,}", options);
@@ -317,23 +334,11 @@ namespace SteamAPI
             /// <remarks>
             /// Returns:if free: true, else: false.
             /// </remarks>
-            public static Boolean IsFree
-            {
-                get
-                {
-                    return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.is_free"));
-                }
-            }
+            public static bool IsFree => Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.is_free"));
             /// <summary>
             /// Type of Product(Game,DLC).
             /// </summary>
-            public static string Type
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.type").ToString();
-                }
-            }
+            public static string Type => RawData.SelectToken("$." + GetData.Appid + ".data.type").ToString();
             /// <summary>
             /// Full Name of Game for dlc.
             /// </summary>
@@ -358,13 +363,27 @@ namespace SteamAPI
             {
                 get
                 {
-                    if (RawData.SelectToken("$." + GetData.Appid + ".data.developers[1]") != null)
+                    try
                     {
-                        return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.developers[0]").ToString(), RawData.SelectToken("$." + GetData.Appid + ".data.developers[1]").ToString(), 2));
+                        if (RawData.SelectToken("$." + GetData.Appid + ".data.developers[1]") != null)
+                        {
+                            return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.developers[0]").ToString(), RawData.SelectToken("$." + GetData.Appid + ".data.developers[1]").ToString(), 2));
+                        }
+                        else
+                        {
+                            if (RawData.SelectToken("$." + GetData.Appid + ".data.developers[0]") != null)
+                            {
+                                return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.developers[0]").ToString()));
+                            }
+                            else
+                            {
+                                return "N/A";
+                            }
+                        }
                     }
-                    else
+                    catch
                     {
-                        return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.developers[0]").ToString()));
+                        return "N/A";
                     }
                 }
             }
@@ -381,60 +400,37 @@ namespace SteamAPI
                     }
                     else
                     {
-                        return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.publishers[0]").ToString()));
+                        if (RawData.SelectToken("$." + GetData.Appid + ".data.publishers[0]") != null)
+                        {
+                            return RemoveExtraSpace(ArraytoString(RawData.SelectToken("$." + GetData.Appid + ".data.publishers[0]").ToString()));
+                        }
+                        else
+                        {
+                            return "N/A";
+                        }
                     }
                 }
             }
             /// <summary>
             /// Website of Product.
             /// </summary>
-            public static string Website
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.website").ToString();
-                }
-            }
+            public static string Website => RawData.SelectToken("$." + GetData.Appid + ".data.website").ToString();
             /// <summary>
             /// Controller Support of Product.
             /// </summary>
-            public static string Controller_Support
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.controller_support").ToString();
-                }
-            }
+            public static string Controller_Support => RawData.SelectToken("$." + GetData.Appid + ".data.controller_support").ToString();
             /// <summary>
             /// Required Age of Product.
             /// </summary>
-            public static int Required_Age
-            {
-                get
-                {
-                    return Convert.ToInt32(RawData.SelectToken("$." + GetData.Appid + ".data.required_age"));
-                }
-            }
+            public static int Required_Age => Convert.ToInt32(RawData.SelectToken("$." + GetData.Appid + ".data.required_age"));
             /// <summary>
             /// Description of Product.
             /// </summary>
-            public static string Description
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.short_description").ToString();
-                }
-            }
+            public static string Description => RawData.SelectToken("$." + GetData.Appid + ".data.short_description").ToString();
             /// <summary>
             /// HeaderImage of Product.
             /// </summary>
-            public static string HeaderImage
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.header_image").ToString();
-                }
-            }
+            public static string HeaderImage => RawData.SelectToken("$." + GetData.Appid + ".data.header_image").ToString();
             /// <summary>
             /// Library Image of Product.
             /// </summary>
@@ -488,27 +484,15 @@ namespace SteamAPI
             /// <summary>
             /// Raw Release Date of Product.
             /// </summary>
-            public static string ReleaseDateString
-            {
-                get
-                {
-                    return RawData.SelectToken("$." + GetData.Appid + ".data.release_date.date").ToString();
-                }
-            }
+            public static string ReleaseDateString => RawData.SelectToken("$." + GetData.Appid + ".data.release_date.date").ToString();
             /// <summary>
             /// Check if Game is Coming Soon.
             /// </summary>
-            public static Boolean IsComingSoon
-            {
-                get
-                {
-                    return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.release_date.coming_soon"));
-                }
-            }
+            public static bool IsComingSoon => Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.release_date.coming_soon"));
             /// <summary>
             /// Is Release Date Valid ? (internal use)
             /// </summary>
-            public static Boolean IsValidDate
+            public static bool IsValidDate
             {
                 get
                 {
@@ -589,7 +573,7 @@ namespace SteamAPI
                 /// <remarks>
                 /// Returns:if Available to Purchase: true, else: false.
                 /// </remarks>
-                public static Boolean AvailabletoPurchase
+                public static bool AvailabletoPurchase
                 {
                     get
                     {
@@ -720,27 +704,9 @@ namespace SteamAPI
             /// </summary>
             public struct Platform
             {
-                public static Boolean Windows
-                {
-                    get
-                    {
-                        return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.windows"));
-                    }
-                }
-                public static Boolean Mac
-                {
-                    get
-                    {
-                        return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.mac"));
-                    }
-                }
-                public static Boolean Linux
-                {
-                    get
-                    {
-                        return Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.linux"));
-                    }
-                }
+                public static bool Windows => Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.windows"));
+                public static bool Mac => Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.mac"));
+                public static bool Linux => Convert.ToBoolean(RawData.SelectToken("$." + GetData.Appid + ".data.platforms.linux"));
             }
             /// <summary>
             /// DLC's of Product.
@@ -850,13 +816,7 @@ namespace SteamAPI
                     /// <summary>
                     /// Image of DLC.
                     /// </summary>
-                    public static string HeaderImage
-                    {
-                        get
-                        {
-                            return DataDLC.SelectToken(GetData.DLCID + ".data.header_image").ToString();
-                        }
-                    }
+                    public static string HeaderImage => DataDLC.SelectToken(GetData.DLCID + ".data.header_image").ToString();
                     /// <summary>
                     /// Price of DLC.
                     /// </summary>
@@ -869,6 +829,9 @@ namespace SteamAPI
                             return price;
                         }
                     }
+
+                    public static int OrigialGameID => Convert.ToInt32(DataDLC.SelectToken(GetData.DLCID + ".data.fullgame.appid"));
+                    public static string OrigialGamename => DataDLC.SelectToken(GetData.DLCID + ".data.fullgame.name").ToString();
                     /// <summary>
                     /// Discount of DLC.
                     /// </summary>
@@ -893,26 +856,14 @@ namespace SteamAPI
                     /// <remarks>
                     /// Returns:if free: true, else: false.
                     /// </remarks>
-                    public static Boolean Isfree
-                    {
-                        get
-                        {
-                            return Convert.ToBoolean(DataDLC.SelectToken(GetData.DLCID + ".data.is_free"));
-                        }
-                    }
+                    public static bool Isfree => Convert.ToBoolean(DataDLC.SelectToken(GetData.DLCID + ".data.is_free"));
                     /// <summary>
                     /// Check if DLC is Coming Soon.
                     /// </summary>
                     /// <remarks>
                     /// Returns:if free: true, else: false.
                     /// </remarks>
-                    public static Boolean ComingSoon
-                    {
-                        get
-                        {
-                            return Convert.ToBoolean(DataDLC.SelectToken(GetData.DLCID + ".data.release_date.coming_soon"));
-                        }
-                    }
+                    public static bool ComingSoon => Convert.ToBoolean(DataDLC.SelectToken(GetData.DLCID + ".data.release_date.coming_soon"));
                 }
             }
 
@@ -926,30 +877,37 @@ namespace SteamAPI
             /// Check if user Own a Game.
             /// </summary>
             /// <remarks>
-            /// Returns:if free: true, else: false.
+            /// Returns:if owned: true, else: false.
             /// </remarks>
-            public static Boolean Isowned(int Appid)
+            public static bool Isowned(int Appid)
             {
-                Boolean status = false;
-                JObject JsonObject = JObject.Parse(GetData.CommunityData);
-                int i = 0;
-                for (; ; )
+                try
                 {
-                    i++;
-                    JToken app_id = JsonObject.SelectToken(".response.games.[" + i + "].appid");
-                    if (app_id == null)
+                    bool status = false;
+                    JObject JsonObject = JObject.Parse(GetData.CommunityData);
+                    int i = 0;
+                    for (; ; )
                     {
-                        break;
-                    }
+                        i++;
+                        JToken app_id = JsonObject.SelectToken(".response.games.[" + i + "].appid");
+                        if (app_id == null)
+                        {
+                            break;
+                        }
 
-                    if (Appid == Convert.ToInt32(app_id))
-                    {
-                        status = true;
-                        break;
+                        if (Appid == Convert.ToInt32(app_id))
+                        {
+                            status = true;
+                            break;
+                        }
+                        else { }
                     }
-                    else { }
+                    return status;
                 }
-                return status;
+                catch
+                {
+                    return false;
+                }
             }
             /// <summary>
             /// Return Playtime in Minute
@@ -979,6 +937,63 @@ namespace SteamAPI
                     return 0;
                 }
             }
+            public struct UserStatus
+            {
+                private static bool IsInGame = false;
+
+                public static int OnlineStatus
+                {
+                    get
+                    {
+                        try
+                        {
+                            GetData.ConnectToSteam.Community.GetPlayerSummaries(SteamPulse.Properties.Settings.Default.UserSteamID);
+
+                            int status = 0;
+
+                            JObject JsonObject = JObject.Parse(GetData.PlayerData);
+
+                            if (JsonObject.SelectToken(".response.players[0].gameextrainfo") != null)
+                            {
+                                IsInGame = true;
+                            }
+                            else
+                            {
+                                IsInGame = false;
+                            }
+                            status = Convert.ToInt32(JsonObject.SelectToken(".response.players[0].personastate"));
+                            if (IsInGame == true)
+                            {
+                                return 85;
+                            }
+                            else
+                            {
+                                return status;
+                            }
+
+                        }
+                        catch
+                        {
+                            return -1;
+                        }
+                    }
+                }
+                public static string CurrentPlayingGame
+                {
+                    get
+                    {
+                        if (IsInGame == true)
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.PlayerData);
+                            return JsonObject.SelectToken(".response.players[0].gameextrainfo").ToString();
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
             public static string AvatarFrame(string steamid)
             {
                 if (GetData.ConnectToSteam.Community.GetAvatarFrame(steamid) == true)
@@ -1006,7 +1021,7 @@ namespace SteamAPI
                 /// <summary>
                 /// Lowest Price (Live).
                 /// </summary>
-                public static Double LowestPrice
+                public static double LowestPrice
                 {
                     get
                     {
@@ -1042,7 +1057,7 @@ namespace SteamAPI
                 /// <summary>
                 /// User Price (Including Steam Selling Fee).
                 /// </summary>
-                public static Double User_Price
+                public static double User_Price
                 {
                     get
                     {
@@ -1059,10 +1074,7 @@ namespace SteamAPI
                         }
                     }
                 }
-                private static int Quanity
-                {
-                    get { return 0; }
-                }
+                private static int Quanity => 0;
             }
             /// <summary>
             /// Get Data of TF2 Ticket
@@ -1072,7 +1084,7 @@ namespace SteamAPI
                 /// <summary>
                 /// Lowest Price (Live).
                 /// </summary>
-                public static Double LowestPrice
+                public static double LowestPrice
                 {
                     get
                     {
@@ -1102,7 +1114,7 @@ namespace SteamAPI
                 /// <summary>
                 /// User Price (Including Steam Selling Fee).
                 /// </summary>
-                public static Double User_Price
+                public static double User_Price
                 {
                     get
                     {
@@ -1119,10 +1131,7 @@ namespace SteamAPI
                         }
                     }
                 }
-                private static int Quanity
-                {
-                    get { return 0; }
-                }
+                private static int Quanity => 0;
             }
         }
         /// <summary>
@@ -1157,7 +1166,7 @@ namespace SteamAPI
                 get
                 {
                     //if (GetData.GamingClub.Ticket() == true)
-                    if(GetData.GamingClubData != "")
+                    if (GetData.GamingClubData != "")
                     {
                         JObject JsonObject = JObject.Parse(GetData.GamingClubData);
                         return Convert.ToInt32(JsonObject.SelectToken("$.Ticket"));
