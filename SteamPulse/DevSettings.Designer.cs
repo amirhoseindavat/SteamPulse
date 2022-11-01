@@ -30,13 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState7 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState8 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState9 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevSetting));
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevSetting));
             this.bunifuElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.ButtonExit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -56,12 +59,16 @@
             this.PanelItemCalc = new Bunifu.UI.WinForms.BunifuPanel();
             this.DropDownItemCalc = new Bunifu.UI.WinForms.BunifuDropdown();
             this.LabelItemCalc = new Bunifu.UI.WinForms.BunifuLabel();
+            this.PanelHistogram = new Bunifu.UI.WinForms.BunifuPanel();
+            this.LabelHistogram = new Bunifu.UI.WinForms.BunifuLabel();
+            this.ToggleHistogram = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.PanelHeader.SuspendLayout();
             this.PanelImprove.SuspendLayout();
             this.PanelCalc.SuspendLayout();
             this.PanelRemain.SuspendLayout();
             this.PanelDLC.SuspendLayout();
             this.PanelItemCalc.SuspendLayout();
+            this.PanelHistogram.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse
@@ -241,33 +248,33 @@
             this.ToggleImprove.Size = new System.Drawing.Size(32, 18);
             this.ToggleImprove.TabIndex = 4;
             this.ToggleImprove.ThumbMargin = 3;
-            toggleState4.BackColor = System.Drawing.Color.DarkGray;
-            toggleState4.BackColorInner = System.Drawing.Color.White;
-            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState4.BorderColorInner = System.Drawing.Color.White;
-            toggleState4.BorderRadius = 17;
-            toggleState4.BorderRadiusInner = 11;
-            toggleState4.BorderThickness = 1;
-            toggleState4.BorderThicknessInner = 1;
-            this.ToggleImprove.ToggleStateDisabled = toggleState4;
-            toggleState5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BackColorInner = System.Drawing.Color.White;
-            toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BorderColorInner = System.Drawing.Color.White;
-            toggleState5.BorderRadius = 17;
-            toggleState5.BorderRadiusInner = 11;
-            toggleState5.BorderThickness = 1;
-            toggleState5.BorderThicknessInner = 1;
-            this.ToggleImprove.ToggleStateOff = toggleState5;
-            toggleState6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState6.BackColorInner = System.Drawing.Color.White;
-            toggleState6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState6.BorderColorInner = System.Drawing.Color.White;
-            toggleState6.BorderRadius = 17;
-            toggleState6.BorderRadiusInner = 11;
-            toggleState6.BorderThickness = 1;
-            toggleState6.BorderThicknessInner = 1;
-            this.ToggleImprove.ToggleStateOn = toggleState6;
+            toggleState7.BackColor = System.Drawing.Color.DarkGray;
+            toggleState7.BackColorInner = System.Drawing.Color.White;
+            toggleState7.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState7.BorderColorInner = System.Drawing.Color.White;
+            toggleState7.BorderRadius = 17;
+            toggleState7.BorderRadiusInner = 11;
+            toggleState7.BorderThickness = 1;
+            toggleState7.BorderThicknessInner = 1;
+            this.ToggleImprove.ToggleStateDisabled = toggleState7;
+            toggleState8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState8.BackColorInner = System.Drawing.Color.White;
+            toggleState8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState8.BorderColorInner = System.Drawing.Color.White;
+            toggleState8.BorderRadius = 17;
+            toggleState8.BorderRadiusInner = 11;
+            toggleState8.BorderThickness = 1;
+            toggleState8.BorderThicknessInner = 1;
+            this.ToggleImprove.ToggleStateOff = toggleState8;
+            toggleState9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState9.BackColorInner = System.Drawing.Color.White;
+            toggleState9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState9.BorderColorInner = System.Drawing.Color.White;
+            toggleState9.BorderRadius = 17;
+            toggleState9.BorderRadiusInner = 11;
+            toggleState9.BorderThickness = 1;
+            toggleState9.BorderThicknessInner = 1;
+            this.ToggleImprove.ToggleStateOn = toggleState9;
             this.ToggleImprove.Value = false;
             this.ToggleImprove.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleImprove_CheckedChanged);
             // 
@@ -281,7 +288,7 @@
             this.PanelCalc.BorderThickness = 1;
             this.PanelCalc.Controls.Add(this.DropDownCalc);
             this.PanelCalc.Controls.Add(this.LabelCalc);
-            this.PanelCalc.Location = new System.Drawing.Point(12, 330);
+            this.PanelCalc.Location = new System.Drawing.Point(12, 400);
             this.PanelCalc.Name = "PanelCalc";
             this.PanelCalc.ShowBorders = true;
             this.PanelCalc.Size = new System.Drawing.Size(378, 50);
@@ -395,33 +402,33 @@
             this.ToggleRemain.Size = new System.Drawing.Size(32, 18);
             this.ToggleRemain.TabIndex = 4;
             this.ToggleRemain.ThumbMargin = 3;
-            toggleState1.BackColor = System.Drawing.Color.DarkGray;
-            toggleState1.BackColorInner = System.Drawing.Color.White;
-            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState1.BorderColorInner = System.Drawing.Color.White;
-            toggleState1.BorderRadius = 17;
-            toggleState1.BorderRadiusInner = 11;
-            toggleState1.BorderThickness = 1;
-            toggleState1.BorderThicknessInner = 1;
-            this.ToggleRemain.ToggleStateDisabled = toggleState1;
-            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BackColorInner = System.Drawing.Color.White;
-            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BorderColorInner = System.Drawing.Color.White;
-            toggleState2.BorderRadius = 17;
-            toggleState2.BorderRadiusInner = 11;
-            toggleState2.BorderThickness = 1;
-            toggleState2.BorderThicknessInner = 1;
-            this.ToggleRemain.ToggleStateOff = toggleState2;
-            toggleState3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState3.BackColorInner = System.Drawing.Color.White;
-            toggleState3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            toggleState3.BorderColorInner = System.Drawing.Color.White;
-            toggleState3.BorderRadius = 17;
-            toggleState3.BorderRadiusInner = 11;
-            toggleState3.BorderThickness = 1;
-            toggleState3.BorderThicknessInner = 1;
-            this.ToggleRemain.ToggleStateOn = toggleState3;
+            toggleState4.BackColor = System.Drawing.Color.DarkGray;
+            toggleState4.BackColorInner = System.Drawing.Color.White;
+            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState4.BorderColorInner = System.Drawing.Color.White;
+            toggleState4.BorderRadius = 17;
+            toggleState4.BorderRadiusInner = 11;
+            toggleState4.BorderThickness = 1;
+            toggleState4.BorderThicknessInner = 1;
+            this.ToggleRemain.ToggleStateDisabled = toggleState4;
+            toggleState5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState5.BackColorInner = System.Drawing.Color.White;
+            toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState5.BorderColorInner = System.Drawing.Color.White;
+            toggleState5.BorderRadius = 17;
+            toggleState5.BorderRadiusInner = 11;
+            toggleState5.BorderThickness = 1;
+            toggleState5.BorderThicknessInner = 1;
+            this.ToggleRemain.ToggleStateOff = toggleState5;
+            toggleState6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState6.BackColorInner = System.Drawing.Color.White;
+            toggleState6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState6.BorderColorInner = System.Drawing.Color.White;
+            toggleState6.BorderRadius = 17;
+            toggleState6.BorderRadiusInner = 11;
+            toggleState6.BorderThickness = 1;
+            toggleState6.BorderThicknessInner = 1;
+            this.ToggleRemain.ToggleStateOn = toggleState6;
             this.ToggleRemain.Value = false;
             this.ToggleRemain.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleRemain_CheckedChanged);
             // 
@@ -435,7 +442,7 @@
             this.PanelDLC.BorderThickness = 1;
             this.PanelDLC.Controls.Add(this.DropDownDLC);
             this.PanelDLC.Controls.Add(this.DLCCount);
-            this.PanelDLC.Location = new System.Drawing.Point(12, 260);
+            this.PanelDLC.Location = new System.Drawing.Point(12, 330);
             this.PanelDLC.Name = "PanelDLC";
             this.PanelDLC.ShowBorders = true;
             this.PanelDLC.Size = new System.Drawing.Size(378, 50);
@@ -521,7 +528,7 @@
             this.PanelItemCalc.BorderThickness = 1;
             this.PanelItemCalc.Controls.Add(this.DropDownItemCalc);
             this.PanelItemCalc.Controls.Add(this.LabelItemCalc);
-            this.PanelItemCalc.Location = new System.Drawing.Point(12, 190);
+            this.PanelItemCalc.Location = new System.Drawing.Point(12, 260);
             this.PanelItemCalc.Name = "PanelItemCalc";
             this.PanelItemCalc.ShowBorders = true;
             this.PanelItemCalc.Size = new System.Drawing.Size(378, 50);
@@ -590,12 +597,88 @@
             this.LabelItemCalc.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.LabelItemCalc.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
+            // PanelHistogram
+            // 
+            this.PanelHistogram.BackgroundColor = System.Drawing.Color.White;
+            this.PanelHistogram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelHistogram.BackgroundImage")));
+            this.PanelHistogram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelHistogram.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelHistogram.BorderRadius = 20;
+            this.PanelHistogram.BorderThickness = 1;
+            this.PanelHistogram.Controls.Add(this.LabelHistogram);
+            this.PanelHistogram.Controls.Add(this.ToggleHistogram);
+            this.PanelHistogram.Location = new System.Drawing.Point(12, 190);
+            this.PanelHistogram.Name = "PanelHistogram";
+            this.PanelHistogram.ShowBorders = true;
+            this.PanelHistogram.Size = new System.Drawing.Size(378, 50);
+            this.PanelHistogram.TabIndex = 37;
+            // 
+            // LabelHistogram
+            // 
+            this.LabelHistogram.AllowParentOverrides = false;
+            this.LabelHistogram.AutoEllipsis = false;
+            this.LabelHistogram.CursorType = null;
+            this.LabelHistogram.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
+            this.LabelHistogram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelHistogram.Location = new System.Drawing.Point(15, 11);
+            this.LabelHistogram.Name = "LabelHistogram";
+            this.LabelHistogram.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LabelHistogram.Size = new System.Drawing.Size(258, 30);
+            this.LabelHistogram.TabIndex = 5;
+            this.LabelHistogram.Text = "Show Market Histogram Data";
+            this.LabelHistogram.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.LabelHistogram.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // ToggleHistogram
+            // 
+            this.ToggleHistogram.Animation = 5;
+            this.ToggleHistogram.BackColor = System.Drawing.Color.Transparent;
+            this.ToggleHistogram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToggleHistogram.BackgroundImage")));
+            this.ToggleHistogram.Checked = false;
+            this.ToggleHistogram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ToggleHistogram.InnerCirclePadding = 3;
+            this.ToggleHistogram.Location = new System.Drawing.Point(329, 16);
+            this.ToggleHistogram.Name = "ToggleHistogram";
+            this.ToggleHistogram.Size = new System.Drawing.Size(32, 18);
+            this.ToggleHistogram.TabIndex = 4;
+            this.ToggleHistogram.ThumbMargin = 3;
+            toggleState1.BackColor = System.Drawing.Color.DarkGray;
+            toggleState1.BackColorInner = System.Drawing.Color.White;
+            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState1.BorderColorInner = System.Drawing.Color.White;
+            toggleState1.BorderRadius = 17;
+            toggleState1.BorderRadiusInner = 11;
+            toggleState1.BorderThickness = 1;
+            toggleState1.BorderThicknessInner = 1;
+            this.ToggleHistogram.ToggleStateDisabled = toggleState1;
+            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState2.BackColorInner = System.Drawing.Color.White;
+            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState2.BorderColorInner = System.Drawing.Color.White;
+            toggleState2.BorderRadius = 17;
+            toggleState2.BorderRadiusInner = 11;
+            toggleState2.BorderThickness = 1;
+            toggleState2.BorderThicknessInner = 1;
+            this.ToggleHistogram.ToggleStateOff = toggleState2;
+            toggleState3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState3.BackColorInner = System.Drawing.Color.White;
+            toggleState3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            toggleState3.BorderColorInner = System.Drawing.Color.White;
+            toggleState3.BorderRadius = 17;
+            toggleState3.BorderRadiusInner = 11;
+            toggleState3.BorderThickness = 1;
+            toggleState3.BorderThicknessInner = 1;
+            this.ToggleHistogram.ToggleStateOn = toggleState3;
+            this.ToggleHistogram.Value = false;
+            this.ToggleHistogram.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.ToggleHistogram_CheckedChanged);
+            // 
             // DevSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(409, 324);
+            this.ClientSize = new System.Drawing.Size(409, 470);
+            this.Controls.Add(this.PanelHistogram);
             this.Controls.Add(this.PanelItemCalc);
             this.Controls.Add(this.PanelDLC);
             this.Controls.Add(this.PanelRemain);
@@ -620,6 +703,8 @@
             this.PanelDLC.PerformLayout();
             this.PanelItemCalc.ResumeLayout(false);
             this.PanelItemCalc.PerformLayout();
+            this.PanelHistogram.ResumeLayout(false);
+            this.PanelHistogram.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -645,5 +730,8 @@
         private Bunifu.UI.WinForms.BunifuPanel PanelItemCalc;
         private Bunifu.UI.WinForms.BunifuDropdown DropDownItemCalc;
         private Bunifu.UI.WinForms.BunifuLabel LabelItemCalc;
+        private Bunifu.UI.WinForms.BunifuPanel PanelHistogram;
+        private Bunifu.UI.WinForms.BunifuLabel LabelHistogram;
+        private Bunifu.UI.WinForms.BunifuToggleSwitch ToggleHistogram;
     }
 }

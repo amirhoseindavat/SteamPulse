@@ -1,31 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SteamAPI.GetData" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAIIAAAAAAAAAAQAAAAgAAhAABBAAAAAAiAA=</HashCode>
-      <FileName>SteamAPI.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SteamAPI.LoadData">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="SteamAPI.GetData">
+    <Position X="0.5" Y="0.5" Width="4.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
+      <Struct Name="SteamAPI.GetData.ConnectToSteam">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamAPI.GetData.ConnectToSteam.Community">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamAPI.GetData.ConnectToSteam.Market">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SteamAPI.GetData.GamingClub">
+        <TypeIdentifier>
+          <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAIIABAAAEAgAAQAAAAgAAhAABBAAAAAAigA=</HashCode>
+      <FileName>SteamAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteamAPI.LoadData">
+    <Position X="6" Y="0.5" Width="6" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SteamAPI.LoadData.Store">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamAPI.LoadData.Store.Packages" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamAPI.LoadData.Store.Price">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamAPI.LoadData.Store.Platform">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Class Name="SteamAPI.LoadData.Store.DLC">
+            <Compartments>
+              <Compartment Name="Nested Types" Collapsed="false" />
+            </Compartments>
+            <NestedTypes>
+              <Struct Name="SteamAPI.LoadData.Store.DLC.Data">
+                <TypeIdentifier>
+                  <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Struct>
+            </NestedTypes>
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
       <Struct Name="SteamAPI.LoadData.Community">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamAPI.LoadData.Community.UserStatus">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
         <TypeIdentifier>
           <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
       <Struct Name="SteamAPI.LoadData.Market">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
         <NestedTypes>
-          <Class Name="SteamAPI.LoadData.Market.Key" Collapsed="true">
+          <Class Name="SteamAPI.LoadData.Market.Key">
             <TypeIdentifier>
               <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
             </TypeIdentifier>
           </Class>
-          <Class Name="SteamAPI.LoadData.Market.Ticket" Collapsed="true">
+          <Class Name="SteamAPI.LoadData.Market.Ticket">
             <TypeIdentifier>
               <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
             </TypeIdentifier>
@@ -36,30 +119,20 @@
         </TypeIdentifier>
       </Struct>
       <Struct Name="SteamAPI.LoadData.GamingClub">
-        <TypeIdentifier>
-          <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="SteamAPI.LoadData.Store">
         <Compartments>
           <Compartment Name="Nested Types" Collapsed="false" />
         </Compartments>
         <NestedTypes>
-          <Struct Name="SteamAPI.LoadData.Store.Price" Collapsed="true">
+          <Struct Name="SteamAPI.LoadData.GamingClub.Key">
             <TypeIdentifier>
               <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
             </TypeIdentifier>
           </Struct>
-          <Struct Name="SteamAPI.LoadData.Store.Platform" Collapsed="true">
+          <Struct Name="SteamAPI.LoadData.GamingClub.Ticket">
             <TypeIdentifier>
               <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
             </TypeIdentifier>
           </Struct>
-          <Class Name="SteamAPI.LoadData.Store.DLC" Collapsed="true">
-            <TypeIdentifier>
-              <NewMemberFileName>SteamAPI.cs</NewMemberFileName>
-            </TypeIdentifier>
-          </Class>
         </NestedTypes>
         <TypeIdentifier>
           <NewMemberFileName>SteamAPI.cs</NewMemberFileName>

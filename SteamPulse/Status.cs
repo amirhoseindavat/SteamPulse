@@ -6,12 +6,14 @@
 //
 // Release Build
 //
-// Version 1.8.1 
+// Version 1.8.1 Revision 1
+// last Edit: 10/29/22 V2.0
 
 #endregion
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -24,10 +26,16 @@ namespace SteamPulse
         readonly Color FlatGreen = Color.FromArgb(46, 204, 113);
         //readonly Color FlatGray = Color.FromArgb(191, 191, 191);
 
-        readonly string SteamStore = "104.99.232.134";
+        //Old Method
+        /*readonly string SteamStore = "104.99.232.134";
         readonly string SteamCommunity = "23.62.135.246";
         readonly string CodeMage = "5.196.141.85";
-        readonly string GamingClub = "185.73.226.40";
+        readonly string GamingClub = "185.73.226.40";*/
+
+        readonly string SteamStore = "https://store.steampowered.com";
+        readonly string SteamCommunity = "https://steamcommunity.com";
+        readonly string CodeMage = "https://codemage.ir";
+        readonly string GamingClub = "https://gaming-club.ir";
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -41,9 +49,10 @@ namespace SteamPulse
             InitializeComponent();
         }
 
-        public static bool PingHost(string nameOrAddress)
+        public static bool CheckStatus(string nameOrAddress)
         {
-            bool pingable = false;
+            // Old Method
+            /*bool pingable = false;
             Ping pinger = null;
 
             try
@@ -64,12 +73,24 @@ namespace SteamPulse
                 }
             }
 
-            return pingable;
+            return pingable;*/
+
+            try
+            {
+                System.Net.WebRequest myRequest = System.Net.WebRequest.Create(nameOrAddress);
+                System.Net.WebResponse myResponse = myRequest.GetResponse();
+                return true;
+            }
+            catch (System.Net.WebException)
+            {
+                return false;
+            }
+            
         }
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (PingHost(SteamStore))
+            if (CheckStatus(SteamStore))
             {
                 IndicatorSteamStore.Invoke((MethodInvoker)(() => IndicatorSteamStore.IdleFillColor = FlatGreen));
                 IndicatorSteamStore.Invoke((MethodInvoker)(() => IndicatorSteamStore.onHoverState.FillColor = FlatGreen));
@@ -80,7 +101,7 @@ namespace SteamPulse
                 IndicatorSteamStore.Invoke((MethodInvoker)(() => IndicatorSteamStore.onHoverState.FillColor = FlatRed));
             }
 
-            if (PingHost(SteamCommunity))
+            if (CheckStatus(SteamCommunity))
             {
                 IndicatorSteamCommunity.Invoke((MethodInvoker)(() => IndicatorSteamCommunity.IdleFillColor = FlatGreen));
                 IndicatorSteamCommunity.Invoke((MethodInvoker)(() => IndicatorSteamCommunity.onHoverState.FillColor = FlatGreen));
@@ -90,7 +111,7 @@ namespace SteamPulse
                 IndicatorSteamCommunity.Invoke((MethodInvoker)(() => IndicatorSteamCommunity.IdleFillColor = FlatRed));
                 IndicatorSteamCommunity.Invoke((MethodInvoker)(() => IndicatorSteamCommunity.onHoverState.FillColor = FlatRed));
             }
-            if (PingHost(CodeMage))
+            if (CheckStatus(CodeMage))
             {
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.IdleFillColor = FlatGreen));
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.onHoverState.FillColor = FlatGreen));
@@ -100,7 +121,7 @@ namespace SteamPulse
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.IdleFillColor = FlatRed));
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.onHoverState.FillColor = FlatRed));
             }
-            if (PingHost(GamingClub))
+            if (CheckStatus(GamingClub))
             {
                 IndicatorGamingClub.Invoke((MethodInvoker)(() => IndicatorGamingClub.IdleFillColor = FlatGreen));
                 IndicatorGamingClub.Invoke((MethodInvoker)(() => IndicatorGamingClub.onHoverState.FillColor = FlatGreen));
@@ -123,47 +144,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
-            if (PingHost(SteamStore))
-            {
-                IndicatorSteamStore.IdleFillColor = FlatGreen;
-                IndicatorSteamStore.onHoverState.FillColor = FlatGreen;
-            }
-            else
-            {
-                IndicatorSteamStore.IdleFillColor = FlatRed;
-                IndicatorSteamStore.onHoverState.FillColor = FlatRed;
-            }
-
-            if (PingHost(SteamCommunity))
-            {
-                IndicatorSteamCommunity.IdleFillColor = FlatGreen;
-                IndicatorSteamCommunity.onHoverState.FillColor = FlatGreen;
-            }
-            else
-            {
-                IndicatorSteamCommunity.IdleFillColor = FlatRed;
-                IndicatorSteamCommunity.onHoverState.FillColor = FlatRed;
-            }
-            if (PingHost(CodeMage))
-            {
-                IndicatorCodeMage.IdleFillColor = FlatGreen;
-                IndicatorCodeMage.onHoverState.FillColor = FlatGreen;
-            }
-            else
-            {
-                IndicatorCodeMage.IdleFillColor = FlatRed;
-                IndicatorCodeMage.onHoverState.FillColor = FlatRed;
-            }
-            if (PingHost(GamingClub))
-            {
-                IndicatorGamingClub.IdleFillColor = FlatGreen;
-                IndicatorGamingClub.onHoverState.FillColor = FlatGreen;
-            }
-            else
-            {
-                IndicatorGamingClub.IdleFillColor = FlatRed;
-                IndicatorGamingClub.onHoverState.FillColor = FlatRed;
-            }
+            BackgroundWorker.RunWorkerAsync();
         }
 
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)

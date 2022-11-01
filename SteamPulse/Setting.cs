@@ -664,7 +664,6 @@ namespace SteamPulse
                 {
                     UserInfoGames.Invoke((MethodInvoker)(() => UserInfoGames.Text = "Games Owned : Private"));
                 }
-
                 try
                 {
                     UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Load(ProfileAddress)));
@@ -911,12 +910,30 @@ namespace SteamPulse
                 Properties.Settings.Default.Save();
             }
         }
+        public static bool HistogramData
+        {
+            get => Convert.ToBoolean(Properties.Settings.Default.HistogramData);
+            set
+            {
+                Properties.Settings.Default.HistogramData = value;
+                Properties.Settings.Default.Save();
+            }
+        }
         public static bool DeveloperMode
         {
             get => Convert.ToBoolean(Properties.Settings.Default.DeveloperMode);
             set
             {
                 Properties.Settings.Default.DeveloperMode = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        public static bool EnteredGiveaway
+        {
+            get => Convert.ToBoolean(Properties.Settings.Default.EnteredGiveaway);
+            set
+            {
+                Properties.Settings.Default.EnteredGiveaway = value;
                 Properties.Settings.Default.Save();
             }
         }

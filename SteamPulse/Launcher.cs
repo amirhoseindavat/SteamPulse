@@ -6,14 +6,13 @@
 //
 // Release Build
 //
-// Version 1.3.0 Revision 1
-
+// Version 1.3.0 Revision 3
+// last Edit: 10/29/22 V2.0
 #endregion
 
 
 using Microsoft.Win32;
 using System;
-using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
@@ -35,7 +34,7 @@ namespace SteamPulse
 
         public static bool FormIsOpen(string FormName)
         {
-            Boolean Status = false;
+            bool Status = false;
             FormCollection Forms = Application.OpenForms;
             foreach (Form Form in Forms)
             {
@@ -62,13 +61,13 @@ namespace SteamPulse
                 if (argument.Contains("market"))
                 {
                     Form market = new LiveMarketPrice();
-                    market.ShowDialog();
+                    market.ShowDialog(this);
                     this.Close();
                 }
                 if (argument.Contains("settings"))
                 {
                     Form setting = new Setting();
-                    setting.ShowDialog();
+                    setting.ShowDialog(this);
                     this.Close();
                 }
                 /*if (argument.Contains("resetsettings"))
@@ -96,7 +95,20 @@ namespace SteamPulse
                 if (argument.Contains("calculator"))
                 {
                     Form calc = new Calculator();
-                    calc.ShowDialog();
+                    calc.ShowDialog(this);
+                    this.Close();
+                }
+                if (argument.Contains("giveaway"))
+                {
+                    Form giveaway = new Giveaway();
+                    giveaway.ShowDialog(this);
+                    this.Close();
+                }
+                if (argument.Contains("nogiveawaylimit"))
+                {
+                    Form main = new Main();
+                    Main.noGiveAwayLimit = true;
+                    main.ShowDialog();
                     this.Close();
                 }
                 if (argument.Contains("open"))
@@ -105,11 +117,10 @@ namespace SteamPulse
                     Main.SearchID = argument.Replace("open/", "");
                     if (Main.SearchID != "")
                     {
-                        main.ShowDialog();
+                        main.ShowDialog(this);
                     }
                     else { }
                     this.Close();
-
                 }
             }
             else
@@ -154,8 +165,6 @@ namespace SteamPulse
                     InstanceChecker();
                 }
             }
-
-
         }
         static string Hasher(string input)
         {
@@ -188,26 +197,26 @@ namespace SteamPulse
                         if (Properties.Settings.Default.StartingPage == "Main")
                         {
                             Form main = new Main();
-                            main.ShowDialog();
+                            main.ShowDialog(this);
                             this.Close();
                         }
                         if (Properties.Settings.Default.StartingPage == "Market")
                         {
                             Form market = new LiveMarketPrice();
-                            market.ShowDialog();
+                            market.ShowDialog(this);
                             this.Close();
                         }
                         if (Properties.Settings.Default.StartingPage == "Calculator")
                         {
                             Form calculator = new Calculator();
-                            calculator.ShowDialog();
+                            calculator.ShowDialog(this);
                             this.Close();
                         }
                     }
                     else
                     {
                         Form setting = new Setting();
-                        setting.ShowDialog();
+                        setting.ShowDialog(this);
                         this.Close();
                     }
                 }

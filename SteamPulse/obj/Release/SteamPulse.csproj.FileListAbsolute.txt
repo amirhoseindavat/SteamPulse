@@ -64,11 +64,13 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DLCBrowser.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DlcDetails.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.GameDetails.resources
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Giveaway.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Launcher.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.LiveMarketPrice.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Main.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Maintenance.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DiscountCalculator.resources
+C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.OldLiveMarketPrice.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Properties.Resources.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.DevSetting.resources
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\SteamPulse\obj\Release\SteamPulse.Setting.resources

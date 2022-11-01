@@ -6,7 +6,8 @@
 //
 // Release Build
 //
-// Version 1.2.0 Revision 7
+// Version 1.2.0 Revision 8
+// last Edit: 10/29/22 V2.0
 
 #endregion
 
@@ -53,18 +54,17 @@ namespace SteamPulse
         {
             if (Settings.CalculatorMode == "Wallet => Item")
             {
-                GetData.ConnectToSteam.Market.TF2Ticket();
-                if (Number < LoadData.Market.Ticket.User_Price)
+                if (Number < LoadData.Market.Ticket.LowestSellOrderNoFee)
                 {
-                    double Ticket_Count = Convert.ToDouble(Number) / LoadData.Market.Ticket.User_Price;
+                    double Ticket_Count = Convert.ToDouble(Number) / LoadData.Market.Ticket.LowestSellOrderNoFee;
                     double count3 = Math.Round(Ticket_Count, 1);
                     int Ticket_count_rounded = (int)Math.Ceiling(count3);
                     if (Settings.CheckIRT == true)
                     {
                         GetData.GamingClub.Ticket();
-                        if (LoadData.GamingClub.Ticket != 0)
+                        if (LoadData.GamingClub.Ticket.Price != 0)
                         {
-                            LabelResult.Text = String.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), String.Format("{0:n0} ", Ticket_count_rounded * LoadData.GamingClub.Ticket));
+                            LabelResult.Text = String.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), String.Format("{0:n0} ", Ticket_count_rounded * LoadData.GamingClub.Ticket.Price));
                         }
                         else
                         {
@@ -78,37 +78,36 @@ namespace SteamPulse
                 }
                 else
                 {
-                    GetData.ConnectToSteam.Market.TF2Key();
-                    double key_countt = Convert.ToDouble(Number) / LoadData.Market.Key.User_Price;
+                    double key_countt = Convert.ToDouble(Number) / LoadData.Market.Key.LowestSellOrderNoFee;
                     double countt = Math.Round(key_countt, 1);
                     int count_roundedd = (int)Math.Ceiling(countt);
                     int KeyRoundedDown = (int)Math.Floor(key_countt);
-                    double DownRemaining = Number - (KeyRoundedDown * LoadData.Market.Key.User_Price);
-                    //double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.User_Price) + LoadData.Market.Ticket.User_Price) - DownRemaining;
+                    double DownRemaining = Number - (KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee);
+                    //double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee) - DownRemaining;
                     if (Settings.CheckIRT == true)
                     {
                         GetData.GamingClub.Key();
-                        if (LoadData.GamingClub.Key != 0)
+                        if (LoadData.GamingClub.Key.Price != 0)
                         {
                             if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                             {
-                                if (DownRemaining < LoadData.Market.Ticket.User_Price)
+                                if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), String.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket));
+                                    LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), String.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price));
                                 }
                                 else
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key));
+                                    LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key.Price));
                                 }
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key));
+                                LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.GamingClub.Key.Price));
                             }
                         }
                         else
                         {
-                            if (DownRemaining < LoadData.Market.Ticket.User_Price && Settings.ItemCalculationMode == "Smart")
+                            if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && Settings.ItemCalculationMode == "Smart" && LoadData.GamingClub.Ticket.Stock != 0)
                             {
                                 LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
                             }
@@ -120,7 +119,7 @@ namespace SteamPulse
                     }
                     else
                     {
-                        if (DownRemaining < LoadData.Market.Ticket.User_Price && Settings.ItemCalculationMode == "Smart")
+                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && Settings.ItemCalculationMode == "Smart" && LoadData.GamingClub.Ticket.Stock != 0)
                         {
                             LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
                         }
@@ -133,12 +132,12 @@ namespace SteamPulse
             }
             else if (Settings.CalculatorMode == "Ticket => Wallet")
             {
-                double wallet = LoadData.Market.Ticket.User_Price * Convert.ToInt32(Number);
+                double wallet = LoadData.Market.Ticket.LowestSellOrderNoFee * Convert.ToInt32(Number);
                 LabelResult.Text = string.Format("Result: {0} {1}", wallet.ToString("N"), Settings.Currency.Unit);
             }
             else if (Settings.CalculatorMode == "Key => Wallet")
             {
-                double wallet2 = LoadData.Market.Key.User_Price * Convert.ToInt32(Number);
+                double wallet2 = LoadData.Market.Key.LowestSellOrderNoFee * Convert.ToInt32(Number);
                 LabelResult.Text = string.Format("Result: {0} {1}", wallet2.ToString("N"), Settings.Currency.Unit);
             }
             else if (Settings.CalculatorMode == "Selling Fee")
@@ -281,7 +280,7 @@ namespace SteamPulse
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-            }
+            }           
         }
     }
 }

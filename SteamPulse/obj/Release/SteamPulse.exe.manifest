@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SteamPulse" version="1.9.1.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SteamPulse" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SteamPulse.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -487,14 +487,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3460096">
-      <assemblyIdentity name="SteamPulse" version="1.9.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3758080">
+      <assemblyIdentity name="SteamPulse" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vkEWgrK8sC36mmhxvDgCR4m1GezcmSuxrv2Qg1D68Cw=</dsig:DigestValue>
+        <dsig:DigestValue>xMf5LeJcdEmmrTZgq5/K7XVn/zu4U0NNtZdeDKGpxFo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -579,13 +579,13 @@
       <dsig:DigestValue>zGfjw2X2Dw6BZ1tzWg23jIo+k4mYJoGlKcgMfY35Te8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SteamPulse.exe.config" size="5260">
+  <file name="SteamPulse.exe.config" size="5475">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fTaskL5R5wAIOWzx+tnKEaCgTxu3hiYEuvGYpQWCteE=</dsig:DigestValue>
+      <dsig:DigestValue>lAgZVCMaQRrUiAHoawnFu2bz1+jtSjko8yY8G7jn+6k=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

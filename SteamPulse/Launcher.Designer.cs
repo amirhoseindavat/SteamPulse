@@ -41,6 +41,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Launcher";
             this.Load += new System.EventHandler(this.Launcher_Load);
             this.ResumeLayout(false);

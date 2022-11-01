@@ -334,5 +334,29 @@ namespace SteamPulse.Properties {
                 this["UpgradeRequired"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HistogramData {
+            get {
+                return ((bool)(this["HistogramData"]));
+            }
+            set {
+                this["HistogramData"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnteredGiveaway {
+            get {
+                return ((bool)(this["EnteredGiveaway"]));
+            }
+            set {
+                this["EnteredGiveaway"] = value;
+            }
+        }
     }
 }

@@ -302,6 +302,12 @@
     <Compile Include="GameDetails.Designer.cs">
       <DependentUpon>GameDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Giveaway.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giveaway.Designer.cs">
+      <DependentUpon>Giveaway.cs</DependentUpon>
+    </Compile>
     <Compile Include="HardwareViewer.cs" />
     <Compile Include="Launcher.cs">
       <SubType>Form</SubType>
@@ -334,6 +340,12 @@
     <Compile Include="DiscountCalculator.Designer.cs">
       <DependentUpon>DiscountCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="OldLiveMarketPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldLiveMarketPrice.designer.cs">
+      <DependentUpon>OldLiveMarketPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DevSettings.cs">
@@ -358,6 +370,7 @@
     <Compile Include="SteamAPI.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AppidSearch.resx">
       <DependentUpon>AppidSearch.cs</DependentUpon>
@@ -377,6 +390,9 @@
     <EmbeddedResource Include="GameDetails.resx">
       <DependentUpon>GameDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Giveaway.resx">
+      <DependentUpon>Giveaway.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DiscountCalculator.resx">
       <DependentUpon>DiscountCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldLiveMarketPrice.resx">
+      <DependentUpon>OldLiveMarketPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

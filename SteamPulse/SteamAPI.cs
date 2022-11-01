@@ -6,7 +6,8 @@
 //
 // Beta Build
 //
-// Version 0.6.1 Revision 16
+// Version 0.7 Revision 18
+// last Edit: 10/28/22 V2.0
 #endregion
 
 using Newtonsoft.Json;
@@ -19,26 +20,28 @@ using System.Text.RegularExpressions;
 
 namespace SteamAPI
 {
+
     /// <summary>
     /// Connect and GetData.
     /// </summary>
-    class GetData
+    internal class GetData
     {
         public static int Appid { get; set; }
+        public static int PackageID { get; set; }
         public static int DLCID { get; set; }
-        protected internal static string Data { get; set; }
-        protected internal static string MarketDataKey { get; set; }
-        protected internal static string MarketDataTicket { get; set; }
-        protected internal static string CommunityData { get; set; }
-        protected internal static string ProfileData { get; set; }
-        protected internal static string PlayerData { get; set; }
-        protected internal static string WishlistData { get; set; }
-        protected internal static string GamingClubData { get; set; }
+        protected internal static string Data { get; private set; }
+        protected internal static string PackageData { get; private set; }
+        protected internal static string MarketDataKey { get; private set; }
+        protected internal static string MarketDataTicket { get; private set; }
+        protected internal static string CommunityData { get; private set; }
+        protected internal static string ProfileData { get; private set; }
+        protected internal static string PlayerData { get; private set; }
+        protected internal static string WishlistData { get; private set; }
+        protected internal static string GamingClubData { get; private set; }
+        protected internal static string MarketHistogramKey { get; private set; }
+        protected internal static string MarketHistogramTicket { get; private set; }
         internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
-        public static int ErrorCode { get; set; }
-        /// <summary>
-        /// Connect to Steam and GetData.
-        /// </summary>
+        public static int ErrorCode { get; private set; }
         public struct ConnectToSteam
         {
             public static int GetAppIDByName(string Name)
@@ -100,6 +103,48 @@ namespace SteamAPI
                     {
                         JObject JsonObject = JObject.Parse(Data);
                         bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + Appid + ".success"));
+                        if (Status == true)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ErrorCode = 2;
+                            return false;
+                        }
+                    }
+                }
+                catch
+                {
+                    ErrorCode = 3;
+                    return false;
+                }
+            }
+
+            public static bool Package()
+            {
+                try
+                {
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    WebClient client = new WebClient();
+                    PackageData = "";
+                    PackageData = client.DownloadString("https://store.steampowered.com/api/packagedetails/?cc=" + Settings.Currency.ISO + "&packageids=" + PackageID);
+                    if (PackageData == "")
+                    {
+                        if (PackageID == 0)
+                        {
+                            ErrorCode = 0;
+                        }
+                        else
+                        {
+                            ErrorCode = 1;
+                        }
+                        return false;
+                    }
+                    else
+                    {
+                        JObject JsonObject = JObject.Parse(PackageData);
+                        bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + PackageID + ".success"));
                         if (Status == true)
                         {
                             return true;
@@ -212,6 +257,36 @@ namespace SteamAPI
                         return false;
                     }
                 }
+                public static bool TF2KeyHistogram()
+                {
+                    try
+                    {
+                        WebClient client = new WebClient();
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                        MarketHistogramKey = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + Settings.Currency.ISO + "&language=english&currency=" + Settings.Currency.Number + "&item_nameid=1&two_factor=0");
+                        return true;
+                    }
+                    catch
+                    {
+                        MarketHistogramKey = "";
+                        return false;
+                    }
+                }
+                public static bool TF2TicketHistogram()
+                {
+                    try
+                    {
+                        WebClient client = new WebClient();
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                        MarketHistogramTicket = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + Settings.Currency.ISO + "&language=english&currency=" + Settings.Currency.Number + "&item_nameid=20&two_factor=0");
+                        return true;
+                    }
+                    catch
+                    {
+                        MarketHistogramTicket = "";
+                        return false;
+                    }
+                }
             }
         }
         /// <summary>
@@ -257,10 +332,11 @@ namespace SteamAPI
             }
         }
     }
+
     /// <summary>
     /// Load Data After Connecting.
     /// </summary>
-    class LoadData
+    internal class LoadData
     {
         /// <summary>
         /// Load Data from Store.
@@ -430,7 +506,21 @@ namespace SteamAPI
             /// <summary>
             /// HeaderImage of Product.
             /// </summary>
-            public static string HeaderImage => RawData.SelectToken("$." + GetData.Appid + ".data.header_image").ToString();
+            public static string HeaderImage
+            {
+                get
+                {
+                    if (GetData.Appid == 1250410)
+                    {
+                        return GlobalVariables.Images.Header.MSFS;
+                    }
+                    else
+                    {
+                        return RawData.SelectToken("$." + GetData.Appid + ".data.header_image").ToString();
+                    }
+
+                }
+            }
             /// <summary>
             /// Library Image of Product.
             /// </summary>
@@ -438,8 +528,16 @@ namespace SteamAPI
             {
                 get
                 {
-                    string LibraryImage = "https://cdn.cloudflare.steamstatic.com/steam/apps/" + GetData.Appid + "/library_600x900.jpg";
-                    return LibraryImage;
+
+                    if (GetData.Appid == 1250410)
+                    {
+                        return GlobalVariables.Images.Hero.MSFS;
+                    }
+                    else
+                    {
+                        string LibraryImage = "https://cdn.cloudflare.steamstatic.com/steam/apps/" + GetData.Appid + "/library_600x900.jpg";
+                        return LibraryImage;
+                    }
                 }
             }
             /// <summary>
@@ -506,59 +604,242 @@ namespace SteamAPI
                     }
                 }
             }
-            /*public static string PackageGroups
+
+            public struct Packages
             {
-                get
+                private static JObject RawPackageData
                 {
-                    JToken type = RawData.SelectToken("$." + GetData.Appid + ".data.package_groups");
-                    return type.ToString();
-                }
-            }*/
-            /// <summary>
-            /// Package of Product.
-            /// </summary>
-            public static string Packages
-            {
-                get
-                {
-                    try
+                    get
                     {
-                        if (Price.AvailabletoPurchase != false)
+                        JObject JsonObject = JObject.Parse(GetData.PackageData);
+                        return JsonObject;
+                    }
+
+                }
+                /// <summary>
+                /// Package of Product.
+                /// </summary>
+                public static string ProductPackages
+                {
+                    get
+                    {
+                        try
                         {
-                            return RawData.SelectToken("$." + GetData.Appid + ".data.packages").ToString();
+                            if (Store.Price.AvailabletoPurchase)
+                            {
+                                return RawData.SelectToken("$." + GetData.Appid + ".data.packages").ToString();
+                            }
+                            else
+                            {
+                                return "No Package";
+                            }
                         }
-                        else
+                        catch (NullReferenceException)
                         {
                             return "No Package";
                         }
                     }
-                    catch (NullReferenceException)
-                    {
-                        return "No Package";
-                    }
                 }
-            }
-            /// <summary>
-            /// Package Group, (internal use)
-            /// </summary>
-            public static string PackageGroups
-            {
-                get
+                public static int GetPackageIDbyIndex(int index)
                 {
                     try
                     {
-                        if (Price.AvailabletoPurchase != false)
-                        {
-                            return RawData.SelectToken("$." + GetData.Appid + ".data.package_groups").ToString();
-                        }
-                        else
-                        {
-                            return "No Package";
-                        }
+                        return Convert.ToInt32(RawData.SelectToken("$." + GetData.Appid + ".data.packages[" + index + "]"));
                     }
                     catch (NullReferenceException)
                     {
-                        return "No Package";
+                        return -1;
+                    }
+                }
+
+                public static string FullName
+                {
+                    get
+                    {
+                        JToken name = RawPackageData.SelectToken("$." + GetData.PackageID + ".data.name");
+                        if (name == null)
+                        {
+                            return "Can't Load Data";
+                        }
+                        else
+                        {
+                            return OnlyAlphaNumeric(name.ToString());
+                        }
+                    }
+                }
+                public static string TrimmedName
+                {
+                    get
+                    {
+                        if (FullName.Contains("-"))
+                        {
+                            string[] tokens = FullName.Split(new[] { " - " }, StringSplitOptions.None);
+                            return OnlyAlphaNumeric(tokens[1]);
+                        }
+                        else if (FullName.Contains(":"))
+                        {
+                            string[] tokens = FullName.Split(new[] { ":" }, StringSplitOptions.None);
+                            return OnlyAlphaNumeric(tokens[1]);
+                        }
+                        else
+                        {
+                            return FullName.Replace(Name, "");
+                        }
+                    }
+                }
+                /// <summary>
+                /// HeaderImage of Package.
+                /// </summary>
+                public static string HeaderImage
+                {
+                    get
+                    {
+                        if (RawPackageData.SelectToken("$." + GetData.PackageID + ".data.header_image") != null)
+                        {
+                            return RawPackageData.SelectToken("$." + GetData.PackageID + ".data.header_image").ToString();
+                        }
+                        else
+                        {
+                            return Store.HeaderImage;
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// Price of Product.
+                /// </summary>
+                public struct Price
+                {
+                    /// <summary>
+                    /// Package is Available to Purchase?.
+                    /// </summary>
+                    /// <remarks>
+                    /// Returns:if Available to Purchase: true, else: false.
+                    /// </remarks>
+                    public static bool AvailabletoPurchase
+                    {
+                        get
+                        {
+                            if (RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.initial") != null)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    /// <summary>
+                    /// Currency of Package.
+                    /// </summary>
+                    public static string Currency
+                    {
+                        get
+                        {
+                            if (IsFree == true)
+                            {
+                                return "";
+                            }
+                            else
+                            {
+                                return RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.currency").ToString();
+                            }
+                        }
+                    }
+                    /// <summary>
+                    /// Initial Price of Package (Original Price).
+                    /// </summary>
+                    public static double Initial
+                    {
+                        get
+                        {
+                            if (IsFree == true)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return Convert.ToDouble(RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.initial")) / 100;
+                            }
+                        }
+                    }
+                    /// <summary>
+                    /// Final Price of Package (Including Sale).
+                    /// </summary>
+                    public static double Final
+                    {
+                        get
+                        {
+                            if (GetData.Appid != 0)
+                            {
+                                if (IsFree == true)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    return Convert.ToDouble(RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.final")) / 100;
+                                }
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                    }
+                    /// <summary>
+                    /// Discount Percent of Package.
+                    /// </summary>
+                    public static int Discount_Percent
+                    {
+                        get
+                        {
+                            if (IsFree == true)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return Convert.ToInt32(RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.discount_percent"));
+                            }
+                        }
+
+                    }
+                    /// <summary>
+                    /// Initial Formatted Price of Package (Original Price).
+                    /// </summary>
+                    public static string Initial_Formatted
+                    {
+                        get
+                        {
+                            if (IsFree == true)
+                            {
+                                return "0";
+                            }
+                            else
+                            {
+                                return RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.initial_formatted").ToString();
+                            }
+                        }
+
+                    }
+                    /// <summary>
+                    /// Final Formatted Price of Package (Including Sale).
+                    /// </summary>
+                    public static string Final_Formatted
+                    {
+                        get
+                        {
+                            if (IsFree == true)
+                            {
+                                return "0";
+                            }
+                            else
+                            {
+                                return RawPackageData.SelectToken("$." + GetData.PackageID + ".data.price.final_formatted").ToString();
+                            }
+                        }
                     }
                 }
             }
@@ -713,6 +994,9 @@ namespace SteamAPI
             /// </summary>
             public class DLC
             {
+                /// <summary>
+                /// check for game if has dlc or not
+                /// </summary>
                 private static bool ContainDLC
                 {
                     get
@@ -941,6 +1225,9 @@ namespace SteamAPI
             {
                 private static bool IsInGame = false;
 
+                /// <summary>
+                /// Return current status
+                /// </summary>
                 public static int OnlineStatus
                 {
                     get
@@ -978,6 +1265,9 @@ namespace SteamAPI
                         }
                     }
                 }
+                /// <summary>
+                /// Return currenct playing game
+                /// </summary>
                 public static string CurrentPlayingGame
                 {
                     get
@@ -994,6 +1284,9 @@ namespace SteamAPI
                     }
                 }
             }
+            /// <summary>
+            /// Get Avatar Frame
+            /// </summary>
             public static string AvatarFrame(string steamid)
             {
                 if (GetData.ConnectToSteam.Community.GetAvatarFrame(steamid) == true)
@@ -1019,9 +1312,9 @@ namespace SteamAPI
             public class Key
             {
                 /// <summary>
-                /// Lowest Price (Live).
+                /// Return lowest sellorder price (Live).
                 /// </summary>
-                public static double LowestPrice
+                public static double LowestSellOrder
                 {
                     get
                     {
@@ -1055,15 +1348,95 @@ namespace SteamAPI
                     }
                 }
                 /// <summary>
-                /// User Price (Including Steam Selling Fee).
+                /// Return sell order quantity
                 /// </summary>
-                public static double User_Price
+                public static int SellOrderQuantity
                 {
                     get
                     {
-                        if (LowestPrice != 0)
+                        try
                         {
-                            double User_Price = LowestPrice;
+                            if (GetData.MarketHistogramKey != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramKey);
+                                string[] tokens = HistogramData.SelectToken(".sell_order_summary").ToString().Split(new[] { "</span>" }, StringSplitOptions.None);
+                                return Convert.ToInt32(Regex.Replace(tokens[0], "[^0-9]", ""));
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// Return buy order quantity
+                /// </summary>
+                public static int BuyOrderQuantity
+                {
+                    get
+                    {
+                        try
+                        {
+                            if (GetData.MarketHistogramKey != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramKey);
+                                string[] tokens = HistogramData.SelectToken(".buy_order_summary").ToString().Split(new[] { "</span>" }, StringSplitOptions.None);
+                                return Convert.ToInt32(Regex.Replace(tokens[0], "[^0-9]", ""));
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// Return highset buy order bid
+                /// </summary>
+                public static double HighestBuyOrder
+                {
+                    get
+                    {
+                        try
+                        {
+                            if (GetData.MarketHistogramKey != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramKey);
+                                return (Convert.ToDouble(HistogramData.SelectToken(".highest_buy_order").ToString()) / 100);
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                /// <summary>
+                /// Return highset buy order bid (without steam fee)
+                /// </summary>
+                /// <value></value>
+                public static double HighestBuyOrderNoFee
+                {
+                    get
+                    {
+                        if (HighestBuyOrder != 0)
+                        {
+                            double User_Price = HighestBuyOrder;
                             User_Price /= 1.15;
                             User_Price = Math.Round(User_Price, 2);
                             return User_Price;
@@ -1074,7 +1447,26 @@ namespace SteamAPI
                         }
                     }
                 }
-                private static int Quanity => 0;
+                /// <summary>
+                /// Return user price (without steam fee)
+                /// </summary>
+                public static double LowestSellOrderNoFee
+                {
+                    get
+                    {
+                        if (LowestSellOrder != 0)
+                        {
+                            double User_Price = LowestSellOrder;
+                            User_Price /= 1.15;
+                            User_Price = Math.Round(User_Price, 2);
+                            return User_Price;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
             }
             /// <summary>
             /// Get Data of TF2 Ticket
@@ -1082,9 +1474,9 @@ namespace SteamAPI
             public class Ticket
             {
                 /// <summary>
-                /// Lowest Price (Live).
+                /// Return lowest sellorder price (Live).
                 /// </summary>
-                public static double LowestPrice
+                public static double LowestSellOrder
                 {
                     get
                     {
@@ -1112,15 +1504,15 @@ namespace SteamAPI
                     }
                 }
                 /// <summary>
-                /// User Price (Including Steam Selling Fee).
+                /// Return user price (without steam fee)
                 /// </summary>
-                public static double User_Price
+                public static double LowestSellOrderNoFee
                 {
                     get
                     {
-                        if (LowestPrice != 0)
+                        if (LowestSellOrder != 0)
                         {
-                            double User_Price = LowestPrice;
+                            double User_Price = LowestSellOrder;
                             User_Price /= 1.15;
                             User_Price = Math.Round(User_Price, 2);
                             return User_Price;
@@ -1131,7 +1523,107 @@ namespace SteamAPI
                         }
                     }
                 }
-                private static int Quanity => 0;
+
+                /// <summary>
+                /// Return sell order quantity
+                /// </summary>
+                public static int SellOrderQuantity
+                {
+                    get
+                    {
+                        try
+                        {
+                            if (GetData.MarketHistogramTicket != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramTicket);
+                                string[] tokens = HistogramData.SelectToken(".sell_order_summary").ToString().Split(new[] { "</span>" }, StringSplitOptions.None);
+                                return Convert.ToInt32(Regex.Replace(tokens[0], "[^0-9]", ""));
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// Return buy order quantity
+                /// </summary>
+                public static int BuyOrderQuantity
+                {
+                    get
+                    {
+                        try
+                        {
+                            if (GetData.MarketHistogramTicket != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramTicket);
+                                string[] tokens = HistogramData.SelectToken(".buy_order_summary").ToString().Split(new[] { "</span>" }, StringSplitOptions.None);
+                                return Convert.ToInt32(Regex.Replace(tokens[0], "[^0-9]", ""));
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+
+                /// <summary>
+                /// Return highset buy order bid
+                /// </summary>
+                public static double HighestBuyOrder
+                {
+                    get
+                    {
+                        try
+                        {
+                            if (GetData.MarketHistogramTicket != "")
+                            {
+                                JObject HistogramData = JObject.Parse(GetData.MarketHistogramTicket);
+                                return (Convert.ToDouble(HistogramData.SelectToken(".highest_buy_order").ToString()) / 100);
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        catch
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                /// <summary>
+                /// Return highset buy order bid (without steam fee)
+                /// </summary>
+                public static double HighestBuyOrderNoFee
+                {
+                    get
+                    {
+                        if (HighestBuyOrder != 0)
+                        {
+                            double User_Price = HighestBuyOrder;
+                            User_Price /= 1.15;
+                            User_Price = Math.Round(User_Price, 2);
+                            return User_Price;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+
             }
         }
         /// <summary>
@@ -1142,38 +1634,88 @@ namespace SteamAPI
             /// <summary>
             /// Key IRT Price.
             /// </summary>
-            public static int Key
+            public struct Key
             {
-                get
+                /// <summary>
+                /// Return current price for key from GamingClub in IRT
+                /// </summary>
+                public static int Price
                 {
-                    //if (GetData.GamingClub.Key() == true)
-                    if (GetData.GamingClubData != "")
+                    get
                     {
-                        JObject JsonObject = JObject.Parse(GetData.GamingClubData);
-                        return Convert.ToInt32(JsonObject.SelectToken("$.Key"));
+                        //if (GetData.GamingClub.Key() == true)
+                        if (GetData.GamingClubData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            return Convert.ToInt32(JsonObject.SelectToken("$.Key"));
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
-                    else
+                }
+                /// <summary>
+                /// Return current stock number for key from GamingClub in IRT
+                /// </summary>
+                public static int Stock
+                {
+                    get
                     {
-                        return 0;
+                        //if (GetData.GamingClub.Key() == true)
+                        if (GetData.GamingClubData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            return Convert.ToInt32(JsonObject.SelectToken("$.KeyStock"));
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                 }
             }
             /// <summary>
             /// Ticket IRT Price.
             /// </summary>
-            public static int Ticket
+            public struct Ticket
             {
-                get
+                /// <summary>
+                /// Return current price for ticket from GamingClub in IRT
+                /// </summary>
+                public static int Price
                 {
-                    //if (GetData.GamingClub.Ticket() == true)
-                    if (GetData.GamingClubData != "")
+                    get
                     {
-                        JObject JsonObject = JObject.Parse(GetData.GamingClubData);
-                        return Convert.ToInt32(JsonObject.SelectToken("$.Ticket"));
+                        //if (GetData.GamingClub.Ticket() == true)
+                        if (GetData.GamingClubData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            return Convert.ToInt32(JsonObject.SelectToken("$.Ticket"));
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
-                    else
+                }
+                /// <summary>
+                /// Return current stock number for ticket from GamingClub in IRT
+                /// </summary>
+                public static int Stock
+                {
+                    get
                     {
-                        return 0;
+                        //if (GetData.GamingClub.Key() == true)
+                        if (GetData.GamingClubData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            return Convert.ToInt32(JsonObject.SelectToken("$.TicketStock"));
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                 }
             }

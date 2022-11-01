@@ -123,9 +123,6 @@
   <metadata name="Elipse.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>21, 25</value>
   </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="ButtonLoad.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -570,6 +567,41 @@
         RK5CYII=
 </value>
   </data>
+  <data name="PanelGiveaway.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAA0sAAACACAYAAADag/KcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPwSURBVHhe7d2vbttQGMbhwMLBwcLAwsJeQmFh4GBhYO5i
+        cJcxODg4WDhYOFhkZ5/to1nZXkVdWXOeR/pkxT42/8l/sgEAAOCNjsfjtuauZldzMMYYY4wxxph3OFPP
+        TF1z01Ln7cZxfByG4akuBgAAcDGqc37WZgqoq5Y/r1MnbOvk79NFAAAALtV0c2gcx9uWQufV+l2d8LKc
+        CgAA0IV9S6KsFkx3lIQSAADQo7uWRv/y6B0AANCr6qHn2nxoebSaPuawLAEAAOhTBdOXlkir2jl9DQIA
+        AKBb7bWk9e5S/biZjwAAAHDfUml+BO+h7QQAAOjd+mU87ysBAAD8cWipND+GN/1zLQAAAGIJAAAgEksA
+        AACBWAIAAAjEEgAAQCCWAAAAArEEAAAQiCUAAIBALAEAAARiCQAAIBBLAAAAgVgCAAAIxBIAAEAglgAA
+        AAKxBAAAEIglAACAQCwBAAAEYgkAACAQSwAAAIFYAgAACMQSAABAIJYAAAACsQQAABCIJQAAgEAsAQAA
+        BGIJAAAgEEsAAACBWAIAAAjEEgAAQCCWAAAAArEEAAAQiCUAAIBALAEAAARiCQAAIBBLAAAAgVgCAAAI
+        xBIAAEAglgAAAAKxBAAAEIglAACAQCwBAAAEYgkAACAQSwAAAIFYAgAACMQSAABAIJYAAAACsQQAABCI
+        JQAAgEAsAQAABGIJAAAgEEsAAACBWAIAAAjEEgAAQCCWAAAAArEEAAAQiCUAAIBALAEAAARiCQAAIBBL
+        AAAAgVgCAAAIxBIAAEAglgAAAAKxBAAAEIglAACAQCwBAAAEYgkAACAQSwAAAIFYAgAACMQSAABAIJYA
+        AAACsQQAABCIJQAAgEAsAQAABGIJAAAgEEsAAACBWAIAAAjEEgAAQCCWAAAAArEEAAAQiCUAAIBALAEA
+        AARiCQAAIBBLAAAAgVgCAAAIxBIAAEAglgAAAAKxBAAAEIglAACAQCwBAAAEYgkAACAQSwAAAIFYAgAA
+        CMQSAABAIJYAAAACsQQAABCIJQAAgEAsAQAABGIJAAAgEEsAAACBWAIAAAjEEgAAQCCWAAAAArEEAAAQ
+        iCUAAIDgJJb2yz4AAIDuncTSbtkHAADQvTWWxnG8bTsBAAC6Vn300FJpvrN0NQzDr+UQAABA165bKi0q
+        lj63AwAAAF2qLvrREmlV+z/WgedlCQAAQF+qh15qc9MS6VQduJ9XAQAA9Gff0ijzOB4AANCb6qCvLYnO
+        q7W7WuyDDwAAwEVrj96dv6P0tzpheofp23wFAACAC1O98zT9jVJLoP9X17iuC3yq7cEYY4wxxhhj3vtU
+        3zzWdtuSBwAAgNfbbH4DJFdlRUysBV0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ButtonGiveaway.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAJYAAAAnCAYAAADtl7EyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVHhe7dKxAUBAAMBAk/zK7GcM/WMAFdJdcVXaLGOb
+        +9jOE/4z93uspwDfGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuE
+        sUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFIGIuEsUgYi4SxSBiLhLFILGOdx1OA19Z5XLF9Eabs0yP2
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="LabelGiveaway.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelDLC.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPEAAAA3CAYAAADdeqygAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -4626,5 +4658,11 @@
   </metadata>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>583, 25</value>
+  </metadata>
+  <metadata name="Timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>673, 25</value>
+  </metadata>
+  <metadata name="Elipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>755, 25</value>
   </metadata>
 </root>

@@ -123,10 +123,47 @@
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PanelItemCalc.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PanelHistogram.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PanelHistogram.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAXoAAAAyCAYAAABS3BAlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVHhe7dyhbttQFIDhwMLCwcLAwMI+QmFhYGFhYN6i
+        cI8xODg4WDhYWFhkp+faR7KyVdFastyz75OOrNrXhr+smzQrAFgdDod1zE3MNmZvjDHmn05rcWvyJjP9
+        eeM4PgzD8BQPA+AMRaN/xaHF/yLT/XfihnXc/KM9BIDz117K4+X8OjN+Wqzfxg2v860AdGaXOX9fLGhv
+        8iIP0LebzPqfbNcA9C9a/hyHy0z7on3wOi8BoHcR+6+Z90WcbJ/cAlBAbsMvb/Xxx2a6AkAlt5n5advm
+        Lk8CUMfyDRz78wAl7TPz09ZN+68qAGoReoDihB6gOKEHKE7oAYoTeoDihB6gOKEHKE7oAYoTeoDihB6g
+        OKEHKE7oAYoTeoDihB6gOKEHKE7oAYoTeoDihB6gOKEHKE7oAYoTeoDihB6gOKEHKE7oAYoTeoDijkK/
+        m88BUMhR6LfzOQAKWUI/juN1ngSgiGj7XWZ+eqO/GIbhZb4EQBFXmflZhP4xLwDQuWj6z8z7Is5/iQvP
+        8xIAehUtf43DJvN+LC7cTqsA6Nkus/4+WzgA/YqGf8ucnxZrt7HYh7MAncjtmtNv8r+LG9qe/ffpCQCc
+        rWj1U/uafOb74+IZV/GA+zi2n0kwxhhzJhNtfojjOnMNwP9ptXoDFnnVpqVzGCsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="LabelHistogram.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="LabelHistogram.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Poppins'; font-size: 13pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(24, 49, 83); text-align: left; }</value>
+  </data>
+  <metadata name="ToggleHistogram.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ToggleHistogram.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAASCAYAAAA6yNxSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE1SURBVEhLvZU9i8JAEIZTWl5peT8hP+MquTLlNQeW9xOu
+        t7OwTy3YWSYpLS3thGtPQY/7ULTwnldX2MRBRJIdeGCSmZ13sht2IsuKomhDkud5D6b4h3vQWhjgv8Cj
+        K3/dSHyFJQu/VKQOsiz7pt4K/93JXBrBB5ImsPYX1wm1f2CGf7kbEq8uaJAPaDnp07Y3+eVVOJINev2z
+        uH64pZ8QAhqQZqwGujz8+sFQoNvT2adWMARoT9TA3AqGAO0/NbCwgiFAe68GxlYwBGjP9BO+4WyrwRCg
+        O1ADMU6wO+CM03w+3gU89HU5VJOaBM38KC7jRQt0PZrJdYO2Bl3byZ+MFzqKT9j5yXUjcXa742TLRoIm
+        4gg0Os0C9yJh0MArf7llJD2RnIJGp1nwVqgxhyF+4sp7FkX/wJuHawBM7FIAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="PanelItemCalc.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelItemCalc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAXoAAAAyCAYAAABS3BAlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -213,6 +250,9 @@
         4gg0Os0C9yJh0MArf7llJD2RnIJGp1nwVqgxhyF+4sp7FkX/wJuHawBM7FIAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="PanelCalc.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelCalc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAXoAAAAyCAYAAABS3BAlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

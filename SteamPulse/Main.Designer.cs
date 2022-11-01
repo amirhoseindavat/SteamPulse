@@ -34,6 +34,7 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.MenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +90,12 @@
             this.Label_KeyCount = new System.Windows.Forms.Label();
             this.Label_Details = new System.Windows.Forms.Label();
             this.OpenMarketIcon = new System.Windows.Forms.PictureBox();
+            this.PanelGiveaway = new Bunifu.UI.WinForms.BunifuPanel();
+            this.ButtonGiveaway = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.Label_Remaining = new System.Windows.Forms.Label();
+            this.LabelGiveaway = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.MenuMain.SuspendLayout();
             this.MenuDev.SuspendLayout();
             this.PanelDLC.SuspendLayout();
@@ -105,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).BeginInit();
+            this.PanelGiveaway.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuMain
@@ -165,7 +173,7 @@
             this.Label_Update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Label_Update.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Bold);
             this.Label_Update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.Label_Update.Location = new System.Drawing.Point(20, 529);
+            this.Label_Update.Location = new System.Drawing.Point(20, 667);
             this.Label_Update.Name = "Label_Update";
             this.Label_Update.Size = new System.Drawing.Size(107, 19);
             this.Label_Update.TabIndex = 28;
@@ -293,7 +301,7 @@
             // 
             // PanelDLC
             // 
-            this.PanelDLC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelDLC.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelDLC.BackgroundColor = System.Drawing.Color.White;
             this.PanelDLC.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelDLC.BackgroundImage")));
             this.PanelDLC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -302,7 +310,7 @@
             this.PanelDLC.BorderThickness = 1;
             this.PanelDLC.Controls.Add(this.LabelDLCCount);
             this.PanelDLC.Controls.Add(this.LabelDLC);
-            this.PanelDLC.Location = new System.Drawing.Point(622, 405);
+            this.PanelDLC.Location = new System.Drawing.Point(622, 543);
             this.PanelDLC.Name = "PanelDLC";
             this.PanelDLC.ShowBorders = true;
             this.PanelDLC.Size = new System.Drawing.Size(241, 55);
@@ -339,7 +347,7 @@
             // 
             // PanelAbout
             // 
-            this.PanelAbout.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.PanelAbout.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelAbout.BackgroundColor = System.Drawing.Color.White;
             this.PanelAbout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelAbout.BackgroundImage")));
             this.PanelAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -347,7 +355,7 @@
             this.PanelAbout.BorderRadius = 20;
             this.PanelAbout.BorderThickness = 1;
             this.PanelAbout.Controls.Add(this.Label_About);
-            this.PanelAbout.Location = new System.Drawing.Point(622, 475);
+            this.PanelAbout.Location = new System.Drawing.Point(622, 613);
             this.PanelAbout.Name = "PanelAbout";
             this.PanelAbout.ShowBorders = true;
             this.PanelAbout.Size = new System.Drawing.Size(241, 50);
@@ -370,7 +378,7 @@
             // 
             // PanelEdition
             // 
-            this.PanelEdition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelEdition.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelEdition.BackgroundColor = System.Drawing.Color.White;
             this.PanelEdition.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelEdition.BackgroundImage")));
             this.PanelEdition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -379,7 +387,7 @@
             this.PanelEdition.BorderThickness = 1;
             this.PanelEdition.Controls.Add(this.ComboBox_Editions);
             this.PanelEdition.Controls.Add(this.Label_Edition);
-            this.PanelEdition.Location = new System.Drawing.Point(622, 295);
+            this.PanelEdition.Location = new System.Drawing.Point(622, 433);
             this.PanelEdition.Name = "PanelEdition";
             this.PanelEdition.ShowBorders = true;
             this.PanelEdition.Size = new System.Drawing.Size(241, 93);
@@ -428,6 +436,7 @@
             this.ComboBox_Editions.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.ComboBox_Editions.TextLeftMargin = 5;
             this.ComboBox_Editions.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Editions_SelectedIndexChanged);
+            this.ComboBox_Editions.DropDownClosed += new System.EventHandler(this.ComboBox_Editions_DropDownClosed);
             // 
             // Label_Edition
             // 
@@ -445,7 +454,7 @@
             // 
             // PanelRegion
             // 
-            this.PanelRegion.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.PanelRegion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelRegion.BackgroundColor = System.Drawing.Color.White;
             this.PanelRegion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelRegion.BackgroundImage")));
             this.PanelRegion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -454,7 +463,7 @@
             this.PanelRegion.BorderThickness = 1;
             this.PanelRegion.Controls.Add(this.DropDownRegion);
             this.PanelRegion.Controls.Add(this.Label_Regions);
-            this.PanelRegion.Location = new System.Drawing.Point(622, 57);
+            this.PanelRegion.Location = new System.Drawing.Point(622, 195);
             this.PanelRegion.Name = "PanelRegion";
             this.PanelRegion.ShowBorders = true;
             this.PanelRegion.Size = new System.Drawing.Size(241, 93);
@@ -530,7 +539,7 @@
             // 
             // PanelURL
             // 
-            this.PanelURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelURL.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelURL.BackgroundColor = System.Drawing.Color.White;
             this.PanelURL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelURL.BackgroundImage")));
             this.PanelURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -541,7 +550,7 @@
             this.PanelURL.Controls.Add(this.ButtonLoad);
             this.PanelURL.Controls.Add(this.TextBox_URL);
             this.PanelURL.Controls.Add(this.Label_URL);
-            this.PanelURL.Location = new System.Drawing.Point(622, 162);
+            this.PanelURL.Location = new System.Drawing.Point(622, 300);
             this.PanelURL.Name = "PanelURL";
             this.PanelURL.ShowBorders = true;
             this.PanelURL.Size = new System.Drawing.Size(241, 120);
@@ -741,11 +750,11 @@
             this.Label_Exit.ColorContrastOnClick = 45;
             this.Label_Exit.ColorContrastOnHover = 45;
             this.Label_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.Label_Exit.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.Label_Exit.CustomizableEdges = borderEdges2;
             this.Label_Exit.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Label_Exit.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.Label_Exit.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -814,6 +823,7 @@
             // 
             // PanelData
             // 
+            this.PanelData.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PanelData.BackgroundColor = System.Drawing.Color.White;
             this.PanelData.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelData.BackgroundImage")));
             this.PanelData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -832,7 +842,7 @@
             this.PanelData.Controls.Add(this.Label_KeyCount);
             this.PanelData.Controls.Add(this.Label_Details);
             this.PanelData.Controls.Add(this.OpenMarketIcon);
-            this.PanelData.Location = new System.Drawing.Point(20, 57);
+            this.PanelData.Location = new System.Drawing.Point(20, 195);
             this.PanelData.Name = "PanelData";
             this.PanelData.ShowBorders = true;
             this.PanelData.Size = new System.Drawing.Size(568, 468);
@@ -1015,14 +1025,160 @@
             this.OpenMarketIcon.TabStop = false;
             this.OpenMarketIcon.Click += new System.EventHandler(this.OpenMarket_Click);
             // 
+            // PanelGiveaway
+            // 
+            this.PanelGiveaway.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PanelGiveaway.BackgroundColor = System.Drawing.Color.White;
+            this.PanelGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGiveaway.BackgroundImage")));
+            this.PanelGiveaway.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelGiveaway.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelGiveaway.BorderRadius = 20;
+            this.PanelGiveaway.BorderThickness = 1;
+            this.PanelGiveaway.Controls.Add(this.ButtonGiveaway);
+            this.PanelGiveaway.Controls.Add(this.Label_Remaining);
+            this.PanelGiveaway.Controls.Add(this.LabelGiveaway);
+            this.PanelGiveaway.Location = new System.Drawing.Point(20, 49);
+            this.PanelGiveaway.Name = "PanelGiveaway";
+            this.PanelGiveaway.ShowBorders = true;
+            this.PanelGiveaway.Size = new System.Drawing.Size(843, 128);
+            this.PanelGiveaway.TabIndex = 41;
+            // 
+            // ButtonGiveaway
+            // 
+            this.ButtonGiveaway.AllowAnimations = true;
+            this.ButtonGiveaway.AllowMouseEffects = true;
+            this.ButtonGiveaway.AllowToggling = false;
+            this.ButtonGiveaway.AnimationSpeed = 200;
+            this.ButtonGiveaway.AutoGenerateColors = false;
+            this.ButtonGiveaway.AutoRoundBorders = false;
+            this.ButtonGiveaway.AutoSizeLeftIcon = true;
+            this.ButtonGiveaway.AutoSizeRightIcon = true;
+            this.ButtonGiveaway.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonGiveaway.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGiveaway.BackgroundImage")));
+            this.ButtonGiveaway.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.ButtonText = "Enter Giveaway";
+            this.ButtonGiveaway.ButtonTextMarginLeft = 0;
+            this.ButtonGiveaway.ColorContrastOnClick = 45;
+            this.ButtonGiveaway.ColorContrastOnHover = 45;
+            this.ButtonGiveaway.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.ButtonGiveaway.CustomizableEdges = borderEdges1;
+            this.ButtonGiveaway.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ButtonGiveaway.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.ButtonGiveaway.Enabled = false;
+            this.ButtonGiveaway.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.ButtonGiveaway.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.ButtonGiveaway.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonGiveaway.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.ButtonGiveaway.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.ButtonGiveaway.IconMarginLeft = 11;
+            this.ButtonGiveaway.IconPadding = 10;
+            this.ButtonGiveaway.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ButtonGiveaway.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.ButtonGiveaway.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.ButtonGiveaway.IconSize = 25;
+            this.ButtonGiveaway.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.IdleBorderRadius = 1;
+            this.ButtonGiveaway.IdleBorderThickness = 1;
+            this.ButtonGiveaway.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.IdleIconLeftImage = null;
+            this.ButtonGiveaway.IdleIconRightImage = null;
+            this.ButtonGiveaway.IndicateFocus = false;
+            this.ButtonGiveaway.Location = new System.Drawing.Point(346, 72);
+            this.ButtonGiveaway.Name = "ButtonGiveaway";
+            this.ButtonGiveaway.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.OnDisabledState.BorderRadius = 1;
+            this.ButtonGiveaway.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnDisabledState.BorderThickness = 1;
+            this.ButtonGiveaway.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.ButtonGiveaway.OnDisabledState.IconLeftImage = null;
+            this.ButtonGiveaway.OnDisabledState.IconRightImage = null;
+            this.ButtonGiveaway.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.ButtonGiveaway.onHoverState.BorderRadius = 1;
+            this.ButtonGiveaway.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.onHoverState.BorderThickness = 1;
+            this.ButtonGiveaway.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.ButtonGiveaway.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.onHoverState.IconLeftImage = null;
+            this.ButtonGiveaway.onHoverState.IconRightImage = null;
+            this.ButtonGiveaway.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.OnIdleState.BorderRadius = 1;
+            this.ButtonGiveaway.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnIdleState.BorderThickness = 1;
+            this.ButtonGiveaway.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.OnIdleState.IconLeftImage = null;
+            this.ButtonGiveaway.OnIdleState.IconRightImage = null;
+            this.ButtonGiveaway.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonGiveaway.OnPressedState.BorderRadius = 1;
+            this.ButtonGiveaway.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnPressedState.BorderThickness = 1;
+            this.ButtonGiveaway.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonGiveaway.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.OnPressedState.IconLeftImage = null;
+            this.ButtonGiveaway.OnPressedState.IconRightImage = null;
+            this.ButtonGiveaway.Size = new System.Drawing.Size(150, 39);
+            this.ButtonGiveaway.TabIndex = 59;
+            this.ButtonGiveaway.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ButtonGiveaway.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ButtonGiveaway.TextMarginLeft = 0;
+            this.ButtonGiveaway.TextPadding = new System.Windows.Forms.Padding(0);
+            this.ButtonGiveaway.UseDefaultRadiusAndThickness = true;
+            this.ButtonGiveaway.Click += new System.EventHandler(this.ButtonGiveaway_Click);
+            // 
+            // Label_Remaining
+            // 
+            this.Label_Remaining.AutoSize = true;
+            this.Label_Remaining.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Remaining.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Remaining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Remaining.Location = new System.Drawing.Point(373, 34);
+            this.Label_Remaining.Name = "Label_Remaining";
+            this.Label_Remaining.Size = new System.Drawing.Size(93, 30);
+            this.Label_Remaining.TabIndex = 58;
+            this.Label_Remaining.Text = "Unlock in:";
+            this.Label_Remaining.MouseEnter += new System.EventHandler(this.Label_Ramaining_MouseEnter);
+            // 
+            // LabelGiveaway
+            // 
+            this.LabelGiveaway.BackColor = System.Drawing.Color.Transparent;
+            this.LabelGiveaway.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LabelGiveaway.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.LabelGiveaway.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelGiveaway.Location = new System.Drawing.Point(0, 0);
+            this.LabelGiveaway.Name = "LabelGiveaway";
+            this.LabelGiveaway.Size = new System.Drawing.Size(843, 26);
+            this.LabelGiveaway.TabIndex = 15;
+            this.LabelGiveaway.Text = "Giveaway";
+            this.LabelGiveaway.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.ElipseRadius = 5;
+            this.Elipse2.TargetControl = this.PictureBox_Image;
+            // 
             // Main
             // 
             this.AcceptButton = this.ButtonLoad;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(878, 552);
+            this.ClientSize = new System.Drawing.Size(878, 690);
             this.ContextMenuStrip = this.MenuMain;
+            this.Controls.Add(this.PanelGiveaway);
             this.Controls.Add(this.PanelDLC);
             this.Controls.Add(this.PanelAbout);
             this.Controls.Add(this.Label_Update);
@@ -1057,6 +1213,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).EndInit();
+            this.PanelGiveaway.ResumeLayout(false);
+            this.PanelGiveaway.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1118,5 +1276,11 @@
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem1;
         private System.Windows.Forms.PictureBox ButtonStatus;
+        private Bunifu.UI.WinForms.BunifuPanel PanelGiveaway;
+        private System.Windows.Forms.Label LabelGiveaway;
+        private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label Label_Remaining;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton ButtonGiveaway;
+        private Bunifu.Framework.UI.BunifuElipse Elipse2;
     }
 }

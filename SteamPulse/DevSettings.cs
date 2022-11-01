@@ -6,8 +6,8 @@
 //
 // Release Build
 //
-// Version 1.6.0 Revision 2
-
+// Version 1.6.0 Revision 3
+// last Edit: 10/26/22 V2.0
 #endregion
 
 using System;
@@ -59,6 +59,8 @@ namespace SteamPulse
             ToggleImprove.Checked = Settings.LoadDLCImage;
 
             ToggleRemain.Checked = Settings.CalculateRemaining;
+
+            ToggleHistogram.Checked = Settings.HistogramData;
 
             if (Settings.KeyCalcMode == "Rounded to Up")
             {
@@ -129,11 +131,11 @@ namespace SteamPulse
 
             if (DropDownItemCalc.Text == "Key Only")
             {
-                this.Size = new Size(409, 396);
+                this.Size = new Size(409, 470);
             }
             else
             {
-                this.Size = new Size(409, 324);
+                this.Size = new Size(409, 395);
             }
 
 
@@ -179,6 +181,8 @@ namespace SteamPulse
             DLCCount.ForeColor = ForeGround;
             PanelItemCalc.BackgroundColor = BackGround;
             LabelItemCalc.ForeColor = ForeGround;
+            LabelHistogram.ForeColor = ForeGround;
+            PanelHistogram.BackgroundColor = BackGround;
         }
 
         private void ToggleImprove_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
@@ -236,12 +240,22 @@ namespace SteamPulse
                 Main.SettingisUpdated = true;
                 if (DropDownItemCalc.Text == "Key Only")
                 {
-                    this.Size = new Size(409, 396);
+                    this.Size = new Size(409, 470);
                 }
                 else
                 {
-                    this.Size = new Size(409, 324);
+                    this.Size = new Size(409, 395);
                 }
+            }
+            else { }
+        }
+
+        private void ToggleHistogram_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
+        {
+            if (ISLoading == false)
+            {
+                Settings.HistogramData = ToggleHistogram.Checked;
+                Logger.LogDevSetting("Show Histogram Data", ToggleHistogram.Checked.ToString());
             }
             else { }
         }

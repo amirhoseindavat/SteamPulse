@@ -6,8 +6,8 @@
 //
 // Release Build
 //
-// Version 1.7.1 Revision 4
-
+// Version 1.7.1 Revision 5
+// last Edit: 11/1/22 V2.0
 #endregion
 
 using HardwareInformation;
@@ -33,18 +33,22 @@ namespace SteamPulse
     public partial class Main : Form
     {
         //----------------------Variables----------------------//
-        bool DataLoaded = false;
+        private bool DataLoaded = false;
         //string FormulaCaption = "";
         private readonly string AppHash = Hasher("SteamPulse");
         public static string SearchID;
         private bool isowned = false;
-        string EditionName;
+        private bool giveawayisactive = false;
+        private long GiveawayBegin, GiveawayEnd;
+        private DateTime GiveawayBeginTime;
+        private string EditionName;
         public static double EditionPrice;
-        double price;
+        private double price;
         public static int EditionDiscount;
         public static bool SettingisUpdated = false;
         public static bool DarkMode;
-        bool IsLoading = true;
+        private bool IsLoading = true;
+        public static bool noGiveAwayLimit = false;
 
         //----------------------Moving Form----------------------//
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -126,6 +130,22 @@ namespace SteamPulse
             MainUpdateChecker();
             LoadRegion();
             DarkMode = Settings.DarkMode;
+
+
+            PanelGiveaway.Visible = giveawayisactive;
+            Timer.Enabled = giveawayisactive;
+            DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(GiveawayBegin);
+            GiveawayBeginTime = dateTimeOffset.DateTime;
+            if (giveawayisactive)
+            {
+                this.Size = new Size(878, 690);
+
+            }
+            else
+            {
+                this.Size = new Size(878, 552);
+            }
+
             if (DarkMode == true)
             {
                 ChangeTheme(true);
@@ -180,45 +200,33 @@ namespace SteamPulse
                 ComboBox_Editions.Focus();
                 if (!ComboBox_Editions.Text.Contains("Free"))
                 {
+
                     EditionPrice = 0;
-                    EditionPrice = Convert.ToDouble(Regex.Replace(ComboBox_Editions.Text, "[^0-9]", ""));
-                    if (Settings.Currency.Name == "Ruble")
+                    GetData.PackageID = LoadData.Store.Packages.GetPackageIDbyIndex(ComboBox_Editions.SelectedIndex);
+                    GetData.ConnectToSteam.Package();
+
+                    if (ComboBox_Editions.SelectedIndex != 0)
                     {
-                        string PriceString = EditionPrice.ToString();
-                        PriceString = PriceString.Remove(PriceString.Length - 1);
-                        EditionPrice = Convert.ToDouble(PriceString);
+                        try
+                        {
+                            PictureBox_Image.Load(LoadData.Store.Packages.HeaderImage);
+                        }
+                        catch
+                        {
+                            PictureBox_Image.Load(LoadData.Store.HeaderImage);
+                        }
                     }
-                    EditionPrice /= 100;
-                    EditionName = Regex.Replace(ComboBox_Editions.Text, @"[\d-]", string.Empty);
-                    EditionName = EditionName.Replace(".,", "");
-                    EditionName = EditionName.Replace(",.", "");
-                    EditionName = EditionName.Replace(".", "");
-                    EditionName = EditionName.Replace(",", "");
-                    EditionName = EditionName.Replace("TL", "");
-                    Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-                    EditionName = rgx.Replace(EditionName.ToString(), "");
-                    if (Settings.Currency.Name == "Ruble")
+                    else
                     {
-                        EditionName = EditionName.Replace("p", "");
-                        EditionName = EditionName.Replace("py", "");
+                        PictureBox_Image.Load(LoadData.Store.HeaderImage);
                     }
-                    if (Settings.Currency.Name == "Lira")
-                    {
-                        EditionName = EditionName.Replace("TL", "");
-                    }
+
+                    EditionPrice = LoadData.Store.Packages.Price.Final;
+                    EditionName = LoadData.Store.Packages.TrimmedName;
                 }
                 else { }
-                string discount_percent_pack = LoadData.Store.RawData.SelectToken(GetData.Appid + ".data.package_groups[0].subs[" + ComboBox_Editions.SelectedIndex + "].percent_savings_text").ToString();
-                if (discount_percent_pack == " ")
-                {
-                    EditionDiscount = 0;
-                }
-                else
-                {
-                    discount_percent_pack = discount_percent_pack.Remove(0, 1);
-                    discount_percent_pack = discount_percent_pack.Remove(2, 1);
-                    EditionDiscount = Convert.ToInt32(discount_percent_pack);
-                }
+
+                EditionDiscount = LoadData.Store.Packages.Price.Discount_Percent;
                 if (EditionPrice == 0)
                 {
                     if (LoadData.Store.IsFree == true)
@@ -254,11 +262,11 @@ namespace SteamPulse
                         }
                     }
                     GetData.ConnectToSteam.Market.TF2Ticket();
-                    if (EditionPrice < LoadData.Market.Ticket.User_Price && Settings.ItemCalculationMode != "Key Only")
+                    if (EditionPrice < LoadData.Market.Ticket.LowestSellOrderNoFee && Settings.ItemCalculationMode != "Key Only")
                     {
-                        double Ticket_count = Convert.ToDouble(EditionPrice) / LoadData.Market.Ticket.User_Price;
+                        double Ticket_count = Convert.ToDouble(EditionPrice) / LoadData.Market.Ticket.LowestSellOrderNoFee;
                         double Ticket_rounded = (int)Math.Ceiling(Math.Round(Ticket_count, 1));
-                        double Remaining = (Ticket_rounded * LoadData.Market.Ticket.User_Price) - EditionPrice;
+                        double Remaining = (Ticket_rounded * LoadData.Market.Ticket.LowestSellOrderNoFee) - EditionPrice;
                         /*if (Settings.DeveloperMode == true)
                         {
                             if (Settings.KeyCalcMode == "Rounded to Up") { }
@@ -272,15 +280,15 @@ namespace SteamPulse
                         if (Convert.ToBoolean(Settings.CheckIRT) == true)
                         {
                             GetData.GamingClub.Ticket();
-                            if (LoadData.GamingClub.Ticket != 0)
+                            if (LoadData.GamingClub.Ticket.Price != 0)
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.GamingClub.Ticket), (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.GamingClub.Ticket.Price), (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
-                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.GamingClub.Ticket));
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.GamingClub.Ticket.Price));
                                 }
                             }
                             else
@@ -310,12 +318,12 @@ namespace SteamPulse
                     else
                     {
                         GetData.ConnectToSteam.Market.TF2Key();
-                        double key_count = Convert.ToDouble(EditionPrice) / LoadData.Market.Key.User_Price;
+                        double key_count = Convert.ToDouble(EditionPrice) / LoadData.Market.Key.LowestSellOrderNoFee;
                         double KeyRoundedUp = (int)Math.Ceiling(key_count);
-                        double Remaining = (KeyRoundedUp * LoadData.Market.Key.User_Price) - EditionPrice;
+                        double Remaining = (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee) - EditionPrice;
                         int KeyRoundedDown = (int)Math.Floor(key_count);
-                        double DownRemaining = EditionPrice - (KeyRoundedDown * LoadData.Market.Key.User_Price);
-                        double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.User_Price) + LoadData.Market.Ticket.User_Price) - EditionPrice;
+                        double DownRemaining = EditionPrice - (KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee);
+                        double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee) - EditionPrice;
 
 
                         if (Settings.DeveloperMode == true)
@@ -329,48 +337,48 @@ namespace SteamPulse
                         if (Convert.ToBoolean(Settings.CheckIRT) == true)
                         {
                             GetData.GamingClub.Key();
-                            if (LoadData.GamingClub.Key != 0)
+                            if (LoadData.GamingClub.Key.Price != 0)
                             {
                                 if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                                 {
                                     if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                                     {
-                                        if (DownRemaining < LoadData.Market.Ticket.User_Price)
+                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock !=0)
                                         {
-                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket), (int)Remaining2, Settings.Currency.Unit);
-                                            //FormulaCaption = string.Format("Key = {0} - {1}IRT | Ticket = {2} - {3}IRT => {4} Key({5}) + 1 Ticket({6}) = {7} {10} - {8} IRT ~ Remains {9} {10}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), LoadData.Market.Ticket.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Ticket), KeyRoundedDown, (KeyRoundedDown * LoadData.Market.Key.User_Price), LoadData.Market.Ticket.User_Price, ((KeyRoundedDown * LoadData.Market.Key.User_Price) + LoadData.Market.Ticket.User_Price), String.Format("{0:n0}", ((KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket)), (int)Remaining2, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price), (int)Remaining2, Settings.Currency.Unit);
+                                            //FormulaCaption = string.Format("Key = {0} - {1}IRT | Ticket = {2} - {3}IRT => {4} Key({5}) + 1 Ticket({6}) = {7} {10} - {8} IRT ~ Remains {9} {10}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), LoadData.Market.Ticket.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Ticket.Price), KeyRoundedDown, (KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee), LoadData.Market.Ticket.LowestSellOrderNoFee, ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee), String.Format("{0:n0}", ((KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price)), (int)Remaining2, Settings.Currency.Unit);
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
-                                            //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key)), (int)Remaining, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key.Price), (int)Remaining, Settings.Currency.Unit);
+                                            //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key.Price)), (int)Remaining, Settings.Currency.Unit);
                                         }
 
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key), (int)Remaining, Settings.Currency.Unit);
-                                        //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.User_Price), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key)), (int)Remaining, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key.Price), (int)Remaining, Settings.Currency.Unit);
+                                        //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key.Price)), (int)Remaining, Settings.Currency.Unit);
                                     }
                                 }
                                 else
                                 {
                                     if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                                     {
-                                        if (DownRemaining < LoadData.Market.Ticket.User_Price)
+                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
                                         {
-                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key) + LoadData.GamingClub.Ticket));
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price));
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key.Price));
                                         }
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key));
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key.Price));
                                     }
-                                    //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT", LoadData.Market.Key.User_Price, String.Format("{0:n0} ", LoadData.GamingClub.Key), KeyRoundedUp, KeyRoundedUp * LoadData.Market.Key.User_Price, KeyRoundedUp * LoadData.GamingClub.Key);
+                                    //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee, KeyRoundedUp * LoadData.GamingClub.Key.Price);
                                 }
 
                             }
@@ -378,7 +386,7 @@ namespace SteamPulse
                             {
                                 if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                                 {
-                                    if (DownRemaining < LoadData.Market.Ticket.User_Price)
+                                    if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
                                     {
                                         Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket ~ {1} {2} ", KeyRoundedDown, (int)Remaining2, Settings.Currency.Unit);
                                     }
@@ -443,6 +451,9 @@ namespace SteamPulse
                     var ServerVersion = new Version(node["CurrentVersion"].InnerText);
                     string UpdateType = node["UpdateType"].InnerText;
                     var result = AppVersion.CompareTo(ServerVersion);
+                    giveawayisactive = Convert.ToBoolean(node["Giveaway"].InnerText);
+                    GiveawayBegin = Convert.ToInt32(node["GiveawayBegin"].InnerText);
+                    GiveawayEnd = Convert.ToInt32(node["GiveawayEnd"].InnerText);
                     if (AppHash == app_id_xml2)
                     {
                         if (Convert.ToBoolean(Settings.CheckUpdate) == true)
@@ -526,6 +537,7 @@ namespace SteamPulse
             }
             catch { }
         }
+        //----------------------Get AppID from Steam URL----------------------//
         private string URLtoAppID(string value)
         {
             if (TextBox_URL.Text.Length > 8)
@@ -555,21 +567,26 @@ namespace SteamPulse
                 return TextBox_URL.Text;
             }
         }
+        //----------------------Main Worker----------------------//
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
             if (!string.IsNullOrEmpty(TextBox_URL.Text))
             {
+                // Pre-Load
+                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 40)));
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Connecting..."));
                 GetData.Appid = Convert.ToInt32(TextBox_URL.Text);
                 ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Clear()));
                 EditionPrice = 0;
                 ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Loading..."));
                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "Loading..."));
+                //Initial Load
                 try
                 {
                     if (GetData.ConnectToSteam.Store() == true)
                     {
+                        // if Loaded product is dlc
                         LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading Data..."));
                         if (LoadData.Store.Type == "dlc")
                         {
@@ -593,6 +610,7 @@ namespace SteamPulse
                         }
                         else
                         {
+                            //msfs easter-egg
                             if (GetData.Appid == 1250410)
                             {
                                 Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = "Name: " + GlobalVariables.Names.MSFS));
@@ -613,6 +631,7 @@ namespace SteamPulse
                             }
                         }
 
+                        // if loaded game is free
                         if (LoadData.Store.IsFree == true)
                         {
                             Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: Free"));
@@ -635,7 +654,7 @@ namespace SteamPulse
                             Thread.Sleep(500);
 
 
-                            string package = LoadData.Store.Packages;
+                            string package = LoadData.Store.Packages.ProductPackages;
                             JObject JsonObject = JObject.Parse(GetData.Data);
                             MatchCollection matches = Regex.Matches(package, @"\d+");
 
@@ -659,7 +678,7 @@ namespace SteamPulse
                                     {
                                         Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: Free"));
                                         Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0"));
-                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard - Free")));
+                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                     }
                                     else
                                     {
@@ -673,43 +692,19 @@ namespace SteamPulse
                                 else
                                 {
                                     PriceString = LoadData.Store.Price.Final.ToString("N");
-                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, string.Format("Standard - {0} {1}", PriceString, Settings.Currency.Unit))));
+                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                     EditionDiscount = LoadData.Store.Price.Discount_Percent;
                                 }
                                 for (int i = 1; i < edition_count; i++)
                                 {
-                                    string dataRemover = JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].option_text").ToString();
-                                    string Temp = dataRemover.Replace("<span class=\"discount_original_price\">", "");
-                                    string output = Temp.Replace("</span>", "");
-                                    EditionPrice = 0;
-                                    EditionPrice = Convert.ToDouble(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
+                                    GetData.PackageID = Convert.ToInt32(result[i]);
+                                    GetData.ConnectToSteam.Package();
+                                    EditionPrice = LoadData.Store.Packages.Price.Final;
+                                    string EditionName = LoadData.Store.Packages.TrimmedName;
                                     if (EditionPrice == 0)
                                     {
 
-                                        output = output.Replace(LoadData.Store.Name, "");
-                                        output = output.Replace(":", "");
-                                        string EditionName = Regex.Replace(output, @"[\d]", string.Empty);
-                                        EditionName = EditionName.Replace(".,", "");
-                                        EditionName = EditionName.Replace("ARS$", "");
-                                        EditionName = EditionName.Replace(".", "");
-                                        EditionName = EditionName.Replace("$", "");
-                                        EditionName = EditionName.Replace("-", "");
-                                        EditionName = EditionName.Replace("™", "");
-                                        EditionName = EditionName.Replace("®", "");
-                                        EditionName = EditionName.Replace("®", "");
-                                        EditionName = EditionName.Replace(" Edition ", "");
-                                        Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-                                        EditionName = rgx.Replace(EditionName.ToString(), "");
-                                        if (Settings.Currency.Name == "Ruble")
-                                        {
-                                            EditionName = EditionName.Replace("p", "");
-                                        }
-
-                                        if (Settings.Currency.Name == "Lira")
-                                        {
-                                            EditionName = EditionName.Replace("TL", "");
-                                        }
-
+                                        
                                         RegexOptions options = RegexOptions.None;
                                         Regex regex = new Regex("[ ]{2,}", options);
                                         EditionName = regex.Replace(EditionName, " ");
@@ -723,52 +718,24 @@ namespace SteamPulse
                                     }
                                     else
                                     {
-                                        EditionPrice /= 100;
-                                        output = output.Replace(LoadData.Store.Name, "");
-                                        output = output.Replace(":", "");
-                                        string EditionName = Regex.Replace(output, @"[\d]", string.Empty);
-                                        EditionName = EditionName.Replace(".,", "");
-                                        EditionName = EditionName.Replace("ARS$", "");
-                                        EditionName = EditionName.Replace(".", "");
-                                        EditionName = EditionName.Replace("$", "");
-                                        EditionName = EditionName.Replace("-", "");
-                                        EditionName = EditionName.Replace("Edition ", "");
-                                        EditionName = EditionName.Replace("™", "");
-                                        EditionName = EditionName.Replace("®", "");
-                                        EditionName = EditionName.Replace("®", "");
-                                        Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-                                        EditionName = rgx.Replace(EditionName.ToString(), "");
-                                        if (Settings.Currency.Name == "Ruble")
-                                        {
-                                            EditionName = EditionName.Replace("p", "");
-                                        }
-
-                                        if (Settings.Currency.Name == "Lira")
-                                        {
-                                            EditionName = EditionName.Replace("TL", "");
-                                        }
-
+                                        
+                                        
                                         if (GetData.Appid == 1250410)
                                         {
-                                            output = output.Replace("Microsoft Flight Simulator", "");
-                                            output = output.Replace("Game of the Year", "");
+                                            EditionName = EditionName.Replace("Microsoft Flight Simulator", "");
+                                            EditionName = EditionName.Replace("Game of the Year", "");
                                         }
-                                        if (GetData.Appid == 1938090)
-                                        {
-                                            output = output.Replace("Call of Duty Modern Warfare II  ", "");
-                                        }
-
 
                                         RegexOptions options = RegexOptions.None;
                                         Regex regex = new Regex("[ ]{2,}", options);
                                         EditionName = regex.Replace(EditionName, " ");
-                                        char first = EditionName[0];
-                                        if (char.IsWhiteSpace(first))
+                                        
+                                        if (EditionName.StartsWith(" "))
                                         {
                                             EditionName = EditionName.Remove(0, 1);
                                         }
                                         else { }
-                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(string.Format("{0} - {1} {2}", EditionName, EditionPrice.ToString("N"), Settings.Currency.Unit))));
+                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
                                     }
                                 }
                             }
@@ -781,6 +748,7 @@ namespace SteamPulse
                         }
                         else
                         {
+                            // check for discount
                             if (LoadData.Store.Price.Discount_Percent == 0)
                             {
                                 Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: " + string.Format("{0} {1}", Convert.ToDouble(LoadData.Store.Price.Final).ToString("N"), Settings.Currency.Unit)));
@@ -794,6 +762,7 @@ namespace SteamPulse
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading DLC..."));
                             Thread.Sleep(500);
 
+                            //check for dlc
                             if (LoadData.Store.DLC.Count != 0)
                             {
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Hand));
@@ -804,9 +773,11 @@ namespace SteamPulse
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "No DLC Found."));
                             }
+
+                            //check for editions
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading Editions..."));
                             Thread.Sleep(500);
-                            string package = LoadData.Store.Packages;
+                            string package = LoadData.Store.Packages.ProductPackages;
                             JObject JsonObject = JObject.Parse(GetData.Data);
                             MatchCollection matches = Regex.Matches(package, @"\d+");
 
@@ -826,7 +797,7 @@ namespace SteamPulse
 
                             if (result.Length == 1 && result.Length != 0)
                             {
-                                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, string.Format("Standard - {0} {1}", LoadData.Store.Price.Final.ToString("N"), Settings.Currency.Unit))));
+                                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
                             }
                             else
@@ -839,7 +810,46 @@ namespace SteamPulse
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
                                 for (int i = 0; i <= edition_count; i++)
                                 {
-                                    if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].option_text") != null)
+                                    GetData.PackageID = Convert.ToInt32(result[i]);
+                                    GetData.ConnectToSteam.Package();
+
+                                    //MessageBox.Show(LoadData.Store.Packages.GetPackageIDbyIndex(i).ToString());
+
+                                    if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].packageid") != null)
+                                    {
+                                        string EditionName = LoadData.Store.Packages.TrimmedName;
+                                        if (GetData.Appid == 1250410)
+                                        {
+                                            EditionName = EditionName.Replace("Microsoft Flight Simulator", "");
+                                            EditionName = EditionName.Replace("Game of the Year", "");
+                                        }
+
+                                        RegexOptions options = RegexOptions.None;
+                                        Regex regex = new Regex("[ ]{2,}", options);
+                                        EditionName = regex.Replace(EditionName, " ");
+
+                                        //char first = EditionName[0];
+                                        if (EditionName.StartsWith(" "))
+                                        {
+                                            EditionName = EditionName.Remove(0, 1);
+                                        }
+                                        else { }
+
+                                        if (EditionName == "" || EditionName == " ")
+                                        {
+                                            EditionName = "Standard";
+                                        }
+                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+
+
+                                    //old edition method
+                                    /*if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].option_text") != null)
                                     {
                                         string dataRemover = JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].option_text").ToString();
                                         string Temp = dataRemover.Replace("<span class=\"discount_original_price\">", "");
@@ -900,7 +910,7 @@ namespace SteamPulse
                                     else
                                     {
                                         break;
-                                    }
+                                    }*/
                                 }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
@@ -921,6 +931,7 @@ namespace SteamPulse
                         if (GetData.ErrorCode == 3)
                         {
                             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
+                            LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 25)));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Can't Connect to Steam"));
                             ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
@@ -930,6 +941,7 @@ namespace SteamPulse
                         {
                             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Can't Load Data"));
+                            LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 25)));
                             ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "Can't Load"));
@@ -938,11 +950,12 @@ namespace SteamPulse
                 }
                 catch (Exception ex)
                 {
-                    LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = ex.Message));
+                    LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Error!"));
                     ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                     ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                     LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
                     LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "Can't Load"));
+                    MessageBox.Show(ex.Message + "\n\nDescription:\n" + ex.InnerException + "\n\nTrace:\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             Logger.LogRequest(LabelStatus.Text);
@@ -959,8 +972,17 @@ namespace SteamPulse
         }
         private void OpenMarket_Click(object sender, EventArgs e)
         {
-            Form Market = new LiveMarketPrice();
-            Market.ShowDialog();
+            if (Settings.DeveloperMode == true && Settings.HistogramData == false)
+            {
+                Form OldMarket = new OldLiveMarketPrice();
+                OldMarket.ShowDialog(this);
+
+            }
+            else
+            {
+                Form Market = new LiveMarketPrice();
+                Market.ShowDialog(this);
+            }
         }
         private void OpenDetails_Click(object sender, EventArgs e)
         {
@@ -998,10 +1020,20 @@ namespace SteamPulse
         }
         private void LiveMarketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form Market = new LiveMarketPrice();
-            Market.ShowDialog(this);
+            if (Settings.DeveloperMode == true && Settings.HistogramData == false)
+            {
+                Form OldMarket = new OldLiveMarketPrice();
+                OldMarket.ShowDialog(this);
+
+            }
+            else
+            {
+                Form Market = new LiveMarketPrice();
+                Market.ShowDialog(this);
+            }
         }
-        static string Hasher(string input)
+
+        private static string Hasher(string input)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
             {
@@ -1126,6 +1158,10 @@ namespace SteamPulse
             OpenDetails.ForeColor = ForeGround;
             OpenDiscountCalculator.ForeColor = ForeGround;
             OpenMarket.ForeColor = ForeGround;
+            PanelGiveaway.BackgroundColor = BackGround;
+            LabelGiveaway.ForeColor = ForeGround;
+            Label_Remaining.ForeColor = ForeGround;
+
         }
         private void PictureBox_Image_Click(object sender, EventArgs e)
         {
@@ -1309,6 +1345,60 @@ namespace SteamPulse
             Form Status = new Status();
             Status.ShowDialog(this);
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (noGiveAwayLimit == true)
+            {
+                Label_Remaining.Text = "GiveAway Unlocked! 🎉";
+                Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
+                ButtonGiveaway.Enabled = true;
+                Timer.Enabled = false;
+            }
+            else
+            {
+                if (DateTimeOffset.Now.ToUnixTimeSeconds() > GiveawayBegin)
+                {
+                    Label_Remaining.Text = "GiveAway Unlocked! 🎉";
+                    Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
+                    ButtonGiveaway.Enabled = true;
+                    Timer.Enabled = false;
+                }
+                if (DateTimeOffset.Now.ToUnixTimeSeconds() > GiveawayEnd)
+                {
+                    Label_Remaining.Text = "GiveAway Ended! 🎉";
+                    Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
+                    ButtonGiveaway.Enabled = false;
+                    Timer.Enabled = false;
+                }
+                else
+                {
+                    TimeSpan span = GiveawayBeginTime.ToLocalTime().Subtract(DateTime.Now);
+
+                    Label_Remaining.Text = string.Format("Unlock in: {0}d {1}h {2}m {3}s", span.Days, span.Hours, span.Minutes, span.Seconds);
+                    Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
+                }
+            }
+        }
+
+        private void Label_Ramaining_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip.Show("GiveAway Begin on: " + GiveawayBeginTime.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss"), Label_Remaining);
+        }
+
+        private void ComboBox_Editions_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonGiveaway_Click(object sender, EventArgs e)
+        {
+            if (DateTimeOffset.Now.ToUnixTimeSeconds() > GiveawayBegin || noGiveAwayLimit == true)
+            {
+                Form Giveaway = new Giveaway();
+                Giveaway.ShowDialog(this);
+            }
+        }
     }
     public class Logger
     {
@@ -1402,7 +1492,7 @@ namespace SteamPulse
                     }
                     else
                     {
-                        Logger.Write(string.Format("{0} - [Market] Requested to SteamAPI, Region: {1} , IRT: {2} Price: Key: {4} {3}, Ticket :{5} {3}, Description: {6}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Settings.Currency.ISO, Settings.CheckIRT, Settings.Currency.Unit, key, ticket, Message) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - [Market] Requested to SteamAPI, Region: {1} , IRT: {2} Price: Key: {4} {3}, Ticket: {5} {3}, Description: {6}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Settings.Currency.ISO, Settings.CheckIRT, Settings.Currency.Unit, key, ticket, Message) + Environment.NewLine);
                     }
                 }
             }

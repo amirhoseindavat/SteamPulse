@@ -120,8 +120,8 @@ namespace SteamPulse
                 int i = 1;
                 GetData.ConnectToSteam.Market.TF2Ticket();
                 GetData.ConnectToSteam.Market.TF2Key();
-                double KeyIRT = LoadData.GamingClub.Key;
-                double TicketIRT = LoadData.GamingClub.Ticket;
+                double KeyIRT = LoadData.GamingClub.Key.Price;
+                double TicketIRT = LoadData.GamingClub.Ticket.Price;
                 foreach (string appid in ID)
                 {
                     GetData.DLCID = Convert.ToInt32(appid);
@@ -209,13 +209,13 @@ namespace SteamPulse
 
                             if (IRTCheck == true)
                             {
-                                if (LoadData.Store.DLC.Data.Price < LoadData.Market.Ticket.User_Price)
+                                if (LoadData.Store.DLC.Data.Price < LoadData.Market.Ticket.LowestSellOrderNoFee)
                                 {
-                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Ticket - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
+                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Ticket - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)) * TicketIRT))));
                                 }
                                 else
                                 {
-                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Key - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
+                                    DataTable.Invoke((MethodInvoker)(() => row.Cells["irtprice"].Value = string.Format("{0} Key - {1}IRT", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.LowestSellOrderNoFee, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(LoadData.Store.DLC.Data.Price / LoadData.Market.Key.LowestSellOrderNoFee, 1)) * KeyIRT))));
                                 }
                             }
                             else { }
@@ -240,23 +240,23 @@ namespace SteamPulse
                 {
                     LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = "Sum: Free"));
                 }
-                else if (sum < LoadData.Market.Ticket.User_Price)
+                else if (sum < LoadData.Market.Ticket.LowestSellOrderNoFee)
                 {
                     if (Settings.CheckIRT == true)
                     {
 
                         if (TicketIRT != 0)
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)) * TicketIRT))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)) * TicketIRT))));
                         }
                         else
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)))));
                         }
                     }
                     else
                     {
-                        LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.User_Price, 1)))));
+                        LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Ticket", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Ticket.LowestSellOrderNoFee, 1)))));
                     }
                 }
                 else
@@ -265,16 +265,16 @@ namespace SteamPulse
                     {
                         if (KeyIRT != 0)
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)) * KeyIRT))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key - {3}IRT", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.LowestSellOrderNoFee, 1)), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.LowestSellOrderNoFee, 1)) * KeyIRT))));
                         }
                         else
                         {
-                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)))));
+                            LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.LowestSellOrderNoFee, 1)))));
                         }
                     }
                     else
                     {
-                        LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.User_Price, 1)))));
+                        LabelSum.Invoke((MethodInvoker)(() => LabelSum.Text = string.Format("Sum: {0} {1} - {2} Key", sum, Settings.Currency.Unit, (int)Math.Ceiling(Math.Round(sum / LoadData.Market.Key.LowestSellOrderNoFee, 1)))));
                     }
                 }
                 LabelSum.Invoke((MethodInvoker)(() => LabelSum.Visible = true));
