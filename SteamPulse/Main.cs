@@ -1110,6 +1110,8 @@ namespace SteamPulse
                 OpenMarketIcon.Image = Properties.Resources.OpenExternal;
                 ButtonSetting.Image = Properties.Resources.Settings;
                 ButtonStatus.Image = Properties.Resources.StatusWhite;
+                PictureBoxAnniversaryLeft.Image = Properties.Resources._1_year_anniversary_light;
+                PictureBoxAnniversaryRight.Image = Properties.Resources._1_year_anniversary_light;
             }
             else
             {
@@ -1122,6 +1124,9 @@ namespace SteamPulse
                 OpenMarketIcon.Image = Properties.Resources.OpenExternalBlack;
                 ButtonSetting.Image = Properties.Resources.SettingsBlack;
                 ButtonStatus.Image = Properties.Resources.StatusBlack;
+                PictureBoxAnniversaryLeft.Image = Properties.Resources._1_year_anniversary_dark;
+                PictureBoxAnniversaryRight.Image = Properties.Resources._1_year_anniversary_dark;
+                
             }
             ButtonLoad.BackColor = BackGround;
             PanelHeader.BackgroundColor = BackGround;
@@ -1359,7 +1364,7 @@ namespace SteamPulse
             {
                 if (DateTimeOffset.Now.ToUnixTimeSeconds() > GiveawayBegin)
                 {
-                    Label_Remaining.Text = "GiveAway Unlocked! 🎉";
+                    Label_Remaining.Text = "GiveAway Started! 🎉";
                     Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
                     ButtonGiveaway.Enabled = true;
                     Timer.Enabled = false;
@@ -1375,7 +1380,7 @@ namespace SteamPulse
                 {
                     TimeSpan span = GiveawayBeginTime.ToLocalTime().Subtract(DateTime.Now);
 
-                    Label_Remaining.Text = string.Format("Unlock in: {0}d {1}h {2}m {3}s", span.Days, span.Hours, span.Minutes, span.Seconds);
+                    Label_Remaining.Text = string.Format("GiveAway Begin in: {0}d {1}h {2}m {3}s", span.Days, span.Hours, span.Minutes, span.Seconds);
                     Label_Remaining.Location = new Point(((PanelGiveaway.Size.Width - Label_Remaining.Size.Width) / 2), 36);
                 }
             }

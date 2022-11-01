@@ -462,6 +462,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1-year-anniversary-light.png" />
+    <None Include="Resources\1-year-anniversary-dark.png" />
     <None Include="Resources\StatusBlack.png" />
     <None Include="Resources\StatusWhite.png" />
     <None Include="Resources\SearchWhite.png" />

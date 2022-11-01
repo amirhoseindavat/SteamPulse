@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.MenuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liveMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +55,13 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.ButtonLoad = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.PanelGiveaway = new Bunifu.UI.WinForms.BunifuPanel();
+            this.ButtonGiveaway = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.Label_Remaining = new System.Windows.Forms.Label();
+            this.LabelGiveaway = new System.Windows.Forms.Label();
             this.PanelDLC = new Bunifu.UI.WinForms.BunifuPanel();
             this.LabelDLCCount = new System.Windows.Forms.Label();
             this.LabelDLC = new System.Windows.Forms.Label();
@@ -72,6 +78,7 @@
             this.TextBox_URL = new Bunifu.UI.WinForms.BunifuTextBox();
             this.Label_URL = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
+            this.PictureBoxAnniversaryLeft = new System.Windows.Forms.PictureBox();
             this.ButtonStatus = new System.Windows.Forms.PictureBox();
             this.ButtonSetting = new System.Windows.Forms.PictureBox();
             this.Label_AppName = new System.Windows.Forms.Label();
@@ -90,20 +97,17 @@
             this.Label_KeyCount = new System.Windows.Forms.Label();
             this.Label_Details = new System.Windows.Forms.Label();
             this.OpenMarketIcon = new System.Windows.Forms.PictureBox();
-            this.PanelGiveaway = new Bunifu.UI.WinForms.BunifuPanel();
-            this.ButtonGiveaway = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.Label_Remaining = new System.Windows.Forms.Label();
-            this.LabelGiveaway = new System.Windows.Forms.Label();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PictureBoxAnniversaryRight = new System.Windows.Forms.PictureBox();
             this.MenuMain.SuspendLayout();
             this.MenuDev.SuspendLayout();
+            this.PanelGiveaway.SuspendLayout();
             this.PanelDLC.SuspendLayout();
             this.PanelAbout.SuspendLayout();
             this.PanelEdition.SuspendLayout();
             this.PanelRegion.SuspendLayout();
             this.PanelURL.SuspendLayout();
             this.PanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).BeginInit();
             this.PanelData.SuspendLayout();
@@ -112,7 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).BeginInit();
-            this.PanelGiveaway.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuMain
@@ -264,6 +268,16 @@
             this.BackgroundWorker.WorkerSupportsCancellation = true;
             this.BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.ElipseRadius = 5;
+            this.Elipse2.TargetControl = this.PictureBox_Image;
+            // 
             // ButtonLoad
             // 
             this.ButtonLoad.ActiveImage = null;
@@ -298,6 +312,142 @@
             this.ButtonLoad.Zoom = 0;
             this.ButtonLoad.ZoomSpeed = 10;
             this.ButtonLoad.Click += new System.EventHandler(this.ButtonLoad_CLick);
+            // 
+            // PanelGiveaway
+            // 
+            this.PanelGiveaway.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PanelGiveaway.BackgroundColor = System.Drawing.Color.White;
+            this.PanelGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGiveaway.BackgroundImage")));
+            this.PanelGiveaway.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelGiveaway.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelGiveaway.BorderRadius = 20;
+            this.PanelGiveaway.BorderThickness = 1;
+            this.PanelGiveaway.Controls.Add(this.PictureBoxAnniversaryRight);
+            this.PanelGiveaway.Controls.Add(this.PictureBoxAnniversaryLeft);
+            this.PanelGiveaway.Controls.Add(this.ButtonGiveaway);
+            this.PanelGiveaway.Controls.Add(this.Label_Remaining);
+            this.PanelGiveaway.Controls.Add(this.LabelGiveaway);
+            this.PanelGiveaway.Location = new System.Drawing.Point(20, 49);
+            this.PanelGiveaway.Name = "PanelGiveaway";
+            this.PanelGiveaway.ShowBorders = true;
+            this.PanelGiveaway.Size = new System.Drawing.Size(843, 128);
+            this.PanelGiveaway.TabIndex = 41;
+            // 
+            // ButtonGiveaway
+            // 
+            this.ButtonGiveaway.AllowAnimations = true;
+            this.ButtonGiveaway.AllowMouseEffects = true;
+            this.ButtonGiveaway.AllowToggling = false;
+            this.ButtonGiveaway.AnimationSpeed = 200;
+            this.ButtonGiveaway.AutoGenerateColors = false;
+            this.ButtonGiveaway.AutoRoundBorders = false;
+            this.ButtonGiveaway.AutoSizeLeftIcon = true;
+            this.ButtonGiveaway.AutoSizeRightIcon = true;
+            this.ButtonGiveaway.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonGiveaway.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGiveaway.BackgroundImage")));
+            this.ButtonGiveaway.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.ButtonText = "Enter Giveaway";
+            this.ButtonGiveaway.ButtonTextMarginLeft = 0;
+            this.ButtonGiveaway.ColorContrastOnClick = 45;
+            this.ButtonGiveaway.ColorContrastOnHover = 45;
+            this.ButtonGiveaway.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.ButtonGiveaway.CustomizableEdges = borderEdges1;
+            this.ButtonGiveaway.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ButtonGiveaway.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.ButtonGiveaway.Enabled = false;
+            this.ButtonGiveaway.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.ButtonGiveaway.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.ButtonGiveaway.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonGiveaway.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.ButtonGiveaway.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.ButtonGiveaway.IconMarginLeft = 11;
+            this.ButtonGiveaway.IconPadding = 10;
+            this.ButtonGiveaway.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ButtonGiveaway.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.ButtonGiveaway.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.ButtonGiveaway.IconSize = 25;
+            this.ButtonGiveaway.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.IdleBorderRadius = 1;
+            this.ButtonGiveaway.IdleBorderThickness = 1;
+            this.ButtonGiveaway.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.IdleIconLeftImage = null;
+            this.ButtonGiveaway.IdleIconRightImage = null;
+            this.ButtonGiveaway.IndicateFocus = false;
+            this.ButtonGiveaway.Location = new System.Drawing.Point(346, 72);
+            this.ButtonGiveaway.Name = "ButtonGiveaway";
+            this.ButtonGiveaway.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.OnDisabledState.BorderRadius = 1;
+            this.ButtonGiveaway.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnDisabledState.BorderThickness = 1;
+            this.ButtonGiveaway.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ButtonGiveaway.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.ButtonGiveaway.OnDisabledState.IconLeftImage = null;
+            this.ButtonGiveaway.OnDisabledState.IconRightImage = null;
+            this.ButtonGiveaway.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.ButtonGiveaway.onHoverState.BorderRadius = 1;
+            this.ButtonGiveaway.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.onHoverState.BorderThickness = 1;
+            this.ButtonGiveaway.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.ButtonGiveaway.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.onHoverState.IconLeftImage = null;
+            this.ButtonGiveaway.onHoverState.IconRightImage = null;
+            this.ButtonGiveaway.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.OnIdleState.BorderRadius = 1;
+            this.ButtonGiveaway.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnIdleState.BorderThickness = 1;
+            this.ButtonGiveaway.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonGiveaway.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.OnIdleState.IconLeftImage = null;
+            this.ButtonGiveaway.OnIdleState.IconRightImage = null;
+            this.ButtonGiveaway.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonGiveaway.OnPressedState.BorderRadius = 1;
+            this.ButtonGiveaway.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.ButtonGiveaway.OnPressedState.BorderThickness = 1;
+            this.ButtonGiveaway.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonGiveaway.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.ButtonGiveaway.OnPressedState.IconLeftImage = null;
+            this.ButtonGiveaway.OnPressedState.IconRightImage = null;
+            this.ButtonGiveaway.Size = new System.Drawing.Size(150, 39);
+            this.ButtonGiveaway.TabIndex = 59;
+            this.ButtonGiveaway.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ButtonGiveaway.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ButtonGiveaway.TextMarginLeft = 0;
+            this.ButtonGiveaway.TextPadding = new System.Windows.Forms.Padding(0);
+            this.ButtonGiveaway.UseDefaultRadiusAndThickness = true;
+            this.ButtonGiveaway.Click += new System.EventHandler(this.ButtonGiveaway_Click);
+            // 
+            // Label_Remaining
+            // 
+            this.Label_Remaining.AutoSize = true;
+            this.Label_Remaining.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Remaining.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Remaining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Remaining.Location = new System.Drawing.Point(373, 34);
+            this.Label_Remaining.Name = "Label_Remaining";
+            this.Label_Remaining.Size = new System.Drawing.Size(84, 30);
+            this.Label_Remaining.TabIndex = 58;
+            this.Label_Remaining.Text = "Begin in:";
+            this.Label_Remaining.MouseEnter += new System.EventHandler(this.Label_Ramaining_MouseEnter);
+            // 
+            // LabelGiveaway
+            // 
+            this.LabelGiveaway.BackColor = System.Drawing.Color.Transparent;
+            this.LabelGiveaway.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.LabelGiveaway.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelGiveaway.Location = new System.Drawing.Point(0, 0);
+            this.LabelGiveaway.Name = "LabelGiveaway";
+            this.LabelGiveaway.Size = new System.Drawing.Size(843, 26);
+            this.LabelGiveaway.TabIndex = 15;
+            this.LabelGiveaway.Text = "1 Year Anniversary";
+            this.LabelGiveaway.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // PanelDLC
             // 
@@ -687,6 +837,18 @@
             this.PanelHeader.TabIndex = 35;
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
+            // PictureBoxAnniversaryLeft
+            // 
+            this.PictureBoxAnniversaryLeft.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxAnniversaryLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxAnniversaryLeft.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
+            this.PictureBoxAnniversaryLeft.Location = new System.Drawing.Point(20, 21);
+            this.PictureBoxAnniversaryLeft.Name = "PictureBoxAnniversaryLeft";
+            this.PictureBoxAnniversaryLeft.Size = new System.Drawing.Size(85, 85);
+            this.PictureBoxAnniversaryLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAnniversaryLeft.TabIndex = 62;
+            this.PictureBoxAnniversaryLeft.TabStop = false;
+            // 
             // ButtonStatus
             // 
             this.ButtonStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -1025,150 +1187,19 @@
             this.OpenMarketIcon.TabStop = false;
             this.OpenMarketIcon.Click += new System.EventHandler(this.OpenMarket_Click);
             // 
-            // PanelGiveaway
+            // PictureBoxAnniversaryRight
             // 
-            this.PanelGiveaway.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PanelGiveaway.BackgroundColor = System.Drawing.Color.White;
-            this.PanelGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelGiveaway.BackgroundImage")));
-            this.PanelGiveaway.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PanelGiveaway.BorderColor = System.Drawing.Color.Transparent;
-            this.PanelGiveaway.BorderRadius = 20;
-            this.PanelGiveaway.BorderThickness = 1;
-            this.PanelGiveaway.Controls.Add(this.ButtonGiveaway);
-            this.PanelGiveaway.Controls.Add(this.Label_Remaining);
-            this.PanelGiveaway.Controls.Add(this.LabelGiveaway);
-            this.PanelGiveaway.Location = new System.Drawing.Point(20, 49);
-            this.PanelGiveaway.Name = "PanelGiveaway";
-            this.PanelGiveaway.ShowBorders = true;
-            this.PanelGiveaway.Size = new System.Drawing.Size(843, 128);
-            this.PanelGiveaway.TabIndex = 41;
-            // 
-            // ButtonGiveaway
-            // 
-            this.ButtonGiveaway.AllowAnimations = true;
-            this.ButtonGiveaway.AllowMouseEffects = true;
-            this.ButtonGiveaway.AllowToggling = false;
-            this.ButtonGiveaway.AnimationSpeed = 200;
-            this.ButtonGiveaway.AutoGenerateColors = false;
-            this.ButtonGiveaway.AutoRoundBorders = false;
-            this.ButtonGiveaway.AutoSizeLeftIcon = true;
-            this.ButtonGiveaway.AutoSizeRightIcon = true;
-            this.ButtonGiveaway.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonGiveaway.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.ButtonGiveaway.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGiveaway.BackgroundImage")));
-            this.ButtonGiveaway.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonGiveaway.ButtonText = "Enter Giveaway";
-            this.ButtonGiveaway.ButtonTextMarginLeft = 0;
-            this.ButtonGiveaway.ColorContrastOnClick = 45;
-            this.ButtonGiveaway.ColorContrastOnHover = 45;
-            this.ButtonGiveaway.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.ButtonGiveaway.CustomizableEdges = borderEdges1;
-            this.ButtonGiveaway.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ButtonGiveaway.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ButtonGiveaway.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ButtonGiveaway.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.ButtonGiveaway.Enabled = false;
-            this.ButtonGiveaway.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.ButtonGiveaway.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ButtonGiveaway.ForeColor = System.Drawing.Color.White;
-            this.ButtonGiveaway.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonGiveaway.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.ButtonGiveaway.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.ButtonGiveaway.IconMarginLeft = 11;
-            this.ButtonGiveaway.IconPadding = 10;
-            this.ButtonGiveaway.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ButtonGiveaway.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.ButtonGiveaway.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.ButtonGiveaway.IconSize = 25;
-            this.ButtonGiveaway.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.ButtonGiveaway.IdleBorderRadius = 1;
-            this.ButtonGiveaway.IdleBorderThickness = 1;
-            this.ButtonGiveaway.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.ButtonGiveaway.IdleIconLeftImage = null;
-            this.ButtonGiveaway.IdleIconRightImage = null;
-            this.ButtonGiveaway.IndicateFocus = false;
-            this.ButtonGiveaway.Location = new System.Drawing.Point(346, 72);
-            this.ButtonGiveaway.Name = "ButtonGiveaway";
-            this.ButtonGiveaway.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ButtonGiveaway.OnDisabledState.BorderRadius = 1;
-            this.ButtonGiveaway.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonGiveaway.OnDisabledState.BorderThickness = 1;
-            this.ButtonGiveaway.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ButtonGiveaway.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.ButtonGiveaway.OnDisabledState.IconLeftImage = null;
-            this.ButtonGiveaway.OnDisabledState.IconRightImage = null;
-            this.ButtonGiveaway.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.ButtonGiveaway.onHoverState.BorderRadius = 1;
-            this.ButtonGiveaway.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonGiveaway.onHoverState.BorderThickness = 1;
-            this.ButtonGiveaway.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.ButtonGiveaway.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.ButtonGiveaway.onHoverState.IconLeftImage = null;
-            this.ButtonGiveaway.onHoverState.IconRightImage = null;
-            this.ButtonGiveaway.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.ButtonGiveaway.OnIdleState.BorderRadius = 1;
-            this.ButtonGiveaway.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonGiveaway.OnIdleState.BorderThickness = 1;
-            this.ButtonGiveaway.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.ButtonGiveaway.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.ButtonGiveaway.OnIdleState.IconLeftImage = null;
-            this.ButtonGiveaway.OnIdleState.IconRightImage = null;
-            this.ButtonGiveaway.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.ButtonGiveaway.OnPressedState.BorderRadius = 1;
-            this.ButtonGiveaway.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonGiveaway.OnPressedState.BorderThickness = 1;
-            this.ButtonGiveaway.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.ButtonGiveaway.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.ButtonGiveaway.OnPressedState.IconLeftImage = null;
-            this.ButtonGiveaway.OnPressedState.IconRightImage = null;
-            this.ButtonGiveaway.Size = new System.Drawing.Size(150, 39);
-            this.ButtonGiveaway.TabIndex = 59;
-            this.ButtonGiveaway.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ButtonGiveaway.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ButtonGiveaway.TextMarginLeft = 0;
-            this.ButtonGiveaway.TextPadding = new System.Windows.Forms.Padding(0);
-            this.ButtonGiveaway.UseDefaultRadiusAndThickness = true;
-            this.ButtonGiveaway.Click += new System.EventHandler(this.ButtonGiveaway_Click);
-            // 
-            // Label_Remaining
-            // 
-            this.Label_Remaining.AutoSize = true;
-            this.Label_Remaining.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Remaining.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Remaining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.Label_Remaining.Location = new System.Drawing.Point(373, 34);
-            this.Label_Remaining.Name = "Label_Remaining";
-            this.Label_Remaining.Size = new System.Drawing.Size(93, 30);
-            this.Label_Remaining.TabIndex = 58;
-            this.Label_Remaining.Text = "Unlock in:";
-            this.Label_Remaining.MouseEnter += new System.EventHandler(this.Label_Ramaining_MouseEnter);
-            // 
-            // LabelGiveaway
-            // 
-            this.LabelGiveaway.BackColor = System.Drawing.Color.Transparent;
-            this.LabelGiveaway.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LabelGiveaway.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
-            this.LabelGiveaway.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.LabelGiveaway.Location = new System.Drawing.Point(0, 0);
-            this.LabelGiveaway.Name = "LabelGiveaway";
-            this.LabelGiveaway.Size = new System.Drawing.Size(843, 26);
-            this.LabelGiveaway.TabIndex = 15;
-            this.LabelGiveaway.Text = "Giveaway";
-            this.LabelGiveaway.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // Timer
-            // 
-            this.Timer.Interval = 1000;
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // Elipse2
-            // 
-            this.Elipse2.ElipseRadius = 5;
-            this.Elipse2.TargetControl = this.PictureBox_Image;
+            this.PictureBoxAnniversaryRight.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxAnniversaryRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxAnniversaryRight.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
+            this.PictureBoxAnniversaryRight.Location = new System.Drawing.Point(745, 21);
+            this.PictureBoxAnniversaryRight.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.PictureBoxAnniversaryRight.Name = "PictureBoxAnniversaryRight";
+            this.PictureBoxAnniversaryRight.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.PictureBoxAnniversaryRight.Size = new System.Drawing.Size(85, 85);
+            this.PictureBoxAnniversaryRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAnniversaryRight.TabIndex = 63;
+            this.PictureBoxAnniversaryRight.TabStop = false;
             // 
             // Main
             // 
@@ -1197,6 +1228,8 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.MenuMain.ResumeLayout(false);
             this.MenuDev.ResumeLayout(false);
+            this.PanelGiveaway.ResumeLayout(false);
+            this.PanelGiveaway.PerformLayout();
             this.PanelDLC.ResumeLayout(false);
             this.PanelAbout.ResumeLayout(false);
             this.PanelEdition.ResumeLayout(false);
@@ -1204,6 +1237,7 @@
             this.PanelURL.ResumeLayout(false);
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).EndInit();
             this.PanelData.ResumeLayout(false);
@@ -1213,8 +1247,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).EndInit();
-            this.PanelGiveaway.ResumeLayout(false);
-            this.PanelGiveaway.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1282,5 +1315,7 @@
         private System.Windows.Forms.Label Label_Remaining;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton ButtonGiveaway;
         private Bunifu.Framework.UI.BunifuElipse Elipse2;
+        private System.Windows.Forms.PictureBox PictureBoxAnniversaryLeft;
+        private System.Windows.Forms.PictureBox PictureBoxAnniversaryRight;
     }
 }

@@ -237,6 +237,9 @@
         SgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="TicketSeparator2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="TicketSeparator2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVYAAAATCAYAAADLTSXoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -269,6 +272,9 @@
         SgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="KeySeparator2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="KeySeparator2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVYAAAATCAYAAADLTSXoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
