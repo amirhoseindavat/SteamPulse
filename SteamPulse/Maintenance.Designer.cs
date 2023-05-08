@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maintenance));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maintenance));
             this.bunifuElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Label_Exit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Label_AppName = new System.Windows.Forms.Label();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
-            this.LabelLaunch = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.bunifuGradientPanel1.SuspendLayout();
+            this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
+            this.PanelMain = new Bunifu.UI.WinForms.BunifuPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PanelHeader.SuspendLayout();
+            this.PanelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse
@@ -95,7 +95,7 @@
             this.Label_Exit.IdleIconLeftImage = null;
             this.Label_Exit.IdleIconRightImage = null;
             this.Label_Exit.IndicateFocus = false;
-            this.Label_Exit.Location = new System.Drawing.Point(473, 8);
+            this.Label_Exit.Location = new System.Drawing.Point(475, 10);
             this.Label_Exit.Name = "Label_Exit";
             this.Label_Exit.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.Label_Exit.OnDisabledState.BorderRadius = 15;
@@ -141,82 +141,15 @@
             // Label_AppName
             // 
             this.Label_AppName.AutoSize = true;
-            this.Label_AppName.BackColor = System.Drawing.Color.White;
+            this.Label_AppName.BackColor = System.Drawing.Color.Transparent;
             this.Label_AppName.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.Label_AppName.ForeColor = System.Drawing.Color.Black;
-            this.Label_AppName.Location = new System.Drawing.Point(1, 4);
+            this.Label_AppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_AppName.Location = new System.Drawing.Point(3, 5);
             this.Label_AppName.Name = "Label_AppName";
             this.Label_AppName.Size = new System.Drawing.Size(123, 31);
             this.Label_AppName.TabIndex = 34;
             this.Label_AppName.Text = "SteamPulse";
             this.Label_AppName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Maintenance_MouseDown);
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.BackColor = System.Drawing.Color.White;
-            this.bunifuLabel1.CursorType = null;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel1.Location = new System.Drawing.Point(73, 160);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(340, 30);
-            this.bunifuLabel1.TabIndex = 0;
-            this.bunifuLabel1.Text = "Stam Pulse is Currently in Maintenance";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuGradientPanel1
-            // 
-            this.bunifuGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
-            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuGradientPanel1.BorderRadius = 1;
-            this.bunifuGradientPanel1.Controls.Add(this.LabelLaunch);
-            this.bunifuGradientPanel1.Controls.Add(this.bunifuPanel1);
-            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(239)))), ((int)(((byte)(173)))));
-            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(183)))), ((int)(((byte)(116)))));
-            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(111)))), ((int)(((byte)(236)))));
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(109)))), ((int)(((byte)(205)))));
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(-7, 34);
-            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
-            this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(521, 302);
-            this.bunifuGradientPanel1.TabIndex = 37;
-            // 
-            // LabelLaunch
-            // 
-            this.LabelLaunch.AllowParentOverrides = false;
-            this.LabelLaunch.AutoEllipsis = false;
-            this.LabelLaunch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LabelLaunch.CursorType = System.Windows.Forms.Cursors.Hand;
-            this.LabelLaunch.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.LabelLaunch.ForeColor = System.Drawing.Color.White;
-            this.LabelLaunch.Location = new System.Drawing.Point(169, 164);
-            this.LabelLaunch.Name = "LabelLaunch";
-            this.LabelLaunch.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LabelLaunch.Size = new System.Drawing.Size(140, 30);
-            this.LabelLaunch.TabIndex = 38;
-            this.LabelLaunch.Text = "Launch Anyway";
-            this.LabelLaunch.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.LabelLaunch.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.LabelLaunch.Visible = false;
-            this.LabelLaunch.Click += new System.EventHandler(this.LabelLaunch_Click);
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.White;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 20;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Location = new System.Drawing.Point(66, 123);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(367, 35);
-            this.bunifuPanel1.TabIndex = 38;
             // 
             // timer
             // 
@@ -224,16 +157,59 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // PanelHeader
+            // 
+            this.PanelHeader.BackgroundColor = System.Drawing.Color.White;
+            this.PanelHeader.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelHeader.BackgroundImage")));
+            this.PanelHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelHeader.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelHeader.BorderRadius = 3;
+            this.PanelHeader.BorderThickness = 1;
+            this.PanelHeader.Controls.Add(this.Label_AppName);
+            this.PanelHeader.Controls.Add(this.Label_Exit);
+            this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelHeader.Location = new System.Drawing.Point(0, 0);
+            this.PanelHeader.Name = "PanelHeader";
+            this.PanelHeader.ShowBorders = true;
+            this.PanelHeader.Size = new System.Drawing.Size(497, 35);
+            this.PanelHeader.TabIndex = 36;
+            // 
+            // PanelMain
+            // 
+            this.PanelMain.BackgroundColor = System.Drawing.Color.White;
+            this.PanelMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelMain.BackgroundImage")));
+            this.PanelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelMain.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelMain.BorderRadius = 20;
+            this.PanelMain.BorderThickness = 1;
+            this.PanelMain.Controls.Add(this.label1);
+            this.PanelMain.Location = new System.Drawing.Point(12, 47);
+            this.PanelMain.Name = "PanelMain";
+            this.PanelMain.ShowBorders = true;
+            this.PanelMain.Size = new System.Drawing.Size(473, 265);
+            this.PanelMain.TabIndex = 37;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(473, 265);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "SteamPulse is Currently in Maintenance";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Maintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(497, 324);
-            this.Controls.Add(this.bunifuLabel1);
-            this.Controls.Add(this.Label_Exit);
-            this.Controls.Add(this.bunifuGradientPanel1);
-            this.Controls.Add(this.Label_AppName);
+            this.Controls.Add(this.PanelHeader);
+            this.Controls.Add(this.PanelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Maintenance";
@@ -241,10 +217,10 @@
             this.Text = "Maintenance";
             this.Load += new System.EventHandler(this.Maintenance_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Maintenance_MouseDown);
-            this.bunifuGradientPanel1.ResumeLayout(false);
-            this.bunifuGradientPanel1.PerformLayout();
+            this.PanelHeader.ResumeLayout(false);
+            this.PanelHeader.PerformLayout();
+            this.PanelMain.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -252,10 +228,9 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Label_Exit;
         private System.Windows.Forms.Label Label_AppName;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
-        private Bunifu.UI.WinForms.BunifuGradientPanel bunifuGradientPanel1;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
-        private Bunifu.UI.WinForms.BunifuLabel LabelLaunch;
         private System.Windows.Forms.Timer timer;
+        private Bunifu.UI.WinForms.BunifuPanel PanelHeader;
+        private Bunifu.UI.WinForms.BunifuPanel PanelMain;
+        private System.Windows.Forms.Label label1;
     }
 }

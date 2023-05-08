@@ -9,6 +9,7 @@
 // Version 1.3.0 Revision 0
 
 #endregion
+using SteamPulse.Logger;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -61,7 +62,7 @@ namespace SteamPulse
                 {
                     this.Hide();
                     Form main = new Main();
-                    Logger.LogMaintenancee();
+                    Log.LogMaintenancee();
                     main.ShowDialog();
                     this.Close();
                 }
@@ -69,7 +70,7 @@ namespace SteamPulse
                 {
                     this.Hide();
                     Form market = new LiveMarketPrice();
-                    Logger.LogMaintenancee();
+                    Log.LogMaintenancee();
                     market.ShowDialog();
                     this.Close();
                 }
@@ -77,7 +78,7 @@ namespace SteamPulse
                 {
                     this.Hide();
                     Form calculator = new Calculator();
-                    Logger.LogMaintenancee();
+                    Log.LogMaintenancee();
                     calculator.ShowDialog();
                     this.Close();
 
@@ -94,7 +95,7 @@ namespace SteamPulse
             n++;
             if (n == 3)
             {
-                LabelLaunch.Visible = true;
+                //LabelLaunch.Visible = true;
                 n = 0;
             }
         }

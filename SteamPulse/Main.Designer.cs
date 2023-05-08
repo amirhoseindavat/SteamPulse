@@ -57,14 +57,17 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PictureBox_Image = new System.Windows.Forms.PictureBox();
             this.ButtonLoad = new Bunifu.UI.WinForms.BunifuImageButton();
             this.PanelGiveaway = new Bunifu.UI.WinForms.BunifuPanel();
+            this.PictureBoxAnniversaryRight = new System.Windows.Forms.PictureBox();
+            this.PictureBoxAnniversaryLeft = new System.Windows.Forms.PictureBox();
             this.ButtonGiveaway = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Label_Remaining = new System.Windows.Forms.Label();
             this.LabelGiveaway = new System.Windows.Forms.Label();
             this.PanelDLC = new Bunifu.UI.WinForms.BunifuPanel();
-            this.LabelDLCCount = new System.Windows.Forms.Label();
             this.LabelDLC = new System.Windows.Forms.Label();
+            this.LabelDLCCount = new System.Windows.Forms.Label();
             this.PanelAbout = new Bunifu.UI.WinForms.BunifuPanel();
             this.Label_About = new System.Windows.Forms.Label();
             this.PanelEdition = new Bunifu.UI.WinForms.BunifuPanel();
@@ -78,7 +81,6 @@
             this.TextBox_URL = new Bunifu.UI.WinForms.BunifuTextBox();
             this.Label_URL = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
-            this.PictureBoxAnniversaryLeft = new System.Windows.Forms.PictureBox();
             this.ButtonStatus = new System.Windows.Forms.PictureBox();
             this.ButtonSetting = new System.Windows.Forms.PictureBox();
             this.Label_AppName = new System.Windows.Forms.Label();
@@ -87,7 +89,6 @@
             this.PanelStatus = new Bunifu.UI.WinForms.BunifuPanel();
             this.LabelStatus = new System.Windows.Forms.Label();
             this.OpenMarket = new System.Windows.Forms.Label();
-            this.PictureBox_Image = new System.Windows.Forms.PictureBox();
             this.OpenDiscountCalculatorIcon = new System.Windows.Forms.PictureBox();
             this.OpenDiscountCalculator = new System.Windows.Forms.Label();
             this.Label_Name = new System.Windows.Forms.Label();
@@ -97,26 +98,25 @@
             this.Label_KeyCount = new System.Windows.Forms.Label();
             this.Label_Details = new System.Windows.Forms.Label();
             this.OpenMarketIcon = new System.Windows.Forms.PictureBox();
-            this.PictureBoxAnniversaryRight = new System.Windows.Forms.PictureBox();
             this.MenuMain.SuspendLayout();
             this.MenuDev.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).BeginInit();
             this.PanelGiveaway.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).BeginInit();
             this.PanelDLC.SuspendLayout();
             this.PanelAbout.SuspendLayout();
             this.PanelEdition.SuspendLayout();
             this.PanelRegion.SuspendLayout();
             this.PanelURL.SuspendLayout();
             this.PanelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).BeginInit();
             this.PanelData.SuspendLayout();
             this.PanelStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuMain
@@ -278,6 +278,17 @@
             this.Elipse2.ElipseRadius = 5;
             this.Elipse2.TargetControl = this.PictureBox_Image;
             // 
+            // PictureBox_Image
+            // 
+            this.PictureBox_Image.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBox_Image.Location = new System.Drawing.Point(21, 30);
+            this.PictureBox_Image.Name = "PictureBox_Image";
+            this.PictureBox_Image.Size = new System.Drawing.Size(529, 247);
+            this.PictureBox_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox_Image.TabIndex = 0;
+            this.PictureBox_Image.TabStop = false;
+            this.PictureBox_Image.Click += new System.EventHandler(this.PictureBox_Image_Click);
+            // 
             // ButtonLoad
             // 
             this.ButtonLoad.ActiveImage = null;
@@ -332,6 +343,32 @@
             this.PanelGiveaway.ShowBorders = true;
             this.PanelGiveaway.Size = new System.Drawing.Size(843, 128);
             this.PanelGiveaway.TabIndex = 41;
+            // 
+            // PictureBoxAnniversaryRight
+            // 
+            this.PictureBoxAnniversaryRight.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxAnniversaryRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxAnniversaryRight.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
+            this.PictureBoxAnniversaryRight.Location = new System.Drawing.Point(745, 21);
+            this.PictureBoxAnniversaryRight.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.PictureBoxAnniversaryRight.Name = "PictureBoxAnniversaryRight";
+            this.PictureBoxAnniversaryRight.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.PictureBoxAnniversaryRight.Size = new System.Drawing.Size(85, 85);
+            this.PictureBoxAnniversaryRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAnniversaryRight.TabIndex = 63;
+            this.PictureBoxAnniversaryRight.TabStop = false;
+            // 
+            // PictureBoxAnniversaryLeft
+            // 
+            this.PictureBoxAnniversaryLeft.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxAnniversaryLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxAnniversaryLeft.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
+            this.PictureBoxAnniversaryLeft.Location = new System.Drawing.Point(20, 21);
+            this.PictureBoxAnniversaryLeft.Name = "PictureBoxAnniversaryLeft";
+            this.PictureBoxAnniversaryLeft.Size = new System.Drawing.Size(85, 85);
+            this.PictureBoxAnniversaryLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAnniversaryLeft.TabIndex = 62;
+            this.PictureBoxAnniversaryLeft.TabStop = false;
             // 
             // ButtonGiveaway
             // 
@@ -458,28 +495,13 @@
             this.PanelDLC.BorderColor = System.Drawing.Color.Transparent;
             this.PanelDLC.BorderRadius = 20;
             this.PanelDLC.BorderThickness = 1;
-            this.PanelDLC.Controls.Add(this.LabelDLCCount);
             this.PanelDLC.Controls.Add(this.LabelDLC);
+            this.PanelDLC.Controls.Add(this.LabelDLCCount);
             this.PanelDLC.Location = new System.Drawing.Point(622, 543);
             this.PanelDLC.Name = "PanelDLC";
             this.PanelDLC.ShowBorders = true;
             this.PanelDLC.Size = new System.Drawing.Size(241, 55);
             this.PanelDLC.TabIndex = 30;
-            // 
-            // LabelDLCCount
-            // 
-            this.LabelDLCCount.BackColor = System.Drawing.Color.Transparent;
-            this.LabelDLCCount.Cursor = System.Windows.Forms.Cursors.Default;
-            this.LabelDLCCount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LabelDLCCount.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold);
-            this.LabelDLCCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.LabelDLCCount.Location = new System.Drawing.Point(0, 26);
-            this.LabelDLCCount.Name = "LabelDLCCount";
-            this.LabelDLCCount.Padding = new System.Windows.Forms.Padding(5, 3, 5, 0);
-            this.LabelDLCCount.Size = new System.Drawing.Size(241, 29);
-            this.LabelDLCCount.TabIndex = 40;
-            this.LabelDLCCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelDLCCount.Click += new System.EventHandler(this.LabelDLCCount_Click);
             // 
             // LabelDLC
             // 
@@ -490,10 +512,25 @@
             this.LabelDLC.Location = new System.Drawing.Point(0, 0);
             this.LabelDLC.Name = "LabelDLC";
             this.LabelDLC.Padding = new System.Windows.Forms.Padding(5, 3, 5, 0);
-            this.LabelDLC.Size = new System.Drawing.Size(241, 26);
+            this.LabelDLC.Size = new System.Drawing.Size(241, 55);
             this.LabelDLC.TabIndex = 10;
             this.LabelDLC.Text = "DLC";
             this.LabelDLC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelDLCCount
+            // 
+            this.LabelDLCCount.BackColor = System.Drawing.Color.Transparent;
+            this.LabelDLCCount.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabelDLCCount.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold);
+            this.LabelDLCCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelDLCCount.Location = new System.Drawing.Point(0, 26);
+            this.LabelDLCCount.Name = "LabelDLCCount";
+            this.LabelDLCCount.Padding = new System.Windows.Forms.Padding(5, 3, 5, 0);
+            this.LabelDLCCount.Size = new System.Drawing.Size(241, 29);
+            this.LabelDLCCount.TabIndex = 40;
+            this.LabelDLCCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelDLCCount.Visible = false;
+            this.LabelDLCCount.Click += new System.EventHandler(this.LabelDLCCount_Click);
             // 
             // PanelAbout
             // 
@@ -837,18 +874,6 @@
             this.PanelHeader.TabIndex = 35;
             this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             // 
-            // PictureBoxAnniversaryLeft
-            // 
-            this.PictureBoxAnniversaryLeft.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxAnniversaryLeft.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBoxAnniversaryLeft.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
-            this.PictureBoxAnniversaryLeft.Location = new System.Drawing.Point(20, 21);
-            this.PictureBoxAnniversaryLeft.Name = "PictureBoxAnniversaryLeft";
-            this.PictureBoxAnniversaryLeft.Size = new System.Drawing.Size(85, 85);
-            this.PictureBoxAnniversaryLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxAnniversaryLeft.TabIndex = 62;
-            this.PictureBoxAnniversaryLeft.TabStop = false;
-            // 
             // ButtonStatus
             // 
             this.ButtonStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -1053,17 +1078,6 @@
             this.OpenMarket.Text = "Live Market";
             this.OpenMarket.Click += new System.EventHandler(this.OpenMarket_Click);
             // 
-            // PictureBox_Image
-            // 
-            this.PictureBox_Image.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBox_Image.Location = new System.Drawing.Point(21, 30);
-            this.PictureBox_Image.Name = "PictureBox_Image";
-            this.PictureBox_Image.Size = new System.Drawing.Size(529, 247);
-            this.PictureBox_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox_Image.TabIndex = 0;
-            this.PictureBox_Image.TabStop = false;
-            this.PictureBox_Image.Click += new System.EventHandler(this.PictureBox_Image_Click);
-            // 
             // OpenDiscountCalculatorIcon
             // 
             this.OpenDiscountCalculatorIcon.BackColor = System.Drawing.Color.Transparent;
@@ -1187,20 +1201,6 @@
             this.OpenMarketIcon.TabStop = false;
             this.OpenMarketIcon.Click += new System.EventHandler(this.OpenMarket_Click);
             // 
-            // PictureBoxAnniversaryRight
-            // 
-            this.PictureBoxAnniversaryRight.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxAnniversaryRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBoxAnniversaryRight.Image = global::SteamPulse.Properties.Resources._1_year_anniversary_dark;
-            this.PictureBoxAnniversaryRight.Location = new System.Drawing.Point(745, 21);
-            this.PictureBoxAnniversaryRight.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.PictureBoxAnniversaryRight.Name = "PictureBoxAnniversaryRight";
-            this.PictureBoxAnniversaryRight.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.PictureBoxAnniversaryRight.Size = new System.Drawing.Size(85, 85);
-            this.PictureBoxAnniversaryRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxAnniversaryRight.TabIndex = 63;
-            this.PictureBoxAnniversaryRight.TabStop = false;
-            // 
             // Main
             // 
             this.AcceptButton = this.ButtonLoad;
@@ -1228,8 +1228,11 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.MenuMain.ResumeLayout(false);
             this.MenuDev.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).EndInit();
             this.PanelGiveaway.ResumeLayout(false);
             this.PanelGiveaway.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).EndInit();
             this.PanelDLC.ResumeLayout(false);
             this.PanelAbout.ResumeLayout(false);
             this.PanelEdition.ResumeLayout(false);
@@ -1237,17 +1240,14 @@
             this.PanelURL.ResumeLayout(false);
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonSetting)).EndInit();
             this.PanelData.ResumeLayout(false);
             this.PanelData.PerformLayout();
             this.PanelStatus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDiscountCalculatorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenDetailsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenMarketIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnniversaryRight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

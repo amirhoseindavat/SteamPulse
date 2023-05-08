@@ -9,7 +9,9 @@
 // Version 1.5.0 Revision 3
 
 #endregion
-using SteamAPI;
+using SteamPulse.Logger;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -47,7 +49,7 @@ namespace SteamPulse
             TicketYou.Text = String.Format("{0} {1}", LoadData.Market.Ticket.LowestSellOrderNoFee, Settings.Currency.Unit);
 
             IRTCHeck(Convert.ToBoolean(Settings.CheckIRT));
-            Logger.LogMarket("Data Loaded Successfully.", LoadData.Market.Key.LowestSellOrder, LoadData.Market.Ticket.LowestSellOrderNoFee);
+            Log.LogMarket("Data Loaded Successfully.", LoadData.Market.Key.LowestSellOrder, LoadData.Market.Ticket.LowestSellOrderNoFee);
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -74,7 +76,7 @@ namespace SteamPulse
                     if (LoadData.Market.Key.LowestSellOrder == 0 && LoadData.Market.Ticket.LowestSellOrder == 0)
                     {
                         updater_label.Text = "Status : Steam is Uncreachable!";
-                        Logger.LogMarket("Steam is Uncreachable!");
+                        Log.LogMarket("Steam is Uncreachable!");
                     }
                     else
                     {

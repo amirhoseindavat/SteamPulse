@@ -25,7 +25,17 @@
       "ProjectGuid": "b242bfb2-56d6-4966-804e-914fb7e49d00",
       "DisplayName": "SteamAPI",
       "ColorIndex": 3
+    },
+    "1c361f23-e3f8-4748-9e03-3ce91203a56f": {
+      "ProjectGuid": "1c361f23-e3f8-4748-9e03-3ce91203a56f",
+      "DisplayName": "Giveaway",
+      "ColorIndex": 4
+    },
+    "59999105-3faa-436c-a2b2-8f397c1c29b2": {
+      "ProjectGuid": "59999105-3faa-436c-a2b2-8f397c1c29b2",
+      "DisplayName": "ClassLibrary",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 6
 }

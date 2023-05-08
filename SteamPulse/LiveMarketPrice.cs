@@ -9,7 +9,9 @@
 // Version 1.5.0 Revision 5
 // last Edit: 10/26/22 V2.0
 #endregion
-using SteamAPI;
+using SteamPulse.Logger;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -23,8 +25,10 @@ namespace SteamPulse
     {
         public static bool SettingisUpdated;
         public static bool DarkMode;
+        bool DataLoaded = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -33,12 +37,12 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-        int timer = 30;
+        int timer = Settings.MarketUpdateTime;
         double Key_Sell_before, Key_Buy_before;
-        double Ticket_Sell_before , Ticket_Buy_before;
+        double Ticket_Sell_before, Ticket_Buy_before;
         public void Price_updater()
         {
-            
+
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -50,7 +54,7 @@ namespace SteamPulse
             }
             if (timer <= 5)
             {
-                if(!BackgroundWorker.IsBusy)
+                if (!BackgroundWorker.IsBusy)
                 {
                     Label_Update_Status.Text = "Status : Updating in " + timer.ToString() + " Second";
                     if (timer == 0)
@@ -71,7 +75,7 @@ namespace SteamPulse
                         if (LoadData.Market.Key.LowestSellOrder == 0 && LoadData.Market.Ticket.LowestSellOrder == 0)
                         {
                             Label_Update_Status.Text = "Status : Steam is Uncreachable!";
-                            Logger.LogMarket("Steam is Uncreachable!");
+                            Log.LogMarket("Steam is Uncreachable!");
                         }
                         else
                         {
@@ -205,7 +209,7 @@ namespace SteamPulse
                 PanelStatus.Size = new Size(763, 434);
                 PanelKeyIRT.Visible = true;
                 PanelTicketIRT.Visible = true;
-                
+
             }
             else if (status == false)
             {
@@ -354,7 +358,7 @@ namespace SteamPulse
             Label_Ticket_HighestBuyOrder.Invoke((MethodInvoker)(() => Label_Ticket_HighestBuyOrder.Text = string.Format("{0} Request, Starting: {1} {2}", string.Format("{0:n0} ", LoadData.Market.Ticket.BuyOrderQuantity), LoadData.Market.Ticket.HighestBuyOrder, Settings.Currency.Unit)));
             Label_Ticket_HighestBuyOrderNoFee.Invoke((MethodInvoker)(() => Label_Ticket_HighestBuyOrderNoFee.Text = string.Format("You receive: {0} {1}", LoadData.Market.Ticket.HighestBuyOrderNoFee, Settings.Currency.Unit)));
 
-            if (Settings.CheckIRT)
+            if (Settings.CheckIRT && !DataLoaded)
             {
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading IRT"));
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
@@ -384,8 +388,9 @@ namespace SteamPulse
                     Ticket_IRT_Price.Invoke((MethodInvoker)(() => Ticket_IRT_Price.Text = string.Format("Price : {0} IRT", 0)));
                 }
                 Ticket_IRT_Stock.Invoke((MethodInvoker)(() => Ticket_IRT_Stock.Text = string.Format("Stock : {0}", LoadData.GamingClub.Ticket.Stock)));
+                DataLoaded = true;
             }
-            
+
             if (LoadData.Market.Key.LowestSellOrder == 0 && LoadData.Market.Ticket.LowestSellOrder == 0)
             {
                 Label_Update_Status.Invoke((MethodInvoker)(() => Label_Update_Status.Text = "Status : Steam is Uncreachable!"));
@@ -395,11 +400,11 @@ namespace SteamPulse
                 Label_Update_Status.Invoke((MethodInvoker)(() => Label_Update_Status.Text = "Status : Updated on " + DateTime.Now.ToString("h:mm:ss tt")));
             }
 
-            Logger.LogMarket("Data Loaded Successfully.", LoadData.Market.Key.LowestSellOrder, LoadData.Market.Ticket.LowestSellOrderNoFee);
+            Log.LogMarket("Data Loaded Successfully.", LoadData.Market.Key.LowestSellOrder, LoadData.Market.Ticket.LowestSellOrderNoFee);
 
             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
 
-            if(!Timer.Enabled)
+            if (!Timer.Enabled)
                 Timer.Enabled = true;
         }
     }

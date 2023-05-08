@@ -10,12 +10,14 @@
 
 #endregion
 
-using SteamAPI;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
 
 namespace SteamPulse
 {

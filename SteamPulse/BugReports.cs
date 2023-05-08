@@ -10,6 +10,8 @@
 
 #endregion
 
+using SteamPulse.UserSettings;
+using SteamPulse.Logger;
 using System;
 using System.Collections.Specialized;
 using System.Drawing;
@@ -53,7 +55,7 @@ namespace SteamPulse
             }
             if (TextBoxBugDesc.Text.Length < 10)
             {
-                    DescriptionCouunter.Visible = false;                
+                DescriptionCouunter.Visible = false;
             }
             if (TextBoxBugDesc.Text.Length >= 400)
             {
@@ -84,7 +86,7 @@ namespace SteamPulse
             {
                 if (TextBoxBugDesc.Text.Length <= 400)
                 {
-                    if(DropDownSocialType.Text !="Email")
+                    if (DropDownSocialType.Text != "Email")
                     {
                         if (LabelSend.Text != "Sended Successfuly")
                             BackgroundWorker.RunWorkerAsync();
@@ -132,7 +134,7 @@ namespace SteamPulse
                 {
                     client.UploadValues(urlAddress, postData);
                     LabelSend.Invoke((MethodInvoker)(() => LabelSend.Text = "Sended Successfuly"));
-                    Logger.LogBugReport();
+                    Log.LogBugReport();
                     LabelSend.Invoke((MethodInvoker)(() => LabelSend.ForeColor = Color.Green));
                 }
                 catch (Exception ex)

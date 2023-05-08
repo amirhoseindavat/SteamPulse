@@ -11,7 +11,8 @@
 
 #endregion
 
-using SteamAPI;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -280,7 +281,7 @@ namespace SteamPulse
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-            }           
+            }
         }
     }
 }

@@ -11,7 +11,9 @@
 #endregion
 
 using Newtonsoft.Json.Linq;
-using SteamAPI;
+using SteamPulse.Logger;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Drawing;
 using System.Net;
@@ -24,6 +26,8 @@ namespace SteamPulse
 {
     public partial class Setting : Form
     {
+        [DllImport("UXTheme.dll", SetLastError = true, EntryPoint = "#138")]
+        public static extern bool ShouldSystemUseDarkMode();
 
         public static bool DarkMode;
         public static string FormParent;
@@ -137,7 +141,21 @@ namespace SteamPulse
 
             ToggleUpdate.Checked = Settings.CheckUpdate;
 
-            ToggleDarkMode.Checked = Settings.DarkMode;
+            if (Settings.SystemDarkMode)
+            {
+                DropDownDarkMode.SelectedIndex = 2;
+            }
+            else
+            {
+                if (Settings.DarkMode)
+                {
+                    DropDownDarkMode.SelectedIndex = 1;
+                }
+                else
+                {
+                    DropDownDarkMode.SelectedIndex = 0;
+                }
+            }
 
             ToggleBeta.Enabled = Settings.CheckUpdate;
             if (ToggleBeta.Enabled == false)
@@ -331,7 +349,7 @@ namespace SteamPulse
             TextBoxLogin.Text = "";
             Properties.Settings.Default.UserSteamID = "0";
             Properties.Settings.Default.Save();
-            Logger.LogSteamLogin("Logout", Properties.Settings.Default.UserSteamID.ToString());
+            Log.LogSteamLogin("Logout", Properties.Settings.Default.UserSteamID.ToString());
             ToggleOwned.Enabled = false;
             ToggleOwned.Checked = false;
             Settings.CheckOwned = ToggleOwned.Checked;
@@ -403,7 +421,7 @@ namespace SteamPulse
                     Settings.Currency.Unit = "R$";
                 }
                 Main.SettingisUpdated = true;
-                Logger.LogSetting("Region", Properties.Settings.Default.CurrencyISO.ToString());
+                Log.LogSetting("Region", Properties.Settings.Default.CurrencyISO.ToString());
             }
         }
         private void DropDownMarketInterval_SelectedIndexChanged(object sender, EventArgs e)
@@ -434,7 +452,7 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogSetting("Market Update Time", Properties.Settings.Default.MarketUpdateTime.ToString());
+                Log.LogSetting("Market Update Time", Properties.Settings.Default.MarketUpdateTime.ToString());
             }
         }
         private void ToggleIRT_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
@@ -448,7 +466,7 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogSetting("Calculate IRT Price", Properties.Settings.Default.CalculateIRT.ToString());
+                Log.LogSetting("Calculate IRT Price", Properties.Settings.Default.CalculateIRT.ToString());
             }
         }
         private void ToggleOwned_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
@@ -460,25 +478,12 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogSetting("Check For Owned Games", Properties.Settings.Default.CheckOwned.ToString());
+                Log.LogSetting("Check For Owned Games", Properties.Settings.Default.CheckOwned.ToString());
             }
         }
         private void ToggleDarkMode_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
-            Settings.DarkMode = ToggleDarkMode.Checked;
-            ChangeTheme(ToggleDarkMode.Checked);
-            Main.DarkMode = ToggleDarkMode.Checked;
-            LiveMarketPrice.DarkMode = ToggleDarkMode.Checked;
-            Calculator.DarkMode = ToggleDarkMode.Checked;
-            About.DarkMode = ToggleDarkMode.Checked;
-            if (ISLoading == true)
-            {
-                SettingChanged = false;
-            }
-            else
-            {
-                Logger.LogSetting("Dark Mode", Properties.Settings.Default.DarkMode.ToString());
-            }
+
         }
         private void ToggleUpdate_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
@@ -503,7 +508,7 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogSetting("Check For Update", Properties.Settings.Default.CheckUpdate.ToString());
+                Log.LogSetting("Check For Update", Properties.Settings.Default.CheckUpdate.ToString());
             }
         }
         private void ToggleBeta_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
@@ -515,7 +520,7 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogSetting("Check For Beta", Properties.Settings.Default.InstallBeta.ToString());
+                Log.LogSetting("Check For Beta", Properties.Settings.Default.InstallBeta.ToString());
             }
         }
         private void DropDownStarting_SelectedIndexChanged(object sender, EventArgs e)
@@ -598,7 +603,7 @@ namespace SteamPulse
             }
             else
             {
-                Logger.LogDeveloper(ToggleDeveloper.Checked);
+                Log.LogDeveloper(ToggleDeveloper.Checked);
             }
             Main.SettingisUpdated = true;
         }
@@ -720,7 +725,7 @@ namespace SteamPulse
                     Properties.Settings.Default.Save();
                     if (ISLoading != true)
                     {
-                        Logger.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
+                        Log.LogSteamLogin("Logined", Properties.Settings.Default.UserSteamID.ToString());
                     }
 
                 }
@@ -750,191 +755,51 @@ namespace SteamPulse
             }
             else { }
         }
-    }
-    public class Settings
-    {
-        public struct Currency
-        {
-            public static string Name
-            {
-                get => Properties.Settings.Default.CurrencyName;
-                set
-                {
-                    Properties.Settings.Default.CurrencyName = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-            public static int Number
-            {
-                get => Convert.ToInt32(Properties.Settings.Default.CurrencyNumber);
-                set
-                {
-                    Properties.Settings.Default.CurrencyNumber = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-            public static string ISO
-            {
-                get => Properties.Settings.Default.CurrencyISO;
-                set
-                {
-                    Properties.Settings.Default.CurrencyISO = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-            public static string Unit
-            {
-                get => Properties.Settings.Default.CurrencyUnit;
-                set
-                {
-                    Properties.Settings.Default.CurrencyUnit = value;
-                    Properties.Settings.Default.Save();
-                }
-            }
-        }
-        public static string CalculatorMode
-        {
-            get => Properties.Settings.Default.CalculatorMode;
-            set
-            {
-                Properties.Settings.Default.CalculatorMode = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static int MarketUpdateTime
-        {
-            get => Convert.ToInt32(Properties.Settings.Default.MarketUpdateTime);
-            set
-            {
-                Properties.Settings.Default.MarketUpdateTime = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool CheckIRT
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.CalculateIRT);
-            set
-            {
-                Properties.Settings.Default.CalculateIRT = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool CheckOwned
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.CheckOwned);
-            set
-            {
-                Properties.Settings.Default.CheckOwned = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool DarkMode
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.DarkMode);
-            set
-            {
-                Properties.Settings.Default.DarkMode = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool CheckUpdate
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.CheckUpdate);
-            set
-            {
-                Properties.Settings.Default.CheckUpdate = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static string ItemCalculationMode
-        {
-            get => Properties.Settings.Default.ItemCalculationMode;
-            set
-            {
-                Properties.Settings.Default.ItemCalculationMode = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static int DefualtDlcCount
-        {
-            get => Properties.Settings.Default.DefaultDLCCount;
-            set
-            {
-                Properties.Settings.Default.DefaultDLCCount = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool InstallBeta
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.InstallBeta);
-            set
-            {
-                Properties.Settings.Default.InstallBeta = value;
-                Properties.Settings.Default.Save();
-            }
 
-        }
-        public static string StartingPage
+        private void DropDownDarkMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            get => Properties.Settings.Default.StartingPage;
-            set
+            if (DropDownDarkMode.SelectedIndex == 2)
             {
-                Properties.Settings.Default.StartingPage = value;
-                Properties.Settings.Default.Save();
+                Settings.SystemDarkMode = true;
+                Settings.DarkMode = ShouldSystemUseDarkMode();
             }
-        }
-        public static string KeyCalcMode
-        {
-            get => Properties.Settings.Default.KeyCalcMode;
-            set
+            else
             {
-                Properties.Settings.Default.KeyCalcMode = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool LoadDLCImage
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.LoadDLCImage);
-            set
-            {
-                Properties.Settings.Default.LoadDLCImage = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool CalculateRemaining
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.CalculateRemaining);
-            set
-            {
-                Properties.Settings.Default.CalculateRemaining = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool HistogramData
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.HistogramData);
-            set
-            {
-                Properties.Settings.Default.HistogramData = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool DeveloperMode
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.DeveloperMode);
-            set
-            {
-                Properties.Settings.Default.DeveloperMode = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool EnteredGiveaway
-        {
-            get => Convert.ToBoolean(Properties.Settings.Default.EnteredGiveaway);
-            set
-            {
-                Properties.Settings.Default.EnteredGiveaway = value;
-                Properties.Settings.Default.Save();
+                Settings.SystemDarkMode = false;
+                if (DropDownDarkMode.SelectedIndex == 1)
+                {
+                    Settings.DarkMode = true;
+                    ChangeTheme(true);
+                    Main.DarkMode = true;
+                    LiveMarketPrice.DarkMode = true;
+                    Calculator.DarkMode = true;
+                    About.DarkMode = true;
+                    if (ISLoading == true)
+                    {
+                        SettingChanged = false;
+                    }
+                    else
+                    {
+                        Log.LogSetting("Dark Mode", Properties.Settings.Default.DarkMode.ToString());
+                    }
+                }
+                else
+                {
+                    Settings.DarkMode = false;
+                    ChangeTheme(default);
+                    Main.DarkMode = false;
+                    LiveMarketPrice.DarkMode = false;
+                    Calculator.DarkMode = false;
+                    About.DarkMode = false;
+                    if (ISLoading == true)
+                    {
+                        SettingChanged = false;
+                    }
+                    else
+                    {
+                        Log.LogSetting("Dark Mode", Properties.Settings.Default.DarkMode.ToString());
+                    }
+                }
             }
         }
     }

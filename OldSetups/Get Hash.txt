@@ -1,0 +1,2 @@
+certutil -hashfile "Name" MD5
+certutil -hashfile "Name" SHA1

@@ -47,27 +47,29 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4A02A68623C021ED1EC2DD086966538ED0A0D25A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4CBA4B76A697B8FE28BDF576259368F06CB1B242</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>market_helper_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -76,6 +78,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.digicert.com/</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Extra\SteamPulse.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
@@ -284,6 +295,9 @@
     <Compile Include="Calculator.Designer.cs">
       <DependentUpon>Calculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\GlobalVariables.cs" />
+    <Compile Include="Classes\Logger.cs" />
+    <Compile Include="Classes\Settings.cs" />
     <Compile Include="DLCBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,7 +322,7 @@
     <Compile Include="Giveaway.Designer.cs">
       <DependentUpon>Giveaway.cs</DependentUpon>
     </Compile>
-    <Compile Include="HardwareViewer.cs" />
+    <Compile Include="Classes\HardwareViewer.cs" />
     <Compile Include="Launcher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,7 +341,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="JsonPath.cs" />
+    <Compile Include="Classes\JsonPath.cs" />
     <Compile Include="Maintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,7 +360,7 @@
     <Compile Include="OldLiveMarketPrice.designer.cs">
       <DependentUpon>OldLiveMarketPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DevSettings.cs">
       <SubType>Form</SubType>
@@ -360,14 +374,14 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Extra\Settings.cs" />
     <Compile Include="Status.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Status.Designer.cs">
       <DependentUpon>Status.cs</DependentUpon>
     </Compile>
-    <Compile Include="SteamAPI.cs" />
+    <Compile Include="Classes\SteamAPI.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -427,10 +441,10 @@
       <DependentUpon>Status.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
+      <Link>Extra\.editorconfig</Link>
     </None>
-    <None Include="SteamAPIDiagram.cd" />
-    <None Include="packages.config" />
+    <None Include="Classes\SteamAPIDiagram.cd" />
+    <None Include="Extra\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -445,9 +459,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Extra\SteamPulse.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Extra\App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -487,8 +502,9 @@
     <None Include="Resources\BTNLoadLight.png" />
     <None Include="Resources\BTNLoadDark.png" />
     <None Include="Resources\header.png" />
-    <Content Include="Icon.ico" />
+    <Content Include="Resources\Icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
