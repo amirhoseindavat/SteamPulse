@@ -36,6 +36,7 @@
             this.Label_AppName = new System.Windows.Forms.Label();
             this.Label_Exit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Panel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.LabelGameName = new System.Windows.Forms.Label();
             this.OpenPCGWIcon = new System.Windows.Forms.PictureBox();
             this.OpenPCGW = new System.Windows.Forms.Label();
             this.OpenSteamDBIcon = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,6 @@
             this.LabelRelease = new System.Windows.Forms.Label();
             this.LabelName = new System.Windows.Forms.Label();
             this.PictureBox = new System.Windows.Forms.PictureBox();
-            this.LabelGameName = new System.Windows.Forms.Label();
             this.PanelHeader.SuspendLayout();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OpenPCGWIcon)).BeginInit();
@@ -213,6 +213,18 @@
             this.Panel.Size = new System.Drawing.Size(510, 524);
             this.Panel.TabIndex = 37;
             // 
+            // LabelGameName
+            // 
+            this.LabelGameName.AutoSize = true;
+            this.LabelGameName.BackColor = System.Drawing.Color.Transparent;
+            this.LabelGameName.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
+            this.LabelGameName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelGameName.Location = new System.Drawing.Point(13, 292);
+            this.LabelGameName.Name = "LabelGameName";
+            this.LabelGameName.Size = new System.Drawing.Size(167, 31);
+            this.LabelGameName.TabIndex = 54;
+            this.LabelGameName.Text = "{UI.GameName}";
+            // 
             // OpenPCGWIcon
             // 
             this.OpenPCGWIcon.BackColor = System.Drawing.Color.Transparent;
@@ -370,18 +382,6 @@
             this.PictureBox.TabIndex = 34;
             this.PictureBox.TabStop = false;
             // 
-            // LabelGameName
-            // 
-            this.LabelGameName.AutoSize = true;
-            this.LabelGameName.BackColor = System.Drawing.Color.Transparent;
-            this.LabelGameName.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.LabelGameName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.LabelGameName.Location = new System.Drawing.Point(13, 292);
-            this.LabelGameName.Name = "LabelGameName";
-            this.LabelGameName.Size = new System.Drawing.Size(167, 31);
-            this.LabelGameName.TabIndex = 54;
-            this.LabelGameName.Text = "{UI.GameName}";
-            // 
             // DlcDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,10 +390,11 @@
             this.Controls.Add(this.PanelHeader);
             this.Controls.Add(this.Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DlcDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DlcDetails";
-            this.Load += new System.EventHandler(this.In_Game_Load);
+            this.Load += new System.EventHandler(this.DlcDetails_Load);
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
             this.Panel.ResumeLayout(false);

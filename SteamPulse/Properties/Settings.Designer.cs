@@ -358,5 +358,17 @@ namespace SteamPulse.Properties {
                 this["EnteredGiveaway"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseSystemDarkmode {
+            get {
+                return ((bool)(this["UseSystemDarkmode"]));
+            }
+            set {
+                this["UseSystemDarkmode"] = value;
+            }
+        }
     }
 }

@@ -14,17 +14,23 @@
 using Microsoft.Win32;
 using System;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
+using SteamPulse.UserSettings;
+using SteamPulse.Logger;
 
 namespace SteamPulse
 {
     public partial class Launcher : Form
     {
         private readonly string AppHash = Hasher("SteamPulse");
+
+        [DllImport("UXTheme.dll", SetLastError = true, EntryPoint = "#138")]
+        public static extern bool ShouldSystemUseDarkMode();
 
         //readonly RegistryKey RegistryCheck = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\Classes\\steampulse");
         public Launcher()
@@ -51,6 +57,11 @@ namespace SteamPulse
         {
 
             //This Section is disabled and need some work.
+
+            if(Settings.SystemDarkMode)
+            {
+                Settings.DarkMode = ShouldSystemUseDarkMode();
+            }
 
             RegistryScheme();
             string[] args = Environment.GetCommandLineArgs();
@@ -88,7 +99,7 @@ namespace SteamPulse
                     DialogResult result = MessageBox.Show("Are you Sure ?\nThis will Clear Log File", "Clear Log.", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (result == DialogResult.Yes)
                     {
-                        Logger.Delete();
+                        Log.Delete();
                         MessageBox.Show("The log file deleted successfully", "Log Cleared.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -131,9 +142,9 @@ namespace SteamPulse
                     Properties.Settings.Default.Upgrade();
                     Properties.Settings.Default.UpgradeRequired = false;
                     Properties.Settings.Default.Save();
-                    Logger.LogVersionChange();
+                    Log.LogVersionChange();
                 }
-                Logger.CheckExist();
+                Log.CheckExist();
                 try
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

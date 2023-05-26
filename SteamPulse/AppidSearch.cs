@@ -11,6 +11,7 @@
 #endregion
 
 using Newtonsoft.Json.Linq;
+using SteamPulse.UserSettings;
 using System;
 using System.ComponentModel;
 using System.Drawing;

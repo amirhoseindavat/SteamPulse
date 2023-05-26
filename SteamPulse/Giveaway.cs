@@ -11,6 +11,7 @@
 #endregion
 
 using Newtonsoft.Json.Linq;
+using SteamPulse.UserSettings;
 using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -20,9 +21,9 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
+
 
 namespace SteamPulse
 {
@@ -31,7 +32,7 @@ namespace SteamPulse
         long Giveawayend;
         DateTime EndTime;
         JToken RawData;
-        public static bool DarkMode , UserHasEntered = false,UserReadedRules=false;
+        public static bool DarkMode, UserHasEntered = false, UserReadedRules = false;
         string RulesURL;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -79,7 +80,7 @@ namespace SteamPulse
 
             LoadGiveawayData();
 
-           CheckUserStatus();
+            CheckUserStatus();
 
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Giveawayend);
             EndTime = dateTimeOffset.DateTime;
@@ -140,6 +141,9 @@ namespace SteamPulse
                 ForeGround = GlobalVariables.Colors.Dark.White;
                 this.BackColor = GlobalVariables.Colors.Dark.Cello;
                 OpenRulesIcon.Image = Properties.Resources.OpenExternal;
+                TextBoxName.ForeColor = BackGround;
+                TextBoxTelegram.ForeColor = BackGround;
+                TextBoxLastName.ForeColor = BackGround;
             }
             else
             {
@@ -147,6 +151,9 @@ namespace SteamPulse
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
                 this.BackColor = GlobalVariables.Colors.Light.AthenGray;
                 OpenRulesIcon.Image = Properties.Resources.OpenExternalBlack;
+                TextBoxName.ForeColor = ForeGround;
+                TextBoxTelegram.ForeColor = ForeGround;
+                TextBoxLastName.ForeColor = ForeGround;
             }
             PanelHeader.BackgroundColor = BackGround;
             Label_Remaining.ForeColor = ForeGround;
@@ -154,9 +161,7 @@ namespace SteamPulse
             GroupBoxInformation.BackColor = BackGround;
             GroupBoxInformation.ForeColor = ForeGround;
             PanelGiveaway.BackgroundColor = BackGround;
-            TextBoxName.ForeColor = BackGround; 
-            TextBoxTelegram.ForeColor = BackGround;
-            TextBoxLastName.ForeColor = BackGround;
+
             PanelStatus.BackgroundColor = BackGround;
             LabelStatus.ForeColor = ForeGround;
 
@@ -164,7 +169,7 @@ namespace SteamPulse
 
         private void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            if(!UserHasEntered)
+            if (!UserHasEntered)
             {
                 if (CheckBoxRules.Checked && UserReadedRules)
                 {
@@ -239,7 +244,7 @@ namespace SteamPulse
                         CheckUserStatus();
                         MessageBox.Show("Data sended successfully.\nServer Message:\n" + String_UTF8.GetString(PHPResponse), "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {

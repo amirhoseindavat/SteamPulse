@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SteamPulse.Classes.SteamAPI.GetData">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SteamPulse.Classes.SteamAPI.GetData.ConnectToSteam">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamPulse.Classes.SteamAPI.GetData.ConnectToSteam.Community">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamPulse.Classes.SteamAPI.GetData.ConnectToSteam.Market">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SteamPulse.Classes.SteamAPI.GetData.GamingClub">
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAIIABAAAEAgAAQAAAAgAAhAABBAAAAAAigA=</HashCode>
+      <FileName>SteamPulse.Classes.SteamAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SteamPulse.Classes.SteamAPI.LoadData">
+    <Position X="6" Y="0.5" Width="6" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Store">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Store.Packages" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Store.Price">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Store.Platform">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Class Name="SteamPulse.Classes.SteamAPI.LoadData.Store.DLC">
+            <Compartments>
+              <Compartment Name="Nested Types" Collapsed="false" />
+            </Compartments>
+            <NestedTypes>
+              <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Store.DLC.Data">
+                <TypeIdentifier>
+                  <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Struct>
+            </NestedTypes>
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Community">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Community.UserStatus">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.Market">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Class Name="SteamPulse.Classes.SteamAPI.LoadData.Market.Key">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+          <Class Name="SteamPulse.Classes.SteamAPI.LoadData.Market.Ticket">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.GamingClub">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.GamingClub.Key">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="SteamPulse.Classes.SteamAPI.LoadData.GamingClub.Ticket">
+            <TypeIdentifier>
+              <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>SteamPulse.Classes.SteamAPI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SteamPulse.Classes.SteamAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

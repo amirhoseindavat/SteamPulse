@@ -9,7 +9,8 @@
 // Version 1.9
 #endregion
 
-using SteamAPI;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -45,7 +46,7 @@ namespace SteamPulse
                 return cp;
             }
         }
-        private void In_Game_Load(object sender, EventArgs e)
+        private void DlcDetails_Load(object sender, EventArgs e)
         {
             DarkMode = Settings.DarkMode;
             if (DarkMode == true)
@@ -57,23 +58,20 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
-            GetData.ConnectToSteam.Store();
+            GetData.ConnectToSteam.Store(GetData.Appid);
 
-            try
-            {
-                PictureBox.Load(LoadData.Store.LibraryImage);
-            }
-            catch
-            {
-                PictureBox.Load(LoadData.Store.HeaderImage);
-            }
+            PictureBox.Load(LoadData.Store.HeaderImage);
+
             GetData.DLCID = GetData.Appid;
 
             LabelName.Text = String.Format("Name: {0}", LoadData.Store.DLC.Data.Name);
 
-            LabelGameName.Text = String.Format("Game: {0}", LoadData.Store.DLC.Data.OrigialGamename);          
+            LabelGameName.Text = String.Format("Game: {0}", LoadData.Store.DLC.Data.OrigialGamename);
 
-            isowned = LoadData.Community.Isowned(LoadData.Store.DLC.Data.OrigialGameID);
+            if (Settings.CheckOwned)
+            {
+                isowned = LoadData.Community.Isowned(LoadData.Store.DLC.Data.OrigialGameID);
+            }
 
             if (LoadData.Store.IsComingSoon == true)
             {
@@ -136,7 +134,11 @@ namespace SteamPulse
 
             LabelDev.Text = String.Format("Developers: {0}", LoadData.Store.Developers);
             LabelPublisher.Text = String.Format("Publisher: {0}", LoadData.Store.Publishers);
-            GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
+
+            if (Settings.CheckOwned)
+            {
+                GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
+            }
 
         }
         private void Label_Exit_Click(object sender, EventArgs e)

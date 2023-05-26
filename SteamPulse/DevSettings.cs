@@ -10,6 +10,8 @@
 // last Edit: 10/26/22 V2.0
 #endregion
 
+using SteamPulse.Logger;
+using SteamPulse.UserSettings;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -190,7 +192,7 @@ namespace SteamPulse
             if (ISLoading == false)
             {
                 Settings.LoadDLCImage = ToggleImprove.Checked;
-                Logger.LogDevSetting("Load DLC Image", ToggleImprove.Checked.ToString());
+                Log.LogDevSetting("Load DLC Image", ToggleImprove.Checked.ToString());
             }
 
             else { }
@@ -203,7 +205,7 @@ namespace SteamPulse
             {
                 Main.SettingisUpdated = true;
                 Settings.KeyCalcMode = DropDownCalc.Text;
-                Logger.LogDevSetting("Key Calculation Mode", DropDownCalc.Text.ToString());
+                Log.LogDevSetting("Key Calculation Mode", DropDownCalc.Text.ToString());
             }
             else { }
         }
@@ -214,7 +216,7 @@ namespace SteamPulse
             {
                 Main.SettingisUpdated = true;
                 Settings.CalculateRemaining = ToggleRemain.Checked;
-                Logger.LogDevSetting("Calculate Remaining Wallet", ToggleRemain.Checked.ToString());
+                Log.LogDevSetting("Calculate Remaining Wallet", ToggleRemain.Checked.ToString());
                 Main.SettingisUpdated = true;
             }
             else { }
@@ -225,7 +227,7 @@ namespace SteamPulse
             if (ISLoading == false)
             {
                 Settings.DefualtDlcCount = Convert.ToInt32(DropDownDLC.Text);
-                Logger.LogDevSetting("DLC Loading Limit", DropDownDLC.Text.ToString());
+                Log.LogDevSetting("DLC Loading Limit", DropDownDLC.Text.ToString());
             }
             else { }
         }
@@ -236,7 +238,7 @@ namespace SteamPulse
             {
                 Main.SettingisUpdated = true;
                 Settings.ItemCalculationMode = DropDownItemCalc.Text;
-                Logger.LogDevSetting("Item Calculation Mode", DropDownItemCalc.Text.ToString());
+                Log.LogDevSetting("Item Calculation Mode", DropDownItemCalc.Text.ToString());
                 Main.SettingisUpdated = true;
                 if (DropDownItemCalc.Text == "Key Only")
                 {
@@ -255,7 +257,7 @@ namespace SteamPulse
             if (ISLoading == false)
             {
                 Settings.HistogramData = ToggleHistogram.Checked;
-                Logger.LogDevSetting("Show Histogram Data", ToggleHistogram.Checked.ToString());
+                Log.LogDevSetting("Show Histogram Data", ToggleHistogram.Checked.ToString());
             }
             else { }
         }

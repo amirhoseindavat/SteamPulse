@@ -10,13 +10,13 @@
 // last Edit: 10/29/22 V2.0
 
 #endregion
+using SteamPulse.UserSettings;
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Net.Http;
-using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
 
 namespace SteamPulse
 {
@@ -85,7 +85,7 @@ namespace SteamPulse
             {
                 return false;
             }
-            
+
         }
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)

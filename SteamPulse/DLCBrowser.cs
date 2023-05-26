@@ -11,7 +11,8 @@
 #endregion
 
 using Bunifu.UI.WinForms;
-using SteamAPI;
+using SteamPulse.SteamAPI;
+using SteamPulse.UserSettings;
 using System;
 using System.Data;
 using System.Diagnostics;

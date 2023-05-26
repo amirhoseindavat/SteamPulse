@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0FFAFDCA8669A80F6676ABA06841094E"
-        "OwnerKey" = "8:_09D2128915FE4F07AF58EDD2EF5D312F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_10C948480AEC4A5C8B0352D6E6E3AD00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -292,12 +286,6 @@
         "Entry"
         {
         "MsmKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
-        "OwnerKey" = "8:_0FFAFDCA8669A80F6676ABA06841094E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
         "OwnerKey" = "8:_49DCA1B6B58C9ACE2229978AEFC36EF9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -335,12 +323,6 @@
         {
         "MsmKey" = "8:_EE958B7C2B2E4F2C823D48E586D8194C"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -412,12 +394,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0FFAFDCA8669A80F6676ABA06841094E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_49DCA1B6B58C9ACE2229978AEFC36EF9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -443,6 +419,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9A7D8BD271DE62D4E34CF408DCB8BE52"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E56B789AD2F5085B2286197B7ADCC04B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -544,7 +526,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SteamPulse, Version=2.0.1.0, Culture=neutral, PublicKeyToken=ade15f0c8a0701e5, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_09D2128915FE4F07AF58EDD2EF5D312F"
@@ -589,37 +571,6 @@
             "Register" = "3:5"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0FFAFDCA8669A80F6676ABA06841094E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Bunifu.UI.WinForms.BunifuGradientPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0FFAFDCA8669A80F6676ABA06841094E"
-                    {
-                    "Name" = "8:Bunifu.UI.WinForms.BunifuGradientPanel.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Bunifu.UI.WinForms.BunifuGradientPanel.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_65EE19A6E16B487FA1C9F5A731601EEE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10C948480AEC4A5C8B0352D6E6E3AD00"
@@ -1605,15 +1556,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SteamPulse"
-        "ProductCode" = "8:{3DD22EAA-837C-4842-9636-539743806D7B}"
-        "PackageCode" = "8:{E0879A7F-9166-4A4A-A213-9F226E009F68}"
+        "ProductCode" = "8:{E1379C97-7813-4D9C-8F91-F59116103AAD}"
+        "PackageCode" = "8:{37040014-036D-4D15-9A94-81A826FD6872}"
         "UpgradeCode" = "8:{837FEA30-4712-4AEA-AF73-53E2BFBEBEDC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.0"
+        "ProductVersion" = "8:2.0.1"
         "Manufacturer" = "8:CodeMage"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://CodeMage.ir"

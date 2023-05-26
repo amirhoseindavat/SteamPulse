@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="SteamPulse.exe" version="0.1.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:iconFile="Resources\Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SteamPulse" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SteamPulse" version="2.0.1.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SteamPulse.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -487,14 +487,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3784192">
-      <assemblyIdentity name="SteamPulse" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="3862016">
+      <assemblyIdentity name="SteamPulse" version="2.0.1.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YBGDu6h7qoXk4//AuOy//Momg90b2uYGE46wGyQZHu4=</dsig:DigestValue>
+        <dsig:DigestValue>crm52+48X4IZjRbCkd3lGjodrFlSODoWykgfjZJ5Ew4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -570,7 +570,7 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Icon.ico" size="113825">
+  <file name="Resources\Icon.ico" size="113825">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -579,13 +579,13 @@
       <dsig:DigestValue>zGfjw2X2Dw6BZ1tzWg23jIo+k4mYJoGlKcgMfY35Te8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SteamPulse.exe.config" size="5475">
+  <file name="SteamPulse.exe.config" size="5586">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lAgZVCMaQRrUiAHoawnFu2bz1+jtSjko8yY8G7jn+6k=</dsig:DigestValue>
+      <dsig:DigestValue>Gby4uI14pEWtQ9gE5eQLqkx0YCQS8Ku4Y1b45MxIQSE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
