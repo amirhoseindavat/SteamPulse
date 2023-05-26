@@ -62,7 +62,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
-            GetData.ConnectToSteam.Store();
+            GetData.ConnectToSteam.Store(GetData.Appid);
 
 
             //label.Text = string.Format("{0} -{1}%", LoadData.Store.Name(), LoadData.Store.Price.Discount_Percent());

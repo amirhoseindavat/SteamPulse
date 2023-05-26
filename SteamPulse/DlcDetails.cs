@@ -58,7 +58,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
-            GetData.ConnectToSteam.Store();
+            GetData.ConnectToSteam.Store(GetData.Appid);
 
             PictureBox.Load(LoadData.Store.HeaderImage);
 

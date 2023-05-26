@@ -17,6 +17,7 @@ using SteamPulse.Logger;
 using SteamPulse.SteamAPI;
 using SteamPulse.UserSettings;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -52,6 +53,8 @@ namespace SteamPulse
         public static bool DarkMode;
         private bool IsLoading = true;
         public static bool noGiveAwayLimit = false;
+
+        List<int> PackageIDs = new List<int>();
 
         //-----------------------Detect System Theme----------------//
 
@@ -225,7 +228,8 @@ namespace SteamPulse
                 if (!ComboBox_Editions.Text.Contains("Free"))
                 {
                     EditionPrice = 0;
-                    GetData.PackageID = LoadData.Store.Packages.GetPackageIDbyIndex(ComboBox_Editions.SelectedIndex);
+                    //GetData.PackageID = LoadData.Store.Packages.GetPackageIDbyIndex(ComboBox_Editions.SelectedIndex);
+                    GetData.PackageID = PackageIDs.ElementAt(ComboBox_Editions.SelectedIndex);
                     GetData.ConnectToSteam.Package();
 
                     if (ComboBox_Editions.SelectedIndex != 0)
@@ -593,12 +597,13 @@ namespace SteamPulse
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
+            PackageIDs.Clear();
             if (!string.IsNullOrEmpty(TextBox_URL.Text))
             {
                 // Pre-Load
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 40)));
 
-                GetData.Appid = Convert.ToInt32(TextBox_URL.Text);
+                //GetData.Appid = Convert.ToInt32(TextBox_URL.Text);
                 LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.MiddleCenter));
                 LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.BringToFront()));
                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = ""));
@@ -611,7 +616,7 @@ namespace SteamPulse
                 //Initial Load
                 try
                 {
-                    if (GetData.ConnectToSteam.Store() == true)
+                    if (GetData.ConnectToSteam.Store(Convert.ToInt32(TextBox_URL.Text)) == true)
                     {
                         // if Loaded product is dlc
                         LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading Data..."));
@@ -778,14 +783,14 @@ namespace SteamPulse
                         else
                         {
                             // check for discount
-                            if (LoadData.Store.Price.Discount_Percent == 0)
+                            /*if (LoadData.Store.Price.Discount_Percent == 0)
                             {
                                 Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: " + string.Format("{0} {1}", Convert.ToDouble(LoadData.Store.Price.Final).ToString("N"), Settings.Currency.Unit)));
                             }
                             else
                             {
                                 Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: " + string.Format("{0} {1} - {2}%", Convert.ToDouble(LoadData.Store.Price.Final).ToString("N"), Settings.Currency.Unit, LoadData.Store.Price.Discount_Percent.ToString())));
-                            }
+                            }*/
 
                             GetData.ConnectToSteam.Market.TF2Ticket();
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading DLC..."));
@@ -826,13 +831,48 @@ namespace SteamPulse
                             }
                             else
                             {
-                                edition_count = result.Length - 1;
+                                edition_count = result.Length -1;
                             }
 
                             if (result.Length == 1 && result.Length != 0)
                             {
-                                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
+                                //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standardd")));
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
+
+                                if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[0].price_in_cents_with_discount") != null)
+                                {
+                                    //PackagePrice = Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount"));
+                                    if (Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[0].price_in_cents_with_discount")) > 0)
+                                    {
+                                        PackageIDs.Add(Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[0].packageid")));
+                                        //MessageBox.Show(PackageIDs[0].ToString());
+                                        //MessageBox.Show(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
+                                    }
+
+                                }
+                                foreach (int id in PackageIDs)
+                                {
+                                    string EditionName;
+                                    GetData.PackageID = id;
+                                    GetData.ConnectToSteam.Package();
+                                    EditionName = LoadData.Store.Packages.TrimmedName;
+                                    RegexOptions options = RegexOptions.None;
+                                    Regex regex = new Regex("[ ]{2,}", options);
+                                    EditionName = regex.Replace(EditionName, " ");
+
+                                    //char first = EditionName[0];
+                                    if (EditionName.StartsWith(" "))
+                                    {
+                                        EditionName = EditionName.Remove(0, 1);
+                                    }
+                                    else { }
+
+                                    if (EditionName == "" || EditionName == " ")
+                                    {
+                                        EditionName = "Standard";
+                                    }
+                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+                                }
                             }
                             else
                             {
@@ -844,18 +884,46 @@ namespace SteamPulse
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
                                 for (int i = 0; i <= edition_count; i++)
                                 {
-                                    GetData.PackageID = Convert.ToInt32(result[i]);
-                                    GetData.ConnectToSteam.Package();
+
+                                    /*GetData.PackageID = PackageIDs[i];
+                                    //GetData.PackageID = Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].packageid"));
+                                    GetData.ConnectToSteam.Package();*/
 
                                     //MessageBox.Show(LoadData.Store.Packages.GetPackageIDbyIndex(i).ToString());
+                                    
 
-                                    if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].packageid") != null)
+                                    //int PackagePrice = 0;
+
+                                    if(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount")!=null)
                                     {
-                                        string EditionName = LoadData.Store.Packages.TrimmedName;
+                                        //PackagePrice = Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount"));
+                                        if(Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount")) > 0)
+                                        {
+                                            PackageIDs.Add(Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].packageid")));
+                                            //MessageBox.Show(PackageIDs[0].ToString());
+                                            //MessageBox.Show(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+
+                                    
+
+                                    /*string EditionName;
+                                    if (PackageIDs.Count >=1)
+                                    {
+                                        GetData.PackageID = PackageIDs[i];
+                                        
+                                        GetData.ConnectToSteam.Package();
+                                        EditionName = LoadData.Store.Packages.TrimmedName;
                                         if (GetData.Appid == 1250410)
                                         {
                                             EditionName = EditionName.Replace("Microsoft Flight Simulator", "");
                                             EditionName = EditionName.Replace("Game of the Year", "");
+                                            EditionName = EditionName.Replace("40th Anniversary", "");
                                         }
 
                                         RegexOptions options = RegexOptions.None;
@@ -874,12 +942,11 @@ namespace SteamPulse
                                             EditionName = "Standard";
                                         }
                                         ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
-
                                     }
                                     else
                                     {
-                                        break;
-                                    }
+                                        //break;
+                                    }*/
 
 
                                     //old edition method
@@ -946,6 +1013,37 @@ namespace SteamPulse
                                         break;
                                     }*/
                                 }
+
+                                foreach (int id in PackageIDs)
+                                {
+                                    string EditionName;
+                                    GetData.PackageID = id;
+                                    GetData.ConnectToSteam.Package();
+                                    EditionName = LoadData.Store.Packages.TrimmedName;
+                                    if (GetData.Appid == 1250410)
+                                    {
+                                        EditionName = EditionName.Replace("Microsoft Flight Simulator", "");
+                                        EditionName = EditionName.Replace("Game of the Year", "");
+                                        EditionName = EditionName.Replace("40th Anniversary", "");
+                                    }
+
+                                    RegexOptions options = RegexOptions.None;
+                                    Regex regex = new Regex("[ ]{2,}", options);
+                                    EditionName = regex.Replace(EditionName, " ");
+
+                                    //char first = EditionName[0];
+                                    if (EditionName.StartsWith(" "))
+                                    {
+                                        EditionName = EditionName.Remove(0, 1);
+                                    }
+                                    else { }
+
+                                    if (EditionName == "" || EditionName == " ")
+                                    {
+                                        EditionName = "Standard";
+                                    }
+                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+                                }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
                             if (Settings.CheckOwned == true)
@@ -980,8 +1078,8 @@ namespace SteamPulse
                 }
                 catch (Exception ex)
                 {
+                    PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
                     LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Error!"));
-                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                     ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                     MessageBox.Show(ex.Message + "\n\nDescription:\n" + ex.InnerException + "\n\nTrace:\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -1136,7 +1234,7 @@ namespace SteamPulse
                 SearchID = null;
                 ButtonLoad.PerformClick();
             }
-        }
+        } 
         private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;

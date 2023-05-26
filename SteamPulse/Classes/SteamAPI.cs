@@ -26,7 +26,7 @@ namespace SteamPulse.SteamAPI
     /// </summary>
     internal class GetData
     {
-        public static int Appid { get; set; }
+        public static int Appid { get; private set; }
         public static int PackageID { get; set; }
         public static int DLCID { get; set; }
         protected internal static string Data { get; private set; }
@@ -79,7 +79,7 @@ namespace SteamPulse.SteamAPI
             /// <remarks>
             /// Returns:if success: true, if fail: false.
             /// </remarks>
-            public static bool Store()
+            public static bool Store(int Appid)
             {
                 try
                 {
@@ -105,6 +105,7 @@ namespace SteamPulse.SteamAPI
                         bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + Appid + ".success"));
                         if (Status == true)
                         {
+                            GetData.Appid = Appid;
                             return true;
                         }
                         else
@@ -239,6 +240,9 @@ namespace SteamPulse.SteamAPI
                         return false;
                     }
                 }
+                //public 
+
+                
                 /// <summary>
                 /// Load Team Fortress 2 Ticket Data.
                 /// </summary>
@@ -349,7 +353,7 @@ namespace SteamPulse.SteamAPI
             /// </summary>
             private static string OnlyAlphaNumeric(string Data)
             {
-                Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+                Regex rgx = new Regex("[^a-zA-Z0-9 -:-]");
                 return rgx.Replace(Data.ToString(), "");
             }
             /// <summary>
@@ -684,7 +688,8 @@ namespace SteamPulse.SteamAPI
                         }
                         else
                         {
-                            return FullName.Replace(Name, "");
+                            string full_name = OnlyAlphaNumeric(FullName);
+                            return full_name.Replace(Name, "");
                         }
                     }
                 }

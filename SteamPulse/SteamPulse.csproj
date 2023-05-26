@@ -86,7 +86,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Extra\SteamPulse.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SteamPulse.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
@@ -460,6 +460,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Extra\SteamPulse.pfx" />
+    <None Include="SteamPulse.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Extra\App.config" />
