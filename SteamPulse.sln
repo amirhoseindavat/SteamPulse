@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteamPulse", "SteamPulse\SteamPulse.csproj", "{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C4A51010-BA4E-4225-B2EE-0E220D8473C3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CAF7651-298F-4FDE-8C96-E96574259ACB}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -24,8 +22,6 @@ Global
 		{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4A51010-BA4E-4225-B2EE-0E220D8473C3}.Debug|Any CPU.ActiveCfg = Debug
-		{C4A51010-BA4E-4225-B2EE-0E220D8473C3}.Release|Any CPU.ActiveCfg = Release
 		{1C361F23-E3F8-4748-9E03-3CE91203A56F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C361F23-E3F8-4748-9E03-3CE91203A56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C361F23-E3F8-4748-9E03-3CE91203A56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
