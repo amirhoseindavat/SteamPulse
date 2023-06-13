@@ -58,11 +58,6 @@ namespace SteamPulse
 
             //This Section is disabled and need some work.
 
-            if(Settings.SystemDarkMode)
-            {
-                Settings.DarkMode = ShouldSystemUseDarkMode();
-            }
-
             RegistryScheme();
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
@@ -144,6 +139,12 @@ namespace SteamPulse
                     Properties.Settings.Default.Save();
                     Log.LogVersionChange();
                 }
+
+                if (Settings.SystemDarkMode)
+                {
+                    Settings.DarkMode = ShouldSystemUseDarkMode();
+                }
+
                 Log.CheckExist();
                 try
                 {

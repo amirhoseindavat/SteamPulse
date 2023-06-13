@@ -676,17 +676,25 @@ namespace SteamPulse.SteamAPI
                 {
                     get
                     {
-                        if (FullName.Contains("-"))
+                        try
                         {
-                            string[] tokens = FullName.Split(new[] { " - " }, StringSplitOptions.None);
-                            return tokens[1];
+                            if (FullName.Contains("-"))
+                            {
+                                string[] tokens = FullName.Split(new[] { " - " }, StringSplitOptions.None);
+                                return tokens[1];
+                            }
+                            else if (FullName.Contains(":"))
+                            {
+                                string[] tokens = FullName.Split(new[] { ":" }, StringSplitOptions.None);
+                                return tokens[1];
+                            }
+                            else
+                            {
+                                string full_name = OnlyAlphaNumeric(FullName);
+                                return full_name.Replace(Name, "");
+                            }
                         }
-                        else if (FullName.Contains(":"))
-                        {
-                            string[] tokens = FullName.Split(new[] { ":" }, StringSplitOptions.None);
-                            return tokens[1];
-                        }
-                        else
+                        catch
                         {
                             string full_name = OnlyAlphaNumeric(FullName);
                             return full_name.Replace(Name, "");

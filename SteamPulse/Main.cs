@@ -1026,6 +1026,16 @@ namespace SteamPulse
                                         EditionName = EditionName.Replace("Game of the Year", "");
                                         EditionName = EditionName.Replace("40th Anniversary", "");
                                     }
+                                    else if (GetData.Appid == 1716740)
+                                    {
+                                        EditionName = EditionName.Replace("STARFIELD", "");
+                                        EditionName = EditionName.Replace("EDITION", "");
+                                        EditionName = EditionName.Replace("(Pre-purchase)", "");
+                                    }
+                                    else if (GetData.Appid == 534380)
+                                    {
+                                        EditionName = EditionName.Replace("Dying Light 2", "");
+                                    }
 
                                     RegexOptions options = RegexOptions.None;
                                     Regex regex = new Regex("[ ]{2,}", options);
