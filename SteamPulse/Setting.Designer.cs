@@ -917,7 +917,11 @@
             "Argentina",
             "Turkey",
             "Russia ",
-            "Brazil"});
+            "Brazil",
+            "Ukraine",
+            "India",
+            "Kazakhstan",
+            "Philippines"});
             this.DropDownRegion.ItemTopMargin = 3;
             this.DropDownRegion.Location = new System.Drawing.Point(89, 12);
             this.DropDownRegion.Name = "DropDownRegion";

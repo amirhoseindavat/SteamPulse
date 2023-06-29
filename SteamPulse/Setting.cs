@@ -420,6 +420,35 @@ namespace SteamPulse
                     Settings.Currency.ISO = "BR";
                     Settings.Currency.Unit = "R$";
                 }
+                if (DropDownRegion.Text.Contains("Ukraine"))
+                {
+                    Settings.Currency.Name = "hryvnia";
+                    Settings.Currency.Number = 18;
+                    Settings.Currency.ISO = "UA";
+                    Settings.Currency.Unit = "₴";
+                }
+                if (DropDownRegion.Text.Contains("India"))
+                {
+                    Settings.Currency.Name = "Rupee";
+                    Settings.Currency.Number = 24;
+                    Settings.Currency.ISO = "IN";
+                    Settings.Currency.Unit = "₹";
+                }
+                if (DropDownRegion.Text.Contains("Kazakhstan"))
+                {
+                    Settings.Currency.Name = "Tenge";
+                    Settings.Currency.Number = 37;
+                    Settings.Currency.ISO = "KZ";
+                    Settings.Currency.Unit = "₸";
+                }
+                if (DropDownRegion.Text.Contains("Philippines"))
+                {
+                    Settings.Currency.Name = "Peso";
+                    Settings.Currency.Number = 12;
+                    Settings.Currency.ISO = "PH";
+                    Settings.Currency.Unit = "₱";
+                }
+
                 Main.SettingisUpdated = true;
                 Log.LogSetting("Region", Properties.Settings.Default.CurrencyISO.ToString());
             }
