@@ -15,6 +15,7 @@ using SteamPulse.Logger;
 using SteamPulse.SteamAPI;
 using SteamPulse.UserSettings;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -36,7 +37,7 @@ namespace SteamPulse
         protected bool ThreadISLoading = true;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        string OnlineStatusSteam = "";
+        private string OnlineStatusSteam = "";
         //private string SteamID;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -104,6 +105,22 @@ namespace SteamPulse
             else if (Settings.Currency.Name == "ARS")
             {
                 DropDownRegion.SelectedIndex = 4;
+            }
+            else if (Settings.Currency.Name == "hryvnia")
+            {
+                DropDownRegion.SelectedIndex = 8;
+            }
+            else if (Settings.Currency.Name == "Rupee")
+            {
+                DropDownRegion.SelectedIndex = 9;
+            }
+            else if (Settings.Currency.Name == "Tenge")
+            {
+                DropDownRegion.SelectedIndex = 10;
+            }
+            else if (Settings.Currency.Name == "Peso")
+            {
+                DropDownRegion.SelectedIndex = 11;
             }
             else
             {
@@ -211,12 +228,12 @@ namespace SteamPulse
                 }
                 else
                 {
-                    this.Close();
+                    Close();
                 }
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -585,13 +602,13 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             LabelHeader.ForeColor = ForeGround;
@@ -662,12 +679,15 @@ namespace SteamPulse
 
 
 
+
                 //string avatarframe = "";
 
                 foreach (XmlNode Node in Nodes)
                 {
                     ProfileName = Node["steamID"].InnerText;
-                    ProfileAddress = Node["avatarFull"].InnerText;
+                    //ProfileAddress = Node["avatarFull"].InnerText;
+                    ProfileAddress = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/4fd363ecf75460a2e94eef79ad57ce70759fb071.gif";
+                    //avatarframe = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/99dca1cd53a58ed9b05a4d6e7bb54942bc49a2e8.png";
                 }
 
                 Color OnlineColor = Color.FromArgb(3, 169, 244);
@@ -701,6 +721,11 @@ namespace SteamPulse
                 try
                 {
                     UserInfoProfile.Invoke((MethodInvoker)(() => UserInfoProfile.Load(ProfileAddress)));
+                    /*PictureBoxAvatarFrame.Invoke((MethodInvoker)(() => PictureBoxAvatarFrame.Load(avatarframe)));
+                    PictureBoxAvatarFrame.Invoke((MethodInvoker)(() => PictureBoxAvatarFrame.BringToFront()));
+                    PictureBoxAvatarFrame.Invoke((MethodInvoker)(() => PictureBoxAvatarFrame.BackColor = Color.Transparent));
+                    PictureBoxAvatarFrame.Invoke((MethodInvoker)(() => PictureBoxAvatarFrame.Parent = UserInfoProfile));
+                    PictureBoxAvatarFrame.Invoke((MethodInvoker)(() => PictureBoxAvatarFrame.Location = new Point(0, 0)));*/
                     //PictureBoxFrame.Invoke((MethodInvoker)(() => PictureBoxFrame.Load(avatarframe)));
                 }
                 catch
@@ -829,6 +854,18 @@ namespace SteamPulse
                         Log.LogSetting("Dark Mode", Properties.Settings.Default.DarkMode.ToString());
                     }
                 }
+            }
+        }
+
+        private void UserInfoProfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("steam://openurl/https://steamcommunity.com/profiles/" + Properties.Settings.Default.UserSteamID);
+            }
+            catch
+            {
+                Process.Start("https://steamcommunity.com/profiles/" + Properties.Settings.Default.UserSteamID);
             }
         }
     }

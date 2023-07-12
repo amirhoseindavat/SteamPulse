@@ -24,19 +24,3 @@ C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\Giveaway\ob
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\Giveaway\obj\Release\Giveaway.exe
 C:\Users\Amirhosein\Documents\Visual Studio 2017\Projects\SteamPulse\Giveaway\obj\Release\Giveaway.pdb
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\bin\Release\Giveaway.exe.config
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\bin\Release\Giveaway.exe
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\bin\Release\Giveaway.pdb
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\bin\Release\Newtonsoft.Json.dll
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\bin\Release\Newtonsoft.Json.xml
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.AssemblyReference.cache
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.SuggestedBindingRedirects.cache
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.Main.resources
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.Properties.Resources.resources
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.ViewWinners.resources
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.GenerateResource.cache
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.exe.licenses
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.CoreCompileInputs.cache
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.csproj.CopyComplete
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.exe
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\Giveaway\obj\Release\Giveaway.pdb

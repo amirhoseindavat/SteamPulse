@@ -173,11 +173,11 @@ namespace SteamPulse
                 this.Size = new Size(456, 423);
                 PanelKeyIRT.Visible = true;
                 PanelTicketIRT.Visible = true;
-                if (GetData.GamingClub.Key() == true)
+                if (GetData.IRT.Key() == true)
                 {
-                    if (LoadData.GamingClub.Key.Price != 0)
+                    if (LoadData.IRT.Key.Price != 0)
                     {
-                        KeyIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.GamingClub.Key.Price));
+                        KeyIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.IRT.Key.Price));
                     }
                 }
                 else
@@ -185,11 +185,11 @@ namespace SteamPulse
                     KeyIRT.Text = String.Format("Price : {0} IRT", 0);
                 }
 
-                if (GetData.GamingClub.Ticket() == true)
+                if (GetData.IRT.Ticket() == true)
                 {
-                    if (LoadData.GamingClub.Ticket.Price != 0)
+                    if (LoadData.IRT.Ticket.Price != 0)
                     {
-                        TicketIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.GamingClub.Ticket.Price));
+                        TicketIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.IRT.Ticket.Price));
                     }
                 }
                 else
@@ -239,11 +239,11 @@ namespace SteamPulse
         }
         private void TicketIRT_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gaming-club.ir/product/tour-of-duty-ticket");
+            Process.Start(LoadData.IRT.Ticket.BuyURL);
         }
         private void KeyIRT_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gaming-club.ir/product/mann-co-supply-crate-key");
+            Process.Start(LoadData.IRT.Key.BuyURL);
         }
         private void PictureBoxTIcket_Click(object sender, EventArgs e)
         {

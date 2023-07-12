@@ -321,16 +321,16 @@ namespace SteamPulse
 
                         if (Convert.ToBoolean(Settings.CheckIRT) == true)
                         {
-                            GetData.GamingClub.Ticket();
-                            if (LoadData.GamingClub.Ticket.Price != 0)
+                            GetData.IRT.Ticket();
+                            if (LoadData.IRT.Ticket.Price != 0)
                             {
                                 if (Settings.CalculateRemaining == true && Settings.DeveloperMode == true)
                                 {
-                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.GamingClub.Ticket.Price), (int)Remaining, Settings.Currency.Unit);
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ~ {2} {3}", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Ticket_count) * LoadData.IRT.Ticket.Price), (int)Remaining, Settings.Currency.Unit);
                                 }
                                 else
                                 {
-                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.GamingClub.Ticket.Price));
+                                    Label_KeyCount.Text = string.Format("Ticket Count: {0} - {1} IRT ", Ticket_rounded.ToString(), string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(Ticket_count, 1)) * LoadData.IRT.Ticket.Price));
                                 }
                             }
                             else
@@ -378,49 +378,49 @@ namespace SteamPulse
                         else { }
                         if (Convert.ToBoolean(Settings.CheckIRT) == true)
                         {
-                            GetData.GamingClub.Key();
-                            if (LoadData.GamingClub.Key.Price != 0)
+                            GetData.IRT.Key();
+                            if (LoadData.IRT.Key.Price != 0)
                             {
                                 if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                                 {
                                     if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                                     {
-                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
+                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.IRT.Ticket.Stock != 0)
                                         {
-                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price), (int)Remaining2, Settings.Currency.Unit);
-                                            //FormulaCaption = string.Format("Key = {0} - {1}IRT | Ticket = {2} - {3}IRT => {4} Key({5}) + 1 Ticket({6}) = {7} {10} - {8} IRT ~ Remains {9} {10}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), LoadData.Market.Ticket.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Ticket.Price), KeyRoundedDown, (KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee), LoadData.Market.Ticket.LowestSellOrderNoFee, ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee), String.Format("{0:n0}", ((KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price)), (int)Remaining2, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT ~ {2} {3} ", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.IRT.Key.Price) + LoadData.IRT.Ticket.Price), (int)Remaining2, Settings.Currency.Unit);
+                                            //FormulaCaption = string.Format("Key = {0} - {1}IRT | Ticket = {2} - {3}IRT => {4} Key({5}) + 1 Ticket({6}) = {7} {10} - {8} IRT ~ Remains {9} {10}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.IRT.Key.Price), LoadData.Market.Ticket.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.IRT.Ticket.Price), KeyRoundedDown, (KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee), LoadData.Market.Ticket.LowestSellOrderNoFee, ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee), String.Format("{0:n0}", ((KeyRoundedDown * LoadData.IRT.Key.Price) + LoadData.IRT.Ticket.Price)), (int)Remaining2, Settings.Currency.Unit);
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key.Price), (int)Remaining, Settings.Currency.Unit);
-                                            //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key.Price)), (int)Remaining, Settings.Currency.Unit);
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.IRT.Key.Price), (int)Remaining, Settings.Currency.Unit);
+                                            //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.IRT.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.IRT.Key.Price)), (int)Remaining, Settings.Currency.Unit);
                                         }
 
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.GamingClub.Key.Price), (int)Remaining, Settings.Currency.Unit);
-                                        //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.GamingClub.Key.Price)), (int)Remaining, Settings.Currency.Unit);
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT ~ {2} {3}", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(key_count) * LoadData.IRT.Key.Price), (int)Remaining, Settings.Currency.Unit);
+                                        //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT ~ Remains {5} {6}", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.IRT.Key.Price), KeyRoundedUp, (KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee), String.Format("{0:n0}", (KeyRoundedUp * LoadData.IRT.Key.Price)), (int)Remaining, Settings.Currency.Unit);
                                     }
                                 }
                                 else
                                 {
                                     if (Settings.DeveloperMode == true && Settings.ItemCalculationMode == "Smart")
                                     {
-                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
+                                        if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.IRT.Ticket.Stock != 0)
                                         {
-                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.GamingClub.Key.Price) + LoadData.GamingClub.Ticket.Price));
+                                            Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown, string.Format("{0:n0} ", (KeyRoundedDown * LoadData.IRT.Key.Price) + LoadData.IRT.Ticket.Price));
                                         }
                                         else
                                         {
-                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key.Price));
+                                            Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.IRT.Key.Price));
                                         }
                                     }
                                     else
                                     {
-                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.GamingClub.Key.Price));
+                                        Label_KeyCount.Text = string.Format("Key Count: {0} - {1} IRT", KeyRoundedUp, string.Format("{0:n0} ", (int)Math.Ceiling(Math.Round(key_count, 1)) * LoadData.IRT.Key.Price));
                                     }
-                                    //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.GamingClub.Key.Price), KeyRoundedUp, KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee, KeyRoundedUp * LoadData.GamingClub.Key.Price);
+                                    //FormulaCaption = String.Format("Key = {0} - {1}IRT => {2} Key({3}) - {4} IRT", LoadData.Market.Key.LowestSellOrderNoFee, String.Format("{0:n0} ", LoadData.IRT.Key.Price), KeyRoundedUp, KeyRoundedUp * LoadData.Market.Key.LowestSellOrderNoFee, KeyRoundedUp * LoadData.IRT.Key.Price);
                                 }
 
                             }
@@ -428,7 +428,7 @@ namespace SteamPulse
                             {
                                 if (Settings.DeveloperMode == true && Settings.CalculateRemaining == true)
                                 {
-                                    if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.GamingClub.Ticket.Stock != 0)
+                                    if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.IRT.Ticket.Stock != 0)
                                     {
                                         Label_KeyCount.Text = string.Format("Item Count: {0} Key + 1 Ticket ~ {1} {2} ", KeyRoundedDown, (int)Remaining2, Settings.Currency.Unit);
                                     }

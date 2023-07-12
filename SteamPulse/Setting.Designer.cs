@@ -845,7 +845,7 @@
             // 
             this.PanelRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelRegion.BackgroundColor = System.Drawing.Color.White;
+            this.PanelRegion.BackgroundColor = System.Drawing.Color.Transparent;
             this.PanelRegion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelRegion.BackgroundImage")));
             this.PanelRegion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelRegion.BorderColor = System.Drawing.Color.Transparent;
@@ -1157,16 +1157,19 @@
             this.UserInfoProfile.AllowFocused = false;
             this.UserInfoProfile.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserInfoProfile.AutoSizeHeight = true;
+            this.UserInfoProfile.BackColor = System.Drawing.Color.Transparent;
             this.UserInfoProfile.BorderRadius = 40;
+            this.UserInfoProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserInfoProfile.Image = global::SteamPulse.Properties.Resources.DefaultAvatar;
             this.UserInfoProfile.IsCircle = true;
-            this.UserInfoProfile.Location = new System.Drawing.Point(9, 8);
+            this.UserInfoProfile.Location = new System.Drawing.Point(9, 9);
             this.UserInfoProfile.Name = "UserInfoProfile";
             this.UserInfoProfile.Size = new System.Drawing.Size(80, 80);
             this.UserInfoProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UserInfoProfile.TabIndex = 6;
             this.UserInfoProfile.TabStop = false;
             this.UserInfoProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.UserInfoProfile.Click += new System.EventHandler(this.UserInfoProfile_Click);
             // 
             // onlineStatus
             // 
@@ -1174,7 +1177,7 @@
             this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
             this.onlineStatus.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.onlineStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.onlineStatus.Location = new System.Drawing.Point(62, 33);
+            this.onlineStatus.Location = new System.Drawing.Point(62, 35);
             this.onlineStatus.Name = "onlineStatus";
             this.onlineStatus.Size = new System.Drawing.Size(49, 84);
             this.onlineStatus.TabIndex = 37;
@@ -1338,7 +1341,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Setting";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Setting_Load);
             this.PanelDeveloper.ResumeLayout(false);
             this.PanelDeveloper.PerformLayout();

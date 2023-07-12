@@ -121,8 +121,8 @@ namespace SteamPulse
                 int i = 1;
                 GetData.ConnectToSteam.Market.TF2Ticket();
                 GetData.ConnectToSteam.Market.TF2Key();
-                double KeyIRT = LoadData.GamingClub.Key.Price;
-                double TicketIRT = LoadData.GamingClub.Ticket.Price;
+                double KeyIRT = LoadData.IRT.Key.Price;
+                double TicketIRT = LoadData.IRT.Ticket.Price;
                 foreach (string appid in ID)
                 {
                     GetData.DLCID = Convert.ToInt32(appid);

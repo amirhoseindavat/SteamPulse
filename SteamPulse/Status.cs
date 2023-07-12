@@ -30,7 +30,7 @@ namespace SteamPulse
         /*readonly string SteamStore = "104.99.232.134";
         readonly string SteamCommunity = "23.62.135.246";
         readonly string CodeMage = "5.196.141.85";
-        readonly string GamingClub = "185.73.226.40";*/
+        readonly string IRT = "185.73.226.40";*/
 
         readonly string SteamStore = "https://store.steampowered.com";
         readonly string SteamCommunity = "https://steamcommunity.com";

@@ -254,11 +254,11 @@ namespace SteamPulse
         }
         private void TicketIRT_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gaming-club.ir/product/tour-of-duty-ticket");
+            Process.Start(LoadData.IRT.Ticket.BuyURL);
         }
         private void KeyIRT_Click(object sender, EventArgs e)
         {
-            Process.Start("https://gaming-club.ir/product/mann-co-supply-crate-key");
+            Process.Start(LoadData.IRT.Key.BuyURL);
         }
         private void PictureBoxTIcket_Click(object sender, EventArgs e)
         {
@@ -362,11 +362,11 @@ namespace SteamPulse
             {
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading IRT"));
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
-                if (GetData.GamingClub.Key() == true)
+                if (GetData.IRT.Key() == true)
                 {
-                    if (LoadData.GamingClub.Key.Price != 0)
+                    if (LoadData.IRT.Key.Price != 0)
                     {
-                        Key_IRT_Price.Invoke((MethodInvoker)(() => Key_IRT_Price.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.GamingClub.Key.Price))));
+                        Key_IRT_Price.Invoke((MethodInvoker)(() => Key_IRT_Price.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.IRT.Key.Price))));
                     }
                 }
                 else
@@ -374,20 +374,20 @@ namespace SteamPulse
                     Key_IRT_Price.Invoke((MethodInvoker)(() => Key_IRT_Price.Text = string.Format("Price : {0} IRT", 0)));
                 }
 
-                Key_IRT_Stock.Invoke((MethodInvoker)(() => Key_IRT_Stock.Text = string.Format("Stock : {0}", LoadData.GamingClub.Key.Stock)));
+                Key_IRT_Stock.Invoke((MethodInvoker)(() => Key_IRT_Stock.Text = string.Format("Stock : {0}", LoadData.IRT.Key.Stock)));
 
-                if (GetData.GamingClub.Ticket() == true)
+                if (GetData.IRT.Ticket() == true)
                 {
-                    if (LoadData.GamingClub.Ticket.Price != 0)
+                    if (LoadData.IRT.Ticket.Price != 0)
                     {
-                        Ticket_IRT_Price.Invoke((MethodInvoker)(() => Ticket_IRT_Price.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.GamingClub.Ticket.Price))));
+                        Ticket_IRT_Price.Invoke((MethodInvoker)(() => Ticket_IRT_Price.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.IRT.Ticket.Price))));
                     }
                 }
                 else
                 {
                     Ticket_IRT_Price.Invoke((MethodInvoker)(() => Ticket_IRT_Price.Text = string.Format("Price : {0} IRT", 0)));
                 }
-                Ticket_IRT_Stock.Invoke((MethodInvoker)(() => Ticket_IRT_Stock.Text = string.Format("Stock : {0}", LoadData.GamingClub.Ticket.Stock)));
+                Ticket_IRT_Stock.Invoke((MethodInvoker)(() => Ticket_IRT_Stock.Text = string.Format("Stock : {0}", LoadData.IRT.Ticket.Stock)));
                 DataLoaded = true;
             }
 

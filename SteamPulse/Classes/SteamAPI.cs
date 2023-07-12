@@ -37,7 +37,7 @@ namespace SteamPulse.SteamAPI
         protected internal static string ProfileData { get; private set; }
         protected internal static string PlayerData { get; private set; }
         protected internal static string WishlistData { get; private set; }
-        protected internal static string GamingClubData { get; private set; }
+        protected internal static string IRTData { get; private set; }
         protected internal static string MarketHistogramKey { get; private set; }
         protected internal static string MarketHistogramTicket { get; private set; }
         internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
@@ -297,7 +297,7 @@ namespace SteamPulse.SteamAPI
         /// <summary>
         /// Connect to Gaming-Club.ir.
         /// </summary>
-        public struct GamingClub
+        public struct IRT
         {
             /// <summary>
             /// Load Key IRT Price.
@@ -308,12 +308,12 @@ namespace SteamPulse.SteamAPI
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
-                    GamingClubData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
+                    IRTData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
                     return true;
                 }
                 catch
                 {
-                    GamingClubData = "";
+                    IRTData = "";
                     return false;
                 }
             }
@@ -326,12 +326,12 @@ namespace SteamPulse.SteamAPI
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
-                    GamingClubData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
+                    IRTData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
                     return true;
                 }
                 catch
                 {
-                    GamingClubData = "";
+                    IRTData = "";
                     return false;
                 }
             }
@@ -1644,7 +1644,7 @@ namespace SteamPulse.SteamAPI
         /// <summary>
         /// Connect To Gaming-Club.ir.
         /// </summary>
-        public struct GamingClub
+        public struct IRT
         {
             /// <summary>
             /// Key IRT Price.
@@ -1652,16 +1652,16 @@ namespace SteamPulse.SteamAPI
             public struct Key
             {
                 /// <summary>
-                /// Return current price for key from GamingClub in IRT
+                /// Return current price for key from IRT in IRT
                 /// </summary>
                 public static int Price
                 {
                     get
                     {
-                        //if (GetData.GamingClub.Key() == true)
-                        if (GetData.GamingClubData != "")
+                        //if (GetData.IRT.Key() == true)
+                        if (GetData.IRTData != "")
                         {
-                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
                             return Convert.ToInt32(JsonObject.SelectToken("$.Key"));
                         }
                         else
@@ -1671,21 +1671,40 @@ namespace SteamPulse.SteamAPI
                     }
                 }
                 /// <summary>
-                /// Return current stock number for key from GamingClub in IRT
+                /// Return current stock number for key from IRT in IRT
                 /// </summary>
                 public static int Stock
                 {
                     get
                     {
-                        //if (GetData.GamingClub.Key() == true)
-                        if (GetData.GamingClubData != "")
+                        //if (GetData.IRT.Key() == true)
+                        if (GetData.IRTData != "")
                         {
-                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
                             return Convert.ToInt32(JsonObject.SelectToken("$.KeyStock"));
                         }
                         else
                         {
                             return 0;
+                        }
+                    }
+                }
+                /// <summary>
+                /// Return Current Key Buy URL (AresGame VS Gaming Club - Server Side)
+                /// </summary>
+                public static string BuyURL
+                {
+                    get
+                    {
+                        //if (GetData.IRT.Key() == true)
+                        if (GetData.IRTData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
+                            return JsonObject.SelectToken("$.KeyUrl").ToString();
+                        }
+                        else
+                        {
+                            return "";
                         }
                     }
                 }
@@ -1696,16 +1715,16 @@ namespace SteamPulse.SteamAPI
             public struct Ticket
             {
                 /// <summary>
-                /// Return current price for ticket from GamingClub in IRT
+                /// Return current price for ticket from IRT in IRT
                 /// </summary>
                 public static int Price
                 {
                     get
                     {
-                        //if (GetData.GamingClub.Ticket() == true)
-                        if (GetData.GamingClubData != "")
+                        //if (GetData.IRT.Ticket() == true)
+                        if (GetData.IRTData != "")
                         {
-                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
                             return Convert.ToInt32(JsonObject.SelectToken("$.Ticket"));
                         }
                         else
@@ -1715,21 +1734,40 @@ namespace SteamPulse.SteamAPI
                     }
                 }
                 /// <summary>
-                /// Return current stock number for ticket from GamingClub in IRT
+                /// Return current stock number for ticket from IRT in IRT
                 /// </summary>
                 public static int Stock
                 {
                     get
                     {
-                        //if (GetData.GamingClub.Key() == true)
-                        if (GetData.GamingClubData != "")
+                        //if (GetData.IRT.Key() == true)
+                        if (GetData.IRTData != "")
                         {
-                            JObject JsonObject = JObject.Parse(GetData.GamingClubData);
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
                             return Convert.ToInt32(JsonObject.SelectToken("$.TicketStock"));
                         }
                         else
                         {
                             return 0;
+                        }
+                    }
+                }
+                /// <summary>
+                /// Return Current Ticket Buy URL (AresGame VS Gaming Club - Server Side)
+                /// </summary>
+                public static string BuyURL
+                {
+                    get
+                    {
+                        //if (GetData.IRT.Key() == true)
+                        if (GetData.IRTData != "")
+                        {
+                            JObject JsonObject = JObject.Parse(GetData.IRTData);
+                            return JsonObject.SelectToken("$.TicketUrl").ToString();
+                        }
+                        else
+                        {
+                            return "";
                         }
                     }
                 }
