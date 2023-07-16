@@ -25,9 +25,9 @@ namespace SteamPulse
 {
     public partial class About : Form
     {
-        string URL;
+        private string URL;
         private readonly string AppHash = Hasher("SteamPulse");
-        public static Boolean DarkMode;
+        public static bool DarkMode;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -52,7 +52,7 @@ namespace SteamPulse
         }
         private void About_Load(object sender, EventArgs e)
         {
-            LabelVersion.Text = String.Format("Current Version : {0}", Application.ProductVersion);
+            LabelVersion.Text = string.Format("Current Version : {0}", Application.ProductVersion);
             LabelUpdateStatus.Text = "Connecting To Server...";
 
             DarkMode = Convert.ToBoolean(Properties.Settings.Default["DarkMode"]);
@@ -69,7 +69,7 @@ namespace SteamPulse
         {
             try
             {
-                var AppVersion = new Version(Application.ProductVersion);
+                Version AppVersion = new Version(Application.ProductVersion);
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 XmlDocument Data = new XmlDocument();
                 Data.Load("https://api.codemage.ir/Projects/SteamPulse/Data.xml");
@@ -78,22 +78,22 @@ namespace SteamPulse
                 foreach (XmlNode Node in Nodes)
                 {
                     string AppID_XML = Node["AppID"].InnerText;
-                    var ServerVersion = new Version(Node["CurrentVersion"].InnerText);
+                    Version ServerVersion = new Version(Node["CurrentVersion"].InnerText);
                     string UpdateDate_XML = Node["UpdateDate"].InnerText;
                     string UpdateURL_XML = Node["UpdateURL"].InnerText;
                     string UpdateType = Node["UpdateType"].InnerText;
-                    var result = AppVersion.CompareTo(ServerVersion);
+                    int result = AppVersion.CompareTo(ServerVersion);
                     if (AppHash == AppID_XML)
                     {
                         if (Convert.ToBoolean(Properties.Settings.Default["CheckUpdate"]) == true)
                         {
                             if (Convert.ToBoolean(Properties.Settings.Default["InstallBeta"]) == true)
                             {
-                                var BetaVersion = new Version(Node["BetaVersion"].InnerText);
-                                var Betaresult = AppVersion.CompareTo(BetaVersion);
+                                Version BetaVersion = new Version(Node["BetaVersion"].InnerText);
+                                int Betaresult = AppVersion.CompareTo(BetaVersion);
                                 string BetaDate_XML = Node["BetaDate"].InnerText;
                                 string BetaURL_XML = Node["BetaURL"].InnerText;
-                                Boolean Beta = Convert.ToBoolean(Node["Beta"].InnerText);
+                                bool Beta = Convert.ToBoolean(Node["Beta"].InnerText);
                                 if (Beta == true)
                                 {
                                     if (Betaresult < 0)
@@ -193,12 +193,13 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        static string Hasher(string input)
+
+        private static string Hasher(string input)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
             {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
+                byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sb = new StringBuilder(hash.Length * 2);
 
                 foreach (byte b in hash)
                 {
@@ -209,7 +210,7 @@ namespace SteamPulse
         }
         private void Button_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void Label_Download_Click(object sender, EventArgs e)
         {
@@ -226,7 +227,7 @@ namespace SteamPulse
         {
             Process.Start("https://codemage.ir");
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -234,14 +235,14 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
 
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             LabelAppName.BackColor = BackGround;

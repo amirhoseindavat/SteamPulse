@@ -25,7 +25,7 @@ namespace SteamPulse
     {
         public static bool SettingisUpdated;
         public static bool DarkMode;
-        bool DataLoaded = false;
+        private bool DataLoaded = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -37,9 +37,10 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-        int timer = Settings.MarketUpdateTime;
-        double Key_Sell_before, Key_Buy_before;
-        double Ticket_Sell_before, Ticket_Buy_before;
+
+        private int timer = Settings.MarketUpdateTime;
+        private double Key_Sell_before, Key_Buy_before;
+        private double Ticket_Sell_before, Ticket_Buy_before;
         public void Price_updater()
         {
 
@@ -103,7 +104,7 @@ namespace SteamPulse
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void Key_Sell_Status()
         {
@@ -205,7 +206,7 @@ namespace SteamPulse
         {
             if (status == true)
             {
-                this.Size = new Size(792, 525);
+                Size = new Size(792, 525);
                 PanelStatus.Size = new Size(763, 434);
                 PanelKeyIRT.Visible = true;
                 PanelTicketIRT.Visible = true;
@@ -213,7 +214,7 @@ namespace SteamPulse
             }
             else if (status == false)
             {
-                this.Size = new Size(792, 442);
+                Size = new Size(792, 442);
                 PanelStatus.Size = new Size(763, 357);
                 PanelKeyIRT.Visible = false;
                 PanelTicketIRT.Visible = false;
@@ -250,7 +251,7 @@ namespace SteamPulse
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void TicketIRT_Click(object sender, EventArgs e)
         {
@@ -276,7 +277,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 Ticket_indicator.Image = Properties.Resources.NoChangeDark;
                 Ticket_Histogram_Indicator.Image = Properties.Resources.NoChangeDark;
                 Key_indicator.Image = Properties.Resources.NoChangeDark;
@@ -287,7 +288,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 Ticket_indicator.Image = Properties.Resources.NoChangeLight;
                 Ticket_Histogram_Indicator.Image = Properties.Resources.NoChangeLight;
                 Key_indicator.Image = Properties.Resources.NoChangeLight;
@@ -405,7 +406,9 @@ namespace SteamPulse
             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
 
             if (!Timer.Enabled)
+            {
                 Timer.Enabled = true;
+            }
         }
     }
 }

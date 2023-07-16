@@ -12,6 +12,8 @@
 
 
 using Microsoft.Win32;
+using SteamPulse.Logger;
+using SteamPulse.UserSettings;
 using System;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -20,8 +22,6 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
-using SteamPulse.UserSettings;
-using SteamPulse.Logger;
 
 namespace SteamPulse
 {
@@ -56,7 +56,6 @@ namespace SteamPulse
         private void Launcher_Load(object sender, EventArgs e)
         {
 
-            //This Section is disabled and need some work.
             if (Settings.SystemDarkMode)
             {
                 Settings.DarkMode = ShouldSystemUseDarkMode();
@@ -72,13 +71,19 @@ namespace SteamPulse
                 {
                     Form market = new LiveMarketPrice();
                     market.ShowDialog(this);
-                    this.Close();
+                    Close();
                 }
                 if (argument.Contains("settings"))
                 {
                     Form setting = new Setting();
                     setting.ShowDialog(this);
-                    this.Close();
+                    Close();
+                }
+                if (argument.Contains("regionalmarket"))
+                {
+                    Form setting = new Setting();
+                    setting.ShowDialog(this);
+                    Close();
                 }
                 /*if (argument.Contains("resetsettings"))
                 {
@@ -106,20 +111,20 @@ namespace SteamPulse
                 {
                     Form calc = new Calculator();
                     calc.ShowDialog(this);
-                    this.Close();
+                    Close();
                 }
                 if (argument.Contains("giveaway"))
                 {
                     Form giveaway = new Giveaway();
                     giveaway.ShowDialog(this);
-                    this.Close();
+                    Close();
                 }
                 if (argument.Contains("nogiveawaylimit"))
                 {
                     Form main = new Main();
                     Main.noGiveAwayLimit = true;
                     main.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 if (argument.Contains("open"))
                 {
@@ -130,7 +135,7 @@ namespace SteamPulse
                         main.ShowDialog(this);
                     }
                     else { }
-                    this.Close();
+                    Close();
                 }
             }
             else
@@ -167,7 +172,7 @@ namespace SteamPulse
                             {
                                 Form maintenancee = new Maintenance();
                                 maintenancee.ShowDialog();
-                                this.Close();
+                                Close();
                             }
                             else
                             {
@@ -182,12 +187,13 @@ namespace SteamPulse
                 }
             }
         }
-        static string Hasher(string input)
+
+        private static string Hasher(string input)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
             {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
+                byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sb = new StringBuilder(hash.Length * 2);
 
                 foreach (byte b in hash)
                 {
@@ -214,26 +220,26 @@ namespace SteamPulse
                         {
                             Form main = new Main();
                             main.ShowDialog(this);
-                            this.Close();
+                            Close();
                         }
                         if (Properties.Settings.Default.StartingPage == "Market")
                         {
                             Form market = new LiveMarketPrice();
                             market.ShowDialog(this);
-                            this.Close();
+                            Close();
                         }
                         if (Properties.Settings.Default.StartingPage == "Calculator")
                         {
                             Form calculator = new Calculator();
                             calculator.ShowDialog(this);
-                            this.Close();
+                            Close();
                         }
                     }
                     else
                     {
                         Form setting = new Setting();
                         setting.ShowDialog(this);
-                        this.Close();
+                        Close();
                     }
                 }
 
@@ -241,19 +247,19 @@ namespace SteamPulse
         }
         private void RegistryScheme()
         {
-            using (var key = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Classes\\steampulse"))
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Classes\\steampulse"))
             {
                 string applicationLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
                 key.SetValue("", "URL:SteamPulse Browser Protocol");
                 key.SetValue("URL Protocol", "");
 
-                using (var defaultIcon = key.CreateSubKey("DefaultIcon"))
+                using (RegistryKey defaultIcon = key.CreateSubKey("DefaultIcon"))
                 {
                     defaultIcon.SetValue("", applicationLocation + ",1");
                 }
 
-                using (var commandKey = key.CreateSubKey(@"shell\open\command"))
+                using (RegistryKey commandKey = key.CreateSubKey(@"shell\open\command"))
                 {
                     commandKey.SetValue("", "\"" + applicationLocation + "\" \"%1\"");
                 }

@@ -54,7 +54,11 @@ namespace SteamPulse
         private bool IsLoading = true;
         public static bool noGiveAwayLimit = false;
 
-        List<int> PackageIDs = new List<int>();
+        // Removing image margins (space for icons on left) from menubar items:
+
+
+
+        private readonly List<int> PackageIDs = new List<int>();
 
         //-----------------------Detect System Theme----------------//
 
@@ -158,6 +162,9 @@ namespace SteamPulse
             LoadRegion();
             DarkMode = Settings.DarkMode;
 
+            foreach (ToolStripMenuItem menuItem in MenuDev.Items)
+                ((ToolStripDropDownMenu)menuItem.DropDown).ShowImageMargin = false;
+
 
             PanelGiveaway.Visible = giveawayisactive;
             Timer.Enabled = giveawayisactive;
@@ -165,12 +172,12 @@ namespace SteamPulse
             GiveawayBeginTime = dateTimeOffset.DateTime;
             if (giveawayisactive)
             {
-                this.Size = new Size(878, 690);
+                Size = new Size(878, 690);
 
             }
             else
             {
-                this.Size = new Size(878, 552);
+                Size = new Size(878, 552);
             }
 
             if (Settings.SystemDarkMode)
@@ -198,14 +205,14 @@ namespace SteamPulse
 
             if (Settings.DeveloperMode == true)
             {
-                this.ContextMenuStrip = MenuDev;
-                NotifyIcon.ContextMenuStrip = this.ContextMenuStrip;
+                ContextMenuStrip = MenuDev;
+                NotifyIcon.ContextMenuStrip = ContextMenuStrip;
             }
             else { }
 
             IsLoading = false;
 
-            this.CenterToScreen();
+            CenterToScreen();
 
         }
         //----------------------Moving Form----------------------//
@@ -225,7 +232,7 @@ namespace SteamPulse
                 BackgroundWorker.CancelAsync();
             }
             NotifyIcon.Visible = false;
-            this.Close();
+            Close();
         }
         //----------------------Send Text to Method----------------------//
         private void TextBox_URL_TextChanged(object sender, EventArgs e)
@@ -481,7 +488,7 @@ namespace SteamPulse
         {
             try
             {
-                var AppVersion = new Version(Application.ProductVersion);
+                Version AppVersion = new Version(Application.ProductVersion);
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 XmlDocument data2 = new XmlDocument();
                 data2.Load("https://api.codemage.ir/Projects/SteamPulse/Data.xml");
@@ -490,9 +497,9 @@ namespace SteamPulse
                 foreach (XmlNode node in nodes2)
                 {
                     string app_id_xml2 = node["AppID"].InnerText;
-                    var ServerVersion = new Version(node["CurrentVersion"].InnerText);
+                    Version ServerVersion = new Version(node["CurrentVersion"].InnerText);
                     string UpdateType = node["UpdateType"].InnerText;
-                    var result = AppVersion.CompareTo(ServerVersion);
+                    int result = AppVersion.CompareTo(ServerVersion);
                     giveawayisactive = Convert.ToBoolean(node["Giveaway"].InnerText);
                     GiveawayBegin = Convert.ToInt32(node["GiveawayBegin"].InnerText);
                     GiveawayEnd = Convert.ToInt32(node["GiveawayEnd"].InnerText);
@@ -502,11 +509,11 @@ namespace SteamPulse
                         {
                             if (Convert.ToBoolean(Settings.InstallBeta) == true)
                             {
-                                var BetaVersion = new Version(node["BetaVersion"].InnerText);
+                                Version BetaVersion = new Version(node["BetaVersion"].InnerText);
                                 string BetaDate_XML = node["BetaDate"].InnerText;
                                 string BetaURL_XML = node["BetaURL"].InnerText;
                                 bool Beta = Convert.ToBoolean(node["Beta"].InnerText);
-                                var BetaResult = AppVersion.CompareTo(BetaVersion);
+                                int BetaResult = AppVersion.CompareTo(BetaVersion);
                                 if (Beta == true)
                                 {
                                     if (BetaResult < 0)
@@ -847,7 +854,7 @@ namespace SteamPulse
                             }
                             else
                             {
-                                edition_count = result.Length -1;
+                                edition_count = result.Length - 1;
                             }
 
                             if (result.Length == 1 && result.Length != 0)
@@ -906,27 +913,27 @@ namespace SteamPulse
                                     GetData.ConnectToSteam.Package();*/
 
                                     //MessageBox.Show(LoadData.Store.Packages.GetPackageIDbyIndex(i).ToString());
-                                    
+
 
                                     //int PackagePrice = 0;
 
-                                    if(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount")!=null)
+                                    if (JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount") != null)
                                     {
                                         //PackagePrice = Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount"));
-                                        if(Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount")) > 0)
+                                        if (Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount")) > 0)
                                         {
                                             PackageIDs.Add(Convert.ToInt32(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].packageid")));
                                             //MessageBox.Show(PackageIDs[0].ToString());
                                             //MessageBox.Show(JsonObject.SelectToken("$." + GetData.Appid + ".data.package_groups[0].subs[" + i + "].price_in_cents_with_discount").ToString());
                                         }
-                                        
+
                                     }
                                     else
                                     {
                                         break;
                                     }
 
-                                    
+
 
                                     /*string EditionName;
                                     if (PackageIDs.Count >=1)
@@ -1168,7 +1175,7 @@ namespace SteamPulse
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void LiveMarketToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1189,8 +1196,8 @@ namespace SteamPulse
         {
             using (SHA1Managed sha1 = new SHA1Managed())
             {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
+                byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sb = new StringBuilder(hash.Length * 2);
 
                 foreach (byte b in hash)
                 {
@@ -1245,13 +1252,13 @@ namespace SteamPulse
 
             if (Settings.DeveloperMode == true)
             {
-                this.ContextMenuStrip = MenuDev;
-                NotifyIcon.ContextMenuStrip = this.ContextMenuStrip;
+                ContextMenuStrip = MenuDev;
+                NotifyIcon.ContextMenuStrip = ContextMenuStrip;
             }
             else
             {
-                this.ContextMenuStrip = MenuMain;
-                NotifyIcon.ContextMenuStrip = this.ContextMenuStrip;
+                ContextMenuStrip = MenuMain;
+                NotifyIcon.ContextMenuStrip = ContextMenuStrip;
             }
 
             if (SearchID != null)
@@ -1260,7 +1267,7 @@ namespace SteamPulse
                 SearchID = null;
                 ButtonLoad.PerformClick();
             }
-        } 
+        }
         private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
@@ -1269,7 +1276,7 @@ namespace SteamPulse
             {
                 BackGround = Colors.Dark.NileBlue;
                 ForeGround = Colors.Dark.White;
-                this.BackColor = Colors.Dark.Cello;
+                BackColor = Colors.Dark.Cello;
                 ButtonLoad.Image = Properties.Resources.BTNLoadLight;
                 OpenDetailsIcon.Image = Properties.Resources.OpenExternal;
                 OpenDiscountCalculatorIcon.Image = Properties.Resources.OpenExternal;
@@ -1283,7 +1290,7 @@ namespace SteamPulse
             {
                 BackGround = Colors.Light.White;
                 ForeGround = Colors.Light.NileBlue;
-                this.BackColor = Colors.Light.AthenGray;
+                BackColor = Colors.Light.AthenGray;
                 ButtonLoad.Image = Properties.Resources.BTNLoadDark;
                 OpenDetailsIcon.Image = Properties.Resources.OpenExternalBlack;
                 OpenDiscountCalculatorIcon.Image = Properties.Resources.OpenExternalBlack;
@@ -1357,77 +1364,77 @@ namespace SteamPulse
                     Settings.Currency.ISO = "US";
                     Settings.Currency.Unit = "$";
                 }
-                if (DropDownRegion.Text.Contains("Britain"))
+                else if (DropDownRegion.Text.Contains("Britain"))
                 {
                     Settings.Currency.Name = "Pound";
                     Settings.Currency.Number = 2;
                     Settings.Currency.ISO = "GB";
                     Settings.Currency.Unit = "£";
                 }
-                if (DropDownRegion.Text.Contains("Europe"))
+                else if(DropDownRegion.Text.Contains("Europe"))
                 {
                     Settings.Currency.Name = "Euro";
                     Settings.Currency.Number = 3;
                     Settings.Currency.ISO = "NL";
                     Settings.Currency.Unit = "€";
                 }
-                if (DropDownRegion.Text.Contains("China"))
+                else if(DropDownRegion.Text.Contains("China"))
                 {
                     Settings.Currency.Name = "Yuan";
                     Settings.Currency.Number = 23;
                     Settings.Currency.ISO = "CN";
                     Settings.Currency.Unit = "Yuan";
                 }
-                if (DropDownRegion.Text.Contains("Argentina"))
+                else if(DropDownRegion.Text.Contains("Argentina"))
                 {
                     Settings.Currency.Name = "ARS";
                     Settings.Currency.Number = 34;
                     Settings.Currency.ISO = "AR";
                     Settings.Currency.Unit = "ARS";
                 }
-                if (DropDownRegion.Text.Contains("Turkey"))
+                else if(DropDownRegion.Text.Contains("Turkey"))
                 {
                     Settings.Currency.Name = "Lira";
                     Settings.Currency.Number = 17;
                     Settings.Currency.ISO = "TR";
                     Settings.Currency.Unit = "TL";
                 }
-                if (DropDownRegion.Text.Contains("Russia"))
+                else if(DropDownRegion.Text.Contains("Russia"))
                 {
                     Settings.Currency.Name = "Ruble";
                     Settings.Currency.Number = 5;
                     Settings.Currency.ISO = "RU";
-                    Settings.Currency.Unit = "Py6";
+                    Settings.Currency.Unit = "pуб";
                 }
-                if (DropDownRegion.Text.Contains("Brazil"))
+                else if(DropDownRegion.Text.Contains("Brazil"))
                 {
                     Settings.Currency.Name = "Real";
                     Settings.Currency.Number = 7;
                     Settings.Currency.ISO = "BR";
                     Settings.Currency.Unit = "R$";
                 }
-                if (DropDownRegion.Text.Contains("Ukraine"))
+                else if(DropDownRegion.Text.Contains("Ukraine"))
                 {
                     Settings.Currency.Name = "hryvnia";
                     Settings.Currency.Number = 18;
                     Settings.Currency.ISO = "UA";
                     Settings.Currency.Unit = "₴";
                 }
-                if (DropDownRegion.Text.Contains("India"))
+                else if(DropDownRegion.Text.Contains("India"))
                 {
                     Settings.Currency.Name = "Rupee";
                     Settings.Currency.Number = 24;
                     Settings.Currency.ISO = "IN";
                     Settings.Currency.Unit = "₹";
                 }
-                if (DropDownRegion.Text.Contains("Kazakhstan"))
+                else if(DropDownRegion.Text.Contains("Kazakhstan"))
                 {
                     Settings.Currency.Name = "Real";
                     Settings.Currency.Number = 37;
                     Settings.Currency.ISO = "KZ";
                     Settings.Currency.Unit = "₸";
                 }
-                if (DropDownRegion.Text.Contains("Philippines"))
+                else if(DropDownRegion.Text.Contains("Philippines"))
                 {
                     Settings.Currency.Name = "Peso";
                     Settings.Currency.Number = 12;
@@ -1472,7 +1479,7 @@ namespace SteamPulse
             {
                 Properties.Settings.Default.Reset();
                 Log.LogSettingsReset();
-                var dir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CodeMage\");
+                DirectoryInfo dir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CodeMage\");
                 dir.Attributes &= ~FileAttributes.ReadOnly;
                 dir.Delete(true);
                 Application.Restart();
@@ -1596,6 +1603,24 @@ namespace SteamPulse
         private void ComboBox_Editions_DropDownClosed(object sender, EventArgs e)
         {
 
+        }
+
+        private void oLDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form oldlivemarket = new OldLiveMarketPrice();
+            oldlivemarket.ShowDialog();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form livemarket = new LiveMarketPrice();
+            livemarket.ShowDialog();
+        }
+
+        private void regionalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form regional = new RegionalMarket();
+            regional.ShowDialog();
         }
 
         private void ButtonGiveaway_Click(object sender, EventArgs e)

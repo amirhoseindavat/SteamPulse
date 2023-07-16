@@ -10,8 +10,8 @@
 
 #endregion
 
-using SteamPulse.UserSettings;
 using SteamPulse.Logger;
+using SteamPulse.UserSettings;
 using System;
 using System.Collections.Specialized;
 using System.Drawing;
@@ -32,7 +32,7 @@ namespace SteamPulse
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        string ExceptionError;
+        private string ExceptionError;
         public BugReports()
         {
             InitializeComponent();
@@ -63,13 +63,14 @@ namespace SteamPulse
                 DescriptionCouunter.ForeColor = Color.Red;
             }
         }
-        bool IsValidEmail(string eMail)
+
+        private bool IsValidEmail(string eMail)
         {
             bool Result;
 
             try
             {
-                var eMailValidator = new System.Net.Mail.MailAddress(eMail);
+                System.Net.Mail.MailAddress eMailValidator = new System.Net.Mail.MailAddress(eMail);
 
                 Result = (eMail.LastIndexOf(".") > eMail.LastIndexOf("@"));
             }
@@ -89,7 +90,9 @@ namespace SteamPulse
                     if (DropDownSocialType.Text != "Email")
                     {
                         if (LabelSend.Text != "Sended Successfuly")
+                        {
                             BackgroundWorker.RunWorkerAsync();
+                        }
                         else { }
                     }
                     else
@@ -97,7 +100,9 @@ namespace SteamPulse
                         if (IsValidEmail(TextBoxSocial.Text) == true)
                         {
                             if (LabelSend.Text != "Sended Successfuly")
+                            {
                                 BackgroundWorker.RunWorkerAsync();
+                            }
                             else { }
                         }
                         else
@@ -152,7 +157,7 @@ namespace SteamPulse
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -173,7 +178,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -182,7 +187,7 @@ namespace SteamPulse
                 DescriptionCouunter.BackColor = Color.White;
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 GroupBoxBug.BackColor = BackGround;
                 GroupBoxBug.ForeColor = ForeGround;
                 TextBoxBugDesc.ForeColor = BackGround;
@@ -197,7 +202,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             Label_AppName.BackColor = BackGround;
@@ -210,7 +215,9 @@ namespace SteamPulse
         private void DropDownSocialType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropDownSocialType.Text == "Email")
+            {
                 TextBoxSocial.PlaceholderText = "Enter Email";
+            }
         }
     }
 }

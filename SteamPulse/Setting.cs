@@ -685,10 +685,12 @@ namespace SteamPulse
                 foreach (XmlNode Node in Nodes)
                 {
                     ProfileName = Node["steamID"].InnerText;
-                    //ProfileAddress = Node["avatarFull"].InnerText;
-                    ProfileAddress = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/4fd363ecf75460a2e94eef79ad57ce70759fb071.gif";
+                    ProfileAddress = Node["avatarFull"].InnerText;
+                    //ProfileAddress = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/4fd363ecf75460a2e94eef79ad57ce70759fb071.gif";
                     //avatarframe = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/99dca1cd53a58ed9b05a4d6e7bb54942bc49a2e8.png";
                 }
+
+
 
                 Color OnlineColor = Color.FromArgb(3, 169, 244);
                 Color AwayColor = Color.FromArgb(129, 212, 250);
@@ -697,6 +699,12 @@ namespace SteamPulse
 
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 WebClient client = new WebClient();
+
+                JObject JsonObjecAvatar = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetAnimatedAvatar/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
+                if(JsonObjecAvatar.SelectToken(".response.avatar.image_small") != null)
+                {
+                    ProfileAddress = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/" + JsonObjecAvatar.SelectToken(".response.avatar.image_small").ToString();
+                }
 
                 JObject JsonObjectLevel = JObject.Parse(client.DownloadString("https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + GetData.APIKEY + "&steamid=" + SteamID));
                 JToken Level = JsonObjectLevel.SelectToken(".response.player_level");
@@ -734,6 +742,13 @@ namespace SteamPulse
                 }
 
                 GetData.ConnectToSteam.Community.GetPlayerSummaries(SteamID);
+
+                /*Bitmap Bmp = new Bitmap(Width, Height);
+                using (Graphics gfx = Graphics.FromImage(Bmp))
+                using (SolidBrush brush = new SolidBrush(Color.FromArgb(redvalue, greenvalue, bluevalue)))
+                {
+                    gfx.FillRectangle(brush, 0, 0, width, height);
+                }*/
 
                 if (LoadData.Community.UserStatus.OnlineStatus != -1)
                 {

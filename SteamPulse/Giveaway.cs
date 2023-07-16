@@ -29,11 +29,11 @@ namespace SteamPulse
 {
     public partial class Giveaway : Form
     {
-        long Giveawayend;
-        DateTime EndTime;
-        JToken RawData;
+        private long Giveawayend;
+        private DateTime EndTime;
+        private JToken RawData;
         public static bool DarkMode, UserHasEntered = false, UserReadedRules = false;
-        string RulesURL;
+        private string RulesURL;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -51,7 +51,7 @@ namespace SteamPulse
         {
             try
             {
-                var AppVersion = new Version(Application.ProductVersion);
+                Version AppVersion = new Version(Application.ProductVersion);
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 XmlDocument data2 = new XmlDocument();
                 data2.Load("https://api.codemage.ir/Projects/SteamPulse/Data.xml");
@@ -97,7 +97,7 @@ namespace SteamPulse
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
                 PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Size = new Size(360, 432)));
                 Label_Remaining.Invoke((MethodInvoker)(() => Label_Remaining.BringToFront()));
-                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = String.Format("You Have 1 Entry\nYour Information:\nID:  {0}\nName:  {1}\nLast Name:  {2}\nTelegram:  {3}", RawData.SelectToken(".[0].id"), RawData.SelectToken(".[0].firstname"), RawData.SelectToken(".[0].lastname"), RawData.SelectToken(".[0].telegram"))));
+                LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = string.Format("You Have 1 Entry\nYour Information:\nID:  {0}\nName:  {1}\nLast Name:  {2}\nTelegram:  {3}", RawData.SelectToken(".[0].id"), RawData.SelectToken(".[0].firstname"), RawData.SelectToken(".[0].lastname"), RawData.SelectToken(".[0].telegram"))));
             }
             else
             {
@@ -119,7 +119,7 @@ namespace SteamPulse
 
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
@@ -139,7 +139,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 OpenRulesIcon.Image = Properties.Resources.OpenExternal;
                 TextBoxName.ForeColor = BackGround;
                 TextBoxTelegram.ForeColor = BackGround;
@@ -149,7 +149,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 OpenRulesIcon.Image = Properties.Resources.OpenExternalBlack;
                 TextBoxName.ForeColor = ForeGround;
                 TextBoxTelegram.ForeColor = ForeGround;
@@ -252,12 +252,13 @@ namespace SteamPulse
                 }
             }
         }
-        static string Hasher(string input)
+
+        private static string Hasher(string input)
         {
             using (SHA1Managed sha1 = new SHA1Managed())
             {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
+                byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                StringBuilder sb = new StringBuilder(hash.Length * 2);
 
                 foreach (byte b in hash)
                 {

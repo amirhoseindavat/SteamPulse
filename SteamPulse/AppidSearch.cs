@@ -23,8 +23,8 @@ namespace SteamPulse
 {
     public partial class AppidSearch : Form
     {
-        string SearchText;
-        JToken RawData;
+        private string SearchText;
+        private JToken RawData;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -42,7 +42,7 @@ namespace SteamPulse
             {
                 string[] tokens = ComboBoxResult.Text.Split(new[] { " - " }, StringSplitOptions.None);
                 Main.SearchID = tokens[0];
-                this.Close();
+                Close();
             }
         }
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -75,7 +75,7 @@ namespace SteamPulse
                 }
                 else
                 {
-                    this.AcceptButton = ButtonLoad;
+                    AcceptButton = ButtonLoad;
                     ComboBoxResult.Invoke((MethodInvoker)(() => ComboBoxResult.SelectedIndex = 0));
                 }
 
@@ -88,7 +88,7 @@ namespace SteamPulse
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -127,7 +127,7 @@ namespace SteamPulse
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
 
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 ButtonLoad.Image = Properties.Resources.BTNLoadLight;
                 ButtonSearch.Image = Properties.Resources.SearchWhite;
             }
@@ -135,7 +135,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 ButtonLoad.Image = Properties.Resources.BTNLoadDark;
                 ButtonSearch.Image = Properties.Resources.SearchBlack;
             }
@@ -149,7 +149,7 @@ namespace SteamPulse
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            this.AcceptButton = ButtonSearch;
+            AcceptButton = ButtonSearch;
         }
     }
 }

@@ -42,7 +42,8 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-        double sum = 0;
+
+        private double sum = 0;
 
         private const int CS_DropShadow = 0x00020000;
 
@@ -61,7 +62,7 @@ namespace SteamPulse
             if (IRTCheck == true)
             {
                 irtprice.Visible = true;
-                this.Size = new Size(898 + 150, 465);
+                Size = new Size(898 + 150, 465);
                 PanelMain.Size = new Size(860 + 150, 396);
                 DataTable.Size = new Size(818 + 150, 302);
 
@@ -85,7 +86,7 @@ namespace SteamPulse
                 ChangeTheme(default);
             }
 
-            this.CenterToParent();
+            CenterToParent();
 
             BackgroundWorker.RunWorkerAsync();
 
@@ -294,7 +295,7 @@ namespace SteamPulse
                 BackgroundWorker.CancelAsync();
             }
 
-            this.Close();
+            Close();
         }
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -316,11 +317,11 @@ namespace SteamPulse
         {
             if (e.ColumnIndex == 0)
             {
-                this.Cursor = Cursors.Hand;
+                Cursor = Cursors.Hand;
             }
             else
             {
-                this.Cursor = DefaultCursor;
+                Cursor = DefaultCursor;
             }
         }
         private void ChangeTheme(bool Darkmode)
@@ -331,7 +332,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 DataTable.AllowCustomTheming = true;
                 DataTable.BackgroundColor = Color.FromArgb(33, 63, 105);
 
@@ -340,7 +341,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 DataTable.AllowCustomTheming = false;
                 DataTable.Theme = BunifuDataGridView.PresetThemes.Light;
                 DataTable.BackgroundColor = Color.FromArgb(241, 240, 245);

@@ -23,8 +23,8 @@ namespace SteamPulse
 {
     public partial class OldLiveMarketPrice : Form
     {
-        public static Boolean SettingisUpdated;
-        public static Boolean DarkMode;
+        public static bool SettingisUpdated;
+        public static bool DarkMode;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -35,18 +35,19 @@ namespace SteamPulse
         {
             InitializeComponent();
         }
-        int timer = 30;
-        double Key_before;
-        double Ticket_before;
+
+        private int timer = 30;
+        private double Key_before;
+        private double Ticket_before;
         public void Price_updater()
         {
             GetData.ConnectToSteam.Market.TF2Key();
-            KeyMarket.Text = String.Format("{0} {1}", LoadData.Market.Key.LowestSellOrder, Settings.Currency.Unit);
-            KeyYou.Text = String.Format("{0} {1}", LoadData.Market.Key.LowestSellOrderNoFee, Settings.Currency.Unit);
+            KeyMarket.Text = string.Format("{0} {1}", LoadData.Market.Key.LowestSellOrder, Settings.Currency.Unit);
+            KeyYou.Text = string.Format("{0} {1}", LoadData.Market.Key.LowestSellOrderNoFee, Settings.Currency.Unit);
 
             GetData.ConnectToSteam.Market.TF2Ticket();
-            TicketMarket.Text = String.Format("{0} {1}", LoadData.Market.Ticket.LowestSellOrder, Settings.Currency.Unit);
-            TicketYou.Text = String.Format("{0} {1}", LoadData.Market.Ticket.LowestSellOrderNoFee, Settings.Currency.Unit);
+            TicketMarket.Text = string.Format("{0} {1}", LoadData.Market.Ticket.LowestSellOrder, Settings.Currency.Unit);
+            TicketYou.Text = string.Format("{0} {1}", LoadData.Market.Ticket.LowestSellOrderNoFee, Settings.Currency.Unit);
 
             IRTCHeck(Convert.ToBoolean(Settings.CheckIRT));
             Log.LogMarket("Data Loaded Successfully.", LoadData.Market.Key.LowestSellOrder, LoadData.Market.Ticket.LowestSellOrderNoFee);
@@ -112,7 +113,7 @@ namespace SteamPulse
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void KeyStatus()
         {
@@ -166,40 +167,40 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        private void IRTCHeck(Boolean status)
+        private void IRTCHeck(bool status)
         {
             if (status == true)
             {
-                this.Size = new Size(456, 423);
+                Size = new Size(456, 423);
                 PanelKeyIRT.Visible = true;
                 PanelTicketIRT.Visible = true;
                 if (GetData.IRT.Key() == true)
                 {
                     if (LoadData.IRT.Key.Price != 0)
                     {
-                        KeyIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.IRT.Key.Price));
+                        KeyIRT.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.IRT.Key.Price));
                     }
                 }
                 else
                 {
-                    KeyIRT.Text = String.Format("Price : {0} IRT", 0);
+                    KeyIRT.Text = string.Format("Price : {0} IRT", 0);
                 }
 
                 if (GetData.IRT.Ticket() == true)
                 {
                     if (LoadData.IRT.Ticket.Price != 0)
                     {
-                        TicketIRT.Text = String.Format("Price : {0}IRT", String.Format("{0:n0} ", LoadData.IRT.Ticket.Price));
+                        TicketIRT.Text = string.Format("Price : {0}IRT", string.Format("{0:n0} ", LoadData.IRT.Ticket.Price));
                     }
                 }
                 else
                 {
-                    TicketIRT.Text = String.Format("Price : {0} IRT", 0);
+                    TicketIRT.Text = string.Format("Price : {0} IRT", 0);
                 }
             }
             else if (status == false)
             {
-                this.Size = new Size(456, 371);
+                Size = new Size(456, 371);
                 PanelKeyIRT.Visible = false;
                 PanelTicketIRT.Visible = false;
             }
@@ -235,7 +236,7 @@ namespace SteamPulse
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void TicketIRT_Click(object sender, EventArgs e)
         {
@@ -253,7 +254,7 @@ namespace SteamPulse
         {
             Process.Start("steam://openurl/https://steamcommunity.com/market/listings/440/Mann%20Co.%20Supply%20Crate%20Key");
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -261,7 +262,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 Ticket_indicator.Image = Properties.Resources.NoChangeDark;
                 Key_indicator.Image = Properties.Resources.NoChangeDark;
 
@@ -270,7 +271,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 Ticket_indicator.Image = Properties.Resources.NoChangeLight;
                 Key_indicator.Image = Properties.Resources.NoChangeLight;
             }

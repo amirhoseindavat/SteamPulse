@@ -23,9 +23,9 @@ namespace SteamPulse
 {
     public partial class Calculator : Form
     {
-        string CalculationMode = "";
-        int Number = 0;
-        public static Boolean DarkMode;
+        private string CalculationMode = "";
+        private int Number = 0;
+        public static bool DarkMode;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -49,7 +49,7 @@ namespace SteamPulse
         }
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void ButtonLoad_Click(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace SteamPulse
                         GetData.IRT.Ticket();
                         if (LoadData.IRT.Ticket.Price != 0)
                         {
-                            LabelResult.Text = String.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), String.Format("{0:n0} ", Ticket_count_rounded * LoadData.IRT.Ticket.Price));
+                            LabelResult.Text = string.Format("Result: {0} Ticket - {1} IRT", Ticket_count_rounded.ToString(), string.Format("{0:n0} ", Ticket_count_rounded * LoadData.IRT.Ticket.Price));
                         }
                         else
                         {
@@ -94,27 +94,27 @@ namespace SteamPulse
                             {
                                 if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && LoadData.IRT.Ticket.Stock != 0)
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), String.Format("{0:n0} ", (KeyRoundedDown * LoadData.IRT.Key.Price) + LoadData.IRT.Ticket.Price));
+                                    LabelResult.Text = string.Format("Result: {0} Key + 1 Ticket - {1} IRT", KeyRoundedDown.ToString(), string.Format("{0:n0} ", (KeyRoundedDown * LoadData.IRT.Key.Price) + LoadData.IRT.Ticket.Price));
                                 }
                                 else
                                 {
-                                    LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.IRT.Key.Price));
+                                    LabelResult.Text = string.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), string.Format("{0:n0} ", count_roundedd * LoadData.IRT.Key.Price));
                                 }
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), String.Format("{0:n0} ", count_roundedd * LoadData.IRT.Key.Price));
+                                LabelResult.Text = string.Format("Result: {0} Key - {1} IRT", count_roundedd.ToString(), string.Format("{0:n0} ", count_roundedd * LoadData.IRT.Key.Price));
                             }
                         }
                         else
                         {
                             if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && Settings.ItemCalculationMode == "Smart" && LoadData.IRT.Ticket.Stock != 0)
                             {
-                                LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
+                                LabelResult.Text = string.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
                             }
                             else
                             {
-                                LabelResult.Text = String.Format("Result: {0} Key", count_roundedd.ToString());
+                                LabelResult.Text = string.Format("Result: {0} Key", count_roundedd.ToString());
                             }
                         }
                     }
@@ -122,11 +122,11 @@ namespace SteamPulse
                     {
                         if (DownRemaining < LoadData.Market.Ticket.LowestSellOrderNoFee && Settings.ItemCalculationMode == "Smart" && LoadData.IRT.Ticket.Stock != 0)
                         {
-                            LabelResult.Text = String.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
+                            LabelResult.Text = string.Format("Result: {0} Key + 1 Ticket ", KeyRoundedDown.ToString());
                         }
                         else
                         {
-                            LabelResult.Text = String.Format("Result: {0} Key", count_roundedd.ToString());
+                            LabelResult.Text = string.Format("Result: {0} Key", count_roundedd.ToString());
                         }
                     }
                 }
@@ -212,7 +212,7 @@ namespace SteamPulse
         }
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void BunifuDropdown1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,7 +236,7 @@ namespace SteamPulse
             }
 
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -244,14 +244,14 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 ButtonLoad.Image = Properties.Resources.BTNLoadLight;
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 ButtonLoad.Image = Properties.Resources.BTNLoadDark;
             }
             ButtonLoad.BackColor = BackGround;

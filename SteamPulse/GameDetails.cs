@@ -26,8 +26,8 @@ namespace SteamPulse
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         public static string GameImageURL = "";
-        public static Boolean DarkMode;
-        private Boolean isowned = false;
+        public static bool DarkMode;
+        private bool isowned = false;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -105,24 +105,24 @@ namespace SteamPulse
                     int ReleasedDaysCount = Math.Abs((LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     if (ReleasedDaysCount > 365)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} Years to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Years to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
                     }
                     else if (ReleasedDaysCount > 30)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} Months to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Months to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
                     }
                     else if (ReleasedDaysCount < 30)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
                     }
                     else
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
+                        LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
                     }
                 }
                 catch
                 {
-                    LabelRelease.Text = String.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
+                    LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
                 }
             }
 
@@ -134,24 +134,24 @@ namespace SteamPulse
                     int ReleasedDaysCount = Math.Abs((LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     if (ReleasedDaysCount > 365)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} Years Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Years Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
                     }
                     else if (ReleasedDaysCount > 30)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} Months Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Months Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
                     }
                     else if (ReleasedDaysCount < 30)
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0} ({1} days Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
+                        LabelRelease.Text = string.Format("Release Date: {0} ({1} days Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
                     }
                     else
                     {
-                        LabelRelease.Text = String.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
+                        LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
                     }
                 }
                 catch
                 {
-                    LabelRelease.Text = String.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
+                    LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
                 }
 
             }
@@ -161,11 +161,11 @@ namespace SteamPulse
             }
             else
             {
-                LabelCount.Text = String.Format("Player Count: {0}", String.Format("{0:n0} ", LoadData.Store.PlayerCount));
+                LabelCount.Text = string.Format("Player Count: {0}", string.Format("{0:n0} ", LoadData.Store.PlayerCount));
             }
 
-            LabelDev.Text = String.Format("Developers: {0}", LoadData.Store.Developers);
-            LabelPublisher.Text = String.Format("Publisher: {0}", LoadData.Store.Publishers);
+            LabelDev.Text = string.Format("Developers: {0}", LoadData.Store.Developers);
+            LabelPublisher.Text = string.Format("Publisher: {0}", LoadData.Store.Publishers);
             GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
             if (Settings.CheckOwned == true)
             {
@@ -190,11 +190,11 @@ namespace SteamPulse
                     {
                         if (LoadData.Community.Playtime(GetData.Appid) < 120)
                         {
-                            LabelPlayTime.Text = String.Format("Playtime: {0} Minutes", LoadData.Community.Playtime(GetData.Appid));
+                            LabelPlayTime.Text = string.Format("Playtime: {0} Minutes", LoadData.Community.Playtime(GetData.Appid));
                         }
                         else
                         {
-                            LabelPlayTime.Text = String.Format("Playtime: {0} Hours", String.Format("{0:n0}", LoadData.Community.Playtime(GetData.Appid) / 60));
+                            LabelPlayTime.Text = string.Format("Playtime: {0} Hours", string.Format("{0:n0}", LoadData.Community.Playtime(GetData.Appid) / 60));
                         }
                     }
                 }
@@ -213,14 +213,14 @@ namespace SteamPulse
                 LabelPlayTime.Visible = false;
                 LabelName.Location = new Point(237, 69);
                 Panel.Size = new Size(746, 344);
-                this.Size = new Size(776, 407);
+                Size = new Size(776, 407);
                 PictureBoxOwned.Visible = false;
             }
 
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void OpenSteam_Click(object sender, EventArgs e)
         {
@@ -241,7 +241,7 @@ namespace SteamPulse
         {
             Process.Start("https://pcgamingwiki.com/api/appid.php?appid=" + GetData.Appid);
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -249,7 +249,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
                 OpenPCGWIcon.Image = Properties.Resources.OpenExternal;
                 OpenSteamDBIcon.Image = Properties.Resources.OpenExternal;
                 OpenSteamIcon.Image = Properties.Resources.OpenExternal;
@@ -259,7 +259,7 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
                 OpenPCGWIcon.Image = Properties.Resources.OpenExternalBlack;
                 OpenSteamDBIcon.Image = Properties.Resources.OpenExternalBlack;
                 OpenSteamIcon.Image = Properties.Resources.OpenExternalBlack;

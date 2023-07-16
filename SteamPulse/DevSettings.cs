@@ -21,9 +21,9 @@ namespace SteamPulse
 {
     public partial class DevSetting : Form
     {
-        public static Boolean DarkMode;
+        public static bool DarkMode;
 
-        protected Boolean ISLoading = true;
+        protected bool ISLoading = true;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -133,11 +133,11 @@ namespace SteamPulse
 
             if (DropDownItemCalc.Text == "Key Only")
             {
-                this.Size = new Size(409, 470);
+                Size = new Size(409, 470);
             }
             else
             {
-                this.Size = new Size(409, 395);
+                Size = new Size(409, 395);
             }
 
 
@@ -145,7 +145,7 @@ namespace SteamPulse
         }
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -155,7 +155,7 @@ namespace SteamPulse
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -163,13 +163,13 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             LabelHeader.ForeColor = ForeGround;
@@ -242,11 +242,11 @@ namespace SteamPulse
                 Main.SettingisUpdated = true;
                 if (DropDownItemCalc.Text == "Key Only")
                 {
-                    this.Size = new Size(409, 470);
+                    Size = new Size(409, 470);
                 }
                 else
                 {
-                    this.Size = new Size(409, 395);
+                    Size = new Size(409, 395);
                 }
             }
             else { }

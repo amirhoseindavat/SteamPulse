@@ -42,6 +42,7 @@ namespace SteamPulse.SteamAPI
         protected internal static string MarketHistogramTicket { get; private set; }
         internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
         public static int ErrorCode { get; private set; }
+        public enum Regions { AR, TR, UA, RU, BR, US, IN, none }
         public struct ConnectToSteam
         {
             public static int GetAppIDByName(string Name)
@@ -225,13 +226,46 @@ namespace SteamPulse.SteamAPI
                 /// <summary>
                 /// Load Team Fortress 2 Keys Data.
                 /// </summary>
-                public static bool TF2Key()
+                public static bool TF2Key(Regions Region = Regions.none)
                 {
                     try
                     {
+                        int currency = 0;
+                        if (Region == Regions.none)
+                        {
+                            currency = Settings.Currency.Number;
+                        }
+                        else if (Region == Regions.TR)
+                        {
+                            currency = 17;
+                        }
+                        else if (Region == Regions.AR)
+                        {
+                            currency = 34;
+                        }
+                        else if (Region == Regions.UA)
+                        {
+                            currency = 18;
+                        }
+                        else if (Region == Regions.RU)
+                        {
+                            currency = 5;
+                        }
+                        else if (Region == Regions.BR)
+                        {
+                            currency = 7;
+                        }
+                        else if (Region == Regions.IN)
+                        {
+                            currency = 24;
+                        }
+                        else if (Region == Regions.US)
+                        {
+                            currency = 1;
+                        }
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                        MarketDataKey = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + Settings.Currency.Number + "&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key");
+                        MarketDataKey = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + currency + "&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key");
                         return true;
                     }
                     catch
@@ -242,17 +276,50 @@ namespace SteamPulse.SteamAPI
                 }
                 //public 
 
-                
+
                 /// <summary>
                 /// Load Team Fortress 2 Ticket Data.
                 /// </summary>
-                public static bool TF2Ticket()
+                public static bool TF2Ticket(Regions Region = Regions.none)
                 {
                     try
                     {
+                        int currency = 0;
+                        if (Region == Regions.none)
+                        {
+                            currency = Settings.Currency.Number;
+                        }
+                        else if (Region == Regions.TR)
+                        {
+                            currency = 17;
+                        }
+                        else if (Region == Regions.AR)
+                        {
+                            currency = 34;
+                        }
+                        else if (Region == Regions.UA)
+                        {
+                            currency = 18;
+                        }
+                        else if (Region == Regions.RU)
+                        {
+                            currency = 5;
+                        }
+                        else if (Region == Regions.BR)
+                        {
+                            currency = 7;
+                        }
+                        else if (Region == Regions.IN)
+                        {
+                            currency = 24;
+                        }
+                        else if (Region == Regions.US)
+                        {
+                            currency = 1;
+                        }
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                        MarketDataTicket = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + Settings.Currency.Number + "&market_hash_name=Tour%20of%20Duty%20Ticket");
+                        MarketDataTicket = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + currency + "&market_hash_name=Tour%20of%20Duty%20Ticket");
                         return true;
                     }
                     catch

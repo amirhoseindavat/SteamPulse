@@ -22,8 +22,9 @@ namespace SteamPulse
 {
     public partial class Status : Form
     {
-        readonly Color FlatRed = Color.FromArgb(244, 67, 54);
-        readonly Color FlatGreen = Color.FromArgb(46, 204, 113);
+        private readonly Color FlatRed = Color.FromArgb(244, 67, 54);
+        private readonly Color FlatGreen = Color.FromArgb(46, 204, 113);
+
         //readonly Color FlatGray = Color.FromArgb(191, 191, 191);
 
         //Old Method
@@ -32,10 +33,10 @@ namespace SteamPulse
         readonly string CodeMage = "5.196.141.85";
         readonly string IRT = "185.73.226.40";*/
 
-        readonly string SteamStore = "https://store.steampowered.com";
-        readonly string SteamCommunity = "https://steamcommunity.com";
-        readonly string CodeMage = "https://codemage.ir";
-        readonly string GamingClub = "https://gaming-club.ir";
+        private readonly string SteamStore = "https://store.steampowered.com";
+        private readonly string SteamCommunity = "https://steamcommunity.com";
+        private readonly string CodeMage = "https://codemage.ir";
+        private readonly string GamingClub = "https://gaming-club.ir";
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -158,9 +159,9 @@ namespace SteamPulse
 
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-        private void ChangeTheme(Boolean Darkmode)
+        private void ChangeTheme(bool Darkmode)
         {
             Color BackGround;
             Color ForeGround;
@@ -168,13 +169,13 @@ namespace SteamPulse
             {
                 BackGround = GlobalVariables.Colors.Dark.NileBlue;
                 ForeGround = GlobalVariables.Colors.Dark.White;
-                this.BackColor = GlobalVariables.Colors.Dark.Cello;
+                BackColor = GlobalVariables.Colors.Dark.Cello;
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                this.BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.AthenGray;
             }
             PanelHeader.BackgroundColor = BackGround;
             Label_AppName.BackColor = BackGround;

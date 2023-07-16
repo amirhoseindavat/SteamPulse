@@ -18,10 +18,10 @@ namespace SteamPulse
 {
     public partial class Maintenance : Form
     {
-        public static Boolean MaintenanceMode = false;
+        public static bool MaintenanceMode = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        int n = 0;
+        private int n = 0;
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
@@ -43,7 +43,7 @@ namespace SteamPulse
         }
         private void Label_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void Maintenance_MouseDown(object sender, MouseEventArgs e)
         {
@@ -60,27 +60,27 @@ namespace SteamPulse
             {
                 if (Properties.Settings.Default["StartingPage"].ToString() == "Main")
                 {
-                    this.Hide();
+                    Hide();
                     Form main = new Main();
                     Log.LogMaintenancee();
                     main.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 if (Properties.Settings.Default["StartingPage"].ToString() == "Market")
                 {
-                    this.Hide();
+                    Hide();
                     Form market = new LiveMarketPrice();
                     Log.LogMaintenancee();
                     market.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 if (Properties.Settings.Default["StartingPage"].ToString() == "Calculator")
                 {
-                    this.Hide();
+                    Hide();
                     Form calculator = new Calculator();
                     Log.LogMaintenancee();
                     calculator.ShowDialog();
-                    this.Close();
+                    Close();
 
                 }
             }
