@@ -494,7 +494,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FmUHWwInLdFpL10tgrxS0ImzUosf3Ryyc3ujyNSsiBY=</dsig:DigestValue>
+        <dsig:DigestValue>CG/atyN++iPXq3yWQxljLcXqCBtr+gXsN4Titwyz4ps=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -579,13 +579,13 @@
       <dsig:DigestValue>zGfjw2X2Dw6BZ1tzWg23jIo+k4mYJoGlKcgMfY35Te8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SteamPulse.exe.config" size="5586">
+  <file name="SteamPulse.exe.config" size="5587">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Gby4uI14pEWtQ9gE5eQLqkx0YCQS8Ku4Y1b45MxIQSE=</dsig:DigestValue>
+      <dsig:DigestValue>pIj7/H68of4f4/EPGqdJW7D6HERmz9O9PhW7OLWkZJw=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

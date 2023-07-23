@@ -452,6 +452,7 @@
     <None Include="..\.editorconfig">
       <Link>Extra\.editorconfig</Link>
     </None>
+    <None Include="App.config" />
     <None Include="Classes\SteamAPIDiagram.cd" />
     <None Include="Extra\packages.config" />
     <None Include="Properties\Settings.settings">

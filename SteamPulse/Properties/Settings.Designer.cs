@@ -85,7 +85,7 @@ namespace SteamPulse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        [global::System.Configuration.DefaultSettingValueAttribute("120")]
         public int MarketUpdateTime {
             get {
                 return ((int)(this["MarketUpdateTime"]));
