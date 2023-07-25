@@ -842,7 +842,7 @@ namespace SteamPulse
                     Main.DarkMode = true;
                     LiveMarketPrice.DarkMode = true;
                     Calculator.DarkMode = true;
-                    About.DarkMode = true;
+                    Cards.AboutPanel.DarkMode = true;
                     if (ISLoading == true)
                     {
                         SettingChanged = false;
@@ -859,7 +859,7 @@ namespace SteamPulse
                     Main.DarkMode = false;
                     LiveMarketPrice.DarkMode = false;
                     Calculator.DarkMode = false;
-                    About.DarkMode = false;
+                    Cards.AboutPanel.DarkMode = false;
                     if (ISLoading == true)
                     {
                         SettingChanged = false;

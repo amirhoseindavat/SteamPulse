@@ -43,4 +43,19 @@ namespace SteamPulse.GlobalVariables
         }
     }
 
+    public struct Sizes
+    {
+        public struct PanelMain
+        {
+            public static Size Dimension => new Size(568, 468);
+        }
+    }
+    public struct Locations
+    {
+        public struct PanelMain
+        {
+            public static Point Location => new Point(20, 195);
+        }
+    }
+
 }

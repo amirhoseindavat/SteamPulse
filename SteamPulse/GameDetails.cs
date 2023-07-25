@@ -101,28 +101,28 @@ namespace SteamPulse
             {
                 try
                 {
-                    //LabelRelease.Text = String.Format("Release Date: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), (LoadData.Store.ReleaseDate - DateTime.Now).Days);
+                    //LabelRelease.Text = String.Format("Release: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), (LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     int ReleasedDaysCount = Math.Abs((LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     if (ReleasedDaysCount > 365)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Years to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} Years to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
                     }
                     else if (ReleasedDaysCount > 30)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Months to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} Months to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
                     }
                     else if (ReleasedDaysCount < 30)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
                     }
                     else
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
+                        LabelRelease.Text = string.Format("Release: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
                     }
                 }
                 catch
                 {
-                    LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
+                    LabelRelease.Text = string.Format("Release: {0}", LoadData.Store.ReleaseDateString.ToString());
                 }
             }
 
@@ -134,24 +134,24 @@ namespace SteamPulse
                     int ReleasedDaysCount = Math.Abs((LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     if (ReleasedDaysCount > 365)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Years Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} Years Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365);
                     }
                     else if (ReleasedDaysCount > 30)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} Months Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} Months Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30);
                     }
                     else if (ReleasedDaysCount < 30)
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0} ({1} days Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
+                        LabelRelease.Text = string.Format("Release: {0} ({1} days Ago)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount);
                     }
                     else
                     {
-                        LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
+                        LabelRelease.Text = string.Format("Release: {0}", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"));
                     }
                 }
                 catch
                 {
-                    LabelRelease.Text = string.Format("Release Date: {0}", LoadData.Store.ReleaseDateString.ToString());
+                    LabelRelease.Text = string.Format("Release: {0}", LoadData.Store.ReleaseDateString.ToString());
                 }
 
             }

@@ -192,7 +192,6 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\System.Th
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.SuggestedBindingRedirects.cache
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.config
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.About.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.AppidSearch.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.BugReports.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Calculator.resources
@@ -218,3 +217,9 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPuls
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.RegionalMarket.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.AboutPanel.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.Help.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.Data.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.Search.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.SideBar.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.Welcome.resources

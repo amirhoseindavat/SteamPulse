@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SteamPulse" version="2.2.0.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SteamPulse" version="2.3.0.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SteamPulse.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -487,14 +487,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="4802560">
-      <assemblyIdentity name="SteamPulse" version="2.2.0.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="4980736">
+      <assemblyIdentity name="SteamPulse" version="2.3.0.0" publicKeyToken="A60012DF2E7D9CE0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CG/atyN++iPXq3yWQxljLcXqCBtr+gXsN4Titwyz4ps=</dsig:DigestValue>
+        <dsig:DigestValue>ZWaenLHAUpYjRG01L7Hf+GfpFYLrQvkvlM0gXxEoLq4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

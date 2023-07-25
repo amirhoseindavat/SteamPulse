@@ -81,7 +81,6 @@
             this.LabelRegion = new Bunifu.UI.WinForms.BunifuLabel();
             this.DropDownRegion = new Bunifu.UI.WinForms.BunifuDropdown();
             this.PanelUserINfo = new Bunifu.UI.WinForms.BunifuPanel();
-            this.onlineStatus = new System.Windows.Forms.Label();
             this.PanelStatus = new Bunifu.UI.WinForms.BunifuPanel();
             this.PanelLogin = new Bunifu.UI.WinForms.BunifuPanel();
             this.LabelLogin = new Bunifu.UI.WinForms.BunifuLabel();
@@ -92,6 +91,7 @@
             this.UserInfoGames = new Bunifu.UI.WinForms.BunifuLabel();
             this.UserInfoName = new System.Windows.Forms.Label();
             this.UserInfoProfile = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.onlineStatus = new System.Windows.Forms.Label();
             this.PanelHeader = new Bunifu.UI.WinForms.BunifuPanel();
             this.ButtonExit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.LabelHeader = new Bunifu.UI.WinForms.BunifuLabel();
@@ -953,19 +953,6 @@
             this.PanelUserINfo.Size = new System.Drawing.Size(378, 100);
             this.PanelUserINfo.TabIndex = 1;
             // 
-            // onlineStatus
-            // 
-            this.onlineStatus.AutoSize = true;
-            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
-            this.onlineStatus.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onlineStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.onlineStatus.Location = new System.Drawing.Point(61, 34);
-            this.onlineStatus.Name = "onlineStatus";
-            this.onlineStatus.Size = new System.Drawing.Size(49, 84);
-            this.onlineStatus.TabIndex = 37;
-            this.onlineStatus.Text = ".";
-            this.onlineStatus.MouseHover += new System.EventHandler(this.OnlineStatus_MouseHover);
-            // 
             // PanelStatus
             // 
             this.PanelStatus.BackgroundColor = System.Drawing.Color.White;
@@ -1183,6 +1170,19 @@
             this.UserInfoProfile.TabStop = false;
             this.UserInfoProfile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             this.UserInfoProfile.Click += new System.EventHandler(this.UserInfoProfile_Click);
+            // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onlineStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.onlineStatus.Location = new System.Drawing.Point(61, 34);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Size = new System.Drawing.Size(49, 84);
+            this.onlineStatus.TabIndex = 37;
+            this.onlineStatus.Text = ".";
+            this.onlineStatus.MouseHover += new System.EventHandler(this.OnlineStatus_MouseHover);
             // 
             // PanelHeader
             // 

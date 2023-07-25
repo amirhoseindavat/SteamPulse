@@ -12,6 +12,7 @@
 
 
 using Newtonsoft.Json.Linq;
+using SteamPulse.Cards;
 using SteamPulse.GlobalVariables;
 using SteamPulse.Logger;
 using SteamPulse.SteamAPI;
@@ -53,6 +54,7 @@ namespace SteamPulse
         public static bool DarkMode;
         private bool IsLoading = true;
         public static bool noGiveAwayLimit = false;
+        private bool AboutIsOpened = false;
 
         // Removing image margins (space for icons on left) from menubar items:
 
@@ -90,7 +92,7 @@ namespace SteamPulse
         //----------------------Loading Region From Settings----------------------//
         public void LoadRegion()
         {
-            if (Settings.Currency.Name == "Real")
+            /*if (Settings.Currency.Name == "Real")
             {
                 DropDownRegion.SelectedIndex = 7;
             }
@@ -139,12 +141,35 @@ namespace SteamPulse
                 DropDownRegion.SelectedIndex = 11;
             }
             else { }
+            */
 
         }
 
         //----------------------Run on Form Load----------------------//
         private void Main_Load(object sender, EventArgs e)
         {
+            /*PanelContainer.Location = Locations.PanelMain.Location;
+            PanelContainer.Size = Sizes.PanelMain.Dimension;*/
+            /*PanelData.BringToFront();
+            PanelData.Parent = PanelPlaceHolder;
+            PanelData.Dock = DockStyle.Fill;*/
+            /*PanelData.Location = Locations.PanelMain.Location;
+            PanelData.Size = Sizes.PanelMain.Dimension;*/
+            /*Welcome Welcome = new Welcome(this);
+            ShowInContainer(Welcome);
+            */
+
+            Data Welcome = new Data();
+            ShowInContainer(Welcome);
+
+            SideBar SideBar = new SideBar();
+            SideBar.Dock = DockStyle.Fill;
+            //PanelContainer.Parent = null;
+            Panel_SideBar.Controls.Clear();
+            Panel_SideBar.Controls.Add(SideBar);
+            SideBar.BringToFront();
+
+
             bool MaintenanceMode = Maintenance.MaintenanceMode;
             if (MaintenanceMode == true)
             {
@@ -155,16 +180,17 @@ namespace SteamPulse
                 Label_AppName.Text = "SteamPulse";
             }
 
-            PanelStatus.Location = new Point(0, 0);
-            PanelStatus.Size = new Size(568, 468);
+            /*PanelStatus.Location = new Point(0, 0);
+            PanelStatus.Size = new Size(568, 468);*/
             TextBox_URL.SelectAll();
             MainUpdateChecker();
             LoadRegion();
             DarkMode = Settings.DarkMode;
 
             foreach (ToolStripMenuItem menuItem in MenuDev.Items)
+            {
                 ((ToolStripDropDownMenu)menuItem.DropDown).ShowImageMargin = false;
-
+            }
 
             PanelGiveaway.Visible = giveawayisactive;
             Timer.Enabled = giveawayisactive;
@@ -172,13 +198,14 @@ namespace SteamPulse
             GiveawayBeginTime = dateTimeOffset.DateTime;
             if (giveawayisactive)
             {
-                Size = new Size(878, 690);
-
+                Size = new Size(944, 690);
             }
             else
             {
-                Size = new Size(878, 552);
+                Size = new Size(944, 552);
             }
+
+
 
             if (Settings.SystemDarkMode)
             {
@@ -241,7 +268,7 @@ namespace SteamPulse
             TextBox_URL.ForeColor = Color.Black;
         }
         //----------------------Editions of Product----------------------//
-        private void ComboBox_Editions_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void ComboBox_Editions_SelectedIndexChanged(object sender, EventArgs e)
         {
             PanelStatus.Visible = true;
             LabelStatus.Text = "Loading Edition...";
@@ -316,15 +343,6 @@ namespace SteamPulse
                         double Ticket_count = Convert.ToDouble(EditionPrice) / LoadData.Market.Ticket.LowestSellOrderNoFee;
                         double Ticket_rounded = (int)Math.Ceiling(Math.Round(Ticket_count, 1));
                         double Remaining = (Ticket_rounded * LoadData.Market.Ticket.LowestSellOrderNoFee) - EditionPrice;
-                        /*if (Settings.DeveloperMode == true)
-                        {
-                            if (Settings.KeyCalcMode == "Rounded to Up") { }
-                            else
-                            {
-                                Ticket_rounded = Math.Round(Ticket_count, 2);
-                            }
-                        }
-                        else { }*/
 
                         if (Convert.ToBoolean(Settings.CheckIRT) == true)
                         {
@@ -483,6 +501,7 @@ namespace SteamPulse
             }
             PanelStatus.Visible = false;
         }
+        */
         //----------------------Check for Update----------------------//
         private void MainUpdateChecker()
         {
@@ -617,7 +636,12 @@ namespace SteamPulse
             }
         }
         //----------------------Main Worker----------------------//
+
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            GetData.ConnectToSteam.Store(Convert.ToInt32(TextBox_URL.Text));
+        }
+        private void BackgroundWorker_DoWorkk(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
             PackageIDs.Clear();
@@ -627,14 +651,14 @@ namespace SteamPulse
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 40)));
 
                 //GetData.Appid = Convert.ToInt32(TextBox_URL.Text);
-                LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.MiddleCenter));
+                /*LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.MiddleCenter));
                 LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.BringToFront()));
-                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = ""));
+                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = ""));*/
 
                 LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Connecting..."));
-                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Clear()));
+                //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Clear()));
                 EditionPrice = 0;
-                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Loading..."));
+                //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Loading..."));
 
                 //Initial Load
                 try
@@ -695,22 +719,22 @@ namespace SteamPulse
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading DLC..."));
                             Thread.Sleep(500);
 
-                            LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.TopCenter));
-                            LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Visible = true));
-                            LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Dock = DockStyle.Bottom));
-                            LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.BringToFront()));
+                            /* LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.TopCenter));
+                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Visible = true));
+                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Dock = DockStyle.Bottom));
+                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.BringToFront()));
 
-                            if (LoadData.Store.DLC.Count != 0)
-                            {
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Hand));
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = string.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
+                             if (LoadData.Store.DLC.Count != 0)
+                             {
+                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Hand));
+                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = string.Format("{0} DLC Found,Click to Open", LoadData.Store.DLC.Count)));
 
-                            }
-                            else
-                            {
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
-                                LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "No DLC Found."));
-                            }
+                             }
+                             else
+                             {
+                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
+                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "No DLC Found."));
+                             }*/
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading Editions..."));
                             Thread.Sleep(500);
 
@@ -726,7 +750,7 @@ namespace SteamPulse
                             int edition_count = result.Length - 1;
                             if (result.Length == 1 && result.Length != 0)
                             {
-                                ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
+                                //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
                             }
                             else
@@ -739,13 +763,13 @@ namespace SteamPulse
                                     {
                                         Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Price: Free"));
                                         Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Item Count: 0"));
-                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
+                                        //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                     }
                                     else
                                     {
                                         if (LoadData.Store.Price.AvailabletoPurchase != true)
                                         {
-                                            ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Not Available")));
+                                            //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Not Available")));
                                         }
                                         else { }
                                     }
@@ -753,7 +777,7 @@ namespace SteamPulse
                                 else
                                 {
                                     PriceString = LoadData.Store.Price.Final.ToString("N");
-                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
+                                    //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Standard")));
                                     EditionDiscount = LoadData.Store.Price.Discount_Percent;
                                 }
                                 for (int i = 1; i < edition_count; i++)
@@ -773,7 +797,7 @@ namespace SteamPulse
                                             EditionName = EditionName.Remove(0, 1);
                                         }
                                         else { }
-                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(string.Format("{0} - Free", EditionName))));
+                                        //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(string.Format("{0} - Free", EditionName))));
                                     }
                                     else
                                     {
@@ -792,7 +816,7 @@ namespace SteamPulse
                                             EditionName = EditionName.Remove(0, 1);
                                         }
                                         else { }
-                                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+                                        //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
                                     }
                                 }
                             }
@@ -819,7 +843,7 @@ namespace SteamPulse
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading DLC..."));
                             Thread.Sleep(500);
 
-                            LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.TopCenter));
+                            /*LabelDLC.Invoke((MethodInvoker)(() => LabelDLC.TextAlign = ContentAlignment.TopCenter));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Visible = true));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Dock = DockStyle.Bottom));
                             LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.BringToFront()));
@@ -834,7 +858,7 @@ namespace SteamPulse
                             {
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Cursor = Cursors.Default));
                                 LabelDLCCount.Invoke((MethodInvoker)(() => LabelDLCCount.Text = "No DLC Found."));
-                            }
+                            }*/
 
                             //check for editions
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Loading Editions..."));
@@ -894,14 +918,14 @@ namespace SteamPulse
                                     {
                                         EditionName = "Standard";
                                     }
-                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+                                    //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
                                 }
                             }
                             else
                             {
                                 if (LoadData.Store.Price.AvailabletoPurchase != true)
                                 {
-                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Not Available")));
+                                    //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Insert(0, "Not Available")));
                                 }
                                 else { }
                                 EditionDiscount = LoadData.Store.Price.Discount_Percent;
@@ -1075,7 +1099,7 @@ namespace SteamPulse
                                     {
                                         EditionName = "Standard";
                                     }
-                                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
+                                    //omboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Items.Add(EditionName)));
                                 }
                             }
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Finalizing..."));
@@ -1085,7 +1109,7 @@ namespace SteamPulse
                                 isowned = LoadData.Community.Isowned(GetData.Appid);
                             }
                         }
-                        ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.SelectedIndex = 0));
+                        //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.SelectedIndex = 0));
                         //false
                         PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
                         DataLoaded = true;
@@ -1098,14 +1122,14 @@ namespace SteamPulse
                             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 25)));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Can't Connect to Steam"));
-                            ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
+                            //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                         }
                         if (GetData.ErrorCode == 2)
                         {
                             PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = true));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Can't Load Data"));
                             LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Font = new Font("Poppins Black", 25)));
-                            ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
+                            //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                         }
                     }
                 }
@@ -1113,7 +1137,7 @@ namespace SteamPulse
                 {
                     PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = false));
                     LabelStatus.Invoke((MethodInvoker)(() => LabelStatus.Text = "Error!"));
-                    ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
+                    //ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.Text = "Can't Load"));
                     MessageBox.Show(ex.Message + "\n\nDescription:\n" + ex.InnerException + "\n\nTrace:\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Log.LogRequest(LabelStatus.Text);
@@ -1124,10 +1148,67 @@ namespace SteamPulse
         {
             TextBox_URL.SelectAll();
         }
+        public void ShowInContainer(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            //PanelContainer.Parent = null;
+            PanelContainer.Controls.Clear();
+            PanelContainer.Controls.Add(userControl);
+            userControl.BringToFront();
+
+        }
         private void Label_About_Click(object sender, EventArgs e)
         {
-            Form about = new About();
+
+
+            if (AboutIsOpened == false)
+            {
+                AboutPanel about = new AboutPanel();
+                ShowInContainer(about);
+                AboutIsOpened = true;
+            }
+            else
+            {
+                Cards.Help Welcome = new Cards.Help(this);
+                ShowInContainer(Welcome);
+                AboutIsOpened = false;
+            }
+            /*Form about = new About();
             about.ShowDialog();
+            */
+            /*PanelAboutData.BringToFront();
+            PanelAboutData.Parent = PanelData;
+            PanelAboutData.Location = new Point(0, 0);
+            PanelAboutData.Size = Sizes.PanelMain.Dimension;
+            PanelAboutData.BringToFront();
+            PanelAboutData.Parent = PanelData;
+            PanelAboutData.Location = new Point(0, 0);
+            PanelAboutData.Size = Sizes.PanelMain.Dimension;*/
+
+
+            /* PanelAboutData.Parent = null;
+             if (AboutIsOpened == false)
+             {
+
+                 //PanelAboutData.Parent = PanelData;
+                 PanelData.Location = new Point(19, 195);
+                 PanelData.Size = new Size(1,1);
+                 PanelAboutData.Location = Locations.PanelMain.Location;
+                 PanelAboutData.Size = Sizes.PanelMain.Dimension;
+                 AboutIsOpened = true;
+             }
+             else
+             {
+
+                 //PanelAboutData.Parent = null;
+                 PanelAboutData.Location = new Point(0, 0);
+                 PanelAboutData.Size = new Size(1, 1);
+                 PanelData.Location = Locations.PanelMain.Location;
+                 PanelData.Size = Sizes.PanelMain.Dimension;
+                 AboutIsOpened = false;
+             }*/
+
+
         }
         private void OpenMarket_Click(object sender, EventArgs e)
         {
@@ -1305,19 +1386,19 @@ namespace SteamPulse
             PanelHeader.BackgroundColor = BackGround;
             Label_AppName.BackColor = BackGround;
             Label_AppName.ForeColor = ForeGround;
-            PanelAbout.BackgroundColor = BackGround;
-            Label_About.ForeColor = ForeGround;
+            //PanelAbout.BackgroundColor = BackGround;
+            //Label_About.ForeColor = ForeGround;
             PanelStatus.BackgroundColor = BackGround;
             LabelStatus.ForeColor = ForeGround;
-            PanelRegion.BackgroundColor = BackGround;
-            Label_Regions.ForeColor = ForeGround;
+            //PanelRegion.BackgroundColor = BackGround;
+            //Label_Regions.ForeColor = ForeGround;
             PanelURL.BackgroundColor = BackGround;
             Label_URL.ForeColor = ForeGround;
             TextBox_URL.BorderColorIdle = ForeGround;
             TextBox_URL.BorderColorHover = ForeGround;
             TextBox_URL.BorderColorActive = ForeGround;
-            PanelEdition.BackgroundColor = BackGround;
-            Label_Edition.ForeColor = ForeGround;
+            //PanelEdition.BackgroundColor = BackGround;
+            //Label_Edition.ForeColor = ForeGround;
             PanelData.BackgroundColor = BackGround;
             Label_Details.ForeColor = ForeGround;
             Label_KeyCount.ForeColor = ForeGround;
@@ -1329,16 +1410,17 @@ namespace SteamPulse
             Label_Update.ForeColor = ForeGround;
             LabelSearch.ForeColor = ForeGround;
 
-            PanelDLC.BackgroundColor = BackGround;
+            /*PanelDLC.BackgroundColor = BackGround;
             PanelDLC.ForeColor = ForeGround;
             LabelDLC.ForeColor = ForeGround;
-            LabelDLCCount.ForeColor = ForeGround;
+            LabelDLCCount.ForeColor = ForeGround;*/
             OpenDetails.ForeColor = ForeGround;
             OpenDiscountCalculator.ForeColor = ForeGround;
             OpenMarket.ForeColor = ForeGround;
             PanelGiveaway.BackgroundColor = BackGround;
             LabelGiveaway.ForeColor = ForeGround;
             Label_Remaining.ForeColor = ForeGround;
+            PanelContainer.BackgroundColor = BackGround;
 
         }
         private void PictureBox_Image_Click(object sender, EventArgs e)
@@ -1357,7 +1439,8 @@ namespace SteamPulse
             if (IsLoading == true) { }
             else
             {
-                if (DropDownRegion.Text.Contains("United States"))
+
+                /*if (DropDownRegion.Text.Contains("United States"))
                 {
                     Settings.Currency.Name = "USD";
                     Settings.Currency.Number = 1;
@@ -1443,7 +1526,7 @@ namespace SteamPulse
                 }
                 Log.LogSetting("Region", Properties.Settings.Default.CurrencyISO.ToString());
                 PanelStatus.Visible = true;
-                ButtonLoad.PerformClick();
+                ButtonLoad.PerformClick();*/
             }
         }
 
@@ -1488,7 +1571,7 @@ namespace SteamPulse
         }
         private void ButtonLoad_CLick(object sender, EventArgs e)
         {
-            if (BackgroundWorker.IsBusy != true)
+            /*if (BackgroundWorker.IsBusy != true)
             {
                 BackgroundWorker.RunWorkerAsync();
             }
@@ -1499,7 +1582,9 @@ namespace SteamPulse
                 {
                     BackgroundWorker.CancelAsync();
                 }
-            }
+            }*/
+            BackgroundWorker.RunWorkerAsync();
+
         }
         private void DeveloperSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1621,6 +1706,12 @@ namespace SteamPulse
         {
             Form regional = new RegionalMarket();
             regional.ShowDialog();
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            Data Data = new Data();
+            ShowInContainer(Data);
         }
 
         private void ButtonGiveaway_Click(object sender, EventArgs e)

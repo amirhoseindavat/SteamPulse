@@ -573,6 +573,16 @@ namespace SteamPulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chevron_right_solid {
+            get {
+                object obj = ResourceManager.GetObject("chevron-right-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ci {
             get {
                 object obj = ResourceManager.GetObject("ci", resourceCulture);
@@ -1513,6 +1523,16 @@ namespace SteamPulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Loading {
+            get {
+                object obj = ResourceManager.GetObject("Loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lr {
             get {
                 object obj = ResourceManager.GetObject("lr", resourceCulture);
@@ -1983,6 +2003,16 @@ namespace SteamPulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pcgw_logo {
+            get {
+                object obj = ResourceManager.GetObject("pcgw_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pe {
             get {
                 object obj = ResourceManager.GetObject("pe", resourceCulture);
@@ -2396,6 +2426,26 @@ namespace SteamPulse.Properties {
         internal static System.Drawing.Bitmap StatusWhite {
             get {
                 object obj = ResourceManager.GetObject("StatusWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Steam_icon {
+            get {
+                object obj = ResourceManager.GetObject("Steam_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap steamdb_logo {
+            get {
+                object obj = ResourceManager.GetObject("steamdb_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
