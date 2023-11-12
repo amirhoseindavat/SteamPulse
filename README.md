@@ -8,6 +8,8 @@
     <a href="https://github.com/amirhoseindavat/SteamPulse/issues">Report Bug</a>
     ·
     <a href="https://github.com/amirhoseindavat/SteamPulse/issues">Request Feature</a>
+    . 
+    <a href="https://github.com/amirhoseindavat/SteamPulse_Web">SteamPulse Web</a>
   </p>
 </div>
 
