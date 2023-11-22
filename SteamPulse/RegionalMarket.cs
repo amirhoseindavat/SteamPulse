@@ -287,12 +287,12 @@ namespace SteamPulse
 
             //Key
             GetData.ConnectToSteam.Market.TF2Key(GetData.Regions.TR);
-            Label_Key_LowestSellOrder_TR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrder_TR.Text = string.Format("{0} TL", LoadData.Market.Key.LowestSellOrder)));
-            Label_Key_LowestSellOrderNoFee_TR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrderNoFee_TR.Text = string.Format("{0} TL", LoadData.Market.Key.LowestSellOrderNoFee)));
+            Label_Key_LowestSellOrder_TR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrder_TR.Text = string.Format("{0} $", LoadData.Market.Key.LowestSellOrder)));
+            Label_Key_LowestSellOrderNoFee_TR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrderNoFee_TR.Text = string.Format("{0} $", LoadData.Market.Key.LowestSellOrderNoFee)));
 
             GetData.ConnectToSteam.Market.TF2Key(GetData.Regions.AR);
-            Label_Key_LowestSellOrder_AR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrder_AR.Text = string.Format("{0} ARS$", LoadData.Market.Key.LowestSellOrder)));
-            Label_Key_LowestSellOrderNoFee_AR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrderNoFee_AR.Text = string.Format("{0} ARS$", LoadData.Market.Key.LowestSellOrderNoFee)));
+            Label_Key_LowestSellOrder_AR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrder_AR.Text = string.Format("{0} $", LoadData.Market.Key.LowestSellOrder)));
+            Label_Key_LowestSellOrderNoFee_AR.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrderNoFee_AR.Text = string.Format("{0} $", LoadData.Market.Key.LowestSellOrderNoFee)));
 
             GetData.ConnectToSteam.Market.TF2Key(GetData.Regions.UA);
             Label_Key_LowestSellOrder_UA.Invoke((MethodInvoker)(() => Label_Key_LowestSellOrder_UA.Text = string.Format("{0} ₴", LoadData.Market.Key.LowestSellOrder)));
@@ -317,12 +317,12 @@ namespace SteamPulse
 
             //Ticket
             GetData.ConnectToSteam.Market.TF2Ticket(GetData.Regions.TR);
-            Label_Ticket_LowestSellOrder_TR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrder_TR.Text = string.Format("{0} TL", LoadData.Market.Ticket.LowestSellOrder)));
-            Label_Ticket_LowestSellOrderNoFee_TR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrderNoFee_TR.Text = string.Format("{0} TL", LoadData.Market.Ticket.LowestSellOrderNoFee)));
+            Label_Ticket_LowestSellOrder_TR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrder_TR.Text = string.Format("{0} $", LoadData.Market.Ticket.LowestSellOrder)));
+            Label_Ticket_LowestSellOrderNoFee_TR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrderNoFee_TR.Text = string.Format("{0} $", LoadData.Market.Ticket.LowestSellOrderNoFee)));
 
             GetData.ConnectToSteam.Market.TF2Ticket(GetData.Regions.AR);
-            Label_Ticket_LowestSellOrder_AR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrder_AR.Text = string.Format("{0} ARS$", LoadData.Market.Ticket.LowestSellOrder)));
-            Label_Ticket_LowestSellOrderNoFee_AR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrderNoFee_AR.Text = string.Format("{0} ARS$", LoadData.Market.Ticket.LowestSellOrderNoFee)));
+            Label_Ticket_LowestSellOrder_AR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrder_AR.Text = string.Format("{0} $", LoadData.Market.Ticket.LowestSellOrder)));
+            Label_Ticket_LowestSellOrderNoFee_AR.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrderNoFee_AR.Text = string.Format("{0} $", LoadData.Market.Ticket.LowestSellOrderNoFee)));
 
             GetData.ConnectToSteam.Market.TF2Ticket(GetData.Regions.UA);
             Label_Ticket_LowestSellOrder_UA.Invoke((MethodInvoker)(() => Label_Ticket_LowestSellOrder_UA.Text = string.Format("{0} ₴", LoadData.Market.Ticket.LowestSellOrder)));

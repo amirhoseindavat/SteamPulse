@@ -139,15 +139,6 @@
   <metadata name="PanelUpdate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="LabelVersion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LabelUpdate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LabelDownload.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="PanelUpdate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAW4AAABlCAYAAABtEgn4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -170,6 +161,31 @@
   <data name="PanelUpdate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <metadata name="LabelVersion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LabelVersion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Poppins, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 18</value>
+  </data>
+  <data name="LabelVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 23</value>
+  </data>
+  <data name="LabelVersion.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="LabelVersion.Text" xml:space="preserve">
+    <value>Current Version</value>
+  </data>
   <data name="&gt;&gt;LabelVersion.Name" xml:space="preserve">
     <value>LabelVersion</value>
   </data>
@@ -181,6 +197,30 @@
   </data>
   <data name="&gt;&gt;LabelVersion.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <metadata name="LabelUpdate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="LabelUpdate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelUpdate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Poppins, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 41</value>
+  </data>
+  <data name="LabelUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="LabelUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="LabelUpdate.Text" xml:space="preserve">
+    <value>Update : </value>
   </data>
   <data name="&gt;&gt;LabelUpdate.Name" xml:space="preserve">
     <value>LabelUpdate</value>
@@ -194,6 +234,24 @@
   <data name="&gt;&gt;LabelUpdate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="LabelUpdateStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelUpdateStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Poppins, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelUpdateStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelUpdateStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 41</value>
+  </data>
+  <data name="LabelUpdateStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 23</value>
+  </data>
+  <data name="LabelUpdateStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
   <data name="&gt;&gt;LabelUpdateStatus.Name" xml:space="preserve">
     <value>LabelUpdateStatus</value>
   </data>
@@ -205,6 +263,33 @@
   </data>
   <data name="&gt;&gt;LabelUpdateStatus.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <metadata name="LabelDownload.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="LabelDownload.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelDownload.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Poppins, 9.75pt, style=Bold</value>
+  </data>
+  <data name="LabelDownload.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelDownload.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 64</value>
+  </data>
+  <data name="LabelDownload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 23</value>
+  </data>
+  <data name="LabelDownload.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="LabelDownload.Text" xml:space="preserve">
+    <value>Click To Download Update</value>
+  </data>
+  <data name="LabelDownload.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;LabelDownload.Name" xml:space="preserve">
     <value>LabelDownload</value>
@@ -224,7 +309,6 @@
   <data name="PanelUpdate.Size" type="System.Drawing.Size, System.Drawing">
     <value>366, 101</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PanelUpdate.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
@@ -262,7 +346,8 @@
     <value>25</value>
   </data>
   <data name="LabelCopyright.Text" xml:space="preserve">
-    <value>Devoloped By : CodeMage - All Rights Reserved  - 2022</value>
+    <value>Devoloped By : CodeMage - All Rights Reserved 
+</value>
   </data>
   <data name="LabelCopyright.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
@@ -282,12 +367,6 @@
   <metadata name="PanelHeader.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="LabelAppName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Button_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="PanelHeader.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAaoAAAAoCAYAAACvgL6RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -301,6 +380,30 @@
   <data name="PanelHeader.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <metadata name="LabelAppName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="LabelAppName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelAppName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Poppins, 13pt, style=Bold</value>
+  </data>
+  <data name="LabelAppName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelAppName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 6</value>
+  </data>
+  <data name="LabelAppName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 31</value>
+  </data>
+  <data name="LabelAppName.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="LabelAppName.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="&gt;&gt;LabelAppName.Name" xml:space="preserve">
     <value>LabelAppName</value>
   </data>
@@ -312,6 +415,32 @@
   </data>
   <data name="&gt;&gt;LabelAppName.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <metadata name="Button_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Button_Exit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVDhPnZOxTsMwFEU9MjIyMrJ1IM9hs2Jn4CeQWJAY
+        GWHjAxhQh+7MzKyMLAz8ARISCAkBAfulRWIo165TqOVUFVe6imW/E9u5LyLVVKk11rTPphixkVOn6cJq
+        OmzUYD2W5PVZyx2n5QMbch4M8OzZwi+Y342li7KVPGEtGzhAPW6sofOIzOR3DGAeSEzvXMm9APo7tkY+
+        5wt7rMtXVrQhcMcjvO0rW7TUxUiMTXmZX1xup8s7EQbJwqoWOP/tf2Awj4iIjrmm71xBn/1mvnnERJWb
+        mFgxpmjE6uMNcXFFB62WH9nCxA7dZ01xFsBOiOsai5wW/zV6fIJdb3xvROxXrqJT/BRvC1DXrjjquJbD
+        LNjJqu0tnz0+yL2H8HGeML6a33EuIX4AGGiuz3RxjVcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Button_Exit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Button_Exit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 13</value>
+  </data>
+  <data name="Button_Exit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="Button_Exit.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
   </data>
   <data name="&gt;&gt;Button_Exit.Name" xml:space="preserve">
     <value>Button_Exit</value>
@@ -2271,220 +2400,5 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <metadata name="LabelVersion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="LabelVersion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poppins, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 18</value>
-  </data>
-  <data name="LabelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 23</value>
-  </data>
-  <data name="LabelVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="LabelVersion.Text" xml:space="preserve">
-    <value>Current Version</value>
-  </data>
-  <data name="&gt;&gt;LabelVersion.Name" xml:space="preserve">
-    <value>LabelVersion</value>
-  </data>
-  <data name="&gt;&gt;LabelVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelVersion.Parent" xml:space="preserve">
-    <value>PanelUpdate</value>
-  </data>
-  <data name="&gt;&gt;LabelVersion.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="LabelUpdate.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="LabelUpdate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelUpdate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poppins, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelUpdate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 41</value>
-  </data>
-  <data name="LabelUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 23</value>
-  </data>
-  <data name="LabelUpdate.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="LabelUpdate.Text" xml:space="preserve">
-    <value>Update : </value>
-  </data>
-  <data name="&gt;&gt;LabelUpdate.Name" xml:space="preserve">
-    <value>LabelUpdate</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdate.Parent" xml:space="preserve">
-    <value>PanelUpdate</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LabelUpdateStatus.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelUpdateStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poppins, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelUpdateStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelUpdateStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 41</value>
-  </data>
-  <data name="LabelUpdateStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 23</value>
-  </data>
-  <data name="LabelUpdateStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdateStatus.Name" xml:space="preserve">
-    <value>LabelUpdateStatus</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdateStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdateStatus.Parent" xml:space="preserve">
-    <value>PanelUpdate</value>
-  </data>
-  <data name="&gt;&gt;LabelUpdateStatus.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="LabelDownload.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="LabelDownload.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelDownload.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poppins, 9.75pt, style=Bold</value>
-  </data>
-  <data name="LabelDownload.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelDownload.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 64</value>
-  </data>
-  <data name="LabelDownload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 23</value>
-  </data>
-  <data name="LabelDownload.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="LabelDownload.Text" xml:space="preserve">
-    <value>Click To Download Update</value>
-  </data>
-  <data name="LabelDownload.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;LabelDownload.Name" xml:space="preserve">
-    <value>LabelDownload</value>
-  </data>
-  <data name="&gt;&gt;LabelDownload.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelDownload.Parent" xml:space="preserve">
-    <value>PanelUpdate</value>
-  </data>
-  <data name="&gt;&gt;LabelDownload.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <metadata name="LabelAppName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="LabelAppName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelAppName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poppins, 13pt, style=Bold</value>
-  </data>
-  <data name="LabelAppName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelAppName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 6</value>
-  </data>
-  <data name="LabelAppName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 31</value>
-  </data>
-  <data name="LabelAppName.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="LabelAppName.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="&gt;&gt;LabelAppName.Name" xml:space="preserve">
-    <value>LabelAppName</value>
-  </data>
-  <data name="&gt;&gt;LabelAppName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelAppName.Parent" xml:space="preserve">
-    <value>PanelHeader</value>
-  </data>
-  <data name="&gt;&gt;LabelAppName.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="Button_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Button_Exit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVDhPnZOxTsMwFEU9MjIyMrJ1IM9hs2Jn4CeQWJAY
-        GWHjAxhQh+7MzKyMLAz8ARISCAkBAfulRWIo165TqOVUFVe6imW/E9u5LyLVVKk11rTPphixkVOn6cJq
-        OmzUYD2W5PVZyx2n5QMbch4M8OzZwi+Y342li7KVPGEtGzhAPW6sofOIzOR3DGAeSEzvXMm9APo7tkY+
-        5wt7rMtXVrQhcMcjvO0rW7TUxUiMTXmZX1xup8s7EQbJwqoWOP/tf2Awj4iIjrmm71xBn/1mvnnERJWb
-        mFgxpmjE6uMNcXFFB62WH9nCxA7dZ01xFsBOiOsai5wW/zV6fIJdb3xvROxXrqJT/BRvC1DXrjjquJbD
-        LNjJqu0tnz0+yL2H8HGeML6a33EuIX4AGGiuz3RxjVcAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="Button_Exit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="Button_Exit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 13</value>
-  </data>
-  <data name="Button_Exit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 15</value>
-  </data>
-  <data name="Button_Exit.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.Name" xml:space="preserve">
-    <value>Button_Exit</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.Parent" xml:space="preserve">
-    <value>PanelHeader</value>
-  </data>
-  <data name="&gt;&gt;Button_Exit.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
 </root>

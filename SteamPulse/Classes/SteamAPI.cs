@@ -237,11 +237,13 @@ namespace SteamPulse.SteamAPI
                         }
                         else if (Region == Regions.TR)
                         {
-                            currency = 17;
+                            //currency = 17;
+                            currency = 1;
                         }
                         else if (Region == Regions.AR)
                         {
-                            currency = 34;
+                            //currency = 34
+                            currency = 1;
                         }
                         else if (Region == Regions.UA)
                         {
@@ -291,11 +293,13 @@ namespace SteamPulse.SteamAPI
                         }
                         else if (Region == Regions.TR)
                         {
-                            currency = 17;
+                            //currency = 17;
+                            currency = 1;
                         }
                         else if (Region == Regions.AR)
                         {
-                            currency = 34;
+                            //currency = 34;
+                            currency = 1;
                         }
                         else if (Region == Regions.UA)
                         {

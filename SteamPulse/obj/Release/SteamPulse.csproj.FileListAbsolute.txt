@@ -208,6 +208,7 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPuls
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.OldLiveMarketPrice.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Properties.Resources.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.DevSetting.resources
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.RegionalMarket.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Setting.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Status.resources
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.GenerateResource.cache
@@ -217,4 +218,3 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPuls
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.application
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.RegionalMarket.resources

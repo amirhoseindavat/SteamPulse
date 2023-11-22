@@ -90,51 +90,51 @@ namespace SteamPulse
         //----------------------Loading Region From Settings----------------------//
         public void LoadRegion()
         {
-            if (Settings.Currency.Name == "Real")
+            if (Settings.Currency.ISO == "BR")
             {
                 DropDownRegion.SelectedIndex = 7;
             }
-            else if (Settings.Currency.Name == "Ruble")
+            else if (Settings.Currency.ISO == "RU")
             {
                 DropDownRegion.SelectedIndex = 6;
             }
-            else if (Settings.Currency.Name == "Yuan")
+            else if (Settings.Currency.ISO == "CN")
             {
                 DropDownRegion.SelectedIndex = 3;
             }
-            else if (Settings.Currency.Name == "Euro")
+            else if (Settings.Currency.ISO == "NL")
             {
                 DropDownRegion.SelectedIndex = 2;
             }
-            else if (Settings.Currency.Name == "Pound")
+            else if (Settings.Currency.ISO == "GB")
             {
                 DropDownRegion.SelectedIndex = 1;
             }
-            else if (Settings.Currency.Name == "USD")
+            else if (Settings.Currency.ISO == "US")
             {
                 DropDownRegion.SelectedIndex = 0;
             }
-            else if (Settings.Currency.Name == "Lira")
+            else if (Settings.Currency.ISO == "TR")
             {
                 DropDownRegion.SelectedIndex = 5;
             }
-            else if (Settings.Currency.Name == "ARS")
+            else if (Settings.Currency.ISO == "AR")
             {
                 DropDownRegion.SelectedIndex = 4;
             }
-            else if (Settings.Currency.Name == "hryvnia")
+            else if (Settings.Currency.ISO == "UA")
             {
                 DropDownRegion.SelectedIndex = 8;
             }
-            else if (Settings.Currency.Name == "Rupee")
+            else if (Settings.Currency.ISO == "IN")
             {
                 DropDownRegion.SelectedIndex = 9;
             }
-            else if (Settings.Currency.Name == "Tenge")
+            else if (Settings.Currency.ISO == "KZ")
             {
                 DropDownRegion.SelectedIndex = 10;
             }
-            else if (Settings.Currency.Name == "Peso")
+            else if (Settings.Currency.ISO == "PH")
             {
                 DropDownRegion.SelectedIndex = 11;
             }
@@ -1387,17 +1387,29 @@ namespace SteamPulse
                 }
                 else if(DropDownRegion.Text.Contains("Argentina"))
                 {
+                    /*
                     Settings.Currency.Name = "ARS";
                     Settings.Currency.Number = 34;
                     Settings.Currency.ISO = "AR";
                     Settings.Currency.Unit = "ARS";
+                    */
+                    Settings.Currency.Name = "USD";
+                    Settings.Currency.Number = 1;
+                    Settings.Currency.ISO = "AR";
+                    Settings.Currency.Unit = "$";
                 }
                 else if(DropDownRegion.Text.Contains("Turkey"))
                 {
+                    /*
                     Settings.Currency.Name = "Lira";
                     Settings.Currency.Number = 17;
                     Settings.Currency.ISO = "TR";
                     Settings.Currency.Unit = "TL";
+                    */
+                    Settings.Currency.Name = "USD";
+                    Settings.Currency.Number = 1;
+                    Settings.Currency.ISO = "TR";
+                    Settings.Currency.Unit = "$";
                 }
                 else if(DropDownRegion.Text.Contains("Russia"))
                 {
