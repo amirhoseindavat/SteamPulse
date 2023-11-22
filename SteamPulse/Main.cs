@@ -155,14 +155,14 @@ namespace SteamPulse
             PanelData.Dock = DockStyle.Fill;*/
             /*PanelData.Location = Locations.PanelMain.Location;
             PanelData.Size = Sizes.PanelMain.Dimension;*/
-            /*Welcome Welcome = new Welcome(this);
+            Welcome Welcome = new Welcome(this);
             ShowInContainer(Welcome);
-            */
+            
 
-            Data Welcome = new Data();
-            ShowInContainer(Welcome);
+            /*Data Welcome = new Data();
+            ShowInContainer(Welcome);*/
 
-            SideBar SideBar = new SideBar();
+            SideBar SideBar = new SideBar(this);
             SideBar.Dock = DockStyle.Fill;
             //PanelContainer.Parent = null;
             Panel_SideBar.Controls.Clear();
@@ -639,7 +639,7 @@ namespace SteamPulse
 
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            GetData.ConnectToSteam.Store(Convert.ToInt32(TextBox_URL.Text));
+           // GetData.ConnectToSteam.Store(Convert.ToInt32(TextBox_URL.Text));
         }
         private void BackgroundWorker_DoWorkk(object sender, System.ComponentModel.DoWorkEventArgs e)
         {

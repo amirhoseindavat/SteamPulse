@@ -59,8 +59,8 @@
             this.Label_KeyCount = new System.Windows.Forms.Label();
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.PanelStatus = new Bunifu.UI.WinForms.BunifuPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Label_Status = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.OpenPCGWIcon = new System.Windows.Forms.PictureBox();
             this.OpenSteamDBIcon = new System.Windows.Forms.PictureBox();
             this.OpenSteamIcon = new System.Windows.Forms.PictureBox();
@@ -69,6 +69,7 @@
             this.bunifuSeparator2 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.PictureBox_Image = new System.Windows.Forms.PictureBox();
+            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.PanelStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenPCGWIcon)).BeginInit();
@@ -500,20 +501,6 @@
             this.PanelStatus.Size = new System.Drawing.Size(1, 1);
             this.PanelStatus.TabIndex = 102;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::SteamPulse.Properties.Resources.Loading;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.pictureBox1.Size = new System.Drawing.Size(1, 1);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // Label_Status
             // 
             this.Label_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -528,6 +515,20 @@
             this.Label_Status.TabIndex = 2;
             this.Label_Status.Text = "Loading";
             this.Label_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::SteamPulse.Properties.Resources.Loading;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(1, 1);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // OpenPCGWIcon
             // 
@@ -585,7 +586,6 @@
             this.LabelOwned.BackColor = System.Drawing.Color.Transparent;
             this.LabelOwned.Font = new System.Drawing.Font("Motiva Sans", 12F, System.Drawing.FontStyle.Bold);
             this.LabelOwned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.LabelOwned.Image = global::SteamPulse.Properties.Resources.check_solid;
             this.LabelOwned.Location = new System.Drawing.Point(302, 221);
             this.LabelOwned.Name = "LabelOwned";
             this.LabelOwned.Size = new System.Drawing.Size(99, 22);
@@ -633,6 +633,11 @@
             this.PictureBox_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox_Image.TabIndex = 71;
             this.PictureBox_Image.TabStop = false;
+            // 
+            // Elipse2
+            // 
+            this.Elipse2.ElipseRadius = 20;
+            this.Elipse2.TargetControl = this.PictureBox_Image;
             // 
             // Data
             // 
@@ -729,5 +734,6 @@
         private Bunifu.UI.WinForms.BunifuPanel PanelStatus;
         private System.Windows.Forms.Label Label_Status;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Bunifu.Framework.UI.BunifuElipse Elipse2;
     }
 }

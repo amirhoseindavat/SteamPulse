@@ -17,6 +17,7 @@ namespace SteamPulse.Cards
 {
     public partial class Data : UserControl
     {
+        public static int Appid = 0;
         public static bool DarkMode;
         private bool isowned = false;
 
@@ -33,13 +34,15 @@ namespace SteamPulse.Cards
             InitializeComponent();
         }
 
-        private void Data_Load(object sender, EventArgs e)
+        private void Data_LoadD(object sender, EventArgs e)
         {
 
         }
 
-        private void Data_LoadD(object sender, EventArgs e)
+        private void Data_Load(object sender, EventArgs e)
         {
+            GetData.ConnectToSteam.Store(Appid);
+
             Label_Name.Text = LoadData.Store.Name;
             PictureBox_Image.Load(LoadData.Store.LibraryImage);
             Label_DLC.Text = LoadData.Store.DLC.Count.ToString();
