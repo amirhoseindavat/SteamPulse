@@ -5,3 +5,9 @@ dotnet_diagnostic.CS0618.severity = silent
 
 # CS0414: The field 'AppidSearch.second' is assigned but its value is never used
 dotnet_diagnostic.CS0414.severity = silent
+
+# IDE0052: Remove unread private members
+dotnet_diagnostic.IDE0052.severity = none
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none

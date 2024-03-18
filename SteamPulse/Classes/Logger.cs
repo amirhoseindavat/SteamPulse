@@ -10,7 +10,7 @@
 
 using SteamPulse.HardWareInformation;
 using SteamPulse.SteamAPI;
-using SteamPulse.UserSettings;
+using SteamPulse.SettingsInterface;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -20,6 +20,7 @@ namespace SteamPulse.Logger
     public class Log
     {
         private static readonly string LogPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\CodeMage\SteamPulse.Log";
+        private static readonly string NerdLogPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\CodeMage\NerdLog.Log";
         internal static bool CheckExist()
         {
             if (File.Exists(LogPath))
@@ -75,7 +76,7 @@ namespace SteamPulse.Logger
             {
                 using (StreamWriter Logger = File.AppendText(LogPath))
                 {
-                    Logger.Write(string.Format("{0} - [Main] Requested to SteamPulse.Classes.SteamAPI: (AppID: {1}, Name: {2}, Region: {3}), Description: {4}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), GetData.Appid, LoadData.Store.Name, Settings.Currency.ISO, Message) + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [Main] Requested to SteamPulse.Classes.SteamAPI: (AppID: {1}, Name: {2}, Region: {3}), Description: {4}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), GetData.Appid, LoadData.Store.Name, UserSettings.Currency.ISO, Message) + Environment.NewLine);
                 }
             }
             else
@@ -105,11 +106,11 @@ namespace SteamPulse.Logger
                 {
                     if (key == 0 && ticket == 0)
                     {
-                        Logger.Write(string.Format("{0} - [Market] Requested to SteamPulse.Classes.SteamAPI, Region: {1} , IRT: {2}, Description: {3}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Settings.Currency.ISO, Settings.CheckIRT, Message) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - [Market] Requested to SteamPulse.Classes.SteamAPI, Region: {1} , IRT: {2}, Description: {3}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), UserSettings.Currency.ISO, UserSettings.CheckIRT, Message) + Environment.NewLine);
                     }
                     else
                     {
-                        Logger.Write(string.Format("{0} - [Market] Requested to SteamPulse.Classes.SteamAPI, Region: {1} , IRT: {2} Price: Key: {4} {3}, Ticket: {5} {3}, Description: {6}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Settings.Currency.ISO, Settings.CheckIRT, Settings.Currency.Unit, key, ticket, Message) + Environment.NewLine);
+                        Logger.Write(string.Format("{0} - [Market] Requested to SteamPulse.Classes.SteamAPI, Region: {1} , IRT: {2} Price: Key: {4} {3}, Ticket: {5} {3}, Description: {6}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), UserSettings.Currency.ISO, UserSettings.CheckIRT, UserSettings.Currency.Unit, key, ticket, Message) + Environment.NewLine);
                     }
                 }
             }
@@ -237,6 +238,43 @@ namespace SteamPulse.Logger
             else
             {
                 Create();
+            }
+        }
+        public static void NerdData()
+        {
+            if (File.Exists(NerdLogPath))
+            {
+                
+            }
+            else
+            {
+                var DocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var LPath = Path.Combine(DocumentsPath, "CodeMage");
+            }
+            try
+            {
+                //Directory.CreateDirectory(LPath);
+                var myFile = File.Create(NerdLogPath);
+                myFile.Close();
+                using (StreamWriter Logger = File.AppendText(NerdLogPath))
+                {
+                    Logger.Write("##The logging system still is in development and may have some problems." + Environment.NewLine);
+                    Logger.Write(string.Format("{0} - [System] Log Created by {1}, SteamPulse Version: {2}", DateTime.Now.ToString("dd MMMM yyyy, HH:mm:ss"), Environment.UserName, Application.ProductVersion) + Environment.NewLine);
+                }
+                using (StreamWriter Logger = File.AppendText(NerdLogPath))
+                {
+                    Logger.Write(Environment.NewLine + "*********************** - System Hardware Information - ***********************" + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - CPU: {0}", GetHardwareInformation.CPU.Model()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - GPU: {0}", GetHardwareInformation.GPU.Model()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - Ram: {0}GB", GetHardwareInformation.Ram.Size()) + Environment.NewLine);
+                    Logger.Write(string.Format("*********************** - OS:  {0}", GetHardwareInformation.OS.Name()) + Environment.NewLine);
+                    Logger.Write("*********************** - System Hardware Information - ***********************" + Environment.NewLine);
+                    Logger.Write("" + Environment.NewLine);
+                }
+            }
+            catch
+            {
+
             }
         }
     }

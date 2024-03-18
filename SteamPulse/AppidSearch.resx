@@ -1063,6 +1063,9 @@
   <metadata name="PanelHeader.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Label_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelHeader.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAg4AAAAjCAYAAAD8FoL4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -1071,20 +1074,6 @@
         AIBMOAAAmXAAADLhAABkwgEAyIQDAJAJBwAgEw4AQCYcAIBMOAAAmXAAADLhAABkwgEAyIQDAJAJBwAg
         Ew4AQCYcAIBMOAAAmXAAADLhAABkwgEAyIQDAJAJBwAgEw4AQCYcAIBMOAAA2UM4XM8bAMCrbdtuMxtO
         4/Y9dvw8mJmZmd13RMN4P2YyAAAUy/IDU7f+EH0Cm2gAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="Label_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Label_Exit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVDhPnZOxTsMwFEU9MjIyMrJ1IM9hs2Jn4CeQWJAY
-        GWHjAxhQh+7MzKyMLAz8ARISCAkBAfulRWIo165TqOVUFVe6imW/E9u5LyLVVKk11rTPphixkVOn6cJq
-        OmzUYD2W5PVZyx2n5QMbch4M8OzZwi+Y342li7KVPGEtGzhAPW6sofOIzOR3DGAeSEzvXMm9APo7tkY+
-        5wt7rMtXVrQhcMcjvO0rW7TUxUiMTXmZX1xup8s7EQbJwqoWOP/tf2Awj4iIjrmm71xBn/1mvnnERJWb
-        mFgxpmjE6uMNcXFFB62WH9nCxA7dZ01xFsBOiOsai5wW/zV6fIJdb3xvROxXrqJT/BRvC1DXrjjquJbD
-        LNjJqu0tnz0+yL2H8HGeML6a33EuIX4AGGiuz3RxjVcAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -2992,4 +2981,18 @@
   <metadata name="BackgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>146, 17</value>
   </metadata>
+  <metadata name="Label_Exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Label_Exit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVDhPnZOxTsMwFEU9MjIyMrJ1IM9hs2Jn4CeQWJAY
+        GWHjAxhQh+7MzKyMLAz8ARISCAkBAfulRWIo165TqOVUFVe6imW/E9u5LyLVVKk11rTPphixkVOn6cJq
+        OmzUYD2W5PVZyx2n5QMbch4M8OzZwi+Y342li7KVPGEtGzhAPW6sofOIzOR3DGAeSEzvXMm9APo7tkY+
+        5wt7rMtXVrQhcMcjvO0rW7TUxUiMTXmZX1xup8s7EQbJwqoWOP/tf2Awj4iIjrmm71xBn/1mvnnERJWb
+        mFgxpmjE6uMNcXFFB62WH9nCxA7dZ01xFsBOiOsai5wW/zV6fIJdb3xvROxXrqJT/BRvC1DXrjjquJbD
+        LNjJqu0tnz0+yL2H8HGeML6a33EuIX4AGGiuz3RxjVcAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

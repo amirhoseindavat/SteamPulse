@@ -85,18 +85,6 @@ namespace SteamPulse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public int MarketUpdateTime {
-            get {
-                return ((int)(this["MarketUpdateTime"]));
-            }
-            set {
-                this["MarketUpdateTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool CalculateIRT {
             get {
@@ -157,18 +145,6 @@ namespace SteamPulse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Main")]
-        public string StartingPage {
-            get {
-                return ((string)(this["StartingPage"]));
-            }
-            set {
-                this["StartingPage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string UserLevel {
             get {
@@ -212,18 +188,6 @@ namespace SteamPulse.Properties {
             }
             set {
                 this["UserName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Wallet => Item")]
-        public string CalculatorMode {
-            get {
-                return ((string)(this["CalculatorMode"]));
-            }
-            set {
-                this["CalculatorMode"] = value;
             }
         }
         

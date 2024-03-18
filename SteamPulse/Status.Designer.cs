@@ -42,7 +42,7 @@
             this.IndicatorCodeMage = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.IndicatorSteamCommunity = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.IndicatorSteamStore = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.LabelGamingClub = new System.Windows.Forms.Label();
+            this.LabelAresGame = new System.Windows.Forms.Label();
             this.LabelCodeMage = new System.Windows.Forms.Label();
             this.LabelSteamCommunity = new System.Windows.Forms.Label();
             this.LabelSteamStore = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.PanelMail.Controls.Add(this.IndicatorCodeMage);
             this.PanelMail.Controls.Add(this.IndicatorSteamCommunity);
             this.PanelMail.Controls.Add(this.IndicatorSteamStore);
-            this.PanelMail.Controls.Add(this.LabelGamingClub);
+            this.PanelMail.Controls.Add(this.LabelAresGame);
             this.PanelMail.Controls.Add(this.LabelCodeMage);
             this.PanelMail.Controls.Add(this.LabelSteamCommunity);
             this.PanelMail.Controls.Add(this.LabelSteamStore);
@@ -444,17 +444,17 @@
             this.IndicatorSteamStore.TextPadding = new System.Windows.Forms.Padding(0);
             this.IndicatorSteamStore.UseDefaultRadiusAndThickness = true;
             // 
-            // LabelGamingClub
+            // LabelAresGame
             // 
-            this.LabelGamingClub.AutoSize = true;
-            this.LabelGamingClub.BackColor = System.Drawing.Color.Transparent;
-            this.LabelGamingClub.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
-            this.LabelGamingClub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.LabelGamingClub.Location = new System.Drawing.Point(27, 105);
-            this.LabelGamingClub.Name = "LabelGamingClub";
-            this.LabelGamingClub.Size = new System.Drawing.Size(135, 31);
-            this.LabelGamingClub.TabIndex = 40;
-            this.LabelGamingClub.Text = "Gaming Club";
+            this.LabelAresGame.AutoSize = true;
+            this.LabelAresGame.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAresGame.Font = new System.Drawing.Font("Poppins", 13F, System.Drawing.FontStyle.Bold);
+            this.LabelAresGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelAresGame.Location = new System.Drawing.Point(27, 105);
+            this.LabelAresGame.Name = "LabelAresGame";
+            this.LabelAresGame.Size = new System.Drawing.Size(112, 31);
+            this.LabelAresGame.TabIndex = 40;
+            this.LabelAresGame.Text = "AresGame";
             // 
             // LabelCodeMage
             // 
@@ -641,7 +641,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Label_Exit;
         private Bunifu.Framework.UI.BunifuElipse Elipse;
         private Bunifu.UI.WinForms.BunifuPanel PanelMail;
-        private System.Windows.Forms.Label LabelGamingClub;
+        private System.Windows.Forms.Label LabelAresGame;
         private System.Windows.Forms.Label LabelCodeMage;
         private System.Windows.Forms.Label LabelSteamCommunity;
         private System.Windows.Forms.Label LabelSteamStore;

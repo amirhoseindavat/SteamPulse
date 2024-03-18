@@ -34,12 +34,28 @@ namespace SteamPulse.GlobalVariables
             public static Color NileBlue => Color.FromArgb(24, 49, 83);
             public static Color White => Color.FromArgb(255, 255, 255);
             public static Color AthenGray => Color.FromArgb(241, 240, 245);
+            public static Color AltoSilver => Color.FromArgb(223, 223, 223);
         }
         public struct Dark
         {
             public static Color White => Color.FromArgb(255, 255, 255);
             public static Color NileBlue => Color.FromArgb(24, 49, 83);
             public static Color Cello => Color.FromArgb(33, 63, 105);
+        }
+    }
+
+    public struct Sizes
+    {
+        public struct PanelMain
+        {
+            public static Size Dimension => new Size(568, 468);
+        }
+    }
+    public struct Locations
+    {
+        public struct PanelMain
+        {
+            public static Point Location => new Point(20, 195);
         }
     }
 
