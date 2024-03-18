@@ -86,6 +86,6 @@ Distributed under the GNU General Public License v3.0. See `LICENSE.md` for more
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[product-screenshot]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/1.png?v2
-[product-screenshot2]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/2.png
-[product-screenshot3]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/3.png
+[product-screenshot]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/new/1.png?v2
+[product-screenshot2]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/new/2.png
+[product-screenshot3]: https://cdn.codemage.ir/Projects/SteamPulse/ScreenShots/new/3.png
