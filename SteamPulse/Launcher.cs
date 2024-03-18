@@ -13,13 +13,14 @@
 
 using Microsoft.Win32;
 using SteamPulse.Logger;
-using SteamPulse.UserSettings;
+using SteamPulse.SettingsInterface;
 using System;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -55,10 +56,18 @@ namespace SteamPulse
         [STAThread]
         private void Launcher_Load(object sender, EventArgs e)
         {
+            Task.Factory.StartNew(() => SteamAPI.GetData.ConnectToSteam.Market.TF2Key());
+            Task.Factory.StartNew(() => SteamAPI.GetData.ConnectToSteam.Market.TF2Ticket());
 
-            if (Settings.SystemDarkMode)
+            if (UserSettings.CheckIRT)
             {
-                Settings.DarkMode = ShouldSystemUseDarkMode();
+                Task.Factory.StartNew(() => SteamAPI.GetData.IRT.KeyAndTicket());
+            }
+            else { }
+
+            if (UserSettings.SystemDarkMode)
+            {
+                UserSettings.DarkMode = ShouldSystemUseDarkMode();
             }
 
             RegistryScheme();
@@ -69,21 +78,21 @@ namespace SteamPulse
                 argument = argument.Replace("steampulse://", "");
                 if (argument.Contains("market"))
                 {
-                    Form market = new LiveMarketPrice();
-                    market.ShowDialog(this);
-                    Close();
+                    /* Form market = new LiveMarketPrice();
+                     market.ShowDialog(this);
+                     Close();*/
                 }
                 if (argument.Contains("settings"))
                 {
-                    Form setting = new Setting();
+                    /*Form setting = new Setting();
                     setting.ShowDialog(this);
-                    Close();
+                    Close();*/
                 }
                 if (argument.Contains("regionalmarket"))
                 {
-                    Form setting = new Setting();
+                    /*Form setting = new Setting();
                     setting.ShowDialog(this);
-                    Close();
+                    Close();*/
                 }
                 /*if (argument.Contains("resetsettings"))
                 {
@@ -109,9 +118,9 @@ namespace SteamPulse
                 }
                 if (argument.Contains("calculator"))
                 {
-                    Form calc = new Calculator();
+                    /*Form calc = new Calculator();
                     calc.ShowDialog(this);
-                    Close();
+                    Close();*/
                 }
                 if (argument.Contains("giveaway"))
                 {
@@ -122,7 +131,7 @@ namespace SteamPulse
                 if (argument.Contains("nogiveawaylimit"))
                 {
                     Form main = new Main();
-                    Main.noGiveAwayLimit = true;
+                    Cards.Giveaway.noGiveAwayLimit = true;
                     main.ShowDialog();
                     Close();
                 }
@@ -149,9 +158,9 @@ namespace SteamPulse
                     Log.LogVersionChange();
                 }
 
-                if (Settings.SystemDarkMode)
+                if (UserSettings.SystemDarkMode)
                 {
-                    Settings.DarkMode = ShouldSystemUseDarkMode();
+                    UserSettings.DarkMode = ShouldSystemUseDarkMode();
                 }
 
                 Log.CheckExist();
@@ -214,33 +223,12 @@ namespace SteamPulse
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(Properties.Settings.Default["CurrencyName"].ToString()))
-                    {
-                        if (Properties.Settings.Default.StartingPage == "Main")
-                        {
-                            Form main = new Main();
-                            main.ShowDialog(this);
-                            Close();
-                        }
-                        if (Properties.Settings.Default.StartingPage == "Market")
-                        {
-                            Form market = new LiveMarketPrice();
-                            market.ShowDialog(this);
-                            Close();
-                        }
-                        if (Properties.Settings.Default.StartingPage == "Calculator")
-                        {
-                            Form calculator = new Calculator();
-                            calculator.ShowDialog(this);
-                            Close();
-                        }
-                    }
-                    else
-                    {
-                        Form setting = new Setting();
-                        setting.ShowDialog(this);
-                        Close();
-                    }
+
+                    Form main = new Main();
+                    main.ShowDialog(this);
+                    Close();
+
+
                 }
 
             }

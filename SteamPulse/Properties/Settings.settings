@@ -17,9 +17,6 @@
     <Setting Name="UserSteamID" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="MarketUpdateTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">120</Value>
-    </Setting>
     <Setting Name="CalculateIRT" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -35,9 +32,6 @@
     <Setting Name="InstallBeta" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="StartingPage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Main</Value>
-    </Setting>
     <Setting Name="UserLevel" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -49,9 +43,6 @@
     </Setting>
     <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="CalculatorMode" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Wallet =&gt; Item</Value>
     </Setting>
     <Setting Name="LastVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>

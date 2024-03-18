@@ -173,6 +173,7 @@
             this.PanelHeader.ShowBorders = true;
             this.PanelHeader.Size = new System.Drawing.Size(497, 35);
             this.PanelHeader.TabIndex = 36;
+            this.PanelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             // 
             // PanelMain
             // 

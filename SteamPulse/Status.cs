@@ -10,7 +10,7 @@
 // last Edit: 10/29/22 V2.0
 
 #endregion
-using SteamPulse.UserSettings;
+using SteamPulse.SettingsInterface;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -36,7 +36,7 @@ namespace SteamPulse
         private readonly string SteamStore = "https://store.steampowered.com";
         private readonly string SteamCommunity = "https://steamcommunity.com";
         private readonly string CodeMage = "https://codemage.ir";
-        private readonly string GamingClub = "https://gaming-club.ir";
+        private readonly string AresGame = "https://AresGame.ir";
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -122,7 +122,7 @@ namespace SteamPulse
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.IdleFillColor = FlatRed));
                 IndicatorCodeMage.Invoke((MethodInvoker)(() => IndicatorCodeMage.onHoverState.FillColor = FlatRed));
             }
-            if (CheckStatus(GamingClub))
+            if (CheckStatus(AresGame))
             {
                 IndicatorGamingClub.Invoke((MethodInvoker)(() => IndicatorGamingClub.IdleFillColor = FlatGreen));
                 IndicatorGamingClub.Invoke((MethodInvoker)(() => IndicatorGamingClub.onHoverState.FillColor = FlatGreen));
@@ -136,7 +136,7 @@ namespace SteamPulse
 
         private void Status_Load(object sender, EventArgs e)
         {
-            if (Settings.DarkMode == true)
+            if (UserSettings.DarkMode == true)
             {
                 ChangeTheme(true);
             }
@@ -181,7 +181,7 @@ namespace SteamPulse
             Label_AppName.BackColor = BackGround;
             Label_AppName.ForeColor = ForeGround;
             PanelMail.BackgroundColor = BackGround;
-            LabelGamingClub.ForeColor = ForeGround;
+            LabelAresGame.ForeColor = ForeGround;
             LabelCodeMage.ForeColor = ForeGround;
             LabelSteamCommunity.ForeColor = ForeGround;
             LabelSteamStore.ForeColor = ForeGround;

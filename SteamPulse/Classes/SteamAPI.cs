@@ -12,7 +12,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SteamPulse.UserSettings;
+using SteamPulse.SettingsInterface;
 using System;
 using System.Linq;
 using System.Net;
@@ -42,7 +42,9 @@ namespace SteamPulse.SteamAPI
         protected internal static string MarketHistogramTicket { get; private set; }
         internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
         public static int ErrorCode { get; private set; }
-        public enum Regions { AR, TR, UA, RU, BR, US, IN, none }
+        public static bool KeyIsConnected, TicketIsConnected, IRTIsConnected;
+        public enum Regions { AR, TR, UA, RU, BR, US, IN, KZ, PK, AZ, PH, GetUserRegion }
+
         public struct ConnectToSteam
         {
             public static int GetAppIDByName(string Name)
@@ -87,7 +89,49 @@ namespace SteamPulse.SteamAPI
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
                     Data = "";
-                    Data = client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + Appid + "&cc=" + Settings.Currency.ISO);
+                    Data = client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + Appid + "&cc=" + UserSettings.Currency.ISO);
+                    if (Data == "")
+                    {
+                        if (Appid == 0)
+                        {
+                            ErrorCode = 0;
+                        }
+                        else
+                        {
+                            ErrorCode = 1;
+                        }
+                        return false;
+                    }
+                    else
+                    {
+                        JObject JsonObject = JObject.Parse(Data);
+                        bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + Appid + ".success"));
+                        if (Status == true)
+                        {
+                            GetData.Appid = Appid;
+                            return true;
+                        }
+                        else
+                        {
+                            ErrorCode = 2;
+                            return false;
+                        }
+                    }
+                }
+                catch
+                {
+                    ErrorCode = 3;
+                    return false;
+                }
+            }
+            public static bool Store(int Appid, string Region)
+            {
+                try
+                {
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    WebClient client = new WebClient();
+                    Data = "";
+                    Data = client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + Appid + "&cc=" + Region);
                     if (Data == "")
                     {
                         if (Appid == 0)
@@ -123,6 +167,47 @@ namespace SteamPulse.SteamAPI
                 }
             }
 
+            public static bool Package(string Region)
+            {
+                try
+                {
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    WebClient client = new WebClient();
+                    PackageData = "";
+                    PackageData = client.DownloadString("https://store.steampowered.com/api/packagedetails/?cc=" + Region + "&packageids=" + PackageID);
+                    if (PackageData == "")
+                    {
+                        if (PackageID == 0)
+                        {
+                            ErrorCode = 0;
+                        }
+                        else
+                        {
+                            ErrorCode = 1;
+                        }
+                        return false;
+                    }
+                    else
+                    {
+                        JObject JsonObject = JObject.Parse(PackageData);
+                        bool Status = Convert.ToBoolean(JsonObject.SelectToken("$." + PackageID + ".success"));
+                        if (Status == true)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ErrorCode = 2;
+                            return false;
+                        }
+                    }
+                }
+                catch
+                {
+                    ErrorCode = 3;
+                    return false;
+                }
+            }
             public static bool Package()
             {
                 try
@@ -130,7 +215,7 @@ namespace SteamPulse.SteamAPI
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
                     PackageData = "";
-                    PackageData = client.DownloadString("https://store.steampowered.com/api/packagedetails/?cc=" + Settings.Currency.ISO + "&packageids=" + PackageID);
+                    PackageData = client.DownloadString("https://store.steampowered.com/api/packagedetails/?cc=" + UserSettings.Currency.ISO + "&packageids=" + PackageID);
                     if (PackageData == "")
                     {
                         if (PackageID == 0)
@@ -226,22 +311,22 @@ namespace SteamPulse.SteamAPI
                 /// <summary>
                 /// Load Team Fortress 2 Keys Data.
                 /// </summary>
-                public static bool TF2Key(Regions Region = Regions.none)
+                public static bool TF2Key(Regions Region = Regions.GetUserRegion)
                 {
                     try
                     {
                         int currency = 0;
-                        if (Region == Regions.none)
+                        if (Region == Regions.GetUserRegion)
                         {
-                            currency = Settings.Currency.Number;
+                            currency = UserSettings.Currency.Number;
                         }
                         else if (Region == Regions.TR)
                         {
-                            currency = 17;
+                            currency = 1;
                         }
                         else if (Region == Regions.AR)
                         {
-                            currency = 34;
+                            currency = 1;
                         }
                         else if (Region == Regions.UA)
                         {
@@ -263,13 +348,23 @@ namespace SteamPulse.SteamAPI
                         {
                             currency = 1;
                         }
+                        else if (Region == Regions.AZ)
+                        {
+                            currency = 1;
+                        }
+                        else if (Region == Regions.PK)
+                        {
+                            currency = 1;
+                        }
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                         MarketDataKey = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + currency + "&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key");
+                        KeyIsConnected = true;
                         return true;
                     }
                     catch
                     {
+                        KeyIsConnected = false;
                         MarketDataTicket = "";
                         return false;
                     }
@@ -280,22 +375,22 @@ namespace SteamPulse.SteamAPI
                 /// <summary>
                 /// Load Team Fortress 2 Ticket Data.
                 /// </summary>
-                public static bool TF2Ticket(Regions Region = Regions.none)
+                public static bool TF2Ticket(Regions Region = Regions.GetUserRegion)
                 {
                     try
                     {
                         int currency = 0;
-                        if (Region == Regions.none)
+                        if (Region == Regions.GetUserRegion)
                         {
-                            currency = Settings.Currency.Number;
+                            currency = UserSettings.Currency.Number;
                         }
                         else if (Region == Regions.TR)
                         {
-                            currency = 17;
+                            currency = 1;
                         }
                         else if (Region == Regions.AR)
                         {
-                            currency = 34;
+                            currency = 1;
                         }
                         else if (Region == Regions.UA)
                         {
@@ -317,13 +412,23 @@ namespace SteamPulse.SteamAPI
                         {
                             currency = 1;
                         }
+                        else if (Region == Regions.AZ)
+                        {
+                            currency = 1;
+                        }
+                        else if (Region == Regions.PK)
+                        {
+                            currency = 1;
+                        }
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                         MarketDataTicket = client.DownloadString("https://steamcommunity.com/market/priceoverview/?appid=440&currency=" + currency + "&market_hash_name=Tour%20of%20Duty%20Ticket");
+                        TicketIsConnected = true;
                         return true;
                     }
                     catch
                     {
+                        TicketIsConnected = false;
                         MarketDataTicket = "";
                         return false;
                     }
@@ -334,7 +439,7 @@ namespace SteamPulse.SteamAPI
                     {
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                        MarketHistogramKey = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + Settings.Currency.ISO + "&language=english&currency=" + Settings.Currency.Number + "&item_nameid=1&two_factor=0");
+                        MarketHistogramKey = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + UserSettings.Currency.ISO + "&language=english&currency=" + UserSettings.Currency.Number + "&item_nameid=1&two_factor=0");
                         return true;
                     }
                     catch
@@ -349,7 +454,7 @@ namespace SteamPulse.SteamAPI
                     {
                         WebClient client = new WebClient();
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                        MarketHistogramTicket = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + Settings.Currency.ISO + "&language=english&currency=" + Settings.Currency.Number + "&item_nameid=20&two_factor=0");
+                        MarketHistogramTicket = client.DownloadString("https://steamcommunity.com/market/itemordershistogram?country=" + UserSettings.Currency.ISO + "&language=english&currency=" + UserSettings.Currency.Number + "&item_nameid=20&two_factor=0");
                         return true;
                     }
                     catch
@@ -369,35 +474,19 @@ namespace SteamPulse.SteamAPI
             /// <summary>
             /// Load Key IRT Price.
             /// </summary>
-            public static bool Key()
+            public static bool KeyAndTicket()
             {
                 try
                 {
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     WebClient client = new WebClient();
                     IRTData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
+                    IRTIsConnected = true;
                     return true;
                 }
                 catch
                 {
-                    IRTData = "";
-                    return false;
-                }
-            }
-            /// <summary>
-            /// Load Ticket IRT Price.
-            /// </summary>
-            public static bool Ticket()
-            {
-                try
-                {
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                    WebClient client = new WebClient();
-                    IRTData = client.DownloadString("https://api.codemage.ir/Projects/SteamPulse/ShopData");
-                    return true;
-                }
-                catch
-                {
+                    IRTIsConnected = false;
                     IRTData = "";
                     return false;
                 }
@@ -1086,7 +1175,7 @@ namespace SteamPulse.SteamAPI
                         {
                             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                             WebClient client = new WebClient();
-                            JObject JsonObject = JObject.Parse(client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + GetData.Appid + "&cc=" + Settings.Currency.ISO));
+                            JObject JsonObject = JObject.Parse(client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + GetData.Appid + "&cc=" + UserSettings.Currency.ISO));
                             if (RawData.SelectToken("$." + GetData.Appid + ".data.dlc") == null)
                             {
                                 return false;
@@ -1150,7 +1239,7 @@ namespace SteamPulse.SteamAPI
                         get
                         {
                             WebClient client = new WebClient();
-                            string data = client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + GetData.DLCID + "&cc=" + Settings.Currency.ISO + "&l=en");
+                            string data = client.DownloadString("https://store.steampowered.com/api/appdetails?appids=" + GetData.DLCID + "&cc=" + UserSettings.Currency.ISO + "&l=en");
                             JObject JsonObject = JObject.Parse(data);
                             return JsonObject;
                         }
@@ -1409,7 +1498,17 @@ namespace SteamPulse.SteamAPI
                                     string price = data_object["lowest_price"].ToString();
                                     double price_full;
                                     price_full = Convert.ToDouble(Regex.Replace(price, "[^0-9]", ""));
-                                    price_full /= 100;
+                                    if (UserSettings.Currency.Number == 18 || UserSettings.Currency.Number == 37)
+                                    {
+                                        if (price.Contains(","))
+                                        {
+                                            price_full /= 100;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        price_full /= 100;
+                                    }
                                     return price_full;
                                 }
                                 else

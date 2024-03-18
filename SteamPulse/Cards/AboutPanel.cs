@@ -15,26 +15,36 @@ namespace SteamPulse.Cards
         private string URL;
         private readonly string AppHash = Hasher("SteamPulse");
         public static bool DarkMode;
-        public AboutPanel()
+        private Main Main { get; set; }
+        public AboutPanel(Main Form)
         {
             InitializeComponent();
+            Main = Form;
         }
-
         private void LabelCopyright_Click(object sender, EventArgs e)
         {
-
+            Process.Start("https://codemage.ir");
         }
-
-        private void Label_About_Header_Click(object sender, EventArgs e)
+        private void LabelHeader_Click(object sender, EventArgs e)
         {
             MessageBox.Show("test");
         }
-
         private void AboutPanel_Load(object sender, EventArgs e)
         {
-            LabelVersion.Text = string.Format("Current Version : {0}", Application.ProductVersion);
-            LabelUpdateStatus.Text = "Connecting To Server...";
+            LabelVersion.Text = string.Format("Current version : {0} LTS", Application.ProductVersion);
+            if (SettingsInterface.UserSettings.CheckUpdate)
+            {
 
+                LabelUpdateStatus.Text = "Connecting to server...";
+                Timer.Enabled = true;
+            }
+            else
+            {
+                PictureBoxLoading.Visible = false;
+                LabelUpdateStatus.Location = new Point(18, 385);
+                LabelUpdateStatus.Text = "Update disabled.";
+                Timer.Enabled = false;
+            }
             DarkMode = Convert.ToBoolean(Properties.Settings.Default["DarkMode"]);
             if (DarkMode == true)
             {
@@ -62,11 +72,13 @@ namespace SteamPulse.Cards
                     string UpdateDate_XML = Node["UpdateDate"].InnerText;
                     string UpdateURL_XML = Node["UpdateURL"].InnerText;
                     string UpdateType = Node["UpdateType"].InnerText;
-                    int result = AppVersion.CompareTo(ServerVersion);
+                    int Result = AppVersion.CompareTo(ServerVersion);
                     if (AppHash == AppID_XML)
                     {
                         if (Convert.ToBoolean(Properties.Settings.Default["CheckUpdate"]) == true)
                         {
+                            LabelUpdateStatus.Location = new Point(18, 385);
+                            PictureBoxLoading.Visible = false;
                             if (Convert.ToBoolean(Properties.Settings.Default["InstallBeta"]) == true)
                             {
                                 Version BetaVersion = new Version(Node["BetaVersion"].InnerText);
@@ -79,61 +91,62 @@ namespace SteamPulse.Cards
                                     if (Betaresult < 0)
                                     {
 
-                                        LabelUpdateStatus.Text = string.Format("Update {1} Beta Available.", UpdateType, BetaVersion);
+                                        LabelUpdateStatus.Text = string.Format("Update {1} beta available.", UpdateType, BetaVersion);
                                         Log.LogUpdate("Update", BetaVersion, "Beta");
                                         LabelDownload.Visible = true;
                                         URL = "https://" + BetaURL_XML;
                                     }
                                     else if (Betaresult > 0)
                                     {
-                                        LabelUpdateStatus.Text = string.Format("Version {0} Beta Installed.", Application.ProductVersion);
+                                        LabelUpdateStatus.Text = string.Format("Version {0} beta installed.", Application.ProductVersion);
                                     }
                                     else
                                     {
-                                        LabelUpdateStatus.Text = "Latest Version Installed.";
+                                        LabelUpdateStatus.Text = "Steampulse is up to date.";
                                     }
                                 }
                                 else
                                 {
-                                    if (result < 0)
+                                    if (Result < 0)
                                     {
-                                        LabelUpdateStatus.Text = string.Format("{0} {1} Available.", UpdateType, ServerVersion);
+                                        LabelUpdateStatus.Text = string.Format("{0} {1} available.", UpdateType, ServerVersion);
                                         Log.LogUpdate(UpdateType, ServerVersion);
                                         LabelDownload.Visible = true;
                                         URL = "https://" + UpdateURL_XML;
                                     }
-                                    else if (result > 0)
+                                    else if (Result > 0)
                                     {
-                                        LabelUpdateStatus.Text = string.Format("Version {0} Beta Installed.", Application.ProductVersion);
+                                        LabelUpdateStatus.Text = string.Format("Version {0} beta installed.", Application.ProductVersion);
                                     }
                                     else
                                     {
-                                        LabelUpdateStatus.Text = "Latest Version Installed.";
+                                        LabelUpdateStatus.Text = "Steampulse is up to date.";
                                     }
                                 }
                             }
                             else
                             {
-                                if (result < 0)
+                                if (Result < 0)
                                 {
-                                    LabelUpdateStatus.Text = string.Format("{0} {1} Available.", UpdateType, ServerVersion);
+                                    LabelUpdateStatus.Text = string.Format("{0} {1} available.", UpdateType, ServerVersion);
                                     Log.LogUpdate(UpdateType, ServerVersion);
                                     LabelDownload.Visible = true;
                                     URL = "https://" + UpdateURL_XML;
                                 }
-                                else if (result > 0)
+                                else if (Result > 0)
                                 {
-                                    LabelUpdateStatus.Text = string.Format("Version {0} Beta Installed.", Application.ProductVersion);
+                                    LabelUpdateStatus.Text = string.Format("SteamPulse is up to date.", Application.ProductVersion);
                                 }
                                 else
                                 {
-                                    LabelUpdateStatus.Text = "Latest Version Installed.";
+                                    LabelUpdateStatus.Text = "Steampulse is up to date.";
                                 }
                             }
                         }
                         else
                         {
-                            LabelUpdateStatus.Text = "Update Disabled.";
+                            PictureBoxLoading.Visible = false;
+                            LabelUpdateStatus.Text = "Update disabled.";
                         }
                     }
                     else { }
@@ -141,26 +154,22 @@ namespace SteamPulse.Cards
             }
             catch
             {
-                LabelUpdateStatus.Text = "Can't Get Data From Server. Click To Retry";
+                PictureBoxLoading.Visible = false;
+                LabelUpdateStatus.Text = "Can't get data from server. click to retry";
                 LabelUpdateStatus.Cursor = Cursors.Hand;
                 LabelDownload.Visible = false;
             }
         }
-
-        private void Label_Download_Click(object sender, EventArgs e)
+        private void LabelDownload_Click(object sender, EventArgs e)
         {
             Process.Start(URL);
             Application.Exit();
         }
-        private void Label_update_Click(object sender, EventArgs e)
+        private void LabelUpdate_Click(object sender, EventArgs e)
         { }
-        private void Label_update_status_Click(object sender, EventArgs e)
+        private void LabelUpdateStatus_Click(object sender, EventArgs e)
         {
             UpdateChecker();
-        }
-        private void Label_copyright_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://codemage.ir");
         }
         private static string Hasher(string input)
         {
@@ -184,25 +193,31 @@ namespace SteamPulse.Cards
             {
                 ForeGround = GlobalVariables.Colors.Dark.White;
                 BackColor = GlobalVariables.Colors.Dark.NileBlue;
-
+                PictureBoxDonate.Image = Properties.Resources.donate_white;
+                PictureBoxEmail.Image = Properties.Resources.envelope_white;
+                PictureBoxGithub.Image = Properties.Resources.github_white;
+                PictureBoxTelegram.Image = Properties.Resources.telegram_light;
             }
             else
             {
                 BackGround = GlobalVariables.Colors.Light.White;
                 ForeGround = GlobalVariables.Colors.Light.NileBlue;
-                BackColor = GlobalVariables.Colors.Light.AthenGray;
+                BackColor = GlobalVariables.Colors.Light.White;
             }
-            Label_About_Header.ForeColor = ForeGround;
+            LabelHeader.ForeColor = ForeGround;
             LabelCopyright.ForeColor = ForeGround;
             LabelDownload.ForeColor = ForeGround;
-            LabelUpdate.ForeColor = ForeGround;
             LabelUpdateStatus.ForeColor = ForeGround;
             LabelVersion.ForeColor = ForeGround;
-            Label_About.ForeColor = ForeGround;
+            LabelAbout.ForeColor = ForeGround;
+            LabelDonate.ForeColor = ForeGround;
+            LabelEmail.ForeColor = ForeGround;
+            LabelTelegram.ForeColor = ForeGround;
+            LabelGithub.ForeColor = ForeGround;
+            LabelSteamPulseWeb.ForeColor = ForeGround;
             Separator.LineColor = ForeGround;
 
         }
-
         private void Timer_Tick(object sender, EventArgs e)
         {
             int i = 0;
@@ -221,6 +236,51 @@ namespace SteamPulse.Cards
                 }
                 Timer.Enabled = false;
             }
+        }
+        private void Github_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/amirhoseindavat/SteamPulse");
+        }
+        private void Telegram_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://t.me/SteamPulse");
+        }
+        private void Email_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:info@codemage.ir");
+        }
+        private void SteamPulseWeb_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://SteamPulse.ir");
+        }
+        private void Donate_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://CodeMage.ir/Donate");
+        }
+
+        private void LabelVersion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelAbout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelUpdateStatus_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBoxLoading_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Separator_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

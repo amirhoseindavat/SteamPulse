@@ -12,7 +12,7 @@ namespace Giveaway
     {
         private long Giveawayend;
         private DateTime EndTime;
-        private readonly int[] Winners = new int[10];
+        private readonly int[] Winners = new int[5];
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;

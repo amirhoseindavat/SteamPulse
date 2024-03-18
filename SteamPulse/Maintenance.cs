@@ -55,40 +55,6 @@ namespace SteamPulse
         }
         private void LabelLaunch_Click(object sender, EventArgs e)
         {
-            MaintenanceMode = true;
-            if (!string.IsNullOrEmpty(Properties.Settings.Default["CurrencyName"].ToString()))
-            {
-                if (Properties.Settings.Default["StartingPage"].ToString() == "Main")
-                {
-                    Hide();
-                    Form main = new Main();
-                    Log.LogMaintenancee();
-                    main.ShowDialog();
-                    Close();
-                }
-                if (Properties.Settings.Default["StartingPage"].ToString() == "Market")
-                {
-                    Hide();
-                    Form market = new LiveMarketPrice();
-                    Log.LogMaintenancee();
-                    market.ShowDialog();
-                    Close();
-                }
-                if (Properties.Settings.Default["StartingPage"].ToString() == "Calculator")
-                {
-                    Hide();
-                    Form calculator = new Calculator();
-                    Log.LogMaintenancee();
-                    calculator.ShowDialog();
-                    Close();
-
-                }
-            }
-            else
-            {
-                Form setting = new Setting();
-                setting.ShowDialog();
-            }
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -102,6 +68,15 @@ namespace SteamPulse
         private void Maintenance_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

@@ -44,6 +44,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,13 +55,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4CBA4B76A697B8FE28BDF576259368F06CB1B242</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>BBBA20734FCE5DFC6657F9B4F8D71F68FE3ADDBF</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>SteamPulse_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -86,7 +87,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SteamPulse.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
@@ -214,19 +216,37 @@
     <Reference Include="JsonPath, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JsonPath.1.0.6\lib\net35\JsonPath.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.0.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
@@ -257,6 +277,9 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -278,23 +301,11 @@
     <Compile Include="Cards\AboutPanel.Designer.cs">
       <DependentUpon>AboutPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppidSearch.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Cards\BugReport.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AppidSearch.Designer.cs">
-      <DependentUpon>AppidSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BugReports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BugReports.Designer.cs">
-      <DependentUpon>BugReports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Calculator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Calculator.Designer.cs">
-      <DependentUpon>Calculator.cs</DependentUpon>
+    <Compile Include="Cards\BugReport.Designer.cs">
+      <DependentUpon>BugReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Cards\Data.cs">
       <SubType>UserControl</SubType>
@@ -302,11 +313,35 @@
     <Compile Include="Cards\Data.Designer.cs">
       <DependentUpon>Data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cards\DeveloperSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\DeveloperSettings.Designer.cs">
+      <DependentUpon>DeveloperSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Giveaway.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\Giveaway.Designer.cs">
+      <DependentUpon>Giveaway.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cards\Help.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Cards\Help.Designer.cs">
       <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Market.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\Market.Designer.cs">
+      <DependentUpon>Market.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\SalesBanner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\SalesBanner.Designer.cs">
+      <DependentUpon>SalesBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="Cards\Search.cs">
       <SubType>UserControl</SubType>
@@ -314,38 +349,32 @@
     <Compile Include="Cards\Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cards\SideBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Cards\SideBar.Designer.cs">
       <DependentUpon>SideBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cards\Welcome.cs">
+    <Compile Include="Cards\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cards\Welcome.Designer.cs">
-      <DependentUpon>Welcome.cs</DependentUpon>
+    <Compile Include="Cards\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\GlobalVariables.cs" />
     <Compile Include="Classes\Logger.cs" />
-    <Compile Include="Classes\Settings.cs" />
-    <Compile Include="DLCBrowser.cs">
+    <Compile Include="Classes\SettingsInterface.cs" />
+    <Compile Include="Excluded\DLCBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DLCBrowser.Designer.cs">
+    <Compile Include="Excluded\DLCBrowser.Designer.cs">
       <DependentUpon>DLCBrowser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DlcDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DlcDetails.Designer.cs">
-      <DependentUpon>DlcDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GameDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameDetails.Designer.cs">
-      <DependentUpon>GameDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Giveaway.cs">
       <SubType>Form</SubType>
@@ -360,12 +389,6 @@
     <Compile Include="Launcher.Designer.cs">
       <DependentUpon>Launcher.cs</DependentUpon>
     </Compile>
-    <Compile Include="LiveMarketPrice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LiveMarketPrice.designer.cs">
-      <DependentUpon>LiveMarketPrice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,38 +402,14 @@
     <Compile Include="Maintenance.Designer.cs">
       <DependentUpon>Maintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="DiscountCalculator.cs">
+    <Compile Include="Excluded\DiscountCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DiscountCalculator.Designer.cs">
+    <Compile Include="Excluded\DiscountCalculator.Designer.cs">
       <DependentUpon>DiscountCalculator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OldLiveMarketPrice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OldLiveMarketPrice.designer.cs">
-      <DependentUpon>OldLiveMarketPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DevSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DevSettings.Designer.cs">
-      <DependentUpon>DevSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegionalMarket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegionalMarket.designer.cs">
-      <DependentUpon>RegionalMarket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Setting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Setting.Designer.cs">
-      <DependentUpon>Setting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Extra\Settings.cs" />
     <Compile Include="Status.cs">
       <SubType>Form</SubType>
@@ -422,38 +421,41 @@
     <EmbeddedResource Include="Cards\AboutPanel.resx">
       <DependentUpon>AboutPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppidSearch.resx">
-      <DependentUpon>AppidSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BugReports.resx">
-      <DependentUpon>BugReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Calculator.resx">
-      <DependentUpon>Calculator.cs</DependentUpon>
+    <EmbeddedResource Include="Cards\BugReport.resx">
+      <DependentUpon>BugReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cards\Data.resx">
       <DependentUpon>Data.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cards\DeveloperSettings.resx">
+      <DependentUpon>DeveloperSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\Giveaway.resx">
+      <DependentUpon>Giveaway.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cards\Help.resx">
       <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\Market.resx">
+      <DependentUpon>Market.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\SalesBanner.resx">
+      <DependentUpon>SalesBanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cards\Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cards\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cards\SideBar.resx">
       <DependentUpon>SideBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cards\Welcome.resx">
-      <DependentUpon>Welcome.cs</DependentUpon>
+    <EmbeddedResource Include="Cards\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DLCBrowser.resx">
+    <EmbeddedResource Include="Excluded\DLCBrowser.resx">
       <DependentUpon>DLCBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DlcDetails.resx">
-      <DependentUpon>DlcDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GameDetails.resx">
-      <DependentUpon>GameDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Giveaway.resx">
       <DependentUpon>Giveaway.cs</DependentUpon>
@@ -461,35 +463,20 @@
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LiveMarketPrice.resx">
-      <DependentUpon>LiveMarketPrice.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance.resx">
       <DependentUpon>Maintenance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DiscountCalculator.resx">
+    <EmbeddedResource Include="Excluded\DiscountCalculator.resx">
       <DependentUpon>DiscountCalculator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OldLiveMarketPrice.resx">
-      <DependentUpon>OldLiveMarketPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevSettings.resx">
-      <DependentUpon>DevSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegionalMarket.resx">
-      <DependentUpon>RegionalMarket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Setting.resx">
-      <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Status.resx">
       <DependentUpon>Status.cs</DependentUpon>
@@ -516,7 +503,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Extra\SteamPulse.pfx" />
-    <None Include="SteamPulse.pfx" />
+    <None Include="Extra\SteamPulse_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Extra\App.config" />
@@ -534,6 +521,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\steamdb_logo_White.png" />
+    <None Include="Resources\SteamPulseSearchGif.gif" />
+    <None Include="Resources\SteamPulse Logo_White.gif" />
+    <None Include="Resources\SteamPulse Logo.gif" />
+    <None Include="Resources\telegram_light.png" />
+    <None Include="Resources\Steam Pulse Logo.png" />
+    <None Include="Resources\telegram.png" />
     <None Include="Resources\Loading.gif" />
     <None Include="Resources\pcgw_logo.png" />
     <None Include="Resources\steamdb_logo.png" />
@@ -818,6 +812,17 @@
     <None Include="Resources\Flags\zm.png" />
     <None Include="Resources\Flags\zw.png" />
     <None Include="Resources\chevron-right-solid.png" />
+    <None Include="Resources\BTN_Back_Dark.png" />
+    <None Include="Resources\BTN_Back_Light.png" />
+    <None Include="Resources\donate.png" />
+    <None Include="Resources\envelope.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\donate_white.png" />
+    <None Include="Resources\envelope_white.png" />
+    <None Include="Resources\github_white.png" />
+    <None Include="Resources\chevron-right-solid_White.png" />
+    <None Include="Resources\exchange.png" />
+    <None Include="Resources\exchange_white.png" />
     <Content Include="Resources\Icon.ico" />
   </ItemGroup>
   <ItemGroup />

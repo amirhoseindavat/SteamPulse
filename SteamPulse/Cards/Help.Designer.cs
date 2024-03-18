@@ -30,28 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Elipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.Label_Remaining = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.Label_Search = new System.Windows.Forms.Label();
+            this.Label_Calculator = new System.Windows.Forms.Label();
+            this.Label_Market = new System.Windows.Forms.Label();
+            this.Label_Settings = new System.Windows.Forms.Label();
+            this.Label_About = new System.Windows.Forms.Label();
+            this.Label_Bugs = new System.Windows.Forms.Label();
+            this.Picture_Search = new System.Windows.Forms.PictureBox();
+            this.Picture_Calculator = new System.Windows.Forms.PictureBox();
+            this.Picture_Market = new System.Windows.Forms.PictureBox();
+            this.Picture_Settings = new System.Windows.Forms.PictureBox();
+            this.Picture_Bugs = new System.Windows.Forms.PictureBox();
+            this.Picture_About = new System.Windows.Forms.PictureBox();
+            this.Label_Close = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Calculator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Market)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Bugs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_About)).BeginInit();
             this.SuspendLayout();
             // 
             // Elipse
@@ -59,204 +56,186 @@
             this.Elipse.ElipseRadius = 20;
             this.Elipse.TargetControl = this;
             // 
-            // Label_Remaining
+            // Label_Search
             // 
-            this.Label_Remaining.AutoSize = true;
-            this.Label_Remaining.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Remaining.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Remaining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.Label_Remaining.Location = new System.Drawing.Point(27, 18);
-            this.Label_Remaining.Name = "Label_Remaining";
-            this.Label_Remaining.Size = new System.Drawing.Size(522, 30);
-            this.Label_Remaining.TabIndex = 59;
-            this.Label_Remaining.Text = "To view Games, DLC\'s and Softwares, Click on Search Button\r\n";
+            this.Label_Search.AutoSize = true;
+            this.Label_Search.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Search.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Search.Location = new System.Drawing.Point(10, 18);
+            this.Label_Search.Name = "Label_Search";
+            this.Label_Search.Size = new System.Drawing.Size(471, 30);
+            this.Label_Search.TabIndex = 59;
+            this.Label_Search.Text = "To return to the dashboard, click on dashboard button";
+            this.Label_Search.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // Label_Calculator
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label1.Location = new System.Drawing.Point(27, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(492, 30);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "To Calculate Custom Amount, Click on Calculator Button\r\n";
+            this.Label_Calculator.AutoSize = true;
+            this.Label_Calculator.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Calculator.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Calculator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Calculator.Location = new System.Drawing.Point(10, 94);
+            this.Label_Calculator.Name = "Label_Calculator";
+            this.Label_Calculator.Size = new System.Drawing.Size(604, 30);
+            this.Label_Calculator.TabIndex = 60;
+            this.Label_Calculator.Text = "To calculate custom amount or specific game, click on Search button\r\n";
+            this.Label_Calculator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // Label_Market
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label2.Location = new System.Drawing.Point(27, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(478, 30);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "To View and Buy Key And Ticket, Click on Market Button\r\n";
+            this.Label_Market.AutoSize = true;
+            this.Label_Market.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Market.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Market.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Market.Location = new System.Drawing.Point(10, 175);
+            this.Label_Market.Name = "Label_Market";
+            this.Label_Market.Size = new System.Drawing.Size(464, 30);
+            this.Label_Market.TabIndex = 61;
+            this.Label_Market.Text = "To view and buy key or  ticket, click on market button\r\n";
+            this.Label_Market.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // Label_Settings
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label3.Location = new System.Drawing.Point(27, 209);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(459, 30);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "To Viw and Change Settings, Click on Settings Button";
+            this.Label_Settings.AutoSize = true;
+            this.Label_Settings.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Settings.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Settings.Location = new System.Drawing.Point(10, 252);
+            this.Label_Settings.Name = "Label_Settings";
+            this.Label_Settings.Size = new System.Drawing.Size(451, 30);
+            this.Label_Settings.TabIndex = 62;
+            this.Label_Settings.Text = "To viw and change settings, click on settings button";
+            this.Label_Settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // Label_About
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label5.Location = new System.Drawing.Point(27, 342);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(488, 30);
-            this.label5.TabIndex = 64;
-            this.label5.Text = "To Report Bugs and Problems, Click on Bug Report Buton";
+            this.Label_About.AutoSize = true;
+            this.Label_About.BackColor = System.Drawing.Color.Transparent;
+            this.Label_About.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_About.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_About.Location = new System.Drawing.Point(10, 410);
+            this.Label_About.Name = "Label_About";
+            this.Label_About.Size = new System.Drawing.Size(570, 30);
+            this.Label_About.TabIndex = 64;
+            this.Label_About.Text = "To check for update and information or donate ❤️, click on about";
+            this.Label_About.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // Label_Bugs
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label6.Location = new System.Drawing.Point(27, 414);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(481, 30);
-            this.label6.TabIndex = 65;
-            this.label6.Text = "To Donate CodeMage Team, Click On Donate Button <3";
+            this.Label_Bugs.AutoSize = true;
+            this.Label_Bugs.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Bugs.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Bugs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.Label_Bugs.Location = new System.Drawing.Point(10, 334);
+            this.Label_Bugs.Name = "Label_Bugs";
+            this.Label_Bugs.Size = new System.Drawing.Size(481, 30);
+            this.Label_Bugs.TabIndex = 66;
+            this.Label_Bugs.Text = "To report bugs and problems, click on bug report buton";
+            this.Label_Bugs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // Picture_Search
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Poppins", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label7.Location = new System.Drawing.Point(27, 277);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(505, 30);
-            this.label7.TabIndex = 66;
-            this.label7.Text = "To Check for Update and View Information, Click On About";
+            this.Picture_Search.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_Search.Location = new System.Drawing.Point(602, 8);
+            this.Picture_Search.Name = "Picture_Search";
+            this.Picture_Search.Size = new System.Drawing.Size(30, 50);
+            this.Picture_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Search.TabIndex = 67;
+            this.Picture_Search.TabStop = false;
             // 
-            // pictureBox1
+            // Picture_Calculator
             // 
-            this.pictureBox1.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox1.Location = new System.Drawing.Point(599, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 67;
-            this.pictureBox1.TabStop = false;
+            this.Picture_Calculator.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_Calculator.Location = new System.Drawing.Point(602, 85);
+            this.Picture_Calculator.Name = "Picture_Calculator";
+            this.Picture_Calculator.Size = new System.Drawing.Size(30, 50);
+            this.Picture_Calculator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Calculator.TabIndex = 68;
+            this.Picture_Calculator.TabStop = false;
             // 
-            // pictureBox2
+            // Picture_Market
             // 
-            this.pictureBox2.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox2.Location = new System.Drawing.Point(599, 72);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 68;
-            this.pictureBox2.TabStop = false;
+            this.Picture_Market.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_Market.Location = new System.Drawing.Point(602, 168);
+            this.Picture_Market.Name = "Picture_Market";
+            this.Picture_Market.Size = new System.Drawing.Size(30, 50);
+            this.Picture_Market.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Market.TabIndex = 69;
+            this.Picture_Market.TabStop = false;
             // 
-            // pictureBox3
+            // Picture_Settings
             // 
-            this.pictureBox3.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox3.Location = new System.Drawing.Point(599, 136);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 69;
-            this.pictureBox3.TabStop = false;
+            this.Picture_Settings.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_Settings.Location = new System.Drawing.Point(602, 246);
+            this.Picture_Settings.Name = "Picture_Settings";
+            this.Picture_Settings.Size = new System.Drawing.Size(30, 50);
+            this.Picture_Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Settings.TabIndex = 70;
+            this.Picture_Settings.TabStop = false;
             // 
-            // pictureBox4
+            // Picture_Bugs
             // 
-            this.pictureBox4.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox4.Location = new System.Drawing.Point(599, 203);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 70;
-            this.pictureBox4.TabStop = false;
+            this.Picture_Bugs.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_Bugs.Location = new System.Drawing.Point(602, 325);
+            this.Picture_Bugs.Name = "Picture_Bugs";
+            this.Picture_Bugs.Size = new System.Drawing.Size(30, 50);
+            this.Picture_Bugs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_Bugs.TabIndex = 71;
+            this.Picture_Bugs.TabStop = false;
             // 
-            // pictureBox5
+            // Picture_About
             // 
-            this.pictureBox5.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox5.Location = new System.Drawing.Point(599, 268);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 71;
-            this.pictureBox5.TabStop = false;
+            this.Picture_About.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
+            this.Picture_About.Location = new System.Drawing.Point(602, 402);
+            this.Picture_About.Name = "Picture_About";
+            this.Picture_About.Size = new System.Drawing.Size(30, 50);
+            this.Picture_About.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture_About.TabIndex = 72;
+            this.Picture_About.TabStop = false;
             // 
-            // pictureBox6
+            // Label_Close
             // 
-            this.pictureBox6.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox6.Location = new System.Drawing.Point(599, 334);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 72;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SteamPulse.Properties.Resources.chevron_right_solid;
-            this.pictureBox7.Location = new System.Drawing.Point(599, 404);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(30, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 73;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Font = new System.Drawing.Font("Motiva Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(0, 444);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(644, 24);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Click to Close";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.Label_Close.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label_Close.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Label_Close.Font = new System.Drawing.Font("Motiva Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Close.ForeColor = System.Drawing.Color.Red;
+            this.Label_Close.Location = new System.Drawing.Point(0, 444);
+            this.Label_Close.Name = "Label_Close";
+            this.Label_Close.Size = new System.Drawing.Size(644, 24);
+            this.Label_Close.TabIndex = 74;
+            this.Label_Close.Text = "Click to close";
+            this.Label_Close.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Label_Close.Click += new System.EventHandler(this.label4_Click);
             // 
             // Help
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Label_Remaining);
+            this.Controls.Add(this.Picture_About);
+            this.Controls.Add(this.Picture_Bugs);
+            this.Controls.Add(this.Picture_Settings);
+            this.Controls.Add(this.Picture_Market);
+            this.Controls.Add(this.Picture_Calculator);
+            this.Controls.Add(this.Picture_Search);
+            this.Controls.Add(this.Label_Bugs);
+            this.Controls.Add(this.Label_About);
+            this.Controls.Add(this.Label_Settings);
+            this.Controls.Add(this.Label_Market);
+            this.Controls.Add(this.Label_Calculator);
+            this.Controls.Add(this.Label_Search);
+            this.Controls.Add(this.Label_Close);
             this.Name = "Help";
             this.Size = new System.Drawing.Size(644, 468);
             this.Load += new System.EventHandler(this.Help_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Calculator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Market)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_Bugs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture_About)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,20 +244,18 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse Elipse;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Label_Remaining;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Label_Settings;
+        private System.Windows.Forms.Label Label_Market;
+        private System.Windows.Forms.Label Label_Calculator;
+        private System.Windows.Forms.Label Label_Search;
+        private System.Windows.Forms.Label Label_About;
+        private System.Windows.Forms.PictureBox Picture_Search;
+        private System.Windows.Forms.Label Label_Bugs;
+        private System.Windows.Forms.PictureBox Picture_About;
+        private System.Windows.Forms.PictureBox Picture_Bugs;
+        private System.Windows.Forms.PictureBox Picture_Settings;
+        private System.Windows.Forms.PictureBox Picture_Market;
+        private System.Windows.Forms.PictureBox Picture_Calculator;
+        private System.Windows.Forms.Label Label_Close;
     }
 }

@@ -11,7 +11,7 @@
 #endregion
 
 using Newtonsoft.Json.Linq;
-using SteamPulse.UserSettings;
+using SteamPulse.SettingsInterface;
 using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -68,7 +68,7 @@ namespace SteamPulse
 
         private void Giveaway_Load(object sender, EventArgs e)
         {
-            DarkMode = Settings.DarkMode;
+            DarkMode = UserSettings.DarkMode;
             if (DarkMode == true)
             {
                 ChangeTheme(true);
