@@ -11,6 +11,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -115,31 +116,8 @@ namespace SteamPulse
                 PanelHead.BringToFront();
             }
         }
-        private void Main_Load(object sender, EventArgs e)
+        private void ResizeMain()
         {
-            MainUpdateChecker();
-
-            SideBar Sidebar = new SideBar(this)
-            {
-                Dock = DockStyle.Fill
-            };
-            Panel_SideBar.Controls.Clear();
-            Panel_SideBar.Controls.Add(Sidebar);
-            Sidebar.BringToFront();
-
-            bool MaintenanceMode = Maintenance.MaintenanceMode;
-            if (MaintenanceMode == true)
-            {
-                Label_AppName.Text = "SteamPulse - Maintenance Mode";
-            }
-            else
-            {
-                Label_AppName.Text = "SteamPulse";
-            }
-
-            DarkMode = UserSettings.DarkMode;
-
-
             if (giveawayisactive || IsSaleActive)
             {
                 //Size = new Size(944, 690);
@@ -176,6 +154,32 @@ namespace SteamPulse
                 //Size = new Size(944, 552);
                 Size = new Size(944, 539);
             }
+            this.CenterToScreen();
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            MainUpdateChecker();
+
+            SideBar Sidebar = new SideBar(this)
+            {
+                Dock = DockStyle.Fill
+            };
+            Panel_SideBar.Controls.Clear();
+            Panel_SideBar.Controls.Add(Sidebar);
+            Sidebar.BringToFront();
+
+            bool MaintenanceMode = Maintenance.MaintenanceMode;
+            if (MaintenanceMode == true)
+            {
+                Label_AppName.Text = "SteamPulse - Maintenance Mode";
+            }
+            else
+            {
+                Label_AppName.Text = "SteamPulse";
+            }
+
+            DarkMode = UserSettings.DarkMode;
+
             Dashboard Dashboard = new Dashboard(this);
             ShowInContainer(Dashboard, SideBars.DashBoard);
 
@@ -203,6 +207,13 @@ namespace SteamPulse
             }
 
             CenterToScreen();
+
+            if(!string.IsNullOrEmpty(SearchID))
+            {
+                Data.Appid = Convert.ToInt32(SearchID);
+                Data data = new Data();
+                ShowInContainer(data, Main.SideBars.Search);
+            }
 
         }
         private void Main_MouseDown(object sender, MouseEventArgs e)
@@ -247,6 +258,15 @@ namespace SteamPulse
                     Saleend = Convert.ToInt64(node["Saleend"].InnerText);
                     SaleBanner = node["Salebanner"].InnerText.ToString();
                     SaleURL = node["Saleurl"].InnerText.ToString();
+                    SalesBanner.type = node["EventType"].InnerText.ToString();
+
+                    if (DateTimeOffset.Now.ToUnixTimeSeconds() > Saleend)
+                    {
+                        IsSaleActive = false;
+                    }
+
+                    ResizeMain();
+                    this.Focus();
                     if (AppHash == app_id_xml2)
                     {
                         if (Convert.ToBoolean(UserSettings.CheckUpdate) == true)
@@ -262,6 +282,7 @@ namespace SteamPulse
                                 {
                                     if (BetaResult < 0)
                                     {
+                                        
                                         ShowNotification(string.Format("Update {1} Beta Available, Check About for More Information.", UpdateType, BetaVersion), BunifuSnackbar.MessageTypes.Information);
                                         Log.LogUpdate("Update", BetaVersion, "Beta");
                                         SideBar.UpdateAvailable = true;

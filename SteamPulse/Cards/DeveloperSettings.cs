@@ -143,7 +143,8 @@ namespace SteamPulse.Cards
             LabelHistogram.ForeColor = ForeGround;
             PanelHistogram.BackgroundColor = BackGround;
             PanelIRTSource.BackgroundColor = BackGround;
-            LabelIRTSource.ForeColor = ForeColor;
+            LabelIRTSource.ForeColor = ForeGround;
+            
         }
         private void ToggleImprove_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {

@@ -123,13 +123,24 @@
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="GroupBoxAppidSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TextBoxSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAiIAAAAlCAYAAAB/LoK7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVHhe7dsxjtNAAIZRl1vuEbak5CTUHIGGsyBxBq5A
+        u4kdO6RPsakSIQUhY0XISFkrWJEZsyOhiHJjhuI96S+ScfpP1iQDAPhvzGaz11VV3S8Wi2Y+nw9mZmZm
+        z9nYFKEtPoXGeBNz42/h8HZ8aL1et03TDF3XDQAAzzU2xeFwGDabzbEsy4fQHHcxP/4YI6Su6/gTAIDr
+        a9t2CM3xOcTITUyQLCuK4m2olB/xGQCAyWy32y7EyPuYIU9vQ8ZXJgAAUzsej+O9kS8xQ7Isz/PHvu/j
+        MQDAtMZLrDFDsmz8AADwrwgRACAZIQIAJCNEAIBkhAgAkIwQAQCSESIAQDJCBABIRogAAMkIEQAgGSEC
+        ACQjRACAZIQIAJCMEAEAkhEiAEAyQgQASEaIAADJCBEAIBkhAgAkI0QAgGSECACQjBABAJIRIgBAMhch
+        kud5fz6f4xEAwLQuQqQsy4e2beMRAMB0TqfTUBRFGzPkd4i82+12fTwHAJhMXddDVVUfY4Zk2Ww2uwkx
+        8rXruvgIAMD1jVdBlsvl99AedzFDnoQvXoY6+bbf73/2vZcjAMD1jAHSNM2wWq0OZVm+ivlxKcTIbYiR
+        D3meP46XSMzMzMyusfGPMaEx7kNrvIjZAQCQUpb9ArBPyGSXfJ5kAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="ButtonSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonSearch.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1016,23 +1027,6 @@
   <metadata name="ComboBoxResult.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="TextBoxSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="TextBoxSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAiIAAAAlCAYAAAB/LoK7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVHhe7dsxjtNAAIZRl1vuEbak5CTUHIGGsyBxBq5A
-        u4kdO6RPsakSIQUhY0XISFkrWJEZsyOhiHJjhuI96S+ScfpP1iQDAPhvzGaz11VV3S8Wi2Y+nw9mZmZm
-        z9nYFKEtPoXGeBNz42/h8HZ8aL1et03TDF3XDQAAzzU2xeFwGDabzbEsy4fQHHcxP/4YI6Su6/gTAIDr
-        a9t2CM3xOcTITUyQLCuK4m2olB/xGQCAyWy32y7EyPuYIU9vQ8ZXJgAAUzsej+O9kS8xQ7Isz/PHvu/j
-        MQDAtMZLrDFDsmz8AADwrwgRACAZIQIAJCNEAIBkhAgAkIwQAQCSESIAQDJCBABIRogAAMkIEQAgGSEC
-        ACQjRACAZIQIAJCMEAEAkhEiAEAyQgQASEaIAADJCBEAIBkhAgAkI0QAgGSECACQjBABAJIRIgBAMhch
-        kud5fz6f4xEAwLQuQqQsy4e2beMRAMB0TqfTUBRFGzPkd4i82+12fTwHAJhMXddDVVUfY4Zk2Ww2uwkx
-        8rXruvgIAMD1jVdBlsvl99AedzFDnoQvXoY6+bbf73/2vZcjAMD1jAHSNM2wWq0OZVm+ivlxKcTIbYiR
-        D3meP46XSMzMzMyusfGPMaEx7kNrvIjZAQCQUpb9ArBPyGSXfJ5kAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="Separator.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1051,9 +1045,6 @@
     <value>True</value>
   </metadata>
   <metadata name="GroupBoxSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TextBox_URL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="TextBox_URL.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

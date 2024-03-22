@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Search));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.Elipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LabelSearchByName = new System.Windows.Forms.Label();
             this.GroupBoxCalculator = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.PanelCalculatorLoading = new Bunifu.UI.WinForms.BunifuPanel();
+            this.LabelCalculatorLoading = new System.Windows.Forms.Label();
+            this.PictureBoxCalculatorLoading = new System.Windows.Forms.PictureBox();
             this.TextBoxSource = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.PictureBoxExchange = new System.Windows.Forms.PictureBox();
             this.LabelDestination = new System.Windows.Forms.Label();
             this.DropDownDestination = new Bunifu.UI.WinForms.BunifuDropdown();
             this.DropDownSource = new Bunifu.UI.WinForms.BunifuDropdown();
             this.TextBoxDestination = new System.Windows.Forms.TextBox();
             this.GroupBoxSearch = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.PixelArtCopyRight = new System.Windows.Forms.Label();
-            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.GroupBoxAppidSearch = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.ComboBoxResult = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.ButtonSearch = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.ButtonLoad = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.TextBoxSearch = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.Separator = new Bunifu.UI.WinForms.BunifuSeparator();
-            this.PictureBoxPixelArt = new System.Windows.Forms.PictureBox();
             this.TextBox_URL = new Bunifu.UI.WinForms.BunifuTextBox();
             this.ButtonLoadData = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.PanelCalculatorLoading = new Bunifu.UI.WinForms.BunifuPanel();
-            this.LabelCalculatorLoading = new System.Windows.Forms.Label();
-            this.PictureBoxCalculatorLoading = new System.Windows.Forms.PictureBox();
-            this.PictureBoxExchange = new System.Windows.Forms.PictureBox();
+            this.PixelArtCopyRight = new System.Windows.Forms.Label();
+            this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PictureBoxPixelArt = new System.Windows.Forms.PictureBox();
+            this.GroupBoxAppidSearch = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.TextBoxSearch = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.ButtonSearch = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.ButtonLoad = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.ComboBoxResult = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.Separator = new Bunifu.UI.WinForms.BunifuSeparator();
             this.GroupBoxCalculator.SuspendLayout();
-            this.GroupBoxSearch.SuspendLayout();
-            this.GroupBoxAppidSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPixelArt)).BeginInit();
             this.PanelCalculatorLoading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxCalculatorLoading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxExchange)).BeginInit();
+            this.GroupBoxSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPixelArt)).BeginInit();
+            this.GroupBoxAppidSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // Elipse
@@ -125,6 +125,46 @@
             this.GroupBoxCalculator.TabStop = false;
             this.GroupBoxCalculator.Text = "Calculator";
             // 
+            // PanelCalculatorLoading
+            // 
+            this.PanelCalculatorLoading.BackgroundColor = System.Drawing.Color.Transparent;
+            this.PanelCalculatorLoading.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelCalculatorLoading.BackgroundImage")));
+            this.PanelCalculatorLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelCalculatorLoading.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelCalculatorLoading.BorderRadius = 25;
+            this.PanelCalculatorLoading.BorderThickness = 1;
+            this.PanelCalculatorLoading.Controls.Add(this.LabelCalculatorLoading);
+            this.PanelCalculatorLoading.Controls.Add(this.PictureBoxCalculatorLoading);
+            this.PanelCalculatorLoading.Location = new System.Drawing.Point(0, 0);
+            this.PanelCalculatorLoading.Name = "PanelCalculatorLoading";
+            this.PanelCalculatorLoading.ShowBorders = true;
+            this.PanelCalculatorLoading.Size = new System.Drawing.Size(1, 1);
+            this.PanelCalculatorLoading.TabIndex = 52;
+            // 
+            // LabelCalculatorLoading
+            // 
+            this.LabelCalculatorLoading.BackColor = System.Drawing.Color.Transparent;
+            this.LabelCalculatorLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LabelCalculatorLoading.Font = new System.Drawing.Font("Motiva Sans", 10F);
+            this.LabelCalculatorLoading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.LabelCalculatorLoading.Location = new System.Drawing.Point(0, -19);
+            this.LabelCalculatorLoading.Name = "LabelCalculatorLoading";
+            this.LabelCalculatorLoading.Size = new System.Drawing.Size(1, 20);
+            this.LabelCalculatorLoading.TabIndex = 1;
+            this.LabelCalculatorLoading.Text = "Loading Calculator ...";
+            this.LabelCalculatorLoading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // PictureBoxCalculatorLoading
+            // 
+            this.PictureBoxCalculatorLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PictureBoxCalculatorLoading.Image = global::SteamPulse.Properties.Resources.SteamPulse_Logo;
+            this.PictureBoxCalculatorLoading.Location = new System.Drawing.Point(0, 0);
+            this.PictureBoxCalculatorLoading.Name = "PictureBoxCalculatorLoading";
+            this.PictureBoxCalculatorLoading.Size = new System.Drawing.Size(1, 1);
+            this.PictureBoxCalculatorLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxCalculatorLoading.TabIndex = 0;
+            this.PictureBoxCalculatorLoading.TabStop = false;
+            // 
             // TextBoxSource
             // 
             this.TextBoxSource.BackColor = System.Drawing.Color.White;
@@ -146,6 +186,16 @@
             this.label4.Size = new System.Drawing.Size(61, 22);
             this.label4.TabIndex = 8;
             this.label4.Text = "Source";
+            // 
+            // PictureBoxExchange
+            // 
+            this.PictureBoxExchange.Image = global::SteamPulse.Properties.Resources.exchange;
+            this.PictureBoxExchange.Location = new System.Drawing.Point(288, 84);
+            this.PictureBoxExchange.Name = "PictureBoxExchange";
+            this.PictureBoxExchange.Size = new System.Drawing.Size(32, 32);
+            this.PictureBoxExchange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxExchange.TabIndex = 4;
+            this.PictureBoxExchange.TabStop = false;
             // 
             // LabelDestination
             // 
@@ -280,267 +330,6 @@
             this.GroupBoxSearch.Text = "Game";
             this.GroupBoxSearch.Enter += new System.EventHandler(this.bunifuGroupBox1_Enter);
             // 
-            // PixelArtCopyRight
-            // 
-            this.PixelArtCopyRight.AutoSize = true;
-            this.PixelArtCopyRight.BackColor = System.Drawing.Color.Black;
-            this.PixelArtCopyRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PixelArtCopyRight.Font = new System.Drawing.Font("Motiva Sans", 8F);
-            this.PixelArtCopyRight.ForeColor = System.Drawing.Color.White;
-            this.PixelArtCopyRight.Location = new System.Drawing.Point(518, 429);
-            this.PixelArtCopyRight.Name = "PixelArtCopyRight";
-            this.PixelArtCopyRight.Size = new System.Drawing.Size(100, 16);
-            this.PixelArtCopyRight.TabIndex = 51;
-            this.PixelArtCopyRight.Text = "© Art by Pixel Jeff";
-            this.PixelArtCopyRight.Click += new System.EventHandler(this.PixelArtCopyRight_Click);
-            // 
-            // Elipse2
-            // 
-            this.Elipse2.ElipseRadius = 20;
-            this.Elipse2.TargetControl = this.PictureBoxPixelArt;
-            // 
-            // GroupBoxAppidSearch
-            // 
-            this.GroupBoxAppidSearch.BorderColor = System.Drawing.Color.Gainsboro;
-            this.GroupBoxAppidSearch.BorderRadius = 15;
-            this.GroupBoxAppidSearch.BorderThickness = 1;
-            this.GroupBoxAppidSearch.Controls.Add(this.ButtonSearch);
-            this.GroupBoxAppidSearch.Controls.Add(this.ButtonLoad);
-            this.GroupBoxAppidSearch.Controls.Add(this.ComboBoxResult);
-            this.GroupBoxAppidSearch.Controls.Add(this.TextBoxSearch);
-            this.GroupBoxAppidSearch.Controls.Add(this.Separator);
-            this.GroupBoxAppidSearch.Font = new System.Drawing.Font("Motiva Sans", 12F);
-            this.GroupBoxAppidSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.GroupBoxAppidSearch.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.GroupBoxAppidSearch.LabelIndent = 10;
-            this.GroupBoxAppidSearch.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.GroupBoxAppidSearch.Location = new System.Drawing.Point(17, 8);
-            this.GroupBoxAppidSearch.Name = "GroupBoxAppidSearch";
-            this.GroupBoxAppidSearch.Size = new System.Drawing.Size(1, 1);
-            this.GroupBoxAppidSearch.TabIndex = 49;
-            this.GroupBoxAppidSearch.TabStop = false;
-            this.GroupBoxAppidSearch.Text = "Search Game";
-            // 
-            // ComboBoxResult
-            // 
-            this.ComboBoxResult.BackColor = System.Drawing.Color.Transparent;
-            this.ComboBoxResult.BackgroundColor = System.Drawing.Color.White;
-            this.ComboBoxResult.BorderColor = System.Drawing.Color.Silver;
-            this.ComboBoxResult.BorderRadius = 1;
-            this.ComboBoxResult.Color = System.Drawing.Color.Silver;
-            this.ComboBoxResult.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.ComboBoxResult.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ComboBoxResult.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.ComboBoxResult.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ComboBoxResult.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.ComboBoxResult.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.ComboBoxResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxResult.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.ComboBoxResult.DropDownHeight = 200;
-            this.ComboBoxResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxResult.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.ComboBoxResult.FillDropDown = true;
-            this.ComboBoxResult.FillIndicator = false;
-            this.ComboBoxResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ComboBoxResult.Font = new System.Drawing.Font("Poppins Light", 9.75F);
-            this.ComboBoxResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.ComboBoxResult.FormattingEnabled = true;
-            this.ComboBoxResult.Icon = null;
-            this.ComboBoxResult.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.ComboBoxResult.IndicatorColor = System.Drawing.Color.Gray;
-            this.ComboBoxResult.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.ComboBoxResult.IntegralHeight = false;
-            this.ComboBoxResult.ItemBackColor = System.Drawing.Color.White;
-            this.ComboBoxResult.ItemBorderColor = System.Drawing.Color.White;
-            this.ComboBoxResult.ItemForeColor = System.Drawing.Color.Black;
-            this.ComboBoxResult.ItemHeight = 26;
-            this.ComboBoxResult.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.ComboBoxResult.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.ComboBoxResult.ItemTopMargin = 3;
-            this.ComboBoxResult.Location = new System.Drawing.Point(12, 83);
-            this.ComboBoxResult.Name = "ComboBoxResult";
-            this.ComboBoxResult.Size = new System.Drawing.Size(546, 32);
-            this.ComboBoxResult.TabIndex = 42;
-            this.ComboBoxResult.Text = "Waiting";
-            this.ComboBoxResult.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.ComboBoxResult.TextLeftMargin = 5;
-            // 
-            // ButtonSearch
-            // 
-            this.ButtonSearch.ActiveImage = null;
-            this.ButtonSearch.AllowAnimations = true;
-            this.ButtonSearch.AllowBuffering = false;
-            this.ButtonSearch.AllowToggling = false;
-            this.ButtonSearch.AllowZooming = true;
-            this.ButtonSearch.AllowZoomingOnFocus = false;
-            this.ButtonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSearch.BackColor = System.Drawing.Color.White;
-            this.ButtonSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonSearch.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ButtonSearch.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ButtonSearch.ErrorImage")));
-            this.ButtonSearch.FadeWhenInactive = false;
-            this.ButtonSearch.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.ButtonSearch.Image = global::SteamPulse.Properties.Resources.SearchBlack;
-            this.ButtonSearch.ImageActive = null;
-            this.ButtonSearch.ImageLocation = null;
-            this.ButtonSearch.ImageMargin = 0;
-            this.ButtonSearch.ImageSize = new System.Drawing.Size(21, 21);
-            this.ButtonSearch.ImageZoomSize = new System.Drawing.Size(22, 22);
-            this.ButtonSearch.InitialImage = ((System.Drawing.Image)(resources.GetObject("ButtonSearch.InitialImage")));
-            this.ButtonSearch.Location = new System.Drawing.Point(-33, 31);
-            this.ButtonSearch.Name = "ButtonSearch";
-            this.ButtonSearch.Rotation = 0;
-            this.ButtonSearch.ShowActiveImage = true;
-            this.ButtonSearch.ShowCursorChanges = true;
-            this.ButtonSearch.ShowImageBorders = true;
-            this.ButtonSearch.ShowSizeMarkers = false;
-            this.ButtonSearch.Size = new System.Drawing.Size(22, 22);
-            this.ButtonSearch.TabIndex = 45;
-            this.ButtonSearch.ToolTipText = "";
-            this.ButtonSearch.WaitOnLoad = false;
-            this.ButtonSearch.Zoom = 0;
-            this.ButtonSearch.ZoomSpeed = 10;
-            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
-            // 
-            // ButtonLoad
-            // 
-            this.ButtonLoad.ActiveImage = null;
-            this.ButtonLoad.AllowAnimations = true;
-            this.ButtonLoad.AllowBuffering = false;
-            this.ButtonLoad.AllowToggling = false;
-            this.ButtonLoad.AllowZooming = true;
-            this.ButtonLoad.AllowZoomingOnFocus = false;
-            this.ButtonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonLoad.BackColor = System.Drawing.Color.White;
-            this.ButtonLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonLoad.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ButtonLoad.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ButtonLoad.ErrorImage")));
-            this.ButtonLoad.FadeWhenInactive = false;
-            this.ButtonLoad.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.ButtonLoad.Image = global::SteamPulse.Properties.Resources.BTNLoadDark;
-            this.ButtonLoad.ImageActive = null;
-            this.ButtonLoad.ImageLocation = null;
-            this.ButtonLoad.ImageMargin = 0;
-            this.ButtonLoad.ImageSize = new System.Drawing.Size(21, 21);
-            this.ButtonLoad.ImageZoomSize = new System.Drawing.Size(22, 22);
-            this.ButtonLoad.InitialImage = ((System.Drawing.Image)(resources.GetObject("ButtonLoad.InitialImage")));
-            this.ButtonLoad.Location = new System.Drawing.Point(-33, 88);
-            this.ButtonLoad.Name = "ButtonLoad";
-            this.ButtonLoad.Rotation = 0;
-            this.ButtonLoad.ShowActiveImage = true;
-            this.ButtonLoad.ShowCursorChanges = true;
-            this.ButtonLoad.ShowImageBorders = true;
-            this.ButtonLoad.ShowSizeMarkers = false;
-            this.ButtonLoad.Size = new System.Drawing.Size(22, 22);
-            this.ButtonLoad.TabIndex = 44;
-            this.ButtonLoad.ToolTipText = "";
-            this.ButtonLoad.WaitOnLoad = false;
-            this.ButtonLoad.Zoom = 0;
-            this.ButtonLoad.ZoomSpeed = 10;
-            this.ButtonLoad.Click += new System.EventHandler(this.ButtonLoad_Click);
-            // 
-            // TextBoxSearch
-            // 
-            this.TextBoxSearch.AcceptsReturn = false;
-            this.TextBoxSearch.AcceptsTab = false;
-            this.TextBoxSearch.AnimationSpeed = 200;
-            this.TextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.TextBoxSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.TextBoxSearch.BackColor = System.Drawing.Color.Transparent;
-            this.TextBoxSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxSearch.BackgroundImage")));
-            this.TextBoxSearch.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.TextBoxSearch.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.TextBoxSearch.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.TextBoxSearch.BorderColorIdle = System.Drawing.Color.Silver;
-            this.TextBoxSearch.BorderRadius = 10;
-            this.TextBoxSearch.BorderThickness = 1;
-            this.TextBoxSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxSearch.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.TextBoxSearch.DefaultText = "";
-            this.TextBoxSearch.FillColor = System.Drawing.Color.White;
-            this.TextBoxSearch.HideSelection = true;
-            this.TextBoxSearch.IconLeft = null;
-            this.TextBoxSearch.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxSearch.IconPadding = 10;
-            this.TextBoxSearch.IconRight = null;
-            this.TextBoxSearch.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxSearch.Lines = new string[0];
-            this.TextBoxSearch.Location = new System.Drawing.Point(12, 25);
-            this.TextBoxSearch.MaxLength = 32767;
-            this.TextBoxSearch.MinimumSize = new System.Drawing.Size(1, 1);
-            this.TextBoxSearch.Modified = false;
-            this.TextBoxSearch.Multiline = false;
-            this.TextBoxSearch.Name = "TextBoxSearch";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxSearch.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.TextBoxSearch.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxSearch.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.TextBoxSearch.OnIdleState = stateProperties4;
-            this.TextBoxSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.TextBoxSearch.PasswordChar = '\0';
-            this.TextBoxSearch.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.TextBoxSearch.PlaceholderText = "Please Enter 3 or more characters to search";
-            this.TextBoxSearch.ReadOnly = false;
-            this.TextBoxSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TextBoxSearch.SelectedText = "";
-            this.TextBoxSearch.SelectionLength = 0;
-            this.TextBoxSearch.SelectionStart = 0;
-            this.TextBoxSearch.ShortcutsEnabled = true;
-            this.TextBoxSearch.Size = new System.Drawing.Size(546, 37);
-            this.TextBoxSearch.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.TextBoxSearch.TabIndex = 41;
-            this.TextBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextBoxSearch.TextMarginBottom = 0;
-            this.TextBoxSearch.TextMarginLeft = 3;
-            this.TextBoxSearch.TextMarginTop = 0;
-            this.TextBoxSearch.TextPlaceholder = "Please Enter 3 or more characters to search";
-            this.TextBoxSearch.UseSystemPasswordChar = false;
-            this.TextBoxSearch.WordWrap = true;
-            // 
-            // Separator
-            // 
-            this.Separator.BackColor = System.Drawing.Color.Transparent;
-            this.Separator.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Separator.BackgroundImage")));
-            this.Separator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Separator.DashCap = Bunifu.UI.WinForms.BunifuSeparator.CapStyles.Flat;
-            this.Separator.LineColor = System.Drawing.Color.Silver;
-            this.Separator.LineStyle = Bunifu.UI.WinForms.BunifuSeparator.LineStyles.Solid;
-            this.Separator.LineThickness = 1;
-            this.Separator.Location = new System.Drawing.Point(12, 56);
-            this.Separator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Separator.Name = "Separator";
-            this.Separator.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
-            this.Separator.Size = new System.Drawing.Size(581, 29);
-            this.Separator.TabIndex = 43;
-            // 
-            // PictureBoxPixelArt
-            // 
-            this.PictureBoxPixelArt.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxPixelArt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PictureBoxPixelArt.Image = global::SteamPulse.Properties.Resources.SteamPulseSearchGif;
-            this.PictureBoxPixelArt.Location = new System.Drawing.Point(17, 313);
-            this.PictureBoxPixelArt.Name = "PictureBoxPixelArt";
-            this.PictureBoxPixelArt.Size = new System.Drawing.Size(610, 139);
-            this.PictureBoxPixelArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxPixelArt.TabIndex = 50;
-            this.PictureBoxPixelArt.TabStop = false;
-            // 
             // TextBox_URL
             // 
             this.TextBox_URL.AcceptsReturn = false;
@@ -654,55 +443,267 @@
             this.ButtonLoadData.ZoomSpeed = 10;
             this.ButtonLoadData.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
-            // PanelCalculatorLoading
+            // PixelArtCopyRight
             // 
-            this.PanelCalculatorLoading.BackgroundColor = System.Drawing.Color.Transparent;
-            this.PanelCalculatorLoading.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanelCalculatorLoading.BackgroundImage")));
-            this.PanelCalculatorLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PanelCalculatorLoading.BorderColor = System.Drawing.Color.Transparent;
-            this.PanelCalculatorLoading.BorderRadius = 25;
-            this.PanelCalculatorLoading.BorderThickness = 1;
-            this.PanelCalculatorLoading.Controls.Add(this.LabelCalculatorLoading);
-            this.PanelCalculatorLoading.Controls.Add(this.PictureBoxCalculatorLoading);
-            this.PanelCalculatorLoading.Location = new System.Drawing.Point(0, 0);
-            this.PanelCalculatorLoading.Name = "PanelCalculatorLoading";
-            this.PanelCalculatorLoading.ShowBorders = true;
-            this.PanelCalculatorLoading.Size = new System.Drawing.Size(1, 1);
-            this.PanelCalculatorLoading.TabIndex = 52;
+            this.PixelArtCopyRight.AutoSize = true;
+            this.PixelArtCopyRight.BackColor = System.Drawing.Color.Black;
+            this.PixelArtCopyRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PixelArtCopyRight.Font = new System.Drawing.Font("Motiva Sans", 8F);
+            this.PixelArtCopyRight.ForeColor = System.Drawing.Color.White;
+            this.PixelArtCopyRight.Location = new System.Drawing.Point(518, 429);
+            this.PixelArtCopyRight.Name = "PixelArtCopyRight";
+            this.PixelArtCopyRight.Size = new System.Drawing.Size(100, 16);
+            this.PixelArtCopyRight.TabIndex = 51;
+            this.PixelArtCopyRight.Text = "© Art by Pixel Jeff";
+            this.PixelArtCopyRight.Click += new System.EventHandler(this.PixelArtCopyRight_Click);
             // 
-            // LabelCalculatorLoading
+            // Elipse2
             // 
-            this.LabelCalculatorLoading.BackColor = System.Drawing.Color.Transparent;
-            this.LabelCalculatorLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LabelCalculatorLoading.Font = new System.Drawing.Font("Motiva Sans", 10F);
-            this.LabelCalculatorLoading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.LabelCalculatorLoading.Location = new System.Drawing.Point(0, -19);
-            this.LabelCalculatorLoading.Name = "LabelCalculatorLoading";
-            this.LabelCalculatorLoading.Size = new System.Drawing.Size(1, 20);
-            this.LabelCalculatorLoading.TabIndex = 1;
-            this.LabelCalculatorLoading.Text = "Loading Calculator ...";
-            this.LabelCalculatorLoading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Elipse2.ElipseRadius = 20;
+            this.Elipse2.TargetControl = this.PictureBoxPixelArt;
             // 
-            // PictureBoxCalculatorLoading
+            // PictureBoxPixelArt
             // 
-            this.PictureBoxCalculatorLoading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PictureBoxCalculatorLoading.Image = global::SteamPulse.Properties.Resources.SteamPulse_Logo;
-            this.PictureBoxCalculatorLoading.Location = new System.Drawing.Point(0, 0);
-            this.PictureBoxCalculatorLoading.Name = "PictureBoxCalculatorLoading";
-            this.PictureBoxCalculatorLoading.Size = new System.Drawing.Size(1, 1);
-            this.PictureBoxCalculatorLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxCalculatorLoading.TabIndex = 0;
-            this.PictureBoxCalculatorLoading.TabStop = false;
+            this.PictureBoxPixelArt.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxPixelArt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PictureBoxPixelArt.Image = global::SteamPulse.Properties.Resources.SteamPulseSearchGif;
+            this.PictureBoxPixelArt.Location = new System.Drawing.Point(17, 313);
+            this.PictureBoxPixelArt.Name = "PictureBoxPixelArt";
+            this.PictureBoxPixelArt.Size = new System.Drawing.Size(610, 139);
+            this.PictureBoxPixelArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxPixelArt.TabIndex = 50;
+            this.PictureBoxPixelArt.TabStop = false;
             // 
-            // PictureBoxExchange
+            // GroupBoxAppidSearch
             // 
-            this.PictureBoxExchange.Image = global::SteamPulse.Properties.Resources.exchange;
-            this.PictureBoxExchange.Location = new System.Drawing.Point(288, 84);
-            this.PictureBoxExchange.Name = "PictureBoxExchange";
-            this.PictureBoxExchange.Size = new System.Drawing.Size(32, 32);
-            this.PictureBoxExchange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxExchange.TabIndex = 4;
-            this.PictureBoxExchange.TabStop = false;
+            this.GroupBoxAppidSearch.BorderColor = System.Drawing.Color.Gainsboro;
+            this.GroupBoxAppidSearch.BorderRadius = 15;
+            this.GroupBoxAppidSearch.BorderThickness = 1;
+            this.GroupBoxAppidSearch.Controls.Add(this.TextBoxSearch);
+            this.GroupBoxAppidSearch.Controls.Add(this.ButtonSearch);
+            this.GroupBoxAppidSearch.Controls.Add(this.ButtonLoad);
+            this.GroupBoxAppidSearch.Controls.Add(this.ComboBoxResult);
+            this.GroupBoxAppidSearch.Controls.Add(this.Separator);
+            this.GroupBoxAppidSearch.Font = new System.Drawing.Font("Motiva Sans", 12F);
+            this.GroupBoxAppidSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.GroupBoxAppidSearch.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.GroupBoxAppidSearch.LabelIndent = 10;
+            this.GroupBoxAppidSearch.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.GroupBoxAppidSearch.Location = new System.Drawing.Point(17, 8);
+            this.GroupBoxAppidSearch.Name = "GroupBoxAppidSearch";
+            this.GroupBoxAppidSearch.Size = new System.Drawing.Size(1, 1);
+            this.GroupBoxAppidSearch.TabIndex = 49;
+            this.GroupBoxAppidSearch.TabStop = false;
+            this.GroupBoxAppidSearch.Text = "Search Game";
+            // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.AcceptsReturn = false;
+            this.TextBoxSearch.AcceptsTab = false;
+            this.TextBoxSearch.AnimationSpeed = 200;
+            this.TextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.TextBoxSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.TextBoxSearch.BackColor = System.Drawing.Color.Transparent;
+            this.TextBoxSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TextBoxSearch.BackgroundImage")));
+            this.TextBoxSearch.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.TextBoxSearch.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.TextBoxSearch.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.TextBoxSearch.BorderColorIdle = System.Drawing.Color.Silver;
+            this.TextBoxSearch.BorderRadius = 10;
+            this.TextBoxSearch.BorderThickness = 1;
+            this.TextBoxSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextBoxSearch.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.TextBoxSearch.DefaultText = "";
+            this.TextBoxSearch.FillColor = System.Drawing.Color.White;
+            this.TextBoxSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.TextBoxSearch.HideSelection = true;
+            this.TextBoxSearch.IconLeft = null;
+            this.TextBoxSearch.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextBoxSearch.IconPadding = 10;
+            this.TextBoxSearch.IconRight = null;
+            this.TextBoxSearch.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextBoxSearch.Lines = new string[0];
+            this.TextBoxSearch.Location = new System.Drawing.Point(12, 24);
+            this.TextBoxSearch.MaxLength = 32767;
+            this.TextBoxSearch.MinimumSize = new System.Drawing.Size(1, 1);
+            this.TextBoxSearch.Modified = false;
+            this.TextBoxSearch.Multiline = false;
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxSearch.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.TextBoxSearch.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxSearch.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.Silver;
+            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.TextBoxSearch.OnIdleState = stateProperties4;
+            this.TextBoxSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.TextBoxSearch.PasswordChar = '\0';
+            this.TextBoxSearch.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.TextBoxSearch.PlaceholderText = "Please Enter 3 or more characters to search";
+            this.TextBoxSearch.ReadOnly = false;
+            this.TextBoxSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TextBoxSearch.SelectedText = "";
+            this.TextBoxSearch.SelectionLength = 0;
+            this.TextBoxSearch.SelectionStart = 0;
+            this.TextBoxSearch.ShortcutsEnabled = true;
+            this.TextBoxSearch.Size = new System.Drawing.Size(546, 37);
+            this.TextBoxSearch.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.TextBoxSearch.TabIndex = 46;
+            this.TextBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TextBoxSearch.TextMarginBottom = 0;
+            this.TextBoxSearch.TextMarginLeft = 3;
+            this.TextBoxSearch.TextMarginTop = 0;
+            this.TextBoxSearch.TextPlaceholder = "Please Enter 3 or more characters to search";
+            this.TextBoxSearch.UseSystemPasswordChar = false;
+            this.TextBoxSearch.WordWrap = true;
+            // 
+            // ButtonSearch
+            // 
+            this.ButtonSearch.ActiveImage = null;
+            this.ButtonSearch.AllowAnimations = true;
+            this.ButtonSearch.AllowBuffering = false;
+            this.ButtonSearch.AllowToggling = false;
+            this.ButtonSearch.AllowZooming = true;
+            this.ButtonSearch.AllowZoomingOnFocus = false;
+            this.ButtonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSearch.BackColor = System.Drawing.Color.White;
+            this.ButtonSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSearch.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ButtonSearch.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ButtonSearch.ErrorImage")));
+            this.ButtonSearch.FadeWhenInactive = false;
+            this.ButtonSearch.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.ButtonSearch.Image = global::SteamPulse.Properties.Resources.SearchBlack;
+            this.ButtonSearch.ImageActive = null;
+            this.ButtonSearch.ImageLocation = null;
+            this.ButtonSearch.ImageMargin = 0;
+            this.ButtonSearch.ImageSize = new System.Drawing.Size(21, 21);
+            this.ButtonSearch.ImageZoomSize = new System.Drawing.Size(22, 22);
+            this.ButtonSearch.InitialImage = ((System.Drawing.Image)(resources.GetObject("ButtonSearch.InitialImage")));
+            this.ButtonSearch.Location = new System.Drawing.Point(-33, 31);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Rotation = 0;
+            this.ButtonSearch.ShowActiveImage = true;
+            this.ButtonSearch.ShowCursorChanges = true;
+            this.ButtonSearch.ShowImageBorders = true;
+            this.ButtonSearch.ShowSizeMarkers = false;
+            this.ButtonSearch.Size = new System.Drawing.Size(22, 22);
+            this.ButtonSearch.TabIndex = 45;
+            this.ButtonSearch.ToolTipText = "";
+            this.ButtonSearch.WaitOnLoad = false;
+            this.ButtonSearch.Zoom = 0;
+            this.ButtonSearch.ZoomSpeed = 10;
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
+            // 
+            // ButtonLoad
+            // 
+            this.ButtonLoad.ActiveImage = null;
+            this.ButtonLoad.AllowAnimations = true;
+            this.ButtonLoad.AllowBuffering = false;
+            this.ButtonLoad.AllowToggling = false;
+            this.ButtonLoad.AllowZooming = true;
+            this.ButtonLoad.AllowZoomingOnFocus = false;
+            this.ButtonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonLoad.BackColor = System.Drawing.Color.White;
+            this.ButtonLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonLoad.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ButtonLoad.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ButtonLoad.ErrorImage")));
+            this.ButtonLoad.FadeWhenInactive = false;
+            this.ButtonLoad.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.ButtonLoad.Image = global::SteamPulse.Properties.Resources.BTNLoadDark;
+            this.ButtonLoad.ImageActive = null;
+            this.ButtonLoad.ImageLocation = null;
+            this.ButtonLoad.ImageMargin = 0;
+            this.ButtonLoad.ImageSize = new System.Drawing.Size(21, 21);
+            this.ButtonLoad.ImageZoomSize = new System.Drawing.Size(22, 22);
+            this.ButtonLoad.InitialImage = ((System.Drawing.Image)(resources.GetObject("ButtonLoad.InitialImage")));
+            this.ButtonLoad.Location = new System.Drawing.Point(-33, 88);
+            this.ButtonLoad.Name = "ButtonLoad";
+            this.ButtonLoad.Rotation = 0;
+            this.ButtonLoad.ShowActiveImage = true;
+            this.ButtonLoad.ShowCursorChanges = true;
+            this.ButtonLoad.ShowImageBorders = true;
+            this.ButtonLoad.ShowSizeMarkers = false;
+            this.ButtonLoad.Size = new System.Drawing.Size(22, 22);
+            this.ButtonLoad.TabIndex = 44;
+            this.ButtonLoad.ToolTipText = "";
+            this.ButtonLoad.WaitOnLoad = false;
+            this.ButtonLoad.Zoom = 0;
+            this.ButtonLoad.ZoomSpeed = 10;
+            this.ButtonLoad.Click += new System.EventHandler(this.ButtonLoad_Click);
+            // 
+            // ComboBoxResult
+            // 
+            this.ComboBoxResult.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBoxResult.BackgroundColor = System.Drawing.Color.White;
+            this.ComboBoxResult.BorderColor = System.Drawing.Color.Silver;
+            this.ComboBoxResult.BorderRadius = 1;
+            this.ComboBoxResult.Color = System.Drawing.Color.Silver;
+            this.ComboBoxResult.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.ComboBoxResult.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ComboBoxResult.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.ComboBoxResult.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ComboBoxResult.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.ComboBoxResult.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+            this.ComboBoxResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxResult.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.ComboBoxResult.DropDownHeight = 200;
+            this.ComboBoxResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxResult.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.ComboBoxResult.FillDropDown = true;
+            this.ComboBoxResult.FillIndicator = false;
+            this.ComboBoxResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxResult.Font = new System.Drawing.Font("Poppins Light", 9.75F);
+            this.ComboBoxResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.ComboBoxResult.FormattingEnabled = true;
+            this.ComboBoxResult.Icon = null;
+            this.ComboBoxResult.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.ComboBoxResult.IndicatorColor = System.Drawing.Color.Gray;
+            this.ComboBoxResult.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.ComboBoxResult.IntegralHeight = false;
+            this.ComboBoxResult.ItemBackColor = System.Drawing.Color.White;
+            this.ComboBoxResult.ItemBorderColor = System.Drawing.Color.White;
+            this.ComboBoxResult.ItemForeColor = System.Drawing.Color.Black;
+            this.ComboBoxResult.ItemHeight = 26;
+            this.ComboBoxResult.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+            this.ComboBoxResult.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.ComboBoxResult.ItemTopMargin = 3;
+            this.ComboBoxResult.Location = new System.Drawing.Point(12, 83);
+            this.ComboBoxResult.Name = "ComboBoxResult";
+            this.ComboBoxResult.Size = new System.Drawing.Size(546, 32);
+            this.ComboBoxResult.TabIndex = 42;
+            this.ComboBoxResult.Text = "Waiting";
+            this.ComboBoxResult.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.ComboBoxResult.TextLeftMargin = 5;
+            // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.Color.Transparent;
+            this.Separator.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Separator.BackgroundImage")));
+            this.Separator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Separator.DashCap = Bunifu.UI.WinForms.BunifuSeparator.CapStyles.Flat;
+            this.Separator.LineColor = System.Drawing.Color.Silver;
+            this.Separator.LineStyle = Bunifu.UI.WinForms.BunifuSeparator.LineStyles.Solid;
+            this.Separator.LineThickness = 1;
+            this.Separator.Location = new System.Drawing.Point(12, 56);
+            this.Separator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Separator.Name = "Separator";
+            this.Separator.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
+            this.Separator.Size = new System.Drawing.Size(581, 29);
+            this.Separator.TabIndex = 43;
             // 
             // Search
             // 
@@ -719,12 +720,12 @@
             this.Load += new System.EventHandler(this.Search_Load_1);
             this.GroupBoxCalculator.ResumeLayout(false);
             this.GroupBoxCalculator.PerformLayout();
-            this.GroupBoxSearch.ResumeLayout(false);
-            this.GroupBoxAppidSearch.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPixelArt)).EndInit();
             this.PanelCalculatorLoading.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxCalculatorLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxExchange)).EndInit();
+            this.GroupBoxSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPixelArt)).EndInit();
+            this.GroupBoxAppidSearch.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

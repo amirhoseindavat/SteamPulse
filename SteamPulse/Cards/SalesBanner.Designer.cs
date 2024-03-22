@@ -78,7 +78,7 @@
             this.ButtonViewSale.BackColor1 = System.Drawing.Color.DodgerBlue;
             this.ButtonViewSale.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonViewSale.BackgroundImage")));
             this.ButtonViewSale.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.ButtonViewSale.ButtonText = "View Sale";
+            this.ButtonViewSale.ButtonText = "View ";
             this.ButtonViewSale.ButtonTextMarginLeft = 0;
             this.ButtonViewSale.ColorContrastOnClick = 45;
             this.ButtonViewSale.ColorContrastOnHover = 45;

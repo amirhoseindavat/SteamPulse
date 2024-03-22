@@ -15,6 +15,7 @@ namespace SteamPulse.Cards
     {
         private DateTime EndTime;
         public static Color Theme;
+        public static string type = "";
         public SalesBanner()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace SteamPulse.Cards
             PictureBox_IMG.Load(Main.SaleBanner);
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Main.Saleend);
             EndTime = dateTimeOffset.DateTime;
+            ButtonViewSale.Text = "View " + type;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -37,6 +39,10 @@ namespace SteamPulse.Cards
             {
                 Label_Remaining.Text = "Giveaway Ended.";
             }*/
+            if (DateTimeOffset.Now.ToUnixTimeSeconds() > Main.Saleend)
+            {
+                Label_Remaining.Visible = false;
+            }
         }
         private void ButtonViewSale_Click(object sender, EventArgs e)
         {

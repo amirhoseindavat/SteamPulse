@@ -53,7 +53,9 @@
             this.BackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LabelOwned = new System.Windows.Forms.Label();
             this.Elipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PictureBox_Image = new System.Windows.Forms.PictureBox();
             this.PanelPrice = new System.Windows.Forms.Panel();
+            this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.Label_Dev_Title = new System.Windows.Forms.Label();
             this.Label_Publisher_Title = new System.Windows.Forms.Label();
             this.Label_PlayTime_Title = new System.Windows.Forms.Label();
@@ -61,8 +63,8 @@
             this.Label_Publisher = new System.Windows.Forms.Label();
             this.Label_PlayTime = new System.Windows.Forms.Label();
             this.Panel_BaseGame = new System.Windows.Forms.Panel();
-            this.Label_BaseGame = new System.Windows.Forms.Label();
             this.PictureBoxBaseGame = new System.Windows.Forms.PictureBox();
+            this.Label_BaseGame = new System.Windows.Forms.Label();
             this.PanelStatus = new Bunifu.UI.WinForms.BunifuPanel();
             this.Label_Status = new System.Windows.Forms.Label();
             this.PictureBoxLoading = new System.Windows.Forms.PictureBox();
@@ -71,8 +73,7 @@
             this.OpenSteamIcon = new System.Windows.Forms.PictureBox();
             this.PictureBoxOwned = new System.Windows.Forms.PictureBox();
             this.bunifuSeparator2 = new Bunifu.UI.WinForms.BunifuSeparator();
-            this.PictureBox_Image = new System.Windows.Forms.PictureBox();
-            this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).BeginInit();
             this.PanelPrice.SuspendLayout();
             this.Panel_BaseGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBaseGame)).BeginInit();
@@ -82,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenSteamDBIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenSteamIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxOwned)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // Label_KeyCount_Title
@@ -361,13 +361,13 @@
             // 
             // Label_Release
             // 
-            this.Label_Release.AutoSize = true;
+            this.Label_Release.AutoEllipsis = true;
             this.Label_Release.BackColor = System.Drawing.Color.Transparent;
             this.Label_Release.Font = new System.Drawing.Font("Motiva Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Release.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.Label_Release.Location = new System.Drawing.Point(382, 67);
             this.Label_Release.Name = "Label_Release";
-            this.Label_Release.Size = new System.Drawing.Size(130, 21);
+            this.Label_Release.Size = new System.Drawing.Size(247, 21);
             this.Label_Release.TabIndex = 93;
             this.Label_Release.Text = "{UI.ReleaseDate}";
             // 
@@ -398,14 +398,14 @@
             // 
             // Label_Price
             // 
-            this.Label_Price.AutoSize = true;
+            this.Label_Price.AutoEllipsis = true;
             this.Label_Price.BackColor = System.Drawing.Color.Transparent;
             this.Label_Price.Cursor = System.Windows.Forms.Cursors.Default;
             this.Label_Price.Font = new System.Drawing.Font("Motiva Sans", 11.25F);
             this.Label_Price.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.Label_Price.Location = new System.Drawing.Point(59, 58);
             this.Label_Price.Name = "Label_Price";
-            this.Label_Price.Size = new System.Drawing.Size(77, 21);
+            this.Label_Price.Size = new System.Drawing.Size(131, 21);
             this.Label_Price.TabIndex = 99;
             this.Label_Price.Text = "{UI.Price}";
             // 
@@ -444,6 +444,19 @@
             this.Elipse2.ElipseRadius = 20;
             this.Elipse2.TargetControl = this.PictureBox_Image;
             // 
+            // PictureBox_Image
+            // 
+            this.PictureBox_Image.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBox_Image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox_Image.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBox_Image.Location = new System.Drawing.Point(17, 11);
+            this.PictureBox_Image.Name = "PictureBox_Image";
+            this.PictureBox_Image.Size = new System.Drawing.Size(243, 366);
+            this.PictureBox_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox_Image.TabIndex = 71;
+            this.PictureBox_Image.TabStop = false;
+            this.PictureBox_Image.Click += new System.EventHandler(this.PictureBox_Image_Click);
+            // 
             // PanelPrice
             // 
             this.PanelPrice.Controls.Add(this.ComboBox_Editions);
@@ -460,6 +473,21 @@
             this.PanelPrice.Name = "PanelPrice";
             this.PanelPrice.Size = new System.Drawing.Size(380, 150);
             this.PanelPrice.TabIndex = 103;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuSeparator1.BackgroundImage")));
+            this.bunifuSeparator1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuSeparator1.DashCap = Bunifu.UI.WinForms.BunifuSeparator.CapStyles.Flat;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.Silver;
+            this.bunifuSeparator1.LineStyle = Bunifu.UI.WinForms.BunifuSeparator.LineStyles.Solid;
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(13, 6);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
+            this.bunifuSeparator1.Size = new System.Drawing.Size(348, 17);
+            this.bunifuSeparator1.TabIndex = 72;
             // 
             // Label_Dev_Title
             // 
@@ -500,25 +528,25 @@
             // 
             // Label_Dev
             // 
-            this.Label_Dev.AutoSize = true;
+            this.Label_Dev.AutoEllipsis = true;
             this.Label_Dev.BackColor = System.Drawing.Color.Transparent;
             this.Label_Dev.Font = new System.Drawing.Font("Motiva Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Dev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.Label_Dev.Location = new System.Drawing.Point(353, 127);
             this.Label_Dev.Name = "Label_Dev";
-            this.Label_Dev.Size = new System.Drawing.Size(105, 21);
+            this.Label_Dev.Size = new System.Drawing.Size(276, 21);
             this.Label_Dev.TabIndex = 94;
             this.Label_Dev.Text = "{UI.Develoer}";
             // 
             // Label_Publisher
             // 
-            this.Label_Publisher.AutoSize = true;
+            this.Label_Publisher.AutoEllipsis = true;
             this.Label_Publisher.BackColor = System.Drawing.Color.Transparent;
             this.Label_Publisher.Font = new System.Drawing.Font("Motiva Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Publisher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.Label_Publisher.Location = new System.Drawing.Point(355, 157);
             this.Label_Publisher.Name = "Label_Publisher";
-            this.Label_Publisher.Size = new System.Drawing.Size(107, 21);
+            this.Label_Publisher.Size = new System.Drawing.Size(278, 21);
             this.Label_Publisher.TabIndex = 95;
             this.Label_Publisher.Text = "{UI.Publisher}";
             // 
@@ -545,6 +573,16 @@
             this.Panel_BaseGame.TabIndex = 104;
             this.Panel_BaseGame.Visible = false;
             // 
+            // PictureBoxBaseGame
+            // 
+            this.PictureBoxBaseGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureBoxBaseGame.Location = new System.Drawing.Point(125, 6);
+            this.PictureBoxBaseGame.Name = "PictureBoxBaseGame";
+            this.PictureBoxBaseGame.Size = new System.Drawing.Size(184, 69);
+            this.PictureBoxBaseGame.TabIndex = 106;
+            this.PictureBoxBaseGame.TabStop = false;
+            this.PictureBoxBaseGame.Click += new System.EventHandler(this.PictureBoxBaseGame_Click);
+            // 
             // Label_BaseGame
             // 
             this.Label_BaseGame.AutoSize = true;
@@ -556,16 +594,6 @@
             this.Label_BaseGame.Size = new System.Drawing.Size(100, 22);
             this.Label_BaseGame.TabIndex = 105;
             this.Label_BaseGame.Text = "Base Game:";
-            // 
-            // PictureBoxBaseGame
-            // 
-            this.PictureBoxBaseGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBoxBaseGame.Location = new System.Drawing.Point(125, 6);
-            this.PictureBoxBaseGame.Name = "PictureBoxBaseGame";
-            this.PictureBoxBaseGame.Size = new System.Drawing.Size(184, 69);
-            this.PictureBoxBaseGame.TabIndex = 106;
-            this.PictureBoxBaseGame.TabStop = false;
-            this.PictureBoxBaseGame.Click += new System.EventHandler(this.PictureBoxBaseGame_Click);
             // 
             // PanelStatus
             // 
@@ -678,34 +706,6 @@
             this.bunifuSeparator2.Size = new System.Drawing.Size(618, 14);
             this.bunifuSeparator2.TabIndex = 73;
             // 
-            // PictureBox_Image
-            // 
-            this.PictureBox_Image.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox_Image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBox_Image.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PictureBox_Image.Location = new System.Drawing.Point(17, 11);
-            this.PictureBox_Image.Name = "PictureBox_Image";
-            this.PictureBox_Image.Size = new System.Drawing.Size(243, 366);
-            this.PictureBox_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox_Image.TabIndex = 71;
-            this.PictureBox_Image.TabStop = false;
-            this.PictureBox_Image.Click += new System.EventHandler(this.PictureBox_Image_Click);
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuSeparator1.BackgroundImage")));
-            this.bunifuSeparator1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuSeparator1.DashCap = Bunifu.UI.WinForms.BunifuSeparator.CapStyles.Flat;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.Silver;
-            this.bunifuSeparator1.LineStyle = Bunifu.UI.WinForms.BunifuSeparator.LineStyles.Solid;
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(13, 6);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Horizontal;
-            this.bunifuSeparator1.Size = new System.Drawing.Size(348, 17);
-            this.bunifuSeparator1.TabIndex = 72;
-            // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,6 +740,7 @@
             this.Name = "Data";
             this.Size = new System.Drawing.Size(644, 468);
             this.Load += new System.EventHandler(this.Data_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).EndInit();
             this.PanelPrice.ResumeLayout(false);
             this.PanelPrice.PerformLayout();
             this.Panel_BaseGame.ResumeLayout(false);
@@ -751,7 +752,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenSteamDBIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenSteamIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxOwned)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

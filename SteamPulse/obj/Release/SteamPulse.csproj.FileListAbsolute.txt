@@ -203,6 +203,7 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\System.Nu
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\System.Text.Encodings.Web.xml
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.SuggestedBindingRedirects.cache
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.config
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.Cards.AboutPanel.resources
@@ -232,4 +233,3 @@ C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPuls
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.application
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
 C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe
-C:\Users\Amirhosein\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.AssemblyReference.cache

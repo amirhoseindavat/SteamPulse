@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using SteamPulse.SettingsInterface;
+using SteamPulse.SteamAPI;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
-using SteamPulse.SettingsInterface;
-using SteamPulse.SteamAPI;
 
 namespace SteamPulse.Cards
 {
@@ -44,9 +44,19 @@ namespace SteamPulse.Cards
         }
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Data.Appid = Convert.ToInt32(TextBox_URL.Text);
-            Data data = new Data();
-            Main.ShowInContainer(data, Main.SideBars.Search);
+            try
+            {
+                Data.Appid = Convert.ToInt32(TextBox_URL.Text);
+                if (Data.Appid != 0)
+                {
+                    Data data = new Data();
+                    Main.ShowInContainer(data, Main.SideBars.Search);
+                }
+            }
+            catch
+            {
+                Main.ShowNotification("Error Loading Data, please check for Input", Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error);
+            }
         }
         private void bunifuTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -121,60 +131,96 @@ namespace SteamPulse.Cards
         }
         private void LoadCalculatorData()
         {
-            DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(0, UserSettings.Currency.Name)));
-            DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(0, UserSettings.Currency.Name)));
-            DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(1, "KEY")));
-            DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(1, "Key")));
-            DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(2, "Ticket")));
-            DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(2, "Ticket")));
-            if (UserSettings.CheckIRT)
+            try
             {
-                DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(3, "IRT")));
-                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(3, "IRT")));
-                if(!GetData.IRTIsConnected)
+                DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(0, UserSettings.Currency.Name)));
+                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(0, UserSettings.Currency.Name)));
+                DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(1, "KEY")));
+                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(1, "Key")));
+                DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(2, "Ticket")));
+                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(2, "Ticket")));
+                if (UserSettings.CheckIRT)
                 {
-                    GetData.IRT.KeyAndTicket();
+                    DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.Items.Insert(3, "IRT")));
+                    DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(3, "IRT")));
+                    if (!GetData.IRTIsConnected)
+                    {
+                        GetData.IRT.KeyAndTicket();
+                    }
+                    DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(4, "Market Fee")));
                 }
-                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(4, "Market Fee")));
-            }
-            else
-            {
-                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(3, "Market Fee")));
-            }
-            DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.SelectedIndex = 0));
-            DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.SelectedIndex = 0));
-            if(!GetData.KeyIsConnected)
-            {
-                GetData.ConnectToSteam.Market.TF2Key();
-            }
-            else { }
-            if(!GetData.TicketIsConnected)
-            {
-                GetData.ConnectToSteam.Market.TF2Ticket();
-            }
-            else { }
-            PanelCalculatorLoading.Invoke((MethodInvoker)(() => PanelCalculatorLoading.Size = new Size(1, 1)));
+                else
+                {
+                    DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.Items.Insert(3, "Market Fee")));
+                }
+                DropDownSource.Invoke((MethodInvoker)(() => DropDownSource.SelectedIndex = 0));
+                DropDownDestination.Invoke((MethodInvoker)(() => DropDownDestination.SelectedIndex = 0));
+                if (!GetData.KeyIsConnected)
+                {
+                    GetData.ConnectToSteam.Market.TF2Key();
+                }
+                else { }
+                if (!GetData.TicketIsConnected)
+                {
+                    GetData.ConnectToSteam.Market.TF2Ticket();
+                }
+                else { }
+                PanelCalculatorLoading.Invoke((MethodInvoker)(() => PanelCalculatorLoading.Size = new Size(1, 1)));
 
-            KeyPriceNoFee = LoadData.Market.Key.LowestSellOrderNoFee;
-            KeyPrice = LoadData.Market.Key.LowestSellOrder;
-            TicketPriceNoFee = LoadData.Market.Ticket.LowestSellOrderNoFee;
-            TicketPrice = LoadData.Market.Ticket.LowestSellOrder;
+                KeyPriceNoFee = LoadData.Market.Key.LowestSellOrderNoFee;
+                KeyPrice = LoadData.Market.Key.LowestSellOrder;
+                TicketPriceNoFee = LoadData.Market.Ticket.LowestSellOrderNoFee;
+                TicketPrice = LoadData.Market.Ticket.LowestSellOrder;
+            }
+            catch
+            {
+                PanelCalculatorLoading.Invoke((MethodInvoker)(() => PanelCalculatorLoading.Size = new Size(610, 161)));
+                LabelCalculatorLoading.Invoke((MethodInvoker)(() => LabelCalculatorLoading.Text = "Calculator Crashed!"));
+            }
         }
         private void DropDownSource_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            if (!string.IsNullOrEmpty(TextBoxSource.Text))
+            {
+                TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            }
+            else
+            {
+                TextBoxDestination.Text = "0";
+            }
         }
         private void TextBoxSource_TextChanged(object sender, EventArgs e)
         {
-            TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            if (!string.IsNullOrEmpty(TextBoxSource.Text))
+            {
+                TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            }
+            else
+            {
+                TextBoxDestination.Text = "0";
+            }
         }
         private void DropDownDestination_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            if (!string.IsNullOrEmpty(TextBoxSource.Text))
+            {
+                TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            }
+            else
+            {
+                TextBoxDestination.Text = "0";
+            }
         }
         private void TextBoxDestination_TextChanged(object sender, EventArgs e)
         {
-            TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            if (!string.IsNullOrEmpty(TextBoxSource.Text))
+            {
+                TextBoxDestination.Text = Calculator(Convert.ToDouble(TextBoxSource.Text));
+            }
+            else
+            {
+                TextBoxDestination.Text = "0";
+            }
         }
         private string Calculator(double value)
         {
@@ -364,7 +410,7 @@ namespace SteamPulse.Cards
             GroupBoxAppidSearch.ForeColor = ForeGround;
             ButtonLoad.BackColor = BackGround2;
             ButtonSearch.BackColor = BackGround2;
-            TextBoxSearch.BackColor = BackGround2;
+            //TextBoxSearch.BackColor = BackGround2;
         }
 
         private void ButtonLoad_Click(object sender, EventArgs e)
@@ -414,16 +460,31 @@ namespace SteamPulse.Cards
             catch (Exception ex)
             {
                 ComboBoxResult.Invoke((MethodInvoker)(() => ComboBoxResult.Text = "Searching Failed..."));
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Main.ShowNotification("Error Loading Data, please check for Input", Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error);
             }
         }
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            SearchText = TextBoxSearch.Text;
-            SearchText = SearchText.Replace(" ", "%20");
-            SearchText = "%25" + SearchText + "%25";
-            ComboBoxResult.Items.Clear();
-            BackgroundWorker.RunWorkerAsync();
+            try
+            {
+                if (!string.IsNullOrEmpty(TextBoxSearch.Text))
+                {
+
+                    SearchText = TextBoxSearch.Text;
+                    SearchText = SearchText.Replace(" ", "%20");
+                    SearchText = "%25" + SearchText + "%25";
+                    ComboBoxResult.Items.Clear();
+                    BackgroundWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch
+            {
+                Main.ShowNotification("Error Loading Data, please check for Input", Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error);
+            }
         }
 
         private void LabelSearchByName_Click(object sender, EventArgs e)

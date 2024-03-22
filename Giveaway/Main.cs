@@ -12,7 +12,7 @@ namespace Giveaway
     {
         private long Giveawayend;
         private DateTime EndTime;
-        private readonly int[] Winners = new int[10];
+        private readonly int[] Winners = new int[5];
         public static JToken RawData;
         public static int count;
 

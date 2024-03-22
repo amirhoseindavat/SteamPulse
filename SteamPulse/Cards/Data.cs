@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using SteamPulse.GlobalVariables;
-using SteamPulse.Logger;
 using SteamPulse.SettingsInterface;
 using SteamPulse.SteamAPI;
 using System;
@@ -46,12 +44,24 @@ namespace SteamPulse.Cards
             else
             {
                 ChangeTheme(default);
-            }            
+            }
+        }
+        public void ShowStatusPanel()
+        {
+            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+        }
+        public void ShowStatusPanel(bool Visible)
+        {
+            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Visible = Visible));
+        }
+        public void ShowStatusPanel(int width , int height)
+        {
+            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Size = new Size(width, height)));
         }
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             Loading = true;
-            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Size = new Size(618, 439)));
+            Task.Factory.StartNew(() => ShowStatusPanel(618,439));
             Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Hunting Ducks..."));
             Thread.Sleep(100);
 
@@ -124,13 +134,13 @@ namespace SteamPulse.Cards
             Label_Name.Invoke((MethodInvoker)(() => Label_Name.Text = LoadData.Store.Name));
 
 
-            
-            
+
+
 
             if (LoadData.Store.Type == "dlc")
             {
                 Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Loading DLC Data"));
-                PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+                Task.Factory.StartNew(() => ShowStatusPanel());
                 PictureBox_Image.Invoke((MethodInvoker)(() => PictureBox_Image.Load(LoadData.Store.HeaderImage)));
                 Label_DLC_TItle.Invoke((MethodInvoker)(() => Label_DLC_TItle.Visible = false));
                 Label_DLC.Invoke((MethodInvoker)(() => Label_DLC.Visible = false));
@@ -154,7 +164,7 @@ namespace SteamPulse.Cards
             else
             {
                 Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Loading Game Data"));
-                PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+                Task.Factory.StartNew(() => ShowStatusPanel());
                 PictureBox_Image.Invoke((MethodInvoker)(() => PictureBox_Image.Load(LoadData.Store.LibraryImage)));
                 Label_DLC_TItle.Invoke((MethodInvoker)(() => Label_DLC_TItle.Visible = true));
                 Label_DLC.Invoke((MethodInvoker)(() => Label_DLC.Visible = true));
@@ -184,15 +194,15 @@ namespace SteamPulse.Cards
                     int ReleasedDaysCount = Math.Abs((LoadData.Store.ReleaseDate - DateTime.Now).Days);
                     if (ReleasedDaysCount > 365)
                     {
-                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} ({1} Years to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365)));
+                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} (In {1} Years)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 365)));
                     }
                     else if (ReleasedDaysCount > 30)
                     {
-                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} ({1} Months to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30)));
+                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} (In {1} Months)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount / 30)));
                     }
                     else if (ReleasedDaysCount < 30)
                     {
-                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} ({1} Days to Release)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount)));
+                        Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = string.Format("{0} (In {1} Days)", LoadData.Store.ReleaseDate.ToString("dd MMMM, yyyy"), ReleasedDaysCount)));
                     }
                     else
                     {
@@ -233,6 +243,8 @@ namespace SteamPulse.Cards
                     Label_Release.Invoke((MethodInvoker)(() => Label_Release.Text = LoadData.Store.ReleaseDateString.ToString()));
                 }
 
+                
+
             }
             if (LoadData.Store.IsComingSoon == true)
             {
@@ -243,8 +255,8 @@ namespace SteamPulse.Cards
                 Label_Player_Count.Invoke((MethodInvoker)(() => Label_Player_Count.Text = string.Format("{0:n0} ", LoadData.Store.PlayerCount)));
             }
 
-            Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Hunting More Ducks..."));
-            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+            Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Hunting Ducks..."));
+            Task.Factory.StartNew(() => ShowStatusPanel());
             Label_Dev.Invoke((MethodInvoker)(() => Label_Dev.Text = LoadData.Store.Developers));
             Label_Publisher.Invoke((MethodInvoker)(() => Label_Publisher.Text = LoadData.Store.Publishers));
             GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default["UserSteamID"].ToString());
@@ -331,7 +343,7 @@ namespace SteamPulse.Cards
                 PanelPrice.Invoke((MethodInvoker)(() => PanelPrice.Location = new Point(261, 185)));
             }
             Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Loading Editions"));
-            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+            Task.Factory.StartNew(() => ShowStatusPanel());
             Thread.Sleep(500);
             string package = LoadData.Store.Packages.ProductPackages;
             JObject JsonObject = JObject.Parse(GetData.Data);
@@ -459,14 +471,15 @@ namespace SteamPulse.Cards
                 }
             }
             Label_Status.Invoke((MethodInvoker)(() => Label_Status.Text = "Finalizing"));
-            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.BringToFront()));
+            Task.Factory.StartNew(() => ShowStatusPanel());
             ComboBox_Editions.Invoke((MethodInvoker)(() => ComboBox_Editions.SelectedIndex = 0));
             if (UserSettings.CheckOwned == true)
             {
                 GetData.ConnectToSteam.Community.GetOwnedGames(Properties.Settings.Default.UserSteamID);
                 isowned = LoadData.Community.Isowned(GetData.Appid);
             }
-            PanelStatus.Invoke((MethodInvoker)(() => PanelStatus.Size = new Size(1, 1)));
+            Task.Factory.StartNew(() => ShowStatusPanel(1, 1));
+            Label_Release.Invoke((MethodInvoker)(() => Label_Release.BringToFront()));
             Loading = false;
         }
         private void ComboBox_Editions_SelectedIndexChanged(object sender, EventArgs e)
@@ -477,7 +490,18 @@ namespace SteamPulse.Cards
         private void LoadEdition()
         {
             Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Loading..."));
-            Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "Loading..."));
+            if (UserSettings.CheckIRT)
+            {
+                Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Visible = true));
+                Label_IRT_Title.Invoke((MethodInvoker)(() => Label_IRT_Title.Visible = true));
+                Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "Loading..."));
+            }
+            else
+            {
+                Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Visible = false));
+                Label_IRT_Title.Invoke((MethodInvoker)(() => Label_IRT_Title.Visible = false));
+            }
+
             Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "Loading..."));
             //PanelStatus.Visible = true;
             //LabelStatus.Text = "Loading Edition...";
@@ -501,6 +525,8 @@ namespace SteamPulse.Cards
                     {
                         Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Free"));
                         Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "0"));
+                        if (UserSettings.CheckIRT)
+                            Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "Free"));
                     }
                     else
                     {
@@ -508,6 +534,8 @@ namespace SteamPulse.Cards
                         {
                             Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Not Available to Purchase"));
                             Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "0"));
+                            if (UserSettings.CheckIRT)
+                                Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "0"));
                         }
                         else { }
                     }
@@ -601,14 +629,11 @@ namespace SteamPulse.Cards
                         double Remaining2 = ((KeyRoundedDown * LoadData.Market.Key.LowestSellOrderNoFee) + LoadData.Market.Ticket.LowestSellOrderNoFee) - EditionPrice;
 
 
-                        if (UserSettings.DeveloperMode == true)
+                        if (UserSettings.DeveloperMode && UserSettings.KeyCalcMode != "Rounded to Up" && !UserSettings.CalculateRemaining && UserSettings.ItemCalculationMode != "Smart")
                         {
-                            if (UserSettings.KeyCalcMode != "Rounded to Up" && UserSettings.ItemCalculationMode != "Smart")
-                            {
-                                KeyRoundedUp = Math.Round(key_count, 2);
-                            }
+                            KeyRoundedUp = Math.Round(key_count, 2);
                         }
-                        else { }
+
                         if (Convert.ToBoolean(UserSettings.CheckIRT) == true)
                         {
                             if (!GetData.IRTIsConnected)
@@ -690,7 +715,7 @@ namespace SteamPulse.Cards
                         {
                             if (UserSettings.DeveloperMode == true && UserSettings.CalculateRemaining == true)
                             {
-                                Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = string.Format("{0} Key - {1} {2}", KeyRoundedUp, (int)Remaining, UserSettings.Currency.Unit)));
+                                Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = string.Format("{0} Key - {1} {2}", KeyRoundedUp, string.Format("{0:n2}", Remaining), UserSettings.Currency.Unit)));
                             }
                             else
                             {
@@ -706,6 +731,7 @@ namespace SteamPulse.Cards
                 {
                     Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Free"));
                     Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "0"));
+                    Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "Free"));
                 }
                 else
                 {
@@ -713,6 +739,7 @@ namespace SteamPulse.Cards
                     {
                         Label_Price.Invoke((MethodInvoker)(() => Label_Price.Text = "Not Available to Purchase"));
                         Label_KeyCount.Invoke((MethodInvoker)(() => Label_KeyCount.Text = "0"));
+                        Label_IRT.Invoke((MethodInvoker)(() => Label_IRT.Text = "0"));
                     }
                     else { }
                 }
@@ -886,7 +913,6 @@ namespace SteamPulse.Cards
                 PictureBoxLoading.Image = Properties.Resources.SteamPulse_Logo;
             }
             BackColor = BackGround2;
-            LabelOwned.ForeColor = ForeGround;
             Label_BaseGame.ForeColor = ForeGround;
             Label_Dev.ForeColor = ForeGround;
             Label_Dev_Title.ForeColor = ForeGround;

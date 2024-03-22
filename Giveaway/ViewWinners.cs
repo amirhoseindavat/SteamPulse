@@ -59,7 +59,7 @@ namespace Giveaway
             int rowId = Convert.ToInt32(DataTable.Rows.Add());
 
             var rnd = new Random();
-            var randomNumbers = Enumerable.Range(1000, Main.count).OrderBy(x => rnd.Next()).Take(10).ToList();
+            var randomNumbers = Enumerable.Range(1001, Main.count).OrderBy(x => rnd.Next()).Take(5).ToList();
             int index = 1;
             foreach (var number in randomNumbers)
             {
