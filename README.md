@@ -1,4 +1,8 @@
 <h3 align="center">SteamPulse</h3>
+<p align="center">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Amirhoseindavat/SteamPulse">
+</p>
+
  
   <p align="center">
     <a href="https://github.com/amirhoseindavat/SteamPulse#readme"><strong>Explore the docs »</strong></a>
