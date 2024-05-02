@@ -591,7 +591,15 @@ namespace SteamPulse.Cards
                 {
                     ProfileName = Node["steamID"].InnerText;
                     ProfileAddress = Node["avatarFull"].InnerText;
-                    MemberSince = Node["memberSince"].InnerText;
+                    if(Node["privacyState"].InnerText == "public")
+                    {
+                        MemberSince = Node["memberSince"].InnerText;
+                    }
+                    else
+                    {
+                        MemberSince = "Private";
+                    }
+                    
                     //ProfileAddress = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/4fd363ecf75460a2e94eef79ad57ce70759fb071.gif";
                     //avatarframe = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/2459330/99dca1cd53a58ed9b05a4d6e7bb54942bc49a2e8.png";
                 }

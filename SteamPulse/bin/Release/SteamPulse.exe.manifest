@@ -559,14 +559,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="5488872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SteamPulse.exe" size="5488896">
       <assemblyIdentity name="SteamPulse" version="3.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0OgmOBDAb6eBw3S88Ge58eq7s21+2mrYFj98j3TNDOM=</dsig:DigestValue>
+        <dsig:DigestValue>c9CNVsml6tAhCOrU8JZgQuWk/Mw1I6AIQkFJIWr1XtE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

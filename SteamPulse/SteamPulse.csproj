@@ -58,7 +58,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BBBA20734FCE5DFC6657F9B4F8D71F68FE3ADDBF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>ACE8C1FD9C1106503BDC7E88C1FD8C53BF57DA03</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>SteamPulse_TemporaryKey.pfx</ManifestKeyFile>
@@ -504,6 +504,7 @@
     </Compile>
     <None Include="Extra\SteamPulse.pfx" />
     <None Include="Extra\SteamPulse_TemporaryKey.pfx" />
+    <None Include="SteamPulse_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Extra\App.config" />
