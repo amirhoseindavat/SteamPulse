@@ -17,6 +17,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using SteamPulse.SettingsInterface;
 
 namespace SteamPulse.SteamAPI
 {
@@ -40,7 +41,7 @@ namespace SteamPulse.SteamAPI
         protected internal static string IRTData { get; private set; }
         protected internal static string MarketHistogramKey { get; private set; }
         protected internal static string MarketHistogramTicket { get; private set; }
-        internal static string APIKEY => "C0C2746E5859F6EAD7B27E79C6D9BC76";
+        internal static string APIKEY => UserSettings.APIKey;
         public static int ErrorCode { get; private set; }
         public static bool KeyIsConnected, TicketIsConnected, IRTIsConnected;
         public enum Regions { AR, TR, UA, RU, BR, US, IN, KZ, PK, AZ, PH, GetUserRegion }

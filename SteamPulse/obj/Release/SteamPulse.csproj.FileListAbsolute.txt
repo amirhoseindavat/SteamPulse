@@ -299,4 +299,4 @@ C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\bin\Release\Syst
 C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CoreCompileInputs.cache
 C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.exe.manifest
 C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.application
-C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.CopyComplete
+C:\Users\Amirhoseindavat\Documents\GitHub\SteamPulse\SteamPulse\obj\Release\SteamPulse.csproj.Up2Date

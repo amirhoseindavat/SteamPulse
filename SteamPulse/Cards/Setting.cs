@@ -138,6 +138,8 @@ namespace SteamPulse.Cards
                 }
             }
 
+            TextBoxAPIKEY.Text = UserSettings.APIKey;
+
             ToggleBeta.Enabled = UserSettings.CheckUpdate;
             if (ToggleBeta.Enabled == false)
             {
@@ -510,6 +512,7 @@ namespace SteamPulse.Cards
                 BackGround2 = GlobalVariables.Colors.Light.White;
                 ButtonOpenDeveloperSettings.Image = Properties.Resources.OpenExternalBlack;
             }
+            
             this.BackColor = BackGround2;
             PanelLogin.BackgroundColor = BackGround;
             LabelLogin.ForeColor = ForeGround;
@@ -518,7 +521,9 @@ namespace SteamPulse.Cards
             UserInfoLevel.ForeColor = ForeGround;
             UserInfoLogout.ForeColor = ForeGround;
             UserInfoName.ForeColor = ForeGround;
-            PanelRegion.BackgroundColor = BackGround;
+            PanelAPI.BackgroundColor = BackGround;
+            LabelAPI.ForeColor = ForeGround;
+            Panel_Region.BackgroundColor = BackGround;
             LabelRegion.ForeColor = ForeGround;
             PanelIRT.BackgroundColor = BackGround;
             LabelIRT.ForeColor = ForeGround;
@@ -831,6 +836,24 @@ namespace SteamPulse.Cards
                 /*Active = Main.SideBars.Welcome;
                 Welcome welcome = new Welcome(main);
                 main.ShowInContainer(welcome);*/
+            }
+        }
+
+        private void ButtonGenerateAPIKey_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://steamcommunity.com/dev/apikey");
+        }
+
+        private void TextBoxAPIKEY_TextChanged(object sender, EventArgs e)
+        {
+            if (ISLoading == true)
+            {
+                SettingChanged = false;
+            }
+            else
+            {
+                UserSettings.APIKey = TextBoxAPIKEY.Text;
+                Log.LogSetting("API Key", Properties.Settings.Default.DarkMode.ToString());
             }
         }
     }

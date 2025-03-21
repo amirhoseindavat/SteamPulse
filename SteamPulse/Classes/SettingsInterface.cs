@@ -98,6 +98,15 @@ namespace SteamPulse.SettingsInterface
                 Properties.Settings.Default.Save();
             }
         }
+        public static string APIKey
+        {
+            get => Properties.Settings.Default.APIKey;
+            set
+            {
+                Properties.Settings.Default.APIKey = value;
+                Properties.Settings.Default.Save();
+            }
+        }
         public static string ItemCalculationMode
         {
             get => Properties.Settings.Default.ItemCalculationMode;

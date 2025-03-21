@@ -1,0 +1,590 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|c:\\users\\amirhoseindavat\\documents\\github\\steampulse\\steampulse\\classes\\steamapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\classes\\steamapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SteamPulse||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|c:\\users\\amirhoseindavat\\documents\\github\\steampulse\\steampulse\\classes\\settingsinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\classes\\settingsinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\salesbanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\salesbanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\aboutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\aboutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\aboutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\aboutpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\salesbanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\salesbanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\classes\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\classes\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\giveaway\\viewwinners.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|solutionrelative:giveaway\\viewwinners.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\giveaway\\viewwinners.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|solutionrelative:giveaway\\viewwinners.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\giveaway\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|solutionrelative:giveaway\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\giveaway\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|solutionrelative:giveaway\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\giveaway\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C361F23-E3F8-4748-9E03-3CE91203A56F}|Giveaway\\Giveaway.csproj|solutionrelative:giveaway\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\sidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\sidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\sidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\sidebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\developersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\developersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\developersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\developersettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\cards\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\cards\\giveaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\launcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\steampulse\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|c:\\users\\amirhoseindavat\\documents\\github\\steampulse\\steampulse\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{FA00B4EF-2691-41AF-A408-3A8151AD6CF1}|SteamPulse\\SteamPulse.csproj|solutionrelative:steampulse\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 228,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Main.cs",
+              "RelativeDocumentMoniker": "Giveaway\\Main.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Main.cs",
+              "RelativeToolTip": "Giveaway\\Main.cs",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAswHsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:10:45.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Data.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Data.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Data.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\Data.cs",
+              "ViewState": "AQIAAIICAAAAAAAAAAAiwHgBAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SteamAPI.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\SteamAPI.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Classes\\SteamAPI.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\SteamAPI.cs",
+              "RelativeToolTip": "SteamPulse\\Classes\\SteamAPI.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAACsAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:25:19.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DeveloperSettings.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\DeveloperSettings.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\DeveloperSettings.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\DeveloperSettings.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\DeveloperSettings.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SteamPulse",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\SteamPulse.csproj",
+              "RelativeDocumentMoniker": "SteamPulse\\SteamPulse.csproj",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\SteamPulse.csproj",
+              "RelativeToolTip": "SteamPulse\\SteamPulse.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-27T04:10:09.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Setting.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Setting.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Setting.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Setting.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\Setting.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.213Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "SteamPulse\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Main.cs",
+              "RelativeDocumentMoniker": "Giveaway\\Main.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Main.cs [Design]",
+              "RelativeToolTip": "Giveaway\\Main.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:10:41.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Giveaway\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Giveaway\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:09:36.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Setting.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Setting.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Setting.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Setting.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\Setting.cs",
+              "ViewState": "AQIAAPsBAAAAAAAAAAAAAA4CAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SalesBanner.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SalesBanner.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\SalesBanner.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SalesBanner.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\SalesBanner.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.212Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AboutPanel.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\AboutPanel.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\AboutPanel.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\AboutPanel.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\AboutPanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:30:40.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Main.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Main.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Main.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Main.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Main.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Main.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Main.cs",
+              "RelativeToolTip": "SteamPulse\\Main.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAqwDUAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SettingsInterface.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\SettingsInterface.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Classes\\SettingsInterface.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\SettingsInterface.cs",
+              "RelativeToolTip": "SteamPulse\\Classes\\SettingsInterface.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAAwGYAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T07:04:26.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Data.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Data.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Data.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Data.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\Data.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SalesBanner.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SalesBanner.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\SalesBanner.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SalesBanner.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\SalesBanner.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAWwDAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T17:24:53.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AboutPanel.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\AboutPanel.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\AboutPanel.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\AboutPanel.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\AboutPanel.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEYAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:30:47.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SideBar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SideBar.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\SideBar.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SideBar.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\SideBar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-08-05T14:47:03.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SideBar.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SideBar.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\SideBar.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\SideBar.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\SideBar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-08-05T14:47:48.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ViewWinners.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\ViewWinners.cs",
+              "RelativeDocumentMoniker": "Giveaway\\ViewWinners.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\ViewWinners.cs [Design]",
+              "RelativeToolTip": "Giveaway\\ViewWinners.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:10:49.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\Logger.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Classes\\Logger.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Classes\\Logger.cs",
+              "RelativeToolTip": "SteamPulse\\Classes\\Logger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T04:33:43.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ViewWinners.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\ViewWinners.cs",
+              "RelativeDocumentMoniker": "Giveaway\\ViewWinners.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\Giveaway\\ViewWinners.cs",
+              "RelativeToolTip": "Giveaway\\ViewWinners.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:10:51.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Giveaway.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Giveaway.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Giveaway.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Giveaway.cs",
+              "RelativeToolTip": "SteamPulse\\Giveaway.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAmwHEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Giveaway.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Giveaway.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Giveaway.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Giveaway.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Giveaway.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Search.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Search.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Search.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Search.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\Search.cs",
+              "ViewState": "AQIAAKQBAAAAAAAAAAAAAE4AAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.255Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Search.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Search.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Search.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Search.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\Search.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DeveloperSettings.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\DeveloperSettings.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\DeveloperSettings.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\DeveloperSettings.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\DeveloperSettings.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAAJEAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Launcher.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Launcher.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Launcher.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Launcher.cs",
+              "RelativeToolTip": "SteamPulse\\Launcher.cs",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Launcher.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Launcher.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Launcher.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Launcher.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Launcher.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Giveaway.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Giveaway.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Giveaway.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Giveaway.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Cards\\Giveaway.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Status.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Status.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Status.cs",
+              "RelativeToolTip": "SteamPulse\\Status.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAAAHwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Status.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Status.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Status.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Status.cs [Design]",
+              "RelativeToolTip": "SteamPulse\\Status.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-04-14T17:24:53.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Giveaway.cs",
+              "DocumentMoniker": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Giveaway.cs",
+              "RelativeDocumentMoniker": "SteamPulse\\Cards\\Giveaway.cs",
+              "ToolTip": "C:\\Users\\Amirhoseindavat\\Documents\\GitHub\\SteamPulse\\SteamPulse\\Cards\\Giveaway.cs",
+              "RelativeToolTip": "SteamPulse\\Cards\\Giveaway.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwE0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2024-04-14T17:24:53.264Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 172,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
